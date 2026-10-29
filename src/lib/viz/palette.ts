@@ -42,3 +42,16 @@ export function familiaDelCurso(cursoId: string): string | null {
 export function radioDe(nProgramas: number): number {
   return Math.min(10.5, Math.max(3.4, 3.4 + 1.35 * Math.sqrt(Math.max(0, nProgramas))))
 }
+
+/** Color de un programa dentro de una selección: primero tono 2, segundo tono 4. */
+export function colorDe(programaId: string, indice: number): string {
+  const fam = familiaDe(programaId)
+  if (!fam) return 'var(--c-ink)'
+  return tono(fam, indice === 0 ? 2 : 4)
+}
+
+/** Marca viva para la leyenda y los chips. */
+export function vivoDe(programaId: string): string {
+  const fam = familiaDe(programaId)
+  return fam ? vivo(fam) : 'var(--c-ink)'
+}

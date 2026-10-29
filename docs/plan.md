@@ -58,21 +58,36 @@ Objetivo: que la app pueda construir el grafo sin tocar CSV y sin adivinar nada.
 
 ---
 
-## Sprint 2 · Esqueleto de la constelación
+## Sprint 2 · El viaje ✅
 
-Objetivo: una sola constelación dibujada, con su forma derivada del currículo.
+Objetivo: elegir un programa y ver su constelación armarse sobre el cielo.
 
-- [ ] `domain/figures.ts`: las 18 siluetas y `placeOnFigure(n)`
-- [ ] `domain/nebula.ts`: posición de reposo de los 83 cursos (lee `atlas.json`)
-- [ ] `domain/compose.ts`: 0, 1 y 2 figuras sobre el tronco; bisagras y relajación
-- [ ] `viz/transition.ts`: interpolación y escalonado del viaje
-- [ ] `components/SkyStage.svelte` + `Star.svelte` + `ConstellationPath.svelte`
-- [ ] Los 83 cursos siempre montados; la selección mueve solo los del programa elegido
-- [ ] Tokens y estilos base (`styles/tokens.css`)
-- [ ] Pruebas: determinismo (1), dentro del viewport (1), sin anclas duplicadas (1)
+- [x] `viz/motion.ts`: plan de viaje con escalonado por distancia y bisagras al final
+- [x] `SkyStage` anima con rAF: interpola posiciones, no redibuja el cielo
+- [x] `ProgramPicker` con la jerarquía maestría → énfasis → especializado y tope de dos
+- [x] `Legend` con color, nombre y figura («la mano»), y quitar
+- [x] Esc y «Volver al cielo» deseleccionan
+- [x] Estado en el hash: un enlace comparte la constelación (`#enf-creacion-arte`)
+- [x] Segunda selección: las figuras se inclinan alrededor de una bisagra común
+- [x] Los especializados heredan la figura de su énfasis
+- [x] Pruebas: viaje (3) → **18 en total**
 
-**Aceptación:** el Énfasis en Arte crece del tronco con 7 estrellas propias; recargar produce la misma
-figura; ninguna estrella sale del encuadre a 1280×800 y a 480×900. La nebulosa no se mueve.
+**Aceptación:** ✔ elegir Arte reúne sus 7 cursos en la mano; el resto del cielo se atenúa a 24 % y
+no se mueve; dos programas comparten las estrellas propias en una bisagra y cada figura conserva sus
+brazos; `prefers-reduced-motion` salta al estado final.
+
+![Una constelación](assets/app-una.png)
+
+![Dos constelaciones sobre el mismo tronco](assets/app-dos.png)
+
+**Notas de implementación.**
+
+- Con dos figuras que comparten cursos propios, el trazo pasa por las estrellas (`deformada: true`)
+  para que la línea y los nodos no se separen. La silueta literal se conserva cuando el programa va
+  solo o cuando no hay cursos compartidos.
+- La bisagra no es un promedio de posiciones: cada figura se **inclina 15°** alrededor de la bisagra,
+  así los brazos propios se separan aunque el tronco sea el mismo.
+- El enlace tronco → figura es una línea punteada: el tronco alimenta la constelación, no la contiene.
 
 ---
 

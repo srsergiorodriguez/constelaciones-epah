@@ -32,16 +32,23 @@ export function placeOnFigure(polilinea: Punto[], n: number): Punto[] {
   return salida
 }
 
-/** Silueta de un programa, o null si no tiene (la escuela o un umbral no la tienen). */
-export function figureOf(programaId: string): Punto[] | null {
-  const clave = figuras.programa[programaId]
-  if (!clave) return null
-  const figura = figuras.figuras[clave]
-  return figura ? figura.puntos : null
+/**
+ * Silueta de un programa. Un programa especializado no tiene figura propia:
+ * hereda la del énfasis al que pertenece, porque es un subconjunto de él.
+ */
+export function figureKeyOf(programaId: string, padreId: string | null): string | null {
+  if (figuras.programa[programaId]) return figuras.programa[programaId]
+  if (padreId && figuras.programa[padreId]) return figuras.programa[padreId]
+  return null
 }
 
-export function figureNameOf(programaId: string): string | null {
-  const clave = figuras.programa[programaId]
+export function figureOf(programaId: string, padreId: string | null = null): Punto[] | null {
+  const clave = figureKeyOf(programaId, padreId)
+  return clave ? (figuras.figuras[clave]?.puntos ?? null) : null
+}
+
+export function figureNameOf(programaId: string, padreId: string | null = null): string | null {
+  const clave = figureKeyOf(programaId, padreId)
   return clave ? (figuras.figuras[clave]?.nombre ?? null) : null
 }
 

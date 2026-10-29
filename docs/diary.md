@@ -67,3 +67,20 @@ de alcance escuela. *Por qué:* el tronco es lo que comparten todos, no lo que c
 
 **Estado.** 15 pruebas en verde, `svelte-check` limpio, build de 27 kB gzip. La app dibuja el cielo y
 no se mueve.
+
+---
+
+## 2026-10-29 · Sprint 2: el viaje
+
+**Animación sin d3.** El viaje se resuelve con `requestAnimationFrame` y una función pura
+(`planViaje`, `posicionEn`): las lejanas salen antes y todas aterrizan juntas; las bisagras salen al
+final. *Por qué:* una transición CSS no permite escalonar por distancia ni interrumpir a mitad sin
+saltos.
+
+**El caso incómodo.** Composición y Producción comparten cuatro de siete cursos. Con las figuras
+quietas, las estrellas compartidas flotaban lejos del trazo. Se corrigen las dos figuras hacia una
+bisagra, se inclinan 15° y el trazo pasa por las estrellas. *Por qué:* el usuario lo dijo: conservar
+la forma «en lo posible» y dejar que se solapen.
+
+**Estado en el hash.** La selección vive en la URL. Sirve para compartir un caso con el comité y para
+capturar estados sin tocar la interfaz. *Por qué:* sin eso, cada demostración empieza de cero.
