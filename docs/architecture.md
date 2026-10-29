@@ -54,7 +54,7 @@ Reglas de dependencia, verificables por revisión y por lint:
 
 | # | Decisión | Estado | Motivo |
 |---|---|---|---|
-| ADR-01 | Cliente web puro, sin backend nativo en v1 | Aceptada | No hay necesidad de sistema de archivos, red privada ni cómputo pesado. Un estático se publica en cualquier parte y se abre en la sala del comité sin instalar nada. |
+| ADR-01 | Cliente web puro, sin backend nativo en v1 | Aceptada | No hay necesidad de sistema de archivos, red privada ni cómputo pesado. Se publica en GitHub Pages como estático y se abre en la sala del comité sin instalar nada. |
 | ADR-02 | Svelte 5 + Vite + TypeScript | Aceptada | Componentes pequeños, reactividad por runas, sin runtime de framework pesado. Todo estilo sale de `tokens.css`; ningún componente declara color, fuente ni espacio literales. |
 | ADR-03 | D3 modular (`d3-scale`, `d3-shape`, `d3-zoom`) y no `d3-selection` | Aceptada | El SVG lo declara Svelte; d3 solo aporta matemática. Evita dos dueños del DOM. `d3-force` **no** se usa: el atlas es determinista (`constellation.md` §6). |
 | ADR-04 | SVG para nodos y líneas; canvas solo para el fondo | Aceptada | ≤120 nodos × ≤400 aristas: SVG permite foco, `aria-label` y hover sin trucos. El fondo (retícula + polvo de estrellas) va en canvas porque nunca es interactivo. |

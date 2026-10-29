@@ -80,11 +80,22 @@ línea larga del especializado dentro de la figura de Arte y las estrellas comun
 - [ ] Navegación por teclado completa y región `aria-live`
 - [ ] `prefers-reduced-motion` y `prefers-contrast`
 - [ ] Responsive (selector como chips, panel como hoja inferior)
-- [ ] Despliegue estático y prueba en la sala del comité (proyector, sin internet)
+- [ ] Despliegue en GitHub Pages: `base: '/constelacion-epah/'`, `gh-pages` o Actions
+- [ ] Prueba en la sala del comité (proyector, sin internet)
 - [ ] Revisión de la metáfora con el comité y ajuste de `constellation.md`
 
 **Aceptación:** la app funciona sin conexión, con teclado, y una persona ajena entiende en menos de
 un minuto qué comparten dos programas.
+
+### Publicación
+
+| Pieza | Decisión |
+|---|---|
+| Repo | `constelacion-epah` (sin tilde: el nombre del repo se vuelve parte de la URL) |
+| Build | `vite build` → `dist/`, sin SSR, sin router |
+| Base | `/constelacion-epah/` vía `base` en `vite.config.ts` |
+| Hosting | GitHub Pages desde Actions, rama `gh-pages` o `main`/`docs` |
+| Local | `pnpm dev` y `pnpm preview` funcionan igual, sin base |
 
 ---
 
