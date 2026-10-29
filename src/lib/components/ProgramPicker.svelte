@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { SvelteSet } from 'svelte/reactivity'
   import { curriculum } from '../data/types'
   import { figureNameOf } from '../domain/figures'
   import { vivoDe } from '../viz/palette'
@@ -10,38 +11,29 @@
 
   let { seleccion, onToggle }: Props = $props()
 
-  interface Fila {
-    id: string
-    nombre: string
-    nivel: 0 | 1 | 2
-    figura: string | null
-  }
+  const maestrias = Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')
 
-  const filas = $derived.by(() => {
-    const out: Fila[] = []
-    const maestrias = Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')
-    for (const m of maestrias) {
-      out.push({ id: m.id, nombre: m.nombreCorto, nivel: 0, figura: figureNameOf(m.id) })
-      const enfasis = Object.values(curriculum.programas).filter(
-        (p) => p.tipo === 'enfasis' && p.padreId === m.id,
-      )
-      for (const e of enfasis) {
-        out.push({ id: e.id, nombre: e.nombreCorto, nivel: 1, figura: figureNameOf(e.id) })
-        const pes = Object.values(curriculum.programas).filter(
-          (p) => p.tipo === 'programa_especializado' && p.padreId === e.id,
-        )
-        for (const pe of pes) {
-          out.push({
-            id: pe.id,
-            nombre: pe.nombreCorto,
-            nivel: 2,
-            figura: figureNameOf(pe.id, e.id),
-          })
-        }
-      }
+  const enfasisDe = (id: string) =>
+    Object.values(curriculum.programas).filter((p) => p.tipo === 'enfasis' && p.padreId === id)
+
+  const peDe = (id: string) =>
+    Object.values(curriculum.programas).filter((p) => p.tipo === 'programa_especializado' && p.padreId === id)
+
+  const abiertas = new SvelteSet<string>()
+
+  // la maestría de un programa elegido se abre sola
+  $effect(() => {
+    for (const id of seleccion) {
+      const p = curriculum.programas[id]
+      const raiz = p.tipo === 'maestria' ? p.id : (p.maestriaId ?? p.padreId)
+      if (raiz) abiertas.add(raiz)
     }
-    return out
   })
+
+  function alternarCarpeta(id: string) {
+    if (abiertas.has(id)) abiertas.delete(id)
+    else abiertas.add(id)
+  }
 
   const indiceDe = (id: string) => seleccion.indexOf(id)
 </script>
@@ -49,32 +41,52 @@
 <nav class="selector" aria-label="Programas de la Escuela">
   <p class="cabecera">Programas</p>
   <ul>
-    {#each filas as fila (fila.id)}
-      {@const idx = indiceDe(fila.id)}
-      {@const activo = idx >= 0}
-      <li>
-        <button
-          class="fila nivel-{fila.nivel}"
-          class:activo
-          aria-pressed={activo}
-          title={fila.figura ? `figura: ${fila.figura}` : ''}
-          onclick={() => onToggle(fila.id)}
-        >
-          <svg class="punto" viewBox="0 0 8 8" aria-hidden="true">
-            <circle
-              cx="4"
-              cy="4"
-              r="3"
-              fill={activo ? vivoDe(fila.id) : 'none'}
-              stroke="var(--c-ink-3)"
-              stroke-width="1"
-            />
-          </svg>
-          <span class="nombre">{fila.nombre}</span>
-          {#if activo}
-            <span class="numero">{idx + 1}</span>
-          {/if}
-        </button>
+    {#each maestrias as m (m.id)}
+      {@const abierta = abiertas.has(m.id)}
+      {@const idx = indiceDe(m.id)}
+      <li class="grupo">
+        <div class="fila maestria" class:activo={idx >= 0}>
+          <button
+            class="chevron"
+            aria-expanded={abierta}
+            aria-label={abierta ? `Cerrar ${m.nombreCorto}` : `Abrir ${m.nombreCorto}`}
+            onclick={() => alternarCarpeta(m.id)}
+          >
+            <svg viewBox="0 0 10 10" aria-hidden="true" class:girado={abierta}>
+              <path d="M3 1 L7 5 L3 9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </button>
+          <button class="nombre" aria-pressed={idx >= 0} onclick={() => onToggle(m.id)}>
+            <span class="punto" class:lleno={idx >= 0} data-familia={vivoDe(m.id)}></span>
+            {m.nombreCorto}
+            {#if idx >= 0}<span class="numero">{idx + 1}</span>{/if}
+          </button>
+        </div>
+
+        {#if abierta}
+          <ul class="hijos">
+            {#each enfasisDe(m.id) as e (e.id)}
+              {@const ie = indiceDe(e.id)}
+              <li>
+                <button class="fila enfasis" class:activo={ie >= 0} aria-pressed={ie >= 0} onclick={() => onToggle(e.id)}>
+                  <span class="punto" class:lleno={ie >= 0}></span>
+                  <span class="texto">{e.nombreCorto}</span>
+                  {#if ie >= 0}<span class="numero">{ie + 1}</span>{/if}
+                </button>
+              </li>
+              {#each peDe(e.id) as pe (pe.id)}
+                {@const ip = indiceDe(pe.id)}
+                <li>
+                  <button class="fila pe" class:activo={ip >= 0} aria-pressed={ip >= 0} onclick={() => onToggle(pe.id)}>
+                    <span class="punto" class:lleno={ip >= 0}></span>
+                    <span class="texto">{pe.nombreCorto}</span>
+                    {#if ip >= 0}<span class="numero">{ip + 1}</span>{/if}
+                  </button>
+                </li>
+              {/each}
+            {/each}
+          </ul>
+        {/if}
       </li>
     {/each}
   </ul>
@@ -111,50 +123,93 @@
     scrollbar-color: var(--c-rule) transparent;
   }
 
+  .grupo + .grupo {
+    margin-top: 2px;
+  }
+
   .fila {
     display: flex;
     align-items: center;
-    gap: var(--sp-2);
+    gap: var(--sp-1);
     width: 100%;
-    padding: 5px var(--sp-2);
-    border-radius: 2px;
     text-align: left;
     line-height: 1.2;
     color: var(--c-ink-2);
+    border-radius: 2px;
     transition: background-color var(--t-fast) var(--ease);
+  }
+
+  .maestria {
+    gap: 0;
+  }
+
+  .chevron {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    color: var(--c-ink-3);
+  }
+
+  .chevron svg {
+    width: 10px;
+    height: 10px;
+    transition: transform var(--t-fast) var(--ease);
+  }
+
+  .chevron svg.girado {
+    transform: rotate(90deg);
+  }
+
+  .nombre {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    flex: 1 1 auto;
+    padding: 5px var(--sp-2) 5px 0;
+    font-family: var(--ff-sans);
+    font-size: var(--fz-125);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--c-ink);
+    text-align: left;
+  }
+
+  .hijos {
+    padding: 0 0 var(--sp-1) 0;
+    overflow: visible;
+  }
+
+  .enfasis,
+  .pe {
+    padding: 4px var(--sp-2) 4px 22px;
+    font-family: var(--ff-serif);
+    font-size: var(--fz-14);
+  }
+
+  .pe {
+    padding-left: 34px;
+    font-family: var(--ff-sans);
+    font-size: var(--fz-11);
+    color: var(--c-ink-3);
+  }
+
+  .texto {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .fila:hover {
     background: var(--c-papel);
   }
 
-  .nivel-0 {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-125);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--c-ink);
-    margin-top: var(--sp-2);
-  }
-
-  .nivel-1 {
-    font-family: var(--ff-serif);
-    font-size: var(--fz-14);
-    padding-left: var(--sp-4);
-  }
-
-  .nivel-2 {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-11);
-    padding-left: var(--sp-8);
-    color: var(--c-ink-3);
-  }
-
   .activo {
     color: var(--c-ink);
   }
 
-  .activo .nombre {
+  .activo .texto {
     font-weight: 700;
   }
 
@@ -162,12 +217,13 @@
     flex: 0 0 auto;
     width: 8px;
     height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--c-ink-3);
   }
 
-  .nombre {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .punto.lleno {
+    background: var(--c-ink);
+    border-color: transparent;
   }
 
   .numero {
@@ -189,7 +245,7 @@
   @media (max-width: 900px) {
     .selector {
       height: auto;
-      max-height: 40vh;
+      max-height: 38vh;
       border-right: 0;
       border-bottom: 1px solid var(--c-rule);
       padding: 0 0 var(--sp-2);

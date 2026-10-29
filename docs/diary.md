@@ -84,3 +84,21 @@ la forma «en lo posible» y dejar que se solapen.
 
 **Estado en el hash.** La selección vive en la URL. Sirve para compartir un caso con el comité y para
 capturar estados sin tocar la interfaz. *Por qué:* sin eso, cada demostración empieza de cero.
+
+---
+
+## 2026-10-29 · Revisión: selector, rótulo y forma
+
+**Selección por periodo.** Las estrellas se repartían por índice a lo largo de la silueta; por eso dos
+programas que comparten un curso lo veían en puntos distintos y ninguna alineación podía cuadrarlos.
+Ahora cada periodo ocupa una franja de la figura. *Por qué:* el plan se lee de la base a la punta y
+los cursos compartidos caen en la misma franja.
+
+**Alineación rígida.** Donde había un giro fijo de 15°, ahora hay Procrustes: rotación y traslación
+que acercan los cursos compartidos sin escalar ni deformar, con el giro acotado a ±25° para que una
+figura no acabe de cabeza. El trazo solo se dibuja por las estrellas si el desvío supera 16 px.
+*Por qué:* la silueta es el argumento; deformarla debe ser el último recurso.
+
+**El cielo respira.** Se bajó la atracción por maestría y se sumó un desplazamiento sembrado: los
+cinco cúmulos siguen ahí, pero se tocan y se desdibujan como un cielo de verdad. *Por qué:* cinco
+manchas separadas se leían como un organigrama, no como un cielo.

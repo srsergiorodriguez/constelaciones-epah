@@ -5,6 +5,9 @@
   import SkyStage from './lib/components/SkyStage.svelte'
   import ProgramPicker from './lib/components/ProgramPicker.svelte'
   import Legend from './lib/components/Legend.svelte'
+  import { figureNameOf } from './lib/domain/figures'
+  import { propiosOf } from './lib/domain/compose'
+  import { colorDe } from './lib/viz/palette'
 
   const ANCHO = 1200
   const ALTO = 900
@@ -75,6 +78,20 @@
     return () => window.removeEventListener('keydown', alTeclear)
   })
 
+  const actual = $derived(
+    seleccion.map((id, i) => {
+      const p = curriculum.programas[id]
+      return {
+        id,
+        nombre: p.nombreCorto,
+        completo: p.nombre,
+        figura: figureNameOf(id, p.padreId),
+        color: colorDe(id, i),
+        propios: propiosOf(id).length,
+      }
+    }),
+  )
+
   const estado = $derived(
     seleccion.length === 0
       ? 'El cielo completo'
@@ -86,9 +103,29 @@
 
 <main class="lienzo">
   <header class="cabecera">
-    <h1>Constelación</h1>
-    <p>Escuela de Posgrados · Facultad de Artes y Humanidades</p>
-    <p class="meta">{totalCursos} cursos · {totalProgramas} programas</p>
+    <div class="marca">
+      <h1>Constelación</h1>
+      <p>Escuela de Posgrados · Facultad de Artes y Humanidades</p>
+    </div>
+
+    <div class="actual" aria-live="polite">
+      {#if actual.length === 0}
+        <p class="figura">el cielo</p>
+        <p class="detalle">{totalCursos} cursos · {totalProgramas} programas a la vista</p>
+      {:else}
+        {#each actual as a (a.id)}
+          <div class="linea">
+            <svg class="trazo" viewBox="0 0 2 30" aria-hidden="true">
+              <line x1="1" y1="0" x2="1" y2="30" stroke={a.color} stroke-width="2" />
+            </svg>
+            <div>
+              <p class="figura">{a.figura ?? a.nombre}</p>
+              <p class="detalle">{a.completo} · {a.propios} cursos propios</p>
+            </div>
+          </div>
+        {/each}
+      {/if}
+    </div>
   </header>
 
   <div class="cuerpo">
@@ -125,14 +162,21 @@
     background: radial-gradient(circle at 50% 45%, #fff 0%, #fff 55%, #fbfaf6 100%);
   }
 
-  .cabecera h1 {
+  .cabecera {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--sp-6);
+  }
+
+  .marca h1 {
     font-family: var(--ff-display);
     font-size: var(--fz-30);
     font-weight: 700;
     letter-spacing: -0.02em;
   }
 
-  .cabecera p {
+  .marca p {
     font-family: var(--ff-serif);
     font-style: italic;
     font-size: var(--fz-14);
@@ -140,14 +184,41 @@
     margin-top: var(--sp-1);
   }
 
-  .cabecera .meta {
+  .actual {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .linea {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--sp-3);
+  }
+
+  .trazo {
+    order: 2;
+    width: 2px;
+    height: 30px;
+  }
+
+  .figura {
+    font-family: var(--ff-serif);
+    font-style: italic;
+    font-size: var(--fz-25);
+    line-height: 1.05;
+    color: var(--c-ink);
+  }
+
+  .detalle {
     font-family: var(--ff-sans);
-    font-style: normal;
-    font-size: var(--fz-125);
+    font-size: var(--fz-11);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--c-ink-3);
-    margin-top: var(--sp-2);
+    margin-top: 2px;
   }
 
   .cuerpo {

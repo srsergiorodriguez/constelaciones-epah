@@ -89,6 +89,16 @@ brazos; `prefers-reduced-motion` salta al estado final.
   así los brazos propios se separan aunque el tronco sea el mismo.
 - El enlace tronco → figura es una línea punteada: el tronco alimenta la constelación, no la contiene.
 
+### Ajustes post-Sprint 2 (revisión del comité)
+
+- [x] Selector **plegable**: cinco filas de maestría; la del programa elegido se abre sola
+- [x] Rótulo superior con la constelación actual: nombre de la figura, programa y cursos propios
+- [x] Estrellas más grandes (radio 6–15 px en vez de 3,4–10,5)
+- [x] Cielo más aleatorio: menos atracción por maestría, separación mayor y desplazamiento sembrado
+- [x] **Forma conservada**: alineación rígida (Procrustes con giro acotado a ±25°) y estrellas
+      colocadas por periodo, no por índice; el trazo solo se deforma si el desvío supera 16 px
+- [x] Composición centrada entre la cabecera y el tronco
+
 ---
 
 ## Sprint 3 · Comparación y lectura

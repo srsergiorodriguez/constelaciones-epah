@@ -54,7 +54,7 @@ const maestrias = Object.values(programas).filter((p) => p.tipo === 'maestria')
 const regiones = new Map()
 maestrias.forEach((m, i) => {
   const ang = (-90 + (360 / maestrias.length) * i) * (Math.PI / 180)
-  const r = 372
+  const r = 300
   regiones.set(m.id, [CENTRO[0] + Math.sin(ang) * r, CENTRO[1] - Math.cos(ang) * r])
 })
 
@@ -93,11 +93,11 @@ for (const id of cursoIds) {
   pos.set(id, [a[0] + Math.cos(ang) * r, a[1] + Math.sin(ang) * r])
 }
 
-const REP = 2600 // repulsión
-const K_ANCLA = 0.034 // resorte a la región
-const K_CENTRO = 0.0028 // gravedad suave al centro
-const MIN_D = 30 // separación mínima
-const PASOS = 420
+const REP = 3000 // repulsión
+const K_ANCLA = 0.0095 // resorte a la región
+const K_CENTRO = 0.0032 // gravedad suave al centro
+const MIN_D = 34 // separación mínima
+const PASOS = 520
 const PASO = 0.55
 
 const ids = cursoIds
@@ -168,9 +168,15 @@ const offX = (BOX.w - (maxX - minX) * escala) / 2
 const offY = (BOX.h - (maxY - minY) * escala) / 2
 
 const puntos = {}
+const jitter = mulberry32(SEED ^ 0x9e3779b9)
 for (const id of ids) {
   const [x, y] = pos.get(id)
-  puntos[id] = [Number(((x - minX) * escala + offX).toFixed(2)), Number(((y - minY) * escala + offY).toFixed(2))]
+  const jx = (jitter() - 0.5) * 26
+  const jy = (jitter() - 0.5) * 26
+  puntos[id] = [
+    Number(((x - minX) * escala + offX + jx).toFixed(2)),
+    Number(((y - minY) * escala + offY + jy).toFixed(2)),
+  ]
 }
 
 const atlas = {

@@ -1,6 +1,6 @@
 import { curriculum } from '../data/types'
 import { cursosOf, nucleoOf } from './graph'
-import { figureOf, placeOnFigure, type Punto } from './figures'
+import { figureOf, placeByPeriod, type Punto } from './figures'
 import { nebulaToViewport } from './nebula'
 
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'bisagra'
@@ -46,6 +46,48 @@ export function fitFigure(polilinea: Punto[], caja: { x: number; y: number; w: n
   const dx = caja.x + (caja.w - (maxX - minX) * s) / 2
   const dy = caja.y + (caja.h - (maxY - minY) * s) / 2
   return polilinea.map(([x, y]) => [dx + (x - minX) * s, dy + (y - minY) * s])
+}
+
+/**
+ * Transformación rígida (rotación + traslación, sin escalar) que lleva un
+ * conjunto de puntos sobre otro minimizando la distancia. Es la forma de que dos
+ * figuras conserven su forma y aun así compartan sus estrellas.
+ */
+export function procrustes(origen: Punto[], destino: Punto[]): (p: Punto) => Punto {
+  const n = Math.min(origen.length, destino.length)
+  if (n === 0) return (p) => p
+  const cO = centro(origen.slice(0, n))
+  const cD = centro(destino.slice(0, n))
+  let num = 0
+  let den = 0
+  for (let i = 0; i < n; i++) {
+    const ax = origen[i][0] - cO[0]
+    const ay = origen[i][1] - cO[1]
+    const bx = destino[i][0] - cD[0]
+    const by = destino[i][1] - cD[1]
+    num += ax * by - ay * bx
+    den += ax * bx + ay * by
+  }
+  // se acota el giro: una figura girada 90° deja de leerse
+  const bruto = Math.atan2(num, den)
+  const tope = (25 * Math.PI) / 180
+  const ang = Math.max(-tope, Math.min(tope, bruto))
+  const cos = Math.cos(ang)
+  const sin = Math.sin(ang)
+  return ([x, y]) => {
+    const vx = x - cO[0]
+    const vy = y - cO[1]
+    return [cD[0] + vx * cos - vy * sin, cD[1] + vx * sin + vy * cos]
+  }
+}
+
+/** Distancia media entre dos nubes de puntos del mismo tamaño. */
+export function desvio(a: Punto[], b: Punto[]): number {
+  const n = Math.min(a.length, b.length)
+  if (n === 0) return 0
+  let suma = 0
+  for (let i = 0; i < n; i++) suma += Math.hypot(a[i][0] - b[i][0], a[i][1] - b[i][1])
+  return suma / n
 }
 
 const centro = (pts: Punto[]): Punto => [
@@ -119,13 +161,15 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
         h: cajaAlto,
       }
       const canonica = fitFigure(silueta, caja)
-      const posiciones = placeOnFigure(canonica, propios.length)
-      return {
-        programaId,
-        propios,
+      const periodoDe = (id: string) =>
+        curriculum.ofertas.find(
+          (o) => o.cursoId === id && o.programaId === programaId && o.obligatoriedad === 'obligatorio',
+        )?.periodo ?? null
+      const mapa = placeByPeriod(
         canonica,
-        mapa: new Map(propios.map((id, i) => [id, posiciones[i]])),
-      }
+        propios.map((id) => ({ id, periodo: periodoDe(id) })),
+      )
+      return { programaId, propios, canonica, mapa }
     })
     .filter((x): x is NonNullable<typeof x> => x !== null)
 
@@ -134,25 +178,44 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
   for (const p of planes) for (const id of p.propios) cuenta.set(id, (cuenta.get(id) ?? 0) + 1)
   const compartidos = new Set([...cuenta.entries()].filter(([, n]) => n > 1).map(([id]) => id))
 
-  // cada figura se corre para que su grupo compartido caiga en la bisagra
+  // Alineación rígida: la figura B se gira y se traslada para que sus cursos
+  // compartidos caigan sobre los de A. La forma no se deforma; solo cambia de
+  // postura.
+  let residual = 0
   if (planes.length === 2 && compartidos.size > 0) {
-    for (const [idx, p] of planes.entries()) {
-      const propias = [...compartidos].filter((id) => p.mapa.has(id)).map((id) => p.mapa.get(id)!)
-      if (!propias.length) continue
-      const c = centro(propias)
-      const dx = bisagra[0] - c[0]
-      const dy = bisagra[1] - c[1]
-      // se inclina cada figura alrededor de la bisagra: A hacia la izquierda, B hacia la derecha
-      const giro = ((idx === 0 ? -1 : 1) * 15 * Math.PI) / 180
-      const cos = Math.cos(giro)
-      const sin = Math.sin(giro)
-      const mover = ([x, y]: Punto): Punto => {
-        const vx = x + dx - bisagra[0]
-        const vy = y + dy - bisagra[1]
-        return [bisagra[0] + vx * cos - vy * sin, bisagra[1] + vx * sin + vy * cos]
+    const [a, b] = planes
+    const ids = [...compartidos].filter((id) => a.mapa.has(id) && b.mapa.has(id))
+    const deA = ids.map((id) => a.mapa.get(id)!)
+    const deB = ids.map((id) => b.mapa.get(id)!)
+    const T = procrustes(deB, deA)
+    for (const [id, pt] of b.mapa) b.mapa.set(id, T(pt))
+    b.canonica = b.canonica.map((pt) => T(pt))
+    residual = desvio(
+      ids.map((id) => b.mapa.get(id)!),
+      deA,
+    )
+  }
+
+  // centrar el conjunto de figuras entre la cabecera y el tronco
+  const todos = planes.flatMap((p) => [...p.mapa.values()])
+  if (todos.length) {
+    const xs = todos.map((p) => p[0])
+    const ys = todos.map((p) => p[1])
+    const minX = Math.min(...xs)
+    const maxX = Math.max(...xs)
+    const minY = Math.min(...ys)
+    const maxY = Math.max(...ys)
+    const dx = ancho / 2 - (minX + maxX) / 2
+    const limInf = 70
+    const limSup = baseY - 42
+    let dy = 0
+    if (maxY > limSup) dy = limSup - maxY
+    if (minY + dy < limInf) dy = limInf - minY
+    if (dx !== 0 || dy !== 0) {
+      for (const p of planes) {
+        for (const [id, pt] of p.mapa) p.mapa.set(id, [pt[0] + dx, pt[1] + dy])
+        p.canonica = p.canonica.map(([x, y]) => [x + dx, y + dy] as Punto)
       }
-      for (const [id, pt] of p.mapa) p.mapa.set(id, mover(pt))
-      p.canonica = p.canonica.map((pt) => mover(pt))
     }
   }
 
@@ -176,7 +239,7 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
   }
 
   const figuras: FiguraDibujo[] = planes.map((p) => {
-    const deformada = planes.length === 2 && compartidos.size > 0
+    const deformada = planes.length === 2 && compartidos.size > 0 && residual > 16
     const puntos = deformada
       ? p.propios.map((id) => {
           const e = estrellas.get(id)!

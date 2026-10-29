@@ -143,7 +143,7 @@
         <circle
           cx={p[0]}
           cy={p[1]}
-          r={Math.max(1.8, r * 0.62)}
+          r={Math.max(3, r * 0.56)}
           fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
           opacity={enNebulosa ? 0.62 : 0.24}
         />
@@ -156,8 +156,8 @@
           {/if}
         </g>
         <text
-          x={p[0] + r + 7}
-          y={p[1] + 3}
+          x={p[0] + r + 6}
+          y={p[1] - r - 3}
           class="código"
           class:visible={!viajando}
         >{c.codigo}</text>
@@ -228,7 +228,7 @@
 
   .código {
     font-family: var(--ff-sans);
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: 0.08em;
     fill: var(--c-ink-3);
     opacity: 0;

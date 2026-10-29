@@ -58,3 +58,50 @@ export function figureBounds(polilinea: Punto[]) {
   const ys = polilinea.map((p) => p[1])
   return { minX: Math.min(...xs), maxX: Math.max(...xs), minY: Math.min(...ys), maxY: Math.max(...ys) }
 }
+
+/**
+ * Coloca las estrellas por periodo: el plan se lee de la base a la punta.
+ * Dos programas que comparten un curso lo ven en la misma franja de su figura,
+ * así que sus formas se pueden alinear casi sin deformarlas.
+ */
+export function placeByPeriod(
+  polilinea: Punto[],
+  cursos: { id: string; periodo: number | null }[],
+): Map<string, Punto> {
+  const porPeriodo = new Map<number, { id: string }[]>()
+  for (const c of cursos) {
+    const p = c.periodo && c.periodo >= 1 && c.periodo <= 4 ? c.periodo : 4
+    const arr = porPeriodo.get(p) ?? []
+    arr.push(c)
+    porPeriodo.set(p, arr)
+  }
+
+  const puntos = new Map<string, Punto>()
+  const ancho = 1 / 4
+  for (const [periodo, lista] of porPeriodo) {
+    const inicio = (periodo - 1) * ancho
+    lista.forEach((c, i) => {
+      const t = inicio + ((i + 1) / (lista.length + 1)) * ancho
+      puntos.set(c.id, puntoEn(polilinea, t))
+    })
+  }
+  return puntos
+}
+
+/** Punto a una fracción t de la longitud de la polilínea. */
+export function puntoEn(polilinea: Punto[], t: number): Punto {
+  let total = 0
+  const tramos: { a: Punto; b: Punto; len: number; inicio: number }[] = []
+  for (let i = 1; i < polilinea.length; i++) {
+    const a = polilinea[i - 1]
+    const b = polilinea[i]
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1])
+    tramos.push({ a, b, len, inicio: total })
+    total += len
+  }
+  if (total === 0) return [...polilinea[0]] as Punto
+  const d = Math.max(0, Math.min(1, t)) * total
+  const s = tramos.find((x) => d <= x.inicio + x.len) ?? tramos[tramos.length - 1]
+  const u = s.len ? (d - s.inicio) / s.len : 0
+  return [s.a[0] + (s.b[0] - s.a[0]) * u, s.a[1] + (s.b[1] - s.a[1]) * u]
+}

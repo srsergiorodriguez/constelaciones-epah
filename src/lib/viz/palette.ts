@@ -40,7 +40,7 @@ export function familiaDelCurso(cursoId: string): string | null {
 
 /** Radio del glifo según cuántos programas comparten el curso. */
 export function radioDe(nProgramas: number): number {
-  return Math.min(10.5, Math.max(3.4, 3.4 + 1.35 * Math.sqrt(Math.max(0, nProgramas))))
+  return Math.min(15, Math.max(6, 6 + 2.1 * Math.sqrt(Math.max(0, nProgramas))))
 }
 
 /** Color de un programa dentro de una selección: primero tono 2, segundo tono 4. */
