@@ -132,3 +132,14 @@ tiene forma; inventarle una era mentir con la disposición.
 
 **Fuera los rótulos de región.** Sin cúmulos, los nombres flotaban sobre nada. Los reemplaza una
 leyenda de color al pie: el color distingue la maestría y la posición no codifica nada.
+
+---
+
+## 2026-10-29 · El plan a la vista
+
+**Panel derecho.** Las iniciales no dicen nada: `PC1` no es «Proyecto de creación 1». El panel muestra
+las doce casillas por periodo con nombre completo, código, créditos y el mismo glifo del cielo. En una
+maestría, en vez de inventar un plan que no existe, lista sus énfasis y los abre con un clic.
+
+**Hover cruzado.** Pasar el cursor por una estrella enciende su fila; pasar por la fila enciende la
+estrella. Las dos vistas son la misma cosa dicha dos veces, y ahora se comportan como tal.

@@ -134,9 +134,9 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
-| `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo. Fuera de selección: punto sólido al 22 %. |
+| `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
-| `Legend` | `items` | 1 ítem | Línea, nombre del programa y, en cursiva, el de su figura. |
+| `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, lista sus énfasis. |
 | `Composer` | `figures`, `nucleus` | figura, familia | Compone la escena; puro, sin DOM. |
 | `CourseList` | `courses`, `groupBy="eje"` | normal, vacío | Agrupa por eje, ordena por periodo. |
 | `CourseDetail` | `course`, `programs` | normal | Escalas de pertenencia, de mayor a menor. |
@@ -150,7 +150,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 ┌──────────────────────────────────────────────────────────────┐
 │ Toolbar · modo · alternativas · leyenda                      │
 ├──────────────┬───────────────────────────────┬───────────────┤
-│ ProgramPicker│ SkyStage                      │ Sheet         │
+│ ProgramPicker│ SkyStage                      │ PlanPanel     │
 │ 240 px       │ flex, mín. 480 px             │ 360 px        │
 └──────────────┴───────────────────────────────┴───────────────┘
 ```

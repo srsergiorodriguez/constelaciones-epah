@@ -242,9 +242,10 @@ Un programa a la vez. Elegir otro apaga el anterior sin preguntar.
 
 ### Panel lateral
 
-**Modo programa:** nombre, tipo, créditos, figura y su porqué, página del documento; lista de cursos
-por eje; compartidos con otros programas activos; enlaces a sus énfasis (si es maestría) y a su
-especializado (si es énfasis).
+**Plan de estudios.** El panel derecho muestra las doce casillas en orden cronológico, agrupadas por
+periodo, con el nombre completo del curso, su código, sus créditos y su glifo. En una maestría lista
+sus énfasis —cada uno se abre con un clic—. Pasar el cursor por una casilla enciende su estrella y
+viceversa: los dos lados se buscan.
 
 **Modo curso:** nombre, código, créditos, eje, formato, oferta variable; programas que lo contienen
 agrupados por escala; «aparece en N de los 15 planes»; acción «ver como umbral» si pertenece a un

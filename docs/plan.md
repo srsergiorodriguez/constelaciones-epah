@@ -121,7 +121,22 @@ brazos; `prefers-reduced-motion` salta al estado final.
 
 ---
 
-## Sprint 3 · Comparación y lectura
+## Sprint 3 · Lectura ✅ (parcial)
+
+- [x] Panel derecho con el **plan en orden cronológico** (periodo → casilla)
+- [x] Hover cruzado: estrella ↔ fila del plan, con halo y rótulo fijo
+- [x] Estrellas enfocables por teclado con `aria-label`
+- [x] En una maestría, el panel lista sus énfasis y abre cada uno
+- [ ] Detalle del curso: a qué programas pertenece
+- [ ] Vista de tabla accesible y exportable
+- [ ] Repaso responsive
+
+**Aceptación:** ✔ elegir Arte muestra sus 12 casillas en 4 periodos; pasar el cursor por «Proyecto de
+creación 1» enciende la estrella PC1 en el cielo y al revés.
+
+---
+
+## Sprint 4 · Comparación (aplazada)
 
 Objetivo: el caso de uso del comité — «especializado + maestría, ¿qué comparten?».
 
@@ -138,7 +153,7 @@ línea larga del especializado dentro de la figura de Arte y las estrellas comun
 
 ---
 
-## Sprint 4 · Pulido y publicación
+## Sprint 5 · Pulido y publicación
 
 - [ ] Vista Tabla accesible + exportación CSV de la selección
 - [ ] Navegación por teclado completa y región `aria-live`

@@ -11,9 +11,11 @@
   interface Props {
     escena: Escena
     seleccion: string[]
+    resaltado: string | null
+    onHover: (cursoId: string | null) => void
   }
 
-  let { escena, seleccion }: Props = $props()
+  let { escena, seleccion, resaltado, onHover }: Props = $props()
 
   let pos = $state<Record<string, Punto>>({})
   let viajando = $state(false)
@@ -139,10 +141,29 @@
         />
       {:else}
         {@const color = colorEstrella(e.en)}
-        <g transform="translate({p[0]},{p[1]})" class="en-foco">
+        <g
+          transform="translate({p[0]},{p[1]})"
+          class="estrella"
+          class:resaltada={resaltado === e.cursoId}
+          role="button"
+          tabindex="0"
+          aria-label="{c.nombre}, {c.creditos} créditos"
+          onmouseenter={() => onHover(e.cursoId)}
+          onmouseleave={() => onHover(null)}
+          onfocus={() => onHover(e.cursoId)}
+          onblur={() => onHover(null)}
+        >
+          {#if resaltado === e.cursoId}
+            <circle r={r * 2.6} class="halo" />
+          {/if}
           <StarGlyph eje={c.eje} r={r} {color} />
         </g>
-        <text x={p[0] + r + 7} y={p[1] - r - 2} class="código" class:visible={!viajando}>{c.codigo}</text>
+        <text
+          x={p[0] + r + 7}
+          y={p[1] - r - 2}
+          class="código"
+          class:visible={!viajando || resaltado === e.cursoId}
+        >{c.codigo}</text>
       {/if}
     {/each}
   </g>
@@ -197,8 +218,20 @@
     opacity: 0.5;
   }
 
-  .en-foco {
-    transition: opacity var(--t-base) var(--ease);
+  .estrella {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .estrella:focus-visible .halo {
+    stroke: var(--c-focus);
+  }
+
+  .halo {
+    fill: none;
+    stroke: var(--c-ink);
+    stroke-width: 1;
+    opacity: 0.55;
   }
 
   .código {
@@ -218,7 +251,6 @@
   @media (prefers-reduced-motion: reduce) {
     .silueta,
     .código,
-    .en-foco,
     .enlace {
       transition: none;
     }

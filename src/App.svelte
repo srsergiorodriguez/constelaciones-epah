@@ -3,7 +3,7 @@
   import { compose, propiosOf } from './lib/domain/compose'
   import SkyStage from './lib/components/SkyStage.svelte'
   import ProgramPicker from './lib/components/ProgramPicker.svelte'
-  import Legend from './lib/components/Legend.svelte'
+  import PlanPanel from './lib/components/PlanPanel.svelte'
   import { colorDe, vivoDe } from './lib/viz/palette'
 
   const ANCHO = 1200
@@ -17,6 +17,7 @@
 
   let seleccion = $state<string[]>(desdeHash())
   let aviso = $state('')
+  let resaltado = $state<string | null>(null)
 
   const escena = $derived(compose(seleccion, ANCHO, ALTO))
 
@@ -48,7 +49,13 @@
 
   function alternar(id: string) {
     seleccion = seleccion[0] === id ? [] : [id]
+    resaltado = null
     aviso = ''
+  }
+
+  function elegir(id: string) {
+    seleccion = [id]
+    resaltado = null
   }
 
   function limpiar() {
@@ -95,14 +102,19 @@
     </aside>
 
     <div class="cielo-contenedor">
-      <SkyStage {escena} {seleccion} />
+      <SkyStage {escena} {seleccion} {resaltado} onHover={(id) => (resaltado = id)} />
     </div>
+
+    {#if actual}
+      <div class="lateral-derecho">
+        <PlanPanel programaId={actual.id} {resaltado} onHover={(id) => (resaltado = id)} onElegir={elegir} />
+      </div>
+    {/if}
   </div>
 
   <footer class="pie">
     <div class="izquierda">
       {#if seleccion.length > 0}
-        <Legend {seleccion} onQuitar={alternar} />
         <button class="limpiar" onclick={limpiar}>Volver al cielo</button>
       {:else}
         <span class="pista">Elige un programa: sus estrellas se reúnen y forman su figura.</span>
@@ -186,6 +198,14 @@
     display: grid;
     grid-template-columns: var(--w-picker) 1fr;
     gap: var(--sp-6);
+    min-height: 0;
+  }
+
+  .cuerpo:has(.lateral-derecho) {
+    grid-template-columns: var(--w-picker) 1fr var(--w-sheet);
+  }
+
+  .lateral-derecho {
     min-height: 0;
   }
 
@@ -283,9 +303,10 @@
       margin-left: 0;
     }
 
-    .cuerpo {
+    .cuerpo,
+    .cuerpo:has(.lateral-derecho) {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 60vh;
+      grid-template-rows: auto 60vh auto;
     }
   }
 </style>
