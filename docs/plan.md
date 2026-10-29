@@ -78,7 +78,7 @@ brazos; `prefers-reduced-motion` salta al estado final.
 
 ![Una constelación](assets/app-una.png)
 
-![Dos constelaciones sobre el mismo tronco](assets/app-dos.png)
+![Una maestría: la familia de sus figuras](assets/app-familia.png)
 
 **Notas de implementación.**
 
@@ -89,7 +89,19 @@ brazos; `prefers-reduced-motion` salta al estado final.
   así los brazos propios se separan aunque el tronco sea el mismo.
 - El enlace tronco → figura es una línea punteada: el tronco alimenta la constelación, no la contiene.
 
-### Ajustes post-Sprint 2 (revisión del comité)
+### Ajustes post-Sprint 2 (segunda revisión del comité)
+
+- [x] **Comparación aplazada**: un programa a la vez; se retira la bisagra y la alineación rígida
+- [x] Una maestría se compone como **familia de figuras** (una por énfasis), no como una silueta estirada
+- [x] Reparto de estrellas por longitud de arco en orden de plan: se acaba el amontonamiento
+- [x] Estrellas de 9 a 20 px (antes 6–15) y nebulosa al 42 % de ese radio
+- [x] Línea de constelación a 2,4 px
+- [x] Escala tipográfica semántica (`--fz-xs` … `--fz-4xl`) un escalón más grande
+- [x] Rótulo superior con el **nombre del programa en negrita**; la figura pasa a la leyenda
+
+---
+
+### Ajustes post-Sprint 2 (primera revisión)
 
 - [x] Selector **plegable**: cinco filas de maestría; la del programa elegido se abre sola
 - [x] Rótulo superior con la constelación actual: nombre de la figura, programa y cursos propios

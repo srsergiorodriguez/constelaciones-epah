@@ -59,7 +59,6 @@
           <button class="nombre" aria-pressed={idx >= 0} onclick={() => onToggle(m.id)}>
             <span class="punto" class:lleno={idx >= 0} data-familia={vivoDe(m.id)}></span>
             {m.nombreCorto}
-            {#if idx >= 0}<span class="numero">{idx + 1}</span>{/if}
           </button>
         </div>
 
@@ -71,7 +70,6 @@
                 <button class="fila enfasis" class:activo={ie >= 0} aria-pressed={ie >= 0} onclick={() => onToggle(e.id)}>
                   <span class="punto" class:lleno={ie >= 0}></span>
                   <span class="texto">{e.nombreCorto}</span>
-                  {#if ie >= 0}<span class="numero">{ie + 1}</span>{/if}
                 </button>
               </li>
               {#each peDe(e.id) as pe (pe.id)}
@@ -80,7 +78,6 @@
                   <button class="fila pe" class:activo={ip >= 0} aria-pressed={ip >= 0} onclick={() => onToggle(pe.id)}>
                     <span class="punto" class:lleno={ip >= 0}></span>
                     <span class="texto">{pe.nombreCorto}</span>
-                    {#if ip >= 0}<span class="numero">{ip + 1}</span>{/if}
                   </button>
                 </li>
               {/each}
@@ -90,7 +87,7 @@
       </li>
     {/each}
   </ul>
-  <p class="nota">Máximo dos. La tercera apaga la primera.</p>
+  <p class="nota">Una constelación a la vez.</p>
 </nav>
 
 <style>
@@ -105,7 +102,7 @@
 
   .cabecera {
     font-family: var(--ff-sans);
-    font-size: var(--fz-11);
+    font-size: var(--fz-xs);
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--c-ink-3);
@@ -169,7 +166,7 @@
     flex: 1 1 auto;
     padding: 5px var(--sp-2) 5px 0;
     font-family: var(--ff-sans);
-    font-size: var(--fz-125);
+    font-size: var(--fz-sm);
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--c-ink);
@@ -185,13 +182,13 @@
   .pe {
     padding: 4px var(--sp-2) 4px 22px;
     font-family: var(--ff-serif);
-    font-size: var(--fz-14);
+    font-size: var(--fz-md);
   }
 
   .pe {
     padding-left: 34px;
     font-family: var(--ff-sans);
-    font-size: var(--fz-11);
+    font-size: var(--fz-xs);
     color: var(--c-ink-3);
   }
 
@@ -226,17 +223,10 @@
     border-color: transparent;
   }
 
-  .numero {
-    margin-left: auto;
-    font-family: var(--ff-sans);
-    font-size: var(--fz-11);
-    color: var(--c-ink-3);
-  }
-
   .nota {
     font-family: var(--ff-serif);
     font-style: italic;
-    font-size: var(--fz-11);
+    font-size: var(--fz-xs);
     color: var(--c-ink-3);
     padding-top: var(--sp-2);
     border-top: 1px solid var(--c-rule);

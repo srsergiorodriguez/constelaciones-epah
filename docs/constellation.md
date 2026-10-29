@@ -82,7 +82,7 @@ La reforma permite entrar por abajo y acumular. La escalera es:
 | **Curso umbral** | **Un curso del cuerpo de un programa especializado.** No es un curso aparte: es la unidad mínima homologable. | Una sola estrella de la figura del especializado, encendida sobre el cielo. |
 | **Programa especializado** | Los 4 cursos del cuerpo de especialización (12 cr). | La figura con 4 estrellas y línea larga discontinua. |
 | **Énfasis** | El plan completo del énfasis (36 cr). | La figura completa, con su núcleo. |
-| **Maestría** | Núcleo común + las figuras de todos sus énfasis. | Constelación de constelaciones (ver §5). |
+| **Maestría** | Núcleo común + las figuras de todos sus énfasis. | Una familia de figuras (§4.3). |
 
 El curso umbral no tiene programa propio: se modela como **una estrella del especializado** y la
 interfaz lo ofrece con la acción «ver como umbral» sobre cualquier curso de un cuerpo de
@@ -130,34 +130,26 @@ El programa seleccionado se dibuja **desde el núcleo**, que es su base:
   opacidad 28 % y deja un hueco donde estaban.
 - El hueco importa: muestra de dónde salió la constelación.
 
-### 4.3 Dos constelaciones, nunca tres
+### 4.3 Una maestría no es una figura: es una familia
 
-Máximo dos programas. No es una limitación técnica: es la pregunta que el comité hace («Arte en
-Creación frente a Arte en Gestión»). Tres figuras, cuatro troncos y seis estrellas compartidas no se
-leen; dos sí.
+Una maestría con cinco énfasis tiene treinta y un cursos propios. Meterlos en una sola silueta los
+amontona: a 31 estrellas sobre un trazo de doce vértices no se lee nada. Por eso:
 
-El núcleo es el problema que este límite resuelve. **Todos los planes comparten el mismo núcleo**, así
-que si se dejara que las figuras «se solapen», se solaparían por completo en esos cuatro cursos. Por
-eso el núcleo **no pertenece a ninguna figura**: es el tronco.
+- **Énfasis, especializado o maestría sin énfasis** → una figura sola, grande, sobre el tronco.
+- **Maestría con énfasis** → la familia de sus figuras: cada énfasis conserva la suya con sus cursos
+  exclusivos, en dos filas sobre el tronco. Lo que comparten algunos énfasis (los cuatro seminarios de
+  Composición y Producción musical) se agrupa en columna entre sus figuras.
 
-```
-              ▲ A                        ▲ B
-              │                          │
-        ──────┴──────────────────────────┴──────
-                    tronco compartido
-```
+La maestría no tiene silueta propia. Tiene nombre, color y las siluetas de sus hijos.
 
-- Sin cursos propios compartidos: A crece a la izquierda del tronco, B a la derecha, ambas simétricas.
-- Con cursos propios compartidos (Composición y Producción musical comparten cuatro): las figuras se
-  **inclinan** una hacia la otra y las estrellas compartidas se colocan en el punto medio. El resto de
-  cada figura se relaja alrededor, con resortes fuertes: la silueta se deforma lo mínimo para que las
-  compartidas coincidan.
+### 4.5 Comparación: aplazada
 
-Algoritmo, en una línea: se busca la rotación y la traslación de B que minimizan la distancia entre
-sus estrellas compartidas y las de A (Procrustes, sin escalar), se promedian las compartidas y se
-relajan los vecinos con resortes a su posición canónica.
+Comparar dos programas exigía que dos figuras compartieran estrellas. Se probó con alineación rígida
+(Procrustes) y con reparto por periodo; cuando dos programas comparten cuatro de siete cursos, no hay
+transformación que conserve las dos siluetas: alguna se deforma o las estrellas se despegan del trazo.
+Queda fuera hasta tener una solución que no obligue a elegir entre forma y dato.
 
-### 4.4 El viaje
+### 4.6 El viaje
 
 - 600 ms, `cubic-bezier(.2,0,.2,1)`.
 - Las estrellas compartidas se mueven **al final**: son la bisagra y deben llegar juntas.
@@ -166,7 +158,7 @@ relajan los vecinos con resortes a su posición canónica.
 - Al deseleccionar, el viaje se invierte y la nebulosa recupera sus estrellas.
 - Con `prefers-reduced-motion`, el estado final aparece sin animación.
 
-### 4.5 Estados de una estrella
+### 4.7 Estados de una estrella
 
 | Estado | Glifo | Opacidad | Posición |
 |---|---|---|---|
@@ -178,21 +170,7 @@ relajan los vecinos con resortes a su posición canónica.
 
 ---
 
-## 5. Comparar dos programas
-
-Comparar es elegir dos y ver dos figuras crecer del mismo tronco. La cámara no se mueve: el encuadre
-es fijo, las figuras se acomodan dentro.
-
-El caso que el comité quiere ver es **especializado + maestría**: el especializado no tiene figura
-propia; enciende sus cuatro estrellas dentro de la figura del énfasis con línea larga discontinua. El
-mensaje —«estos 12 créditos son un subconjunto homologable»— aparece sin explicación.
-
-**Tercera selección.** Al elegir un tercer programa, el más antiguo se apaga y su figura vuelve a la
-nebulosa. Se anuncia en la línea de estado, no en un modal; hay un paso atrás inmediato.
-
----
-
-## 6. Estabilidad
+## 5. Estabilidad
 
 Dentro de una misma selección, el resultado es determinista: los mismos dos programas producen
 exactamente la misma composición, siempre. La nebulosa es fija y vive en `atlas.json`.
@@ -202,7 +180,7 @@ se mueve nunca. Esa mitad estable es la que da orientación.
 
 ---
 
-## 7. Semántica de líneas y nodos
+## 6. Semántica de líneas y nodos
 
 ### Líneas
 
@@ -231,7 +209,7 @@ mayor `n_programas` y el otro se oculta hasta el hover.
 
 ---
 
-## 8. Estados de vista
+## 7. Estados de vista
 
 | Estado | Qué se ve | Para qué |
 |---|---|---|
@@ -242,13 +220,12 @@ mayor `n_programas` y el otro se oculta hasta el hover.
 
 ---
 
-## 9. Interacción
+## 8. Interacción
 
 | Acción | Efecto | Estado |
 |---|---|---|
 | Elegir un programa | Sus estrellas viajan a la figura; el resto baja a 28 % | `selectedPrograms` |
-| Elegir un segundo | Su figura crece al otro lado del tronco | `selectedPrograms` |
-| Elegir un tercero | Se apaga el más antiguo y vuelve a la nube; se anuncia | `selectedPrograms` |
+| Elegir otro programa | El anterior vuelve a la nube y el nuevo se arma | `selectedPrograms` |
 | Arrastrar | Paneo del cielo (sin zoom: la figura ya está a escala) | `camera` |
 | Clic en una figura | La selecciona y abre la lista de cursos | `selectedPrograms`, `panel` |
 | Clic en una estrella | Detalle del curso y resalte de sus otras constelaciones | `selectedCourse` |
@@ -258,8 +235,7 @@ mayor `n_programas` y el otro se oculta hasta el hover.
 | `Tab` / `←→` | Recorre constelaciones y estrellas | `focusIndex` |
 | «Mostrar alternativas» | Muestra u oculta aristas discontinuas | `showAlternatives` |
 
-Máximo 2 programas. Al elegir un tercero se apaga el más antiguo y se anuncia en la línea de estado,
-no en un modal.
+Un programa a la vez. Elegir otro apaga el anterior sin preguntar.
 
 ### Panel lateral
 
@@ -273,19 +249,19 @@ cuerpo de especialización.
 
 ---
 
-## 10. Casos borde
+## 9. Casos borde
 
 | Caso | Comportamiento |
 |---|---|
 | Curso que solo existe como alternativa | Se dibuja con línea discontinua corta y no suma créditos. |
-| Curso propio compartido por los dos programas | Una sola estrella en la bisagra, con una línea por figura. |
+| Curso compartido por dos énfasis de la maestría | Una sola estrella en columna, entre sus figuras. |
 | Constelación sin cursos | Figura dibujada en punteado, sin estrellas, con texto explicativo. |
 | Datos propuestos | Borde discontinuo y etiqueta «propuesta» en el panel. |
 | Ventana < 720 px | Una columna; las dos figuras se apilan sobre el tronco; panel como hoja inferior. |
 
 ---
 
-## 11. Accesibilidad
+## 10. Accesibilidad
 
 - Cada estrella es un `<g role="button" tabindex="0">` con `aria-label` = nombre, créditos y programas.
 - El orden de tabulación sigue los sectores, no el DOM visual.
@@ -296,7 +272,7 @@ cuerpo de especialización.
 
 ---
 
-## 12. Lo que esta visualización no es
+## 11. Lo que esta visualización no es
 
 - No es un editor de mallas curriculares: el currículo se edita en `scripts/build-data.mjs`.
 - No es un grafo de prerrequisitos: las líneas son pertenencia, no causalidad.
@@ -305,7 +281,7 @@ cuerpo de especialización.
 
 ---
 
-## 13. Preguntas abiertas para el comité
+## 12. Preguntas abiertas para el comité
 
 1. **Núcleo.** ¿Los transversales y la electiva deben contar como núcleo? Hoy sí, y eso hace el
    centro de cada maestría muy brillante.

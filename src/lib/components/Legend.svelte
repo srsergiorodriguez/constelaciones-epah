@@ -11,20 +11,19 @@
   let { seleccion, onQuitar }: Props = $props()
 
   const items = $derived(
-    seleccion.map((id, i) => {
+    seleccion.map((id) => {
       const p = curriculum.programas[id]
       const figura = figureNameOf(id, p.padreId)
-      return { id, nombre: p.nombreCorto, figura, color: colorDe(id, i), vivo: vivoDe(id) }
+      return { id, nombre: p.nombreCorto, figura, color: colorDe(id), vivo: vivoDe(id) }
     }),
   )
 </script>
 
 {#if items.length > 0}
   <ul class="leyenda">
-    {#each items as it, i (it.id)}
+    {#each items as it (it.id)}
       <li>
         <svg class="marca" viewBox="0 0 18 2" aria-hidden="true"><line x1="0" y1="1" x2="18" y2="1" stroke={it.vivo} stroke-width="2" /></svg>
-        <span class="nivel">{i + 1}</span>
         <span class="nombre">{it.nombre}</span>
         {#if it.figura}<span class="figura">· {it.figura}</span>{/if}
         <button class="quitar" onclick={() => onQuitar(it.id)} aria-label="Quitar {it.nombre}">×</button>
@@ -48,18 +47,13 @@
     align-items: baseline;
     gap: var(--sp-2);
     font-family: var(--ff-sans);
-    font-size: var(--fz-125);
+    font-size: var(--fz-sm);
   }
 
   .marca {
     width: 18px;
     height: 2px;
     align-self: center;
-  }
-
-  .nivel {
-    font-size: var(--fz-11);
-    color: var(--c-ink-3);
   }
 
   .nombre {
@@ -74,7 +68,7 @@
   }
 
   .quitar {
-    font-size: var(--fz-14);
+    font-size: var(--fz-md);
     line-height: 1;
     color: var(--c-ink-3);
     padding: 0 var(--sp-1);

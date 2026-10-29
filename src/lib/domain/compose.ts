@@ -1,27 +1,23 @@
 import { curriculum } from '../data/types'
 import { cursosOf, nucleoOf } from './graph'
-import { figureOf, placeByPeriod, type Punto } from './figures'
+import { figureOf, placeOnFigure, type Punto } from './figures'
 import { nebulaToViewport } from './nebula'
 
-export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'bisagra'
+export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace'
 
 export interface Estrella {
   cursoId: string
   x: number
   y: number
   estado: EstadoEstrella
-  /** Programas seleccionados a los que pertenece. */
+  /** Programa al que se atribuye la estrella: el énfasis dueño, o la maestría en el tronco. */
   en: string[]
-  /** Pertenece a más de una constelación de la selección. */
-  compartida: boolean
 }
 
 export interface FiguraDibujo {
   programaId: string
-  /** Trazo a dibujar: la silueta completa, o la ruta por las estrellas si se deformó. */
+  /** Silueta completa, ya ajustada al viewport. */
   puntos: Punto[]
-  /** true si el trazo pasa por las estrellas (dos figuras que comparten cursos). */
-  deformada: boolean
   /** Primer curso de la figura: por ahí se enlaza con el tronco. */
   anclaje: Punto | null
 }
@@ -32,6 +28,8 @@ export interface Escena {
   estrellas: Estrella[]
   figuras: FiguraDibujo[]
   nucleo: Punto[]
+  /** Enlace del tronco con la constelación (o con el centro del coro). */
+  eje: [Punto, Punto] | null
 }
 
 /** Ajusta una polilínea (0..100) a una caja conservando proporción y orientación. */
@@ -48,67 +46,39 @@ export function fitFigure(polilinea: Punto[], caja: { x: number; y: number; w: n
   return polilinea.map(([x, y]) => [dx + (x - minX) * s, dy + (y - minY) * s])
 }
 
-/**
- * Transformación rígida (rotación + traslación, sin escalar) que lleva un
- * conjunto de puntos sobre otro minimizando la distancia. Es la forma de que dos
- * figuras conserven su forma y aun así compartan sus estrellas.
- */
-export function procrustes(origen: Punto[], destino: Punto[]): (p: Punto) => Punto {
-  const n = Math.min(origen.length, destino.length)
-  if (n === 0) return (p) => p
-  const cO = centro(origen.slice(0, n))
-  const cD = centro(destino.slice(0, n))
-  let num = 0
-  let den = 0
-  for (let i = 0; i < n; i++) {
-    const ax = origen[i][0] - cO[0]
-    const ay = origen[i][1] - cO[1]
-    const bx = destino[i][0] - cD[0]
-    const by = destino[i][1] - cD[1]
-    num += ax * by - ay * bx
-    den += ax * bx + ay * by
-  }
-  // se acota el giro: una figura girada 90° deja de leerse
-  const bruto = Math.atan2(num, den)
-  const tope = (25 * Math.PI) / 180
-  const ang = Math.max(-tope, Math.min(tope, bruto))
-  const cos = Math.cos(ang)
-  const sin = Math.sin(ang)
-  return ([x, y]) => {
-    const vx = x - cO[0]
-    const vy = y - cO[1]
-    return [cD[0] + vx * cos - vy * sin, cD[1] + vx * sin + vy * cos]
-  }
+const ordenarPorPlan = (programaId: string, cursos: string[]) => {
+  const ofertaDe = (id: string) =>
+    curriculum.ofertas.find(
+      (o) => o.cursoId === id && o.programaId === programaId && o.obligatoriedad === 'obligatorio',
+    )
+  return [...cursos].sort((a, b) => {
+    const oa = ofertaDe(a)
+    const ob = ofertaDe(b)
+    return (oa?.periodo ?? 9) - (ob?.periodo ?? 9) || (oa?.columna ?? 9) - (ob?.columna ?? 9)
+  })
 }
 
-/** Distancia media entre dos nubes de puntos del mismo tamaño. */
-export function desvio(a: Punto[], b: Punto[]): number {
-  const n = Math.min(a.length, b.length)
-  if (n === 0) return 0
-  let suma = 0
-  for (let i = 0; i < n; i++) suma += Math.hypot(a[i][0] - b[i][0], a[i][1] - b[i][1])
-  return suma / n
+/** Cursos propios de un programa: su plan menos el tronco, en orden de plan. */
+export function propiosOf(programaId: string): string[] {
+  const nucleo = new Set(nucleoOf(programaId))
+  return ordenarPorPlan(programaId, cursosOf(programaId).filter((id) => !nucleo.has(id)))
 }
 
-const centro = (pts: Punto[]): Punto => [
+const hijosDe = (programaId: string) =>
+  Object.values(curriculum.programas).filter((p) => p.tipo === 'enfasis' && p.padreId === programaId)
+
+const centroDe = (pts: Punto[]): Punto => [
   pts.reduce((a, p) => a + p[0], 0) / pts.length,
   pts.reduce((a, p) => a + p[1], 0) / pts.length,
 ]
 
-/** Cursos propios: los del plan que no son tronco. */
-export function propiosOf(programaId: string): string[] {
-  const nucleo = new Set(nucleoOf(programaId))
-  return cursosOf(programaId).filter((id) => !nucleo.has(id))
-}
-
 /**
- * Compone la escena para una selección de 0, 1 o 2 programas.
+ * Compone la escena: nebulosa o un programa.
  *
- * - 0: todo en la nebulosa.
- * - 1: los cursos propios viajan a su figura; el núcleo se queda de base.
- * - 2: las dos figuras se corren para que sus cursos propios compartidos caigan
- *   en una bisagra común; el trazo pasa entonces por las estrellas, para que la
- *   línea y los nodos nunca se separen.
+ * - Un énfasis (o una maestría sin énfasis) es una figura sola sobre el tronco.
+ * - Una maestría con énfasis no tiene silueta propia: es la familia de sus
+ *   figuras, cada una con sus cursos exclusivos; lo que comparte un subconjunto
+ *   de énfasis se ubica entre sus figuras.
  */
 export function compose(seleccion: string[], ancho: number, alto: number): Escena {
   const aNebulosa = nebulaToViewport(ancho, alto)
@@ -116,144 +86,177 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
 
   for (const id of Object.keys(curriculum.cursos)) {
     const [x, y] = aNebulosa(id)
-    estrellas.set(id, { cursoId: id, x, y, estado: 'nebulosa', en: [], compartida: false })
+    estrellas.set(id, { cursoId: id, x, y, estado: 'nebulosa', en: [] })
   }
 
-  const activos = seleccion.filter((id) => curriculum.programas[id]).slice(0, 2)
-  if (activos.length === 0) {
-    return { ancho, alto, estrellas: [...estrellas.values()], figuras: [], nucleo: [] }
+  const activo = seleccion.find((id) => curriculum.programas[id])
+  if (!activo) {
+    return { ancho, alto, estrellas: [...estrellas.values()], figuras: [], nucleo: [], eje: null }
   }
 
-  // tronco: cursos de la intersección de los planes activos
-  const nucleo = [...new Set(activos.flatMap((id) => nucleoOf(id)))].filter((cursoId) =>
-    activos.every((p) => cursosOf(p).includes(cursoId)),
-  )
-  const baseY = alto - Math.max(70, alto * 0.085)
-  const nucleoPts: Punto[] = nucleo.map((_, i) => [
-    ancho / 2 + (i - (nucleo.length - 1) / 2) * Math.min(110, ancho / (nucleo.length + 2)),
-    baseY,
-  ])
+  const hijos = hijosDe(activo)
+  return hijos.length >= 2
+    ? componerFamilia(activo, hijos, estrellas, ancho, alto)
+    : componerFigura(activo, estrellas, ancho, alto)
+}
+
+/* ------------------------------------------------------------------ */
+/* Una figura sola                                                     */
+/* ------------------------------------------------------------------ */
+
+function componerFigura(programaId: string, estrellas: Map<string, Estrella>, ancho: number, alto: number): Escena {
+  const nucleo = nucleoOf(programaId)
+  const baseY = alto - Math.max(64, alto * 0.075)
+  const nucleoPts = fila(nucleo, ancho, baseY)
   nucleo.forEach((cursoId, i) => {
     const e = estrellas.get(cursoId)!
     e.x = nucleoPts[i][0]
     e.y = nucleoPts[i][1]
     e.estado = 'nucleo'
-    e.en = activos.filter((p) => cursosOf(p).includes(cursoId))
+    e.en = [programaId]
   })
 
-  const escala = activos.length === 2 ? 1.28 : 1
-  const cajaAlto = Math.min(alto * 0.46 * escala, ancho * 0.4 * escala)
-  const cajaAncho = Math.min(ancho * 0.34 * escala, alto * 0.42 * escala)
-  const bisagra: Punto = [ancho / 2, alto * (activos.length === 2 ? 0.5 : 0.44)]
-
-  const planes = activos
-    .map((programaId) => {
-      const silueta = figureOf(programaId, curriculum.programas[programaId]?.padreId ?? null)
-      const propios = propiosOf(programaId)
-      if (!silueta || propios.length === 0) return null
-
-      const centroX =
-        activos.length === 1 ? ancho / 2 : ancho / 2 + (activos.indexOf(programaId) === 0 ? -1 : 1) * (ancho * 0.2)
-      const caja = {
-        x: centroX - cajaAncho / 2,
-        y: Math.max(48, baseY - cajaAlto - 56),
-        w: cajaAncho,
-        h: cajaAlto,
-      }
-      const canonica = fitFigure(silueta, caja)
-      const periodoDe = (id: string) =>
-        curriculum.ofertas.find(
-          (o) => o.cursoId === id && o.programaId === programaId && o.obligatoriedad === 'obligatorio',
-        )?.periodo ?? null
-      const mapa = placeByPeriod(
-        canonica,
-        propios.map((id) => ({ id, periodo: periodoDe(id) })),
-      )
-      return { programaId, propios, canonica, mapa }
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null)
-
-  // cursos propios compartidos por las dos figuras
-  const cuenta = new Map<string, number>()
-  for (const p of planes) for (const id of p.propios) cuenta.set(id, (cuenta.get(id) ?? 0) + 1)
-  const compartidos = new Set([...cuenta.entries()].filter(([, n]) => n > 1).map(([id]) => id))
-
-  // Alineación rígida: la figura B se gira y se traslada para que sus cursos
-  // compartidos caigan sobre los de A. La forma no se deforma; solo cambia de
-  // postura.
-  let residual = 0
-  if (planes.length === 2 && compartidos.size > 0) {
-    const [a, b] = planes
-    const ids = [...compartidos].filter((id) => a.mapa.has(id) && b.mapa.has(id))
-    const deA = ids.map((id) => a.mapa.get(id)!)
-    const deB = ids.map((id) => b.mapa.get(id)!)
-    const T = procrustes(deB, deA)
-    for (const [id, pt] of b.mapa) b.mapa.set(id, T(pt))
-    b.canonica = b.canonica.map((pt) => T(pt))
-    residual = desvio(
-      ids.map((id) => b.mapa.get(id)!),
-      deA,
-    )
+  const silueta = figureOf(programaId, curriculum.programas[programaId]?.padreId ?? null)
+  const propios = propiosOf(programaId)
+  if (!silueta || propios.length === 0) {
+    return { ancho, alto, estrellas: [...estrellas.values()], figuras: [], nucleo: nucleoPts, eje: null }
   }
 
-  // centrar el conjunto de figuras entre la cabecera y el tronco
-  const todos = planes.flatMap((p) => [...p.mapa.values()])
-  if (todos.length) {
-    const xs = todos.map((p) => p[0])
-    const ys = todos.map((p) => p[1])
-    const minX = Math.min(...xs)
-    const maxX = Math.max(...xs)
-    const minY = Math.min(...ys)
-    const maxY = Math.max(...ys)
-    const dx = ancho / 2 - (minX + maxX) / 2
-    const limInf = 70
-    const limSup = baseY - 42
-    let dy = 0
-    if (maxY > limSup) dy = limSup - maxY
-    if (minY + dy < limInf) dy = limInf - minY
-    if (dx !== 0 || dy !== 0) {
-      for (const p of planes) {
-        for (const [id, pt] of p.mapa) p.mapa.set(id, [pt[0] + dx, pt[1] + dy])
-        p.canonica = p.canonica.map(([x, y]) => [x + dx, y + dy] as Punto)
-      }
-    }
-  }
+  const cajaAlto = Math.min(alto * 0.66, ancho * 0.56)
+  const cajaAncho = Math.min(ancho * 0.52, alto * 0.68)
+  const caja = { x: ancho / 2 - cajaAncho / 2, y: Math.max(40, baseY - cajaAlto - 48), w: cajaAncho, h: cajaAlto }
+  const canonica = fitFigure(silueta, caja)
+  const posiciones = placeOnFigure(canonica, propios.length)
 
-  const copias = new Map<string, Punto[]>()
-  for (const p of planes) {
-    for (const [id, pt] of p.mapa) {
-      const arr = copias.get(id) ?? []
-      arr.push(pt)
-      copias.set(id, arr)
-    }
-  }
-
-  for (const [cursoId, puntos] of copias) {
+  propios.forEach((cursoId, i) => {
     const e = estrellas.get(cursoId)!
-    const [x, y] = centro(puntos)
-    e.x = x
-    e.y = y
-    e.estado = puntos.length > 1 ? 'bisagra' : 'figura'
-    e.en = activos.filter((p) => cursosOf(p).includes(cursoId))
-    e.compartida = puntos.length > 1 || e.en.length > 1
-  }
-
-  const figuras: FiguraDibujo[] = planes.map((p) => {
-    const deformada = planes.length === 2 && compartidos.size > 0 && residual > 16
-    const puntos = deformada
-      ? p.propios.map((id) => {
-          const e = estrellas.get(id)!
-          return [e.x, e.y] as Punto
-        })
-      : p.canonica
-    const primera = estrellas.get(p.propios[0])
-    return {
-      programaId: p.programaId,
-      puntos,
-      deformada,
-      anclaje: primera ? ([primera.x, primera.y] as Punto) : null,
-    }
+    e.x = posiciones[i][0]
+    e.y = posiciones[i][1]
+    e.estado = 'figura'
+    e.en = [programaId]
   })
 
-  return { ancho, alto, estrellas: [...estrellas.values()], figuras, nucleo: nucleoPts }
+  const primera = estrellas.get(propios[0])
+  const centroTronco = centroDe(nucleoPts)
+  return {
+    ancho,
+    alto,
+    estrellas: [...estrellas.values()],
+    figuras: [{ programaId, puntos: canonica, anclaje: null }],
+    nucleo: nucleoPts,
+    eje: primera ? [centroTronco, [primera.x, primera.y]] : null,
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Una maestría: la familia de sus figuras                             */
+/* ------------------------------------------------------------------ */
+
+function componerFamilia(
+  maestriaId: string,
+  hijos: ReturnType<typeof hijosDe>,
+  estrellas: Map<string, Estrella>,
+  ancho: number,
+  alto: number,
+): Escena {
+  const planes = hijos.map((h) => ({ id: h.id, cursos: new Set(cursosOf(h.id)) }))
+  const todos = new Set<string>()
+  for (const p of planes) for (const c of p.cursos) todos.add(c)
+
+  const enCuantos = new Map<string, number>()
+  for (const c of todos) enCuantos.set(c, planes.filter((p) => p.cursos.has(c)).length)
+
+  const nucleo = [...todos].filter((c) => enCuantos.get(c) === hijos.length)
+  const compartidos = [...todos].filter((c) => {
+    const n = enCuantos.get(c) ?? 0
+    return n > 1 && n < hijos.length
+  })
+
+  const baseY = alto - Math.max(58, alto * 0.055)
+  const nucleoPts = fila([...nucleo], ancho, baseY)
+  ;[...nucleo].forEach((cursoId, i) => {
+    const e = estrellas.get(cursoId)!
+    e.x = nucleoPts[i][0]
+    e.y = nucleoPts[i][1]
+    e.estado = 'nucleo'
+    e.en = [maestriaId]
+  })
+
+  // las figuras de los énfasis, en dos filas: es la única forma de que cinco
+  // siluetas y sus estrellas quepan sin pisarse
+  const k = hijos.length
+  const filas: number[][] = k <= 3 ? [hijos.map((_, i) => i)] : [hijos.map((_, i) => i).slice(0, Math.ceil(k / 2)), hijos.map((_, i) => i).slice(Math.ceil(k / 2))]
+  const lado = Math.min(ancho / 4.4, (baseY - 90) / 2.15)
+  const yFilas = [92, 92 + lado + 96]
+  const figuras: FiguraDibujo[] = []
+  const centrosHijo = new Map<string, Punto>()
+
+  filas.forEach((indices, f) => {
+    const n = indices.length
+    const sep = Math.min(lado * 1.35, (ancho * 0.82) / Math.max(n, 1))
+    indices.forEach((i, j) => {
+      const h = hijos[i]
+      const x = ancho / 2 + (j - (n - 1) / 2) * sep
+      const y = yFilas[f] + lado / 2
+      centrosHijo.set(h.id, [x, y])
+
+      const silueta = figureOf(h.id, h.padreId)
+      const exclusivos = ordenarPorPlan(
+        h.id,
+        [...planes[i].cursos].filter((c) => enCuantos.get(c) === 1),
+      )
+      if (!silueta || exclusivos.length === 0) return
+
+      const caja = { x: x - lado / 2, y: y - lado / 2, w: lado, h: lado }
+      const canonica = fitFigure(silueta, caja)
+      const posiciones = placeOnFigure(canonica, exclusivos.length)
+
+      exclusivos.forEach((cursoId, q) => {
+        const e = estrellas.get(cursoId)!
+        e.x = posiciones[q][0]
+        e.y = posiciones[q][1]
+        e.estado = 'figura'
+        e.en = [h.id]
+      })
+
+      figuras.push({ programaId: h.id, puntos: canonica, anclaje: null })
+    })
+  })
+
+  // lo que comparten algunos énfasis: se agrupan por dueño y se abren en columna
+  const porDuenos = new Map<string, string[]>()
+  for (const cursoId of compartidos) {
+    const duenos = hijos.filter((h, i) => planes[i].cursos.has(cursoId)).map((h) => h.id)
+    const clave = duenos.join('|')
+    const arr = porDuenos.get(clave) ?? []
+    arr.push(cursoId)
+    porDuenos.set(clave, arr)
+  }
+  for (const [clave, cursos] of porDuenos) {
+    const duenos = clave.split('|')
+    const centros = duenos.map((id) => centrosHijo.get(id)!).filter(Boolean)
+    const c = centroDe(centros)
+    cursos.forEach((cursoId, i) => {
+      const e = estrellas.get(cursoId)!
+      e.x = c[0]
+      e.y = c[1] + (i - (cursos.length - 1) / 2) * 42
+      e.estado = 'enlace'
+      e.en = duenos
+    })
+  }
+
+  return {
+    ancho,
+    alto,
+    estrellas: [...estrellas.values()],
+    figuras,
+    nucleo: nucleoPts,
+    eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
+  }
+}
+
+/** Fila de puntos centrada. */
+function fila(ids: string[], ancho: number, y: number): Punto[] {
+  const sep = Math.min(132, ancho / (ids.length + 2))
+  return ids.map((_, i) => [ancho / 2 + (i - (ids.length - 1) / 2) * sep, y] as Punto)
 }

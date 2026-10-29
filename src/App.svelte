@@ -1,12 +1,10 @@
 <script lang="ts">
   import { curriculum, atlas } from './lib/data/types'
-  import { compose } from './lib/domain/compose'
+  import { compose, propiosOf } from './lib/domain/compose'
   import { atlasToViewport } from './lib/domain/nebula'
   import SkyStage from './lib/components/SkyStage.svelte'
   import ProgramPicker from './lib/components/ProgramPicker.svelte'
   import Legend from './lib/components/Legend.svelte'
-  import { figureNameOf } from './lib/domain/figures'
-  import { propiosOf } from './lib/domain/compose'
   import { colorDe } from './lib/viz/palette'
 
   const ANCHO = 1200
@@ -14,22 +12,19 @@
 
   const desdeHash = (): string[] => {
     if (typeof location === 'undefined') return []
-    return decodeURIComponent(location.hash.slice(1))
-      .split(',')
-      .filter((id) => curriculum.programas[id])
-      .slice(0, 2)
+    const id = decodeURIComponent(location.hash.slice(1))
+    return curriculum.programas[id] ? [id] : []
   }
 
   let seleccion = $state<string[]>(desdeHash())
   let aviso = $state('')
 
-  // el estado vive en el hash: un enlace comparte la constelación elegida
+  const escena = $derived(compose(seleccion, ANCHO, ALTO))
+
   $effect(() => {
     const hash = seleccion.map(encodeURIComponent).join(',')
     history.replaceState(null, '', hash ? `#${hash}` : location.pathname + location.search)
   })
-
-  const escena = $derived(compose(seleccion, ANCHO, ALTO))
 
   const map = atlasToViewport(ANCHO, ALTO)
   const centro: [number, number] = [ANCHO / 2, ALTO / 2]
@@ -48,19 +43,22 @@
   const totalCursos = Object.keys(curriculum.cursos).length
   const totalProgramas = Object.keys(curriculum.programas).length
 
+  const actual = $derived.by(() => {
+    const id = seleccion[0]
+    if (!id) return null
+    const p = curriculum.programas[id]
+    const padre = p.padreId ? curriculum.programas[p.padreId] : null
+    return {
+      id,
+      nombre: p.nombreCorto,
+      padre: padre ? padre.nombreCorto : null,
+      color: colorDe(id),
+      propios: propiosOf(id).length,
+    }
+  })
+
   function alternar(id: string) {
-    if (seleccion.includes(id)) {
-      seleccion = seleccion.filter((x) => x !== id)
-      aviso = ''
-      return
-    }
-    if (seleccion.length >= 2) {
-      const fuera = seleccion[0]
-      seleccion = [...seleccion.slice(1), id]
-      aviso = `Se apagó ${curriculum.programas[fuera].nombreCorto}.`
-      return
-    }
-    seleccion = [...seleccion, id]
+    seleccion = seleccion[0] === id ? [] : [id]
     aviso = ''
   }
 
@@ -77,28 +75,6 @@
     window.addEventListener('keydown', alTeclear)
     return () => window.removeEventListener('keydown', alTeclear)
   })
-
-  const actual = $derived(
-    seleccion.map((id, i) => {
-      const p = curriculum.programas[id]
-      return {
-        id,
-        nombre: p.nombreCorto,
-        completo: p.nombre,
-        figura: figureNameOf(id, p.padreId),
-        color: colorDe(id, i),
-        propios: propiosOf(id).length,
-      }
-    }),
-  )
-
-  const estado = $derived(
-    seleccion.length === 0
-      ? 'El cielo completo'
-      : seleccion.length === 1
-        ? 'Una constelación'
-        : 'Dos constelaciones',
-  )
 </script>
 
 <main class="lienzo">
@@ -109,21 +85,17 @@
     </div>
 
     <div class="actual" aria-live="polite">
-      {#if actual.length === 0}
-        <p class="figura">el cielo</p>
-        <p class="detalle">{totalCursos} cursos · {totalProgramas} programas a la vista</p>
+      {#if actual}
+        <p class="programa">{actual.nombre}</p>
+        <p class="detalle">
+          {#if actual.padre}{actual.padre} · {/if}{actual.propios} cursos propios
+        </p>
+        <svg class="trazo" viewBox="0 0 60 4" aria-hidden="true">
+          <line x1="0" y1="2" x2="60" y2="2" stroke={actual.color} stroke-width="3" />
+        </svg>
       {:else}
-        {#each actual as a (a.id)}
-          <div class="linea">
-            <svg class="trazo" viewBox="0 0 2 30" aria-hidden="true">
-              <line x1="1" y1="0" x2="1" y2="30" stroke={a.color} stroke-width="2" />
-            </svg>
-            <div>
-              <p class="figura">{a.figura ?? a.nombre}</p>
-              <p class="detalle">{a.completo} · {a.propios} cursos propios</p>
-            </div>
-          </div>
-        {/each}
+        <p class="programa">El cielo</p>
+        <p class="detalle">{totalCursos} cursos · {totalProgramas} programas</p>
       {/if}
     </div>
   </header>
@@ -147,7 +119,6 @@
         <span class="pista">Elige un programa: sus estrellas se reúnen y forman su figura.</span>
       {/if}
     </div>
-    <span class="aviso">{estado}</span>
     <p class="vivo" aria-live="polite">{aviso}</p>
   </footer>
 </main>
@@ -171,60 +142,53 @@
 
   .marca h1 {
     font-family: var(--ff-display);
-    font-size: var(--fz-30);
+    font-size: var(--fz-3xl);
     font-weight: 700;
     letter-spacing: -0.02em;
+    line-height: 1;
   }
 
   .marca p {
     font-family: var(--ff-serif);
     font-style: italic;
-    font-size: var(--fz-14);
+    font-size: var(--fz-md);
     color: var(--c-ink-3);
-    margin-top: var(--sp-1);
+    margin-top: var(--sp-2);
   }
 
   .actual {
     text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-2);
   }
 
-  .linea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--sp-3);
-  }
-
-  .trazo {
-    order: 2;
-    width: 2px;
-    height: 30px;
-  }
-
-  .figura {
-    font-family: var(--ff-serif);
-    font-style: italic;
-    font-size: var(--fz-25);
+  .programa {
+    font-family: var(--ff-display);
+    font-size: var(--fz-2xl);
+    font-weight: 700;
+    letter-spacing: -0.01em;
     line-height: 1.05;
     color: var(--c-ink);
   }
 
   .detalle {
     font-family: var(--ff-sans);
-    font-size: var(--fz-11);
-    letter-spacing: 0.08em;
+    font-size: var(--fz-xs);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--c-ink-3);
-    margin-top: 2px;
+    margin-top: var(--sp-1);
+  }
+
+  .trazo {
+    display: block;
+    margin: var(--sp-2) 0 0 auto;
+    width: 60px;
+    height: 4px;
   }
 
   .cuerpo {
     display: grid;
     grid-template-columns: var(--w-picker) 1fr;
-    gap: var(--sp-4);
+    gap: var(--sp-6);
     min-height: 0;
   }
 
@@ -238,13 +202,13 @@
   }
 
   .pie {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
     gap: var(--sp-4);
     padding-top: var(--sp-3);
     border-top: 1px solid var(--c-rule);
-    font-size: var(--fz-11);
+    font-size: var(--fz-xs);
     color: var(--c-ink-3);
   }
 
@@ -258,13 +222,13 @@
   .pista {
     font-family: var(--ff-serif);
     font-style: italic;
-    font-size: var(--fz-125);
+    font-size: var(--fz-sm);
   }
 
   .limpiar {
     font-family: var(--ff-sans);
-    font-size: var(--fz-11);
-    letter-spacing: 0.06em;
+    font-size: var(--fz-xs);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--c-ink-3);
     border-bottom: 1px solid var(--c-rule);
@@ -274,18 +238,9 @@
     color: var(--c-ink);
   }
 
-  .aviso {
-    font-family: var(--ff-sans);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
   .vivo {
-    grid-column: 1 / -1;
-    font-size: var(--fz-11);
+    font-size: var(--fz-xs);
     color: var(--c-ink-3);
-    min-height: 1em;
   }
 
   @media (max-width: 900px) {
@@ -295,13 +250,22 @@
       padding: var(--sp-4);
     }
 
+    .cabecera {
+      grid-template-columns: 1fr;
+      gap: var(--sp-3);
+    }
+
+    .actual {
+      text-align: left;
+    }
+
+    .trazo {
+      margin-left: 0;
+    }
+
     .cuerpo {
       grid-template-columns: 1fr;
       grid-template-rows: auto 60vh;
-    }
-
-    .pie {
-      grid-template-columns: 1fr;
     }
   }
 </style>

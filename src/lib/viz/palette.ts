@@ -40,14 +40,13 @@ export function familiaDelCurso(cursoId: string): string | null {
 
 /** Radio del glifo según cuántos programas comparten el curso. */
 export function radioDe(nProgramas: number): number {
-  return Math.min(15, Math.max(6, 6 + 2.1 * Math.sqrt(Math.max(0, nProgramas))))
+  return Math.min(20, Math.max(9, 9 + 2.8 * Math.sqrt(Math.max(0, nProgramas))))
 }
 
-/** Color de un programa dentro de una selección: primero tono 2, segundo tono 4. */
-export function colorDe(programaId: string, indice: number): string {
+/** Color de un programa: el tono de su maestría. */
+export function colorDe(programaId: string): string {
   const fam = familiaDe(programaId)
-  if (!fam) return 'var(--c-ink)'
-  return tono(fam, indice === 0 ? 2 : 4)
+  return fam ? tono(fam, 2) : 'var(--c-ink)'
 }
 
 /** Marca viva para la leyenda y los chips. */

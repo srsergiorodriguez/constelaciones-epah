@@ -18,7 +18,7 @@ body {
   background: var(--c-paper);
   color: var(--c-ink);
   font-family: var(--ff-sans);
-  font-size: var(--fz-16);
+  font-size: var(--fz-lg);
   line-height: 1.35;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -102,3 +102,21 @@ figura no acabe de cabeza. El trazo solo se dibuja por las estrellas si el desv�
 **El cielo respira.** Se bajó la atracción por maestría y se sumó un desplazamiento sembrado: los
 cinco cúmulos siguen ahí, pero se tocan y se desdibujan como un cielo de verdad. *Por qué:* cinco
 manchas separadas se leían como un organigrama, no como un cielo.
+
+---
+
+## 2026-10-29 · Segunda revisión: una a la vez
+
+**Comparación, aplazada.** Con dos programas que comparten cuatro de siete cursos no hay
+transformación rígida que conserve las dos siluetas: o se deforma el trazo o las estrellas se
+despegan. Se retira la función entera antes que mostrar una solución a medias.
+
+**La maestría no es una figura.** Treinta y un cursos en una silueta de doce vértices es un nudo. Una
+maestría con énfasis se compone como familia: cinco figuras, una por énfasis, con sus cursos
+exclusivos; lo compartido va en columna entre las figuras que lo comparten.
+
+**El reparto vuelve al arco.** El reparto por franjas de periodo amontonaba las estrellas en cuatro
+anillos. Vuelve el reparto por longitud de arco, en orden de plan.
+
+**El sistema de diseño sube un escalón.** Escala semántica de 12 a 44 px, estrellas de 9 a 20 px y
+línea de constelación de 2,4 px. El rótulo superior cambia de sujeto: manda el nombre del programa.

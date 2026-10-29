@@ -10,7 +10,6 @@ export interface Viaje {
 export interface OpcionesViaje {
   duracion?: number
   escalon?: number
-  bisagras?: Set<string>
   ahora?: number
 }
 
@@ -26,13 +25,11 @@ export function ease(t: number): number {
  *
  * Las que recorren más distancia arrancan antes; todas aterrizan al mismo
  * tiempo, así que el movimiento se lee como una reunión y no como una estampida.
- * Las bisagras (cursos compartidos) salen al final: son el punto de encuentro
- * de las dos figuras y deben llegar juntas.
  */
 export function planViaje(
   desde: Map<string, Punto>,
   hasta: Map<string, Punto>,
-  { duracion = 600, escalon = 120, bisagras = new Set<string>(), ahora = 0 }: OpcionesViaje = {},
+  { duracion = 600, escalon = 120, ahora = 0 }: OpcionesViaje = {},
 ): Map<string, Viaje> {
   let maxD = 0
   const distancias = new Map<string, number>()
@@ -47,9 +44,8 @@ export function planViaje(
   for (const [id, b] of hasta) {
     const a = desde.get(id) ?? b
     const norm = maxD > 0 ? (distancias.get(id) ?? 0) / maxD : 0
-    const esBisagra = bisagras.has(id)
-    const inicio = ahora + (1 - norm) * escalon + (esBisagra ? escalon * 0.8 : 0)
-    const fin = ahora + duracion + (esBisagra ? escalon * 0.6 : 0)
+    const inicio = ahora + (1 - norm) * escalon
+    const fin = ahora + duracion
     plan.set(id, { desde: a, hasta: b, inicio, fin })
   }
   return plan

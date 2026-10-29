@@ -9,14 +9,16 @@
   --ff-serif: 'Iowan Old Style', Baskerville, Georgia, serif;
   --ff-sans: 'Helvetica Neue', 'Archivo', Arial, sans-serif;
 
-  --fz-11: 0.6875rem;
-  --fz-125: 0.78125rem;
-  --fz-14: 0.875rem;
-  --fz-16: 1rem;
-  --fz-20: 1.25rem;
-  --fz-25: 1.5625rem;
-  --fz-30: 1.875rem;
-  --fz-40: 2.5rem;
+  /* Escala tipográfica semántica. Subió un escalón completa: la lectura
+     en proyector y en la sala del comité manda. */
+  --fz-xs: 0.75rem; /* 12 */
+  --fz-sm: 0.875rem; /* 14 */
+  --fz-md: 1rem; /* 16 */
+  --fz-lg: 1.125rem; /* 18 */
+  --fz-xl: 1.375rem; /* 22 */
+  --fz-2xl: 1.75rem; /* 28 */
+  --fz-3xl: 2.125rem; /* 34 */
+  --fz-4xl: 2.75rem; /* 44 */
 
   /* Color base */
   --c-paper: #ffffff;
@@ -70,9 +72,10 @@
   --sp-16: 64px;
 
   /* Trazos y opacidades */
-  --stroke-grid: 0.8;
-  --stroke-const: 1.5;
-  --stroke-active: 2;
+  --stroke-grid: 0.9;
+  --stroke-const: 2.4;
+  --stroke-link: 1.2;
+  --stroke-active: 3;
   --op-dim: 0.28;
   --op-mid: 0.6;
   --op-on: 1;

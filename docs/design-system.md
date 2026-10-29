@@ -30,9 +30,12 @@ es para desarrollo sin conexión y para las láminas de `docs/assets/`.
 Ajustes de eje copiados del sitio: `font-variation-settings: 'INKT' 100` en Area;
 `'opsz' 10` en Palast. Los botones usan Area con `'INKT' 100` y peso 700.
 
-Escala (px, derivada del `font-size: 20px` del sitio): `11 · 12.5 · 14 · 16 · 20 · 25 · 30 · 40`.
-Interlineado 1.35 en cuerpo, 1.1 en títulos. Tracking `0.14em` en versalitas de sección,
-`-0.02em` en títulos display.
+Escala semántica (px): `12 · 14 · 16 · 18 · 22 · 28 · 34 · 44`, de `--fz-xs` a `--fz-4xl`.
+Subió un escalón completa respecto de la versión de escritorio: la pieza se lee en proyector y en la
+sala del comité, no en una laptop a 40 cm.
+
+Interlineado 1.35 en cuerpo, 1.05–1.1 en títulos. Tracking `0.14em` en versalitas, `-0.02em` en
+títulos display. Ningún componente declara un tamaño en píxeles: siempre `--fz-*`.
 
 Reglas: no cursiva en Area; no versalitas en Palast; números tabulares siempre.
 
@@ -96,7 +99,9 @@ solo aparece en rellenos con texto en tinta (chips, leyenda, halos) y en la fran
 
 - Escala: `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96`. Base 4.
 - Radios: `0` por defecto; `999px` solo en chips y botones (como el sitio de la Facultad).
-- Trazos: `0.8` retícula · `1.1` glifo · `1.5` constelación · `2` énfasis activo.
+- Trazos: `--stroke-grid` 0.9 (retícula) · `--stroke-const` 2.4 (constelación) ·
+  `--stroke-link` 1.2 (enlace tronco → figura) · `--stroke-active` 3 (foco).
+  La línea de constelación pesa más que cualquier otra cosa en pantalla: es el dibujo.
 - Sombras: ninguna. Gradientes: ninguno.
 - Movimiento: `120ms` hover · `220ms` panel · `360ms` entrada de constelación ·
   `cubic-bezier(.2,0,0,1)`. Con `prefers-reduced-motion`, estados finales sin animación.
@@ -116,7 +121,8 @@ Un glifo = un eje curricular. Se construyen en una retícula de radio 1 y se esc
 | Destello lleno | `disciplinar` | Destello de 4 puntas r=1.2, relleno |
 | Estrella de 6 puntas | `trayectoria` | Polígono de 12 vértices, radio 1.3 / 0.57 |
 
-Tamaño: `r = 4.5 + 1.4·√n_programas`, acotado a `[6, 10.5]` px.
+Tamaño: `r = 9 + 2.8·√n_programas`, acotado a `[9, 20]` px. En la nebulosa se dibuja al 42 % de ese
+radio: el cielo de fondo no compite con la constelación encendida.
 
 ---
 
@@ -124,14 +130,14 @@ Tamaño: `r = 4.5 + 1.4·√n_programas`, acotado a `[6, 10.5]` px.
 
 | Componente | Props | Estados | Regla |
 |---|---|---|---|
-| `ProgramPicker` | `programs`, `selectedIds`, `max=2` | vacío, activo, lleno | Agrupa por escala (maestrías, énfasis, especializados). Nunca en modal. |
+| `ProgramPicker` | `programs`, `selectedIds` | vacío, activo | Plegable por maestría; la del programa elegido se abre sola. **Un programa a la vez.** |
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
-| `Star` | `course`, `x`, `y`, `r`, `shared`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo. Fuera de selección: punto sólido al 28 %. |
+| `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo. Fuera de selección: punto sólido al 22 %. |
 
-| `Legend` | `items` | 1–2 ítems | Línea, tono, número y nombre de la figura. |
-| `Composer` | `figures`, `nucleus`, `shared` | una, dos | Compone las figuras sobre el tronco; puro, sin DOM. |
+| `Legend` | `items` | 1 ítem | Línea, nombre del programa y, en cursiva, el de su figura. |
+| `Composer` | `figures`, `nucleus` | figura, familia | Compone la escena; puro, sin DOM. |
 | `CourseList` | `courses`, `groupBy="eje"` | normal, vacío | Agrupa por eje, ordena por periodo. |
 | `CourseDetail` | `course`, `programs` | normal | Escalas de pertenencia, de mayor a menor. |
 | `StatusBadge` | `state` | propuesto, pendiente | Solo si el dato no es verificado. |
@@ -201,7 +207,8 @@ En `< 720 px`: chips en fila desplazable, cielo a ancho completo, panel como hoj
 7. **Prohibido animar `width`, `height`, `top`, `left`.** Solo `transform`, `opacity` y
    `stroke-dashoffset`.
 8. **Prohibido el modo oscuro.** El blanco es una decisión.
-9. **Máximo 2 programas activos y 3 controles en la barra.**
+9. **Un solo programa activo y 3 controles en la barra.** La comparación está aplazada hasta tener
+   una solución que no obligue a deformar figuras.
 10. **Ningún componente declara una familia tipográfica literal.** Se usa `--ff-*`.
 
 ---
