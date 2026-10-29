@@ -48,3 +48,22 @@ dependen de la selección; la mitad estable es la nebulosa.
 **Máximo dos.** Con tres o más figuras sobre el mismo tronco no se lee. Además el núcleo es común a
 todos los planes, así que «dejar que se solapen» habría solapado las figuras por completo: el núcleo
 deja de pertenecer a las figuras y pasa a ser el tronco del que crecen.
+
+---
+
+## 2026-10-29 · Sprint 1: el cielo quieto
+
+**Datos tipados.** `build-curriculum.mjs` valida seis invariantes y escribe `curriculum.json`
+(83 cursos, 236 pertenencias). Las siluetas salieron de la lámina a `figures.json` para que la app y
+las figuras de `docs/` no puedan divergir. *Por qué:* dos copias de una silueta terminan distintas.
+
+**Nebulosa.** `build-atlas.mjs` relaja 83 estrellas con semilla fija y atracción por maestría; el
+resultado se versiona. Se probaron dos juegos de fuerzas: el primero amontonaba Creación sobre
+Patrimonio. *Por qué:* sin estructura la nube es ruido y el viaje a la figura no cuenta nada.
+
+**Núcleo.** Costó una definición: «compartido con otro plan» metía los cuatro seminarios de música en
+el tronco de Composición. La regla correcta es la intersección de los planes hermanos más los cursos
+de alcance escuela. *Por qué:* el tronco es lo que comparten todos, no lo que comparten algunos.
+
+**Estado.** 15 pruebas en verde, `svelte-check` limpio, build de 27 kB gzip. La app dibuja el cielo y
+no se mueve.

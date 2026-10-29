@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "semilla": 20261029,
+  "caja": {
+    "w": 1000,
+    "h": 1000
+  },
+  "regiones": {
+    "mae-creacion": [
+      159.32,
+      520.87
+    ],
+    "mae-he": [
+      434.13,
+      142.62
+    ],
+    "mae-gepc": [
+      878.79,
+      287.1
+    ],
+    "mae-periodismo": [
+      878.79,
+      754.65
+    ],
+    "mae-patrimonio": [
+      434.13,
+      899.13
+    ]
+  },
+  "grupos": {
+    "mae-creacion": [
+      175.3751612903226,
+      523.4293548387095
+    ],
+    "mae-he": [
+      443.54437500000006,
+      152.97000000000003
+    ],
+    "mae-gepc": [
+      868.9433333333333,
+      298.89599999999996
+    ],
+    "mae-periodismo": [
+      866.1444444444444,
+      748.0811111111111
+    ],
+    "mae-patrimonio": [
+      446.74499999999995,
+      892.2416666666667
+    ]
+  },
+  "puntos": {
+    "cur-arte-est-1": [
+      219.26,
+      395.39
+    ],
+    "cur-arte-est-2": [
+      229.35,
+      623.15
+    ],
+    "cur-arte-est-3": [
+      164.73,
+      543.64
+    ],
+    "cur-arte-intro": [
+      303.08,
+      501.43
+    ],
+    "cur-arte-proy-1": [
+      87.89,
+      624.85
+    ],
+    "cur-arte-proy-2": [
+      157.46,
+      488.38
+    ],
+    "cur-arte-proy-3": [
+      127.24,
+      450.44
+    ],
+    "cur-clas-seminario": [
+      530.15,
+      103.13
+    ],
+    "cur-comp-1": [
+      110.43,
+      403.17
+    ],
+    "cur-comp-2": [
+      279.51,
+      620.68
+    ],
+    "cur-comp-3": [
+      260.01,
+      576.35
+    ],
+    "cur-edit-diseno": [
+      924.19,
+      374.99
+    ],
+    "cur-edit-editorial": [
+      817.64,
+      265.25
+    ],
+    "cur-edit-electivo": [
+      816.5,
+      382.45
+    ],
+    "cur-edit-gestion": [
+      935.09,
+      225.32
+    ],
+    "cur-electiva": [
+      575.71,
+      560.92
+    ],
+    "cur-escritura-intro": [
+      105.87,
+      575.93
+    ],
+    "cur-escritura-proy-1": [
+      243.93,
+      534.92
+    ],
+    "cur-escritura-proy-2": [
+      289.27,
+      446.9
+    ],
+    "cur-escritura-proy-3": [
+      206.08,
+      470.69
+    ],
+    "cur-escritura-taller-1": [
+      49.56,
+      578.08
+    ],
+    "cur-escritura-taller-2": [
+      305.03,
+      553.17
+    ],
+    "cur-escritura-taller-3": [
+      175.16,
+      436.25
+    ],
+    "cur-foto-est-edicion": [
+      200.33,
+      516.22
+    ],
+    "cur-foto-est-publicacion": [
+      66.39,
+      442.23
+    ],
+    "cur-foto-est-tiempo": [
+      241.42,
+      437.09
+    ],
+    "cur-foto-intro": [
+      163.73,
+      387.83
+    ],
+    "cur-foto-proy-1": [
+      135.38,
+      646.07
+    ],
+    "cur-foto-proy-2": [
+      191.64,
+      664.59
+    ],
+    "cur-foto-proy-3": [
+      181.68,
+      614.97
+    ],
+    "cur-garte-ecosistemas": [
+      873.07,
+      388.16
+    ],
+    "cur-garte-electivo": [
+      793.42,
+      332.18
+    ],
+    "cur-garte-gestion": [
+      857.86,
+      289.23
+    ],
+    "cur-garte-publicos": [
+      850,
+      336.78
+    ],
+    "cur-gepc-fundamentos": [
+      946.56,
+      278.98
+    ],
+    "cur-gepc-practica-1": [
+      874.92,
+      204.53
+    ],
+    "cur-gepc-practica-2": [
+      891.25,
+      256.58
+    ],
+    "cur-hamb-fundamentos": [
+      477.44,
+      116.93
+    ],
+    "cur-hamb-seminario": [
+      478.56,
+      242.05
+    ],
+    "cur-harte-pensar": [
+      528.15,
+      210.68
+    ],
+    "cur-harte-seminario": [
+      528.49,
+      155.91
+    ],
+    "cur-hd-datos": [
+      426.04,
+      198.09
+    ],
+    "cur-hd-electivo": [
+      421.92,
+      55.64
+    ],
+    "cur-hd-fundamentos": [
+      340.29,
+      154.77
+    ],
+    "cur-hd-narrativas": [
+      390.62,
+      153.4
+    ],
+    "cur-hd-prototipado": [
+      480.84,
+      64.11
+    ],
+    "cur-he-diseno": [
+      421.66,
+      248.75
+    ],
+    "cur-he-teoria-1": [
+      443.05,
+      149.71
+    ],
+    "cur-he-teoria-2": [
+      479.79,
+      184.18
+    ],
+    "cur-he-teoria-3": [
+      370.27,
+      210.63
+    ],
+    "cur-he-trabajo-grado": [
+      362.59,
+      94.51
+    ],
+    "cur-icg": [
+      551.37,
+      496.19
+    ],
+    "cur-lab-cocreacion": [
+      326.4,
+      732.63
+    ],
+    "cur-lab-gestion": [
+      502.32,
+      596.18
+    ],
+    "cur-lab-teorico-practico": [
+      452.94,
+      519.38
+    ],
+    "cur-lit-seminario": [
+      416.85,
+      105.03
+    ],
+    "cur-musica-contexto-1": [
+      252.95,
+      490.58
+    ],
+    "cur-musica-contexto-2": [
+      148.02,
+      587.15
+    ],
+    "cur-musica-contexto-3": [
+      94.11,
+      485.57
+    ],
+    "cur-musica-intro": [
+      76.38,
+      535.47
+    ],
+    "cur-neg-electivo": [
+      771.33,
+      282.96
+    ],
+    "cur-neg-estrategias": [
+      960,
+      329.99
+    ],
+    "cur-neg-marketing": [
+      902.76,
+      320.68
+    ],
+    "cur-neg-musica": [
+      819.56,
+      215.36
+    ],
+    "cur-pat-apropiacion": [
+      500.53,
+      862.29
+    ],
+    "cur-pat-electivo": [
+      444.6,
+      944.36
+    ],
+    "cur-pat-gestion": [
+      401.17,
+      865.95
+    ],
+    "cur-pat-proyecto-1": [
+      449.53,
+      845.14
+    ],
+    "cur-pat-proyecto-2": [
+      395.66,
+      919.85
+    ],
+    "cur-pat-valoracion": [
+      488.98,
+      915.86
+    ],
+    "cur-per-desafios-1": [
+      814.24,
+      694.82
+    ],
+    "cur-per-desafios-2": [
+      872.92,
+      769.93
+    ],
+    "cur-per-escrito": [
+      860.13,
+      724.06
+    ],
+    "cur-per-imagen": [
+      926.99,
+      715.87
+    ],
+    "cur-per-lab-sala": [
+      882.34,
+      674.54
+    ],
+    "cur-per-metodos": [
+      799.15,
+      753.12
+    ],
+    "cur-per-practica": [
+      884.91,
+      821.63
+    ],
+    "cur-per-tg-1": [
+      822.52,
+      804.98
+    ],
+    "cur-per-tg-2": [
+      932.1,
+      773.78
+    ],
+    "cur-prod-1": [
+      206.18,
+      570.41
+    ],
+    "cur-prod-2": [
+      124.56,
+      523.82
+    ],
+    "cur-prod-3": [
+      40,
+      500.89
+    ],
+    "cur-transversal": [
+      608.5,
+      512
+    ]
+  }
+}

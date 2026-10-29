@@ -88,41 +88,34 @@ interface DataPort {
 ```
 src/
   main.ts
-  App.svelte
+  app.css                    # reset y estilos de elemento
+  App.svelte                 # armazón: cabecera, cielo, pie
   lib/
     data/
       curriculum.json        # generado: cursos, programas, ofertas
-      types.ts               # tipos del bundle
+      atlas.json             # generado: posición de reposo de los 83 cursos
+      figures.json           # las 18 siluetas, fuente única con scripts/make-figures.mjs
+      types.ts               # tipos + acceso tipado a los tres JSON
+      contract.test.ts       # contrato de datos
     domain/
-      graph.ts               # buildGraph(programIds) → nodos + aristas
-      programs.ts            # índice de pertenencias, ancestros, hermanos
-      figures.ts             # las 18 siluetas y placeOnFigure(n)
-      nebula.ts              # posición de reposo de los 83 cursos (lee atlas.json)
-      compose.ts             # 0, 1 o 2 figuras sobre el tronco; bisagras y relajación
-      palette.ts             # familia → tono, patrón por orden de selección
-    state/
-      sky.svelte.ts          # store único (runas)
-      selectors.ts           # derivaciones memoizadas
+      graph.ts               # cursos de un programa, núcleo, grafo, hermanos
+      figures.ts             # placeOnFigure(n) por longitud de arco
+      nebula.ts              # atlas → viewport
+      compose.ts             # escena para 0, 1 y 2 programas; bisagra
+      *.test.ts
     viz/
-      transition.ts          # interpolación de posiciones y escalonado
-      scales.ts              # tamaño por n_programas, color por familia
-      geometry.ts            # polar, rotación, longitud de arco
+      geometry.ts            # destello, polígono, polilínea → d
+      palette.ts             # familia cromática, tono, radio por compartición
     components/
-      SkyStage.svelte
-      Star.svelte
-      ConstellationPath.svelte
-      ProgramPicker.svelte
-      ProgramChip.svelte
-      Sheet.svelte
-      CourseList.svelte
-      CourseDetail.svelte
-      Legend.svelte
-      StatusBadge.svelte
-      EmptySky.svelte
-      Toolbar.svelte
+      SkyStage.svelte        # único componente que dibuja el SVG
+      StarGlyph.svelte       # glifo por eje curricular
   styles/
-    tokens.css               # única fuente de color, tipo y espacio (docs/design-system.md §7)
-    base.css                 # reset y estilos de elemento
+    tokens.css               # única fuente de color, tipo y espacio
+scripts/
+  build-curriculum.mjs       # CSV → JSON con validación
+  build-atlas.mjs            # nebulosa determinista
+  make-figures.mjs           # láminas de docs/assets
+data/*.csv                   # fuente curada del currículo
 ```
 
 ---
@@ -181,7 +174,7 @@ estado, el cambio se hace en el store y el evento solo describe el resultado.
 
 1. `build-data.mjs` valida invariantes (ver `data-model.md` §5) y escribe los CSV. Falla el build
    si algo no cuadra.
-2. `scripts/build-curriculum.ts` (sprint 1) convierte los CSV a `curriculum.json` tipado y
+2. `scripts/build-curriculum.mjs` (sprint 1) convierte los CSV a `curriculum.json` tipado y
    **vuelve a validar** en el bundle: ninguna app arranca con datos inconsistentes.
 3. En runtime los objetos son inmutables: `Object.freeze` en desarrollo.
 4. Los datos llevan su `estado` (`verificado`, `derivado`, `propuesto`, `pendiente`) y la interfaz

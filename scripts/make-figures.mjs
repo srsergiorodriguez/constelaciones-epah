@@ -101,54 +101,10 @@ const GLIFO = {
 /* ---------- figuras de constelación (0..100, y hacia abajo, raíz al pie) ----------
    Cada constelación tiene una silueta propia; las estrellas se reparten sobre el
    trazo por longitud de arco, como cuentas en un alambre. */
-const FIGS = {
-  ave: [[8,44],[32,52],[52,62],[80,88],[52,62],[38,28],[26,20]],
-  mano: [[46,94],[34,74],[26,40],[36,64],[40,30],[46,62],[52,28],[58,62],[64,36],[64,70],[80,56],[66,80],[54,94]],
-  ojo: [[8,50],[26,32],[50,26],[74,32],[92,50],[74,68],[50,74],[26,68],[8,50],[50,50],[58,50],[50,42],[42,50],[50,58],[50,50]],
-  lira: [[50,92],[24,78],[18,40],[28,26],[34,30],[36,60],[50,74],[64,60],[66,30],[72,26],[82,40],[76,78],[50,92]],
-  onda: [[6, 54], [20, 30], [34, 54], [48, 78], [62, 54], [76, 30], [90, 54], [96, 44]],
-  pluma: [[14,90],[22,66],[34,46],[50,30],[68,18],[84,10],[70,24],[56,40],[44,58],[32,76],[14,90]],
-  orion: [[50,10],[32,24],[38,88],[50,56],[62,88],[68,24],[50,10]],
-  libro: [[10, 44], [50, 54], [90, 44], [90, 82], [50, 92], [10, 82], [10, 44], [50, 54], [50, 92]],
-  columna: [[28, 16], [72, 16], [68, 24], [62, 24], [62, 80], [72, 88], [28, 88], [38, 80], [38, 24], [32, 24], [28, 16]],
-  corona: [[12, 70], [20, 40], [36, 20], [50, 14], [64, 20], [80, 40], [88, 70], [72, 80], [50, 84], [28, 80], [12, 70]],
-  red: [[50, 48], [22, 26], [14, 62], [40, 84], [50, 48], [80, 32], [86, 66], [62, 86], [40, 84]],
-  arbol: [[50,92],[22,52],[38,56],[18,30],[40,36],[50,12],[60,36],[82,30],[62,56],[78,52],[50,92]],
-  compas: [[50, 10], [24, 90], [30, 70], [50, 28], [70, 70], [76, 90], [50, 10]],
-  nota: [[30,80],[40,74],[46,80],[38,86],[30,80],[44,70],[44,18],[66,12],[58,30],[46,34]],
-  marco: [[18, 22], [82, 12], [90, 82], [26, 90], [18, 22], [50, 20], [54, 84]],
-  pliego: [[24, 90], [24, 18], [56, 18], [78, 40], [78, 90], [24, 90], [56, 18], [56, 40], [78, 40]],
-  microfono: [[50,94],[50,26],[34,14],[50,26],[66,14],[50,26],[50,6]],
-  anfora: [[40, 10], [60, 10], [58, 22], [74, 38], [78, 66], [60, 88], [40, 88], [22, 66], [26, 38], [42, 22], [40, 10]],
-};
-
-const FIGURA_DE = {
-  "mae-creacion": "ave",
-  "enf-creacion-arte": "mano",
-  "enf-creacion-fotografia": "ojo",
-  "enf-creacion-composicion": "lira",
-  "enf-creacion-produccion": "onda",
-  "enf-creacion-escritura": "pluma",
-  "mae-he": "orion",
-  "enf-he-literatura": "libro",
-  "enf-he-historia-arte": "columna",
-  "enf-he-clasicos": "corona",
-  "enf-he-humanidades-digitales": "red",
-  "enf-he-humanidades-ambientales": "arbol",
-  "mae-gepc": "compas",
-  "enf-gepc-negocios-musica": "nota",
-  "enf-gepc-arte": "marco",
-  "enf-gepc-edicion": "pliego",
-  "mae-periodismo": "microfono",
-  "mae-patrimonio": "anfora",
-};
-
-const NOMBRE_FIGURA = {
-  ave: "el ave", mano: "la mano", ojo: "el ojo", lira: "la lira", onda: "la onda", pluma: "la pluma",
-  orion: "la figura humana", libro: "el libro abierto", columna: "la columna", corona: "la corona",
-  red: "la red", arbol: "el árbol", compas: "el compás", nota: "la nota", marco: "el marco",
-  pliego: "el pliego", microfono: "la antena", anfora: "el ánfora",
-};
+const FIG = JSON.parse(readFileSync(join(ROOT, "src", "lib", "data", "figures.json"), "utf8"));
+const FIGS = Object.fromEntries(Object.entries(FIG.figuras).map(([k, v]) => [k, v.puntos]));
+const FIGURA_DE = FIG.programa;
+const NOMBRE_FIGURA = Object.fromEntries(Object.entries(FIG.figuras).map(([k, v]) => [k, v.nombre]));
 
 /* Coloca n estrellas sobre la figura: primero en los vértices (como un asterismo
    real) y, si faltan, reparte sobre los tramos más largos. */

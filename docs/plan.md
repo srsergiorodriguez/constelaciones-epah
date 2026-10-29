@@ -1,7 +1,8 @@
 # Plan activo
 
-**Fase actual: 0 — plan y datos.** Todavía no hay aplicación. Lo que sigue está ordenado para que
-cada sprint produzca algo mostrable al comité.
+**Fase actual: 1 completado — datos tipados, dominio y nebulosa.** La app ya dibuja el cielo
+completo; todavía no hay selección. Lo que sigue está ordenado para que cada sprint produzca algo
+mostrable al comité.
 
 ---
 
@@ -23,19 +24,33 @@ cada sprint produzca algo mostrable al comité.
 
 ---
 
-## Sprint 1 · Datos tipados y dominio
+## Sprint 1 · Datos tipados y dominio ✅
 
 Objetivo: que la app pueda construir el grafo sin tocar CSV y sin adivinar nada.
 
-- [ ] `scripts/build-curriculum.ts`: CSV → `src/lib/data/curriculum.json` + validación de contrato
-- [ ] `types.ts`: `Curso`, `Programa`, `Oferta`, `CurriculumBundle`
-- [ ] `domain/programs.ts`: índice de pertenencias, ancestros, hermanos, maestría de un énfasis
-- [ ] `domain/graph.ts`: `buildGraph(programIds)` con nodos únicos y aristas por programa
-- [ ] `domain/palette.ts`: familia → tono, patrón por orden de selección, contraste verificado
-- [ ] Pruebas: contrato (2), grafo (4), paleta (2)
+- [x] `scripts/build-curriculum.mjs`: CSV → `src/lib/data/curriculum.json` + validación de contrato
+- [x] `types.ts`: `Curso`, `Programa`, `Oferta`, `CurriculumBundle`
+- [x] `data/figures.json`: las 18 siluetas, fuente única para la app y las láminas
+- [x] `domain/graph.ts`: cursos de un programa (una maestría es la unión de sus énfasis), núcleo,
+      grafo de una selección
+- [x] `domain/figures.ts`: `placeOnFigure(polilínea, n)` por longitud de arco
+- [x] `domain/nebula.ts`: atlas → viewport
+- [x] `domain/compose.ts`: escena para 0, 1 y 2 programas, con bisagra
+- [x] `scripts/build-atlas.mjs`: nebulosa determinista (semilla 20261029, sin `Math.random`)
+- [x] `styles/tokens.css` y `app.css`
+- [x] `SkyStage.svelte`: 83 estrellas, retícula, rótulos de región
+- [x] Pruebas: contrato (4), grafo (3), figuras (3), nebulosa (2), composición (3) = **15**
 
-**Aceptación:** `buildGraph(["mae-creacion"])` devuelve 35 nodos y 60 aristas; `buildGraph` de un
-especializado devuelve 4 nodos; ninguna prueba de UI.
+**Aceptación:** ✔ el cielo se renderiza con 83 estrellas en 1200×900; recargar no mueve ninguna;
+`vitest` 15/15; `svelte-check` sin errores; build de 137 kB (27 kB gzip).
+
+**Notas de implementación.**
+
+- No se instaló `d3`: el SVG lo resuelve Svelte. `d3-scale`/`d3-zoom` entrarán con la cámara y la
+  transición en el sprint 2; `d3-force` no entra nunca (el atlas es determinista).
+- El viewBox es fijo (1200×900) y la escena se compone en esas coordenadas: el cielo escala solo.
+- Las alternativas cuentan para el ancla de la nebulosa (un curso alternativo sigue siendo de ese
+  plan), pero no para el grafo de pertenencias obligatorias.
 
 ---
 

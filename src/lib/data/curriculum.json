@@ -1,0 +1,5106 @@
+{
+  "version": 1,
+  "meta": {
+    "escuela": "Escuela de Posgrados · Facultad de Artes y Humanidades",
+    "fuente": "Reforma EPAH — Documento maestro final (110 pp.)",
+    "programas": 32,
+    "cursos": 83,
+    "ofertas": 236
+  },
+  "programas": {
+    "escuela-epah": {
+      "id": "escuela-epah",
+      "nombre": "Escuela de Posgrados · Artes y Humanidades",
+      "nombreCorto": "Escuela",
+      "tipo": "escuela",
+      "padreId": null,
+      "maestriaId": null,
+      "creditos": null,
+      "estado": "derivado",
+      "nota": ""
+    },
+    "mae-creacion": {
+      "id": "mae-creacion",
+      "nombre": "Maestría en Creación",
+      "nombreCorto": "Creación",
+      "tipo": "maestria",
+      "padreId": "escuela-epah",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": "El plan marco (p. 1) es la plantilla curricular; cada énfasis la instancia con sus propios cursos."
+    },
+    "enf-creacion-arte": {
+      "id": "enf-creacion-arte",
+      "nombre": "Maestría en Creación — Énfasis en Arte",
+      "nombreCorto": "Arte",
+      "tipo": "enfasis",
+      "padreId": "mae-creacion",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-creacion-fotografia": {
+      "id": "enf-creacion-fotografia",
+      "nombre": "Maestría en Creación — Énfasis en Fotografía, Imagen y Medios",
+      "nombreCorto": "Fotografía e imagen",
+      "tipo": "enfasis",
+      "padreId": "mae-creacion",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-creacion-composicion": {
+      "id": "enf-creacion-composicion",
+      "nombre": "Maestría en Creación — Énfasis en Composición Musical",
+      "nombreCorto": "Composición musical",
+      "tipo": "enfasis",
+      "padreId": "mae-creacion",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-creacion-produccion": {
+      "id": "enf-creacion-produccion",
+      "nombre": "Maestría en Creación — Énfasis en Producción Musical",
+      "nombreCorto": "Producción musical",
+      "tipo": "enfasis",
+      "padreId": "mae-creacion",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-creacion-escritura": {
+      "id": "enf-creacion-escritura",
+      "nombre": "Maestría en Creación — Énfasis en Escritura Creativa",
+      "nombreCorto": "Escritura creativa",
+      "tipo": "enfasis",
+      "padreId": "mae-creacion",
+      "maestriaId": "mae-creacion",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "mae-he": {
+      "id": "mae-he",
+      "nombre": "Maestría en Humanidades Experimentales",
+      "nombreCorto": "Humanidades Experimentales",
+      "tipo": "maestria",
+      "padreId": "escuela-epah",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-he-literatura": {
+      "id": "enf-he-literatura",
+      "nombre": "Maestría en Humanidades Experimentales — Énfasis en Literatura",
+      "nombreCorto": "Literatura",
+      "tipo": "enfasis",
+      "padreId": "mae-he",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-he-historia-arte": {
+      "id": "enf-he-historia-arte",
+      "nombre": "Maestría en Humanidades Experimentales — Énfasis en Historia y Teoría del Arte",
+      "nombreCorto": "Historia y teoría del arte",
+      "tipo": "enfasis",
+      "padreId": "mae-he",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-he-clasicos": {
+      "id": "enf-he-clasicos",
+      "nombre": "Maestría en Humanidades Experimentales — Énfasis en Estudios Clásicos",
+      "nombreCorto": "Estudios clásicos",
+      "tipo": "enfasis",
+      "padreId": "mae-he",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-he-humanidades-digitales": {
+      "id": "enf-he-humanidades-digitales",
+      "nombre": "Maestría en Humanidades Experimentales — Énfasis en Humanidades Digitales",
+      "nombreCorto": "Humanidades digitales",
+      "tipo": "enfasis",
+      "padreId": "mae-he",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-he-humanidades-ambientales": {
+      "id": "enf-he-humanidades-ambientales",
+      "nombre": "Maestría en Humanidades Experimentales — Énfasis en Humanidades Ambientales",
+      "nombreCorto": "Humanidades ambientales",
+      "tipo": "enfasis",
+      "padreId": "mae-he",
+      "maestriaId": "mae-he",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "mae-gepc": {
+      "id": "mae-gepc",
+      "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales",
+      "nombreCorto": "Gestión estratégica",
+      "tipo": "maestria",
+      "padreId": "escuela-epah",
+      "maestriaId": "mae-gepc",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-gepc-negocios-musica": {
+      "id": "enf-gepc-negocios-musica",
+      "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Negocios de la Música",
+      "nombreCorto": "Negocios de la música",
+      "tipo": "enfasis",
+      "padreId": "mae-gepc",
+      "maestriaId": "mae-gepc",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-gepc-arte": {
+      "id": "enf-gepc-arte",
+      "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Arte",
+      "nombreCorto": "Arte",
+      "tipo": "enfasis",
+      "padreId": "mae-gepc",
+      "maestriaId": "mae-gepc",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "enf-gepc-edicion": {
+      "id": "enf-gepc-edicion",
+      "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Edición",
+      "nombreCorto": "Edición",
+      "tipo": "enfasis",
+      "padreId": "mae-gepc",
+      "maestriaId": "mae-gepc",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": ""
+    },
+    "mae-periodismo": {
+      "id": "mae-periodismo",
+      "nombre": "Maestría en Periodismo",
+      "nombreCorto": "Periodismo",
+      "tipo": "maestria",
+      "padreId": "escuela-epah",
+      "maestriaId": "mae-periodismo",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": "Sin énfasis: su plan es único."
+    },
+    "mae-patrimonio": {
+      "id": "mae-patrimonio",
+      "nombre": "Maestría en Patrimonio Cultural",
+      "nombreCorto": "Patrimonio cultural",
+      "tipo": "maestria",
+      "padreId": "escuela-epah",
+      "maestriaId": "mae-patrimonio",
+      "creditos": 36,
+      "estado": "verificado",
+      "nota": "Sin énfasis: su plan es único."
+    },
+    "pe-creacion-arte": {
+      "id": "pe-creacion-arte",
+      "nombre": "Programa especializado en Arte (Creación)",
+      "nombreCorto": "PE Arte",
+      "tipo": "programa_especializado",
+      "padreId": "enf-creacion-arte",
+      "maestriaId": "mae-creacion",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-creacion-fotografia": {
+      "id": "pe-creacion-fotografia",
+      "nombre": "Programa especializado en Fotografía e imagen (Creación)",
+      "nombreCorto": "PE Fotografía e imagen",
+      "tipo": "programa_especializado",
+      "padreId": "enf-creacion-fotografia",
+      "maestriaId": "mae-creacion",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-creacion-composicion": {
+      "id": "pe-creacion-composicion",
+      "nombre": "Programa especializado en Composición musical (Creación)",
+      "nombreCorto": "PE Composición musical",
+      "tipo": "programa_especializado",
+      "padreId": "enf-creacion-composicion",
+      "maestriaId": "mae-creacion",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-creacion-produccion": {
+      "id": "pe-creacion-produccion",
+      "nombre": "Programa especializado en Producción musical (Creación)",
+      "nombreCorto": "PE Producción musical",
+      "tipo": "programa_especializado",
+      "padreId": "enf-creacion-produccion",
+      "maestriaId": "mae-creacion",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-creacion-escritura": {
+      "id": "pe-creacion-escritura",
+      "nombre": "Programa especializado en Escritura creativa (Creación)",
+      "nombreCorto": "PE Escritura creativa",
+      "tipo": "programa_especializado",
+      "padreId": "enf-creacion-escritura",
+      "maestriaId": "mae-creacion",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-he-literatura": {
+      "id": "pe-he-literatura",
+      "nombre": "Programa especializado en Literatura (Humanidades Experimentales)",
+      "nombreCorto": "PE Literatura",
+      "tipo": "programa_especializado",
+      "padreId": "enf-he-literatura",
+      "maestriaId": "mae-he",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-he-historia-arte": {
+      "id": "pe-he-historia-arte",
+      "nombre": "Programa especializado en Historia y teoría del arte (Humanidades Experimentales)",
+      "nombreCorto": "PE Historia y teoría del arte",
+      "tipo": "programa_especializado",
+      "padreId": "enf-he-historia-arte",
+      "maestriaId": "mae-he",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-he-clasicos": {
+      "id": "pe-he-clasicos",
+      "nombre": "Programa especializado en Estudios clásicos (Humanidades Experimentales)",
+      "nombreCorto": "PE Estudios clásicos",
+      "tipo": "programa_especializado",
+      "padreId": "enf-he-clasicos",
+      "maestriaId": "mae-he",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-he-humanidades-digitales": {
+      "id": "pe-he-humanidades-digitales",
+      "nombre": "Programa especializado en Humanidades digitales (Humanidades Experimentales)",
+      "nombreCorto": "PE Humanidades digitales",
+      "tipo": "programa_especializado",
+      "padreId": "enf-he-humanidades-digitales",
+      "maestriaId": "mae-he",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-he-humanidades-ambientales": {
+      "id": "pe-he-humanidades-ambientales",
+      "nombre": "Programa especializado en Humanidades ambientales (Humanidades Experimentales)",
+      "nombreCorto": "PE Humanidades ambientales",
+      "tipo": "programa_especializado",
+      "padreId": "enf-he-humanidades-ambientales",
+      "maestriaId": "mae-he",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-gepc-negocios-musica": {
+      "id": "pe-gepc-negocios-musica",
+      "nombre": "Programa especializado en Negocios de la música (Gestión estratégica)",
+      "nombreCorto": "PE Negocios de la música",
+      "tipo": "programa_especializado",
+      "padreId": "enf-gepc-negocios-musica",
+      "maestriaId": "mae-gepc",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-gepc-arte": {
+      "id": "pe-gepc-arte",
+      "nombre": "Programa especializado en Arte (Gestión estratégica)",
+      "nombreCorto": "PE Arte",
+      "tipo": "programa_especializado",
+      "padreId": "enf-gepc-arte",
+      "maestriaId": "mae-gepc",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    },
+    "pe-gepc-edicion": {
+      "id": "pe-gepc-edicion",
+      "nombre": "Programa especializado en Edición (Gestión estratégica)",
+      "nombreCorto": "PE Edición",
+      "tipo": "programa_especializado",
+      "padreId": "enf-gepc-edicion",
+      "maestriaId": "mae-gepc",
+      "creditos": 12,
+      "estado": "derivado",
+      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+    }
+  },
+  "cursos": {
+    "cur-arte-est-1": {
+      "id": "cur-arte-est-1",
+      "nombre": "Estudio 1",
+      "codigo": "E1",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": "Temas rotativos: información y forma, abstracción remanufacturada, arte y contexto, acciones y medios (p. 71)."
+    },
+    "cur-arte-est-2": {
+      "id": "cur-arte-est-2",
+      "nombre": "Estudio 2",
+      "codigo": "E2",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-arte-est-3": {
+      "id": "cur-arte-est-3",
+      "nombre": "Estudio 3",
+      "codigo": "E3",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-arte-intro": {
+      "id": "cur-arte-intro",
+      "nombre": "Introducción a la creación artística",
+      "codigo": "ICA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-arte-proy-1": {
+      "id": "cur-arte-proy-1",
+      "nombre": "Proyecto de creación 1",
+      "codigo": "PC1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-arte-proy-2": {
+      "id": "cur-arte-proy-2",
+      "nombre": "Proyecto de creación 2",
+      "codigo": "PC2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-arte-proy-3": {
+      "id": "cur-arte-proy-3",
+      "nombre": "Proyecto de creación 3",
+      "codigo": "PC3",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 5,
+      "nota": ""
+    },
+    "cur-clas-seminario": {
+      "id": "cur-clas-seminario",
+      "nombre": "Seminario de estudios clásicos",
+      "codigo": "SEC",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Estudios clásicos"
+      ],
+      "programasEspecializados": [
+        "PE Estudios clásicos"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+    },
+    "cur-comp-1": {
+      "id": "cur-comp-1",
+      "nombre": "Composición musical 1",
+      "codigo": "CM1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": ""
+    },
+    "cur-comp-2": {
+      "id": "cur-comp-2",
+      "nombre": "Composición musical 2",
+      "codigo": "CM2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": ""
+    },
+    "cur-comp-3": {
+      "id": "cur-comp-3",
+      "nombre": "Composición musical 3",
+      "codigo": "CM3",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": ""
+    },
+    "cur-edit-diseno": {
+      "id": "cur-edit-diseno",
+      "nombre": "Diseño editorial",
+      "codigo": "DIE",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Edición"
+      ],
+      "programasEspecializados": [
+        "PE Edición"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 86,
+      "nota": ""
+    },
+    "cur-edit-editorial": {
+      "id": "cur-edit-editorial",
+      "nombre": "Editorial, autores, mesa y libro",
+      "codigo": "EAM",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Edición"
+      ],
+      "programasEspecializados": [
+        "PE Edición"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    "cur-edit-electivo": {
+      "id": "cur-edit-electivo",
+      "nombre": "Seminario electivo en proyectos de edición",
+      "codigo": "SEE",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Edición"
+      ],
+      "programasEspecializados": [
+        "PE Edición"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 86,
+      "nota": ""
+    },
+    "cur-edit-gestion": {
+      "id": "cur-edit-gestion",
+      "nombre": "Gestión y autogestión de proyectos editoriales",
+      "codigo": "GAE",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Edición"
+      ],
+      "programasEspecializados": [
+        "PE Edición"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 86,
+      "nota": ""
+    },
+    "cur-electiva": {
+      "id": "cur-electiva",
+      "nombre": "Electiva",
+      "codigo": "ELE",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "curso",
+      "alcance": "escuela",
+      "nProgramas": 15,
+      "maestrias": [
+        "Creación",
+        "Humanidades Experimentales",
+        "Gestión estratégica",
+        "Periodismo",
+        "Patrimonio cultural"
+      ],
+      "enfasis": [
+        "Arte",
+        "Fotografía e imagen",
+        "Composición musical",
+        "Producción musical",
+        "Escritura creativa",
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales",
+        "Negocios de la música",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 1,
+      "nota": "Casilla abierta; se homologa desde cualquier programa de la Escuela."
+    },
+    "cur-escritura-intro": {
+      "id": "cur-escritura-intro",
+      "nombre": "Introducción a la escritura creativa",
+      "codigo": "IEC",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [
+        "PE Escritura creativa"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-escritura-proy-1": {
+      "id": "cur-escritura-proy-1",
+      "nombre": "Proyecto de escritura 1",
+      "codigo": "PE1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-escritura-proy-2": {
+      "id": "cur-escritura-proy-2",
+      "nombre": "Proyecto de escritura 2",
+      "codigo": "PE2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-escritura-proy-3": {
+      "id": "cur-escritura-proy-3",
+      "nombre": "Proyecto de escritura 3",
+      "codigo": "PE3",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-escritura-taller-1": {
+      "id": "cur-escritura-taller-1",
+      "nombre": "Taller de escritura 1",
+      "codigo": "TE1",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "taller",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [
+        "PE Escritura creativa"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": "Oferta rotativa: crónica, poesía, cuento, autoficción… (p. 34)."
+    },
+    "cur-escritura-taller-2": {
+      "id": "cur-escritura-taller-2",
+      "nombre": "Taller de escritura 2",
+      "codigo": "TE2",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "taller",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [
+        "PE Escritura creativa"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-escritura-taller-3": {
+      "id": "cur-escritura-taller-3",
+      "nombre": "Taller de escritura 3",
+      "codigo": "TE3",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "taller",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [
+        "PE Escritura creativa"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    "cur-foto-est-edicion": {
+      "id": "cur-foto-est-edicion",
+      "nombre": "Estudio: edición y secuencia",
+      "codigo": "EES",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [
+        "PE Fotografía e imagen"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-est-publicacion": {
+      "id": "cur-foto-est-publicacion",
+      "nombre": "Estudio: publicación, puesta en escena y circulación",
+      "codigo": "EPC",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [
+        "PE Fotografía e imagen"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-est-tiempo": {
+      "id": "cur-foto-est-tiempo",
+      "nombre": "Estudio: imagen, tiempo y sonido",
+      "codigo": "EIT",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "estudio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [
+        "PE Fotografía e imagen"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-intro": {
+      "id": "cur-foto-intro",
+      "nombre": "Introducción a la creación fotográfica",
+      "codigo": "ICF",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [
+        "PE Fotografía e imagen"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-proy-1": {
+      "id": "cur-foto-proy-1",
+      "nombre": "Proyecto y crítica 1",
+      "codigo": "PYC1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-proy-2": {
+      "id": "cur-foto-proy-2",
+      "nombre": "Proyecto y crítica 2",
+      "codigo": "PYC2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-foto-proy-3": {
+      "id": "cur-foto-proy-3",
+      "nombre": "Proyecto y crítica 3",
+      "codigo": "PYC3",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Fotografía e imagen"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    "cur-garte-ecosistemas": {
+      "id": "cur-garte-ecosistemas",
+      "nombre": "Ecosistemas y circuitos del arte",
+      "codigo": "ECA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    "cur-garte-electivo": {
+      "id": "cur-garte-electivo",
+      "nombre": "Seminario electivo en proyectos de arte",
+      "codigo": "SEA",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    "cur-garte-gestion": {
+      "id": "cur-garte-gestion",
+      "nombre": "Gestión estratégica en proyectos de arte",
+      "codigo": "GEA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    "cur-garte-publicos": {
+      "id": "cur-garte-publicos",
+      "nombre": "Públicos, mediación y circulación del arte",
+      "codigo": "PMA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Arte"
+      ],
+      "programasEspecializados": [
+        "PE Arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    "cur-gepc-fundamentos": {
+      "id": "cur-gepc-fundamentos",
+      "nombre": "Fundamentos de la gestión estratégica en proyectos culturales",
+      "codigo": "FGE",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "maestria",
+      "nProgramas": 3,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música",
+        "Arte",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 70,
+      "nota": ""
+    },
+    "cur-gepc-practica-1": {
+      "id": "cur-gepc-practica-1",
+      "nombre": "Práctica de profundización 1",
+      "codigo": "PP1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "practica",
+      "alcance": "maestria",
+      "nProgramas": 3,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música",
+        "Arte",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 72,
+      "nota": ""
+    },
+    "cur-gepc-practica-2": {
+      "id": "cur-gepc-practica-2",
+      "nombre": "Práctica de profundización 2",
+      "codigo": "PP2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "practica",
+      "alcance": "maestria",
+      "nProgramas": 3,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música",
+        "Arte",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 72,
+      "nota": ""
+    },
+    "cur-hamb-fundamentos": {
+      "id": "cur-hamb-fundamentos",
+      "nombre": "Fundamentos en humanidades ambientales",
+      "codigo": "FHA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades ambientales"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    "cur-hamb-seminario": {
+      "id": "cur-hamb-seminario",
+      "nombre": "Seminario en humanidades ambientales",
+      "codigo": "SAM",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades ambientales"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+    },
+    "cur-harte-pensar": {
+      "id": "cur-harte-pensar",
+      "nombre": "Pensar la historia del arte",
+      "codigo": "PHA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Historia y teoría del arte"
+      ],
+      "programasEspecializados": [
+        "PE Historia y teoría del arte"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    "cur-harte-seminario": {
+      "id": "cur-harte-seminario",
+      "nombre": "Seminario de historia del arte",
+      "codigo": "SHA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Historia y teoría del arte"
+      ],
+      "programasEspecializados": [
+        "PE Historia y teoría del arte"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+    },
+    "cur-hd-datos": {
+      "id": "cur-hd-datos",
+      "nombre": "Gestión y análisis de datos e imágenes",
+      "codigo": "GAD",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades digitales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades digitales"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    "cur-hd-electivo": {
+      "id": "cur-hd-electivo",
+      "nombre": "Seminario electivo en humanidades digitales",
+      "codigo": "EHD",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 2,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades digitales",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    "cur-hd-fundamentos": {
+      "id": "cur-hd-fundamentos",
+      "nombre": "Fundamentos en humanidades digitales",
+      "codigo": "FHD",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades digitales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades digitales"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    "cur-hd-narrativas": {
+      "id": "cur-hd-narrativas",
+      "nombre": "Narrativas digitales: del concepto a la interfaz",
+      "codigo": "ND",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades digitales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades digitales"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    "cur-hd-prototipado": {
+      "id": "cur-hd-prototipado",
+      "nombre": "Laboratorio de prototipado y creación digital",
+      "codigo": "LPD",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "laboratorio",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Humanidades digitales"
+      ],
+      "programasEspecializados": [
+        "PE Humanidades digitales"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    "cur-he-diseno": {
+      "id": "cur-he-diseno",
+      "nombre": "Diseño de proyectos",
+      "codigo": "DPR",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "curso",
+      "alcance": "maestria",
+      "nProgramas": 5,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 45,
+      "nota": ""
+    },
+    "cur-he-teoria-1": {
+      "id": "cur-he-teoria-1",
+      "nombre": "Seminario teoría 1: de la Antigüedad a la Modernidad",
+      "codigo": "T1",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 4,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [
+        "PE Literatura",
+        "PE Estudios clásicos"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 47,
+      "nota": ""
+    },
+    "cur-he-teoria-2": {
+      "id": "cur-he-teoria-2",
+      "nombre": "Seminario teoría 2: teorías contemporáneas sobre arte y sociedad",
+      "codigo": "T2",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 4,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Estudios clásicos",
+        "Historia y teoría del arte",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [
+        "PE Literatura"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 47,
+      "nota": ""
+    },
+    "cur-he-teoria-3": {
+      "id": "cur-he-teoria-3",
+      "nombre": "Seminario teoría 3: pensamiento latinoamericano sobre arte y sociedad",
+      "codigo": "T3",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 4,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [
+        "PE Literatura"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 48,
+      "nota": ""
+    },
+    "cur-he-trabajo-grado": {
+      "id": "cur-he-trabajo-grado",
+      "nombre": "Trabajo de grado",
+      "codigo": "TDG",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "maestria",
+      "nProgramas": 5,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": "Puede ser colectivo e inter-énfasis (p. 46)."
+    },
+    "cur-icg": {
+      "id": "cur-icg",
+      "nombre": "Investigación, creación y gestión",
+      "codigo": "ICG",
+      "creditos": 3,
+      "eje": "tronco",
+      "formato": "curso",
+      "alcance": "escuela",
+      "nProgramas": 15,
+      "maestrias": [
+        "Creación",
+        "Humanidades Experimentales",
+        "Gestión estratégica",
+        "Periodismo",
+        "Patrimonio cultural"
+      ],
+      "enfasis": [
+        "Arte",
+        "Fotografía e imagen",
+        "Composición musical",
+        "Producción musical",
+        "Escritura creativa",
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales",
+        "Negocios de la música",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 1,
+      "nota": "Presente en los 15 planes: el centro del cielo."
+    },
+    "cur-lab-cocreacion": {
+      "id": "cur-lab-cocreacion",
+      "nombre": "Laboratorio de cocreación",
+      "codigo": "LCO",
+      "creditos": 3,
+      "eje": "laboratorio",
+      "formato": "laboratorio",
+      "alcance": "escuela",
+      "nProgramas": 6,
+      "maestrias": [
+        "Creación",
+        "Patrimonio cultural"
+      ],
+      "enfasis": [
+        "Arte",
+        "Fotografía e imagen",
+        "Composición musical",
+        "Producción musical",
+        "Escritura creativa"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 2,
+      "nota": ""
+    },
+    "cur-lab-gestion": {
+      "id": "cur-lab-gestion",
+      "nombre": "Laboratorio de gestión estratégica",
+      "codigo": "LGE",
+      "creditos": 3,
+      "eje": "laboratorio",
+      "formato": "laboratorio",
+      "alcance": "escuela",
+      "nProgramas": 5,
+      "maestrias": [
+        "Gestión estratégica",
+        "Patrimonio cultural",
+        "Creación"
+      ],
+      "enfasis": [
+        "Negocios de la música",
+        "Arte",
+        "Edición",
+        "Producción musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 70,
+      "nota": ""
+    },
+    "cur-lab-teorico-practico": {
+      "id": "cur-lab-teorico-practico",
+      "nombre": "Laboratorio teórico-práctico",
+      "codigo": "LTP",
+      "creditos": 3,
+      "eje": "laboratorio",
+      "formato": "laboratorio",
+      "alcance": "escuela",
+      "nProgramas": 6,
+      "maestrias": [
+        "Humanidades Experimentales",
+        "Patrimonio cultural"
+      ],
+      "enfasis": [
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 42,
+      "nota": ""
+    },
+    "cur-lit-seminario": {
+      "id": "cur-lit-seminario",
+      "nombre": "Seminario de literatura",
+      "codigo": "SL",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Humanidades Experimentales"
+      ],
+      "enfasis": [
+        "Literatura"
+      ],
+      "programasEspecializados": [
+        "PE Literatura"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 49,
+      "nota": "Familia de seminarios; el plan lo ofrece dos veces (p. 1 y p. 4)."
+    },
+    "cur-musica-contexto-1": {
+      "id": "cur-musica-contexto-1",
+      "nombre": "Seminario de contexto histórico-teórico 1",
+      "codigo": "CT1",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 2,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical",
+        "Producción musical"
+      ],
+      "programasEspecializados": [
+        "PE Composición musical",
+        "PE Producción musical"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": "Compartido por Composición y Producción musical."
+    },
+    "cur-musica-contexto-2": {
+      "id": "cur-musica-contexto-2",
+      "nombre": "Seminario de contexto histórico-teórico 2",
+      "codigo": "CT2",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 2,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical",
+        "Producción musical"
+      ],
+      "programasEspecializados": [
+        "PE Composición musical",
+        "PE Producción musical"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": ""
+    },
+    "cur-musica-contexto-3": {
+      "id": "cur-musica-contexto-3",
+      "nombre": "Seminario de contexto histórico-teórico 3",
+      "codigo": "CT3",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 2,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical",
+        "Producción musical"
+      ],
+      "programasEspecializados": [
+        "PE Composición musical",
+        "PE Producción musical"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 21,
+      "nota": ""
+    },
+    "cur-musica-intro": {
+      "id": "cur-musica-intro",
+      "nombre": "Introducción a la creación musical",
+      "codigo": "ICM",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "introduccion",
+      "alcance": "maestria",
+      "nProgramas": 2,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Composición musical",
+        "Producción musical"
+      ],
+      "programasEspecializados": [
+        "PE Composición musical",
+        "PE Producción musical"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": "Compartido por Composición y Producción musical."
+    },
+    "cur-neg-electivo": {
+      "id": "cur-neg-electivo",
+      "nombre": "Seminario electivo en proyectos de música",
+      "codigo": "SEM",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "seminario",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música"
+      ],
+      "programasEspecializados": [
+        "PE Negocios de la música"
+      ],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 76,
+      "nota": ""
+    },
+    "cur-neg-estrategias": {
+      "id": "cur-neg-estrategias",
+      "nombre": "Estrategias y modelos de negocio de la música",
+      "codigo": "EMN",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música"
+      ],
+      "programasEspecializados": [
+        "PE Negocios de la música"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    "cur-neg-marketing": {
+      "id": "cur-neg-marketing",
+      "nombre": "Marketing y desarrollo de proyectos en la industria de la música",
+      "codigo": "MKD",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música"
+      ],
+      "programasEspecializados": [
+        "PE Negocios de la música"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 76,
+      "nota": ""
+    },
+    "cur-neg-musica": {
+      "id": "cur-neg-musica",
+      "nombre": "Negocios de la música",
+      "codigo": "NDM",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Gestión estratégica"
+      ],
+      "enfasis": [
+        "Negocios de la música"
+      ],
+      "programasEspecializados": [
+        "PE Negocios de la música"
+      ],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    "cur-pat-apropiacion": {
+      "id": "cur-pat-apropiacion",
+      "nombre": "Seminario de apropiación",
+      "codigo": "SAP",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    "cur-pat-electivo": {
+      "id": "cur-pat-electivo",
+      "nombre": "Seminario electivo en patrimonio",
+      "codigo": "SEP",
+      "creditos": 3,
+      "eje": "electiva",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": "El plan lo ofrece dos veces (p. 1 y p. 4)."
+    },
+    "cur-pat-gestion": {
+      "id": "cur-pat-gestion",
+      "nombre": "Seminario de gestión, conservación y salvaguardia",
+      "codigo": "SGC",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    "cur-pat-proyecto-1": {
+      "id": "cur-pat-proyecto-1",
+      "nombre": "Proyecto de grado 1",
+      "codigo": "PG1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    "cur-pat-proyecto-2": {
+      "id": "cur-pat-proyecto-2",
+      "nombre": "Proyecto de grado 2",
+      "codigo": "PG2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    "cur-pat-valoracion": {
+      "id": "cur-pat-valoracion",
+      "nombre": "Seminario de valoración",
+      "codigo": "SVA",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Patrimonio cultural"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    "cur-per-desafios-1": {
+      "id": "cur-per-desafios-1",
+      "nombre": "Desafíos periodísticos 1",
+      "codigo": "DP1",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    "cur-per-desafios-2": {
+      "id": "cur-per-desafios-2",
+      "nombre": "Desafíos periodísticos 2",
+      "codigo": "DP2",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "seminario",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 94,
+      "nota": ""
+    },
+    "cur-per-escrito": {
+      "id": "cur-per-escrito",
+      "nombre": "Periodismo escrito",
+      "codigo": "PES",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "taller",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    "cur-per-imagen": {
+      "id": "cur-per-imagen",
+      "nombre": "Imagen y sonido",
+      "codigo": "IYS",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "taller",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    "cur-per-lab-sala": {
+      "id": "cur-per-lab-sala",
+      "nombre": "Laboratorio: sala de redacción",
+      "codigo": "LSR",
+      "creditos": 3,
+      "eje": "laboratorio",
+      "formato": "laboratorio",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": "«u otro laboratorio de la Escuela»."
+    },
+    "cur-per-metodos": {
+      "id": "cur-per-metodos",
+      "nombre": "Métodos avanzados de investigación periodística",
+      "codigo": "MAI",
+      "creditos": 3,
+      "eje": "disciplinar",
+      "formato": "curso",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    "cur-per-practica": {
+      "id": "cur-per-practica",
+      "nombre": "Práctica de grado",
+      "codigo": "PGR",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "practica",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 94,
+      "nota": "6 créditos; reemplaza Trabajo de grado 1 y 2."
+    },
+    "cur-per-tg-1": {
+      "id": "cur-per-tg-1",
+      "nombre": "Trabajo de grado 1",
+      "codigo": "TG1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 94,
+      "nota": ""
+    },
+    "cur-per-tg-2": {
+      "id": "cur-per-tg-2",
+      "nombre": "Trabajo de grado 2",
+      "codigo": "TG2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "maestria",
+      "nProgramas": 1,
+      "maestrias": [
+        "Periodismo"
+      ],
+      "enfasis": [],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 94,
+      "nota": ""
+    },
+    "cur-prod-1": {
+      "id": "cur-prod-1",
+      "nombre": "Producción musical 1: técnicas en producción",
+      "codigo": "PM1",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Producción musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 27,
+      "nota": ""
+    },
+    "cur-prod-2": {
+      "id": "cur-prod-2",
+      "nombre": "Producción musical 2: producción musical avanzada",
+      "codigo": "PM2",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Producción musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 27,
+      "nota": ""
+    },
+    "cur-prod-3": {
+      "id": "cur-prod-3",
+      "nombre": "Producción musical 3: proyecto",
+      "codigo": "PM3",
+      "creditos": 3,
+      "eje": "trayectoria",
+      "formato": "proyecto",
+      "alcance": "enfasis",
+      "nProgramas": 1,
+      "maestrias": [
+        "Creación"
+      ],
+      "enfasis": [
+        "Producción musical"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": false,
+      "estado": "verificado",
+      "pagina": 27,
+      "nota": ""
+    },
+    "cur-transversal": {
+      "id": "cur-transversal",
+      "nombre": "Curso transversal",
+      "codigo": "TRV",
+      "creditos": 3,
+      "eje": "transversal",
+      "formato": "seminario",
+      "alcance": "escuela",
+      "nProgramas": 15,
+      "maestrias": [
+        "Creación",
+        "Humanidades Experimentales",
+        "Gestión estratégica",
+        "Periodismo",
+        "Patrimonio cultural"
+      ],
+      "enfasis": [
+        "Arte",
+        "Fotografía e imagen",
+        "Composición musical",
+        "Producción musical",
+        "Escritura creativa",
+        "Literatura",
+        "Historia y teoría del arte",
+        "Estudios clásicos",
+        "Humanidades digitales",
+        "Humanidades ambientales",
+        "Negocios de la música",
+        "Edición"
+      ],
+      "programasEspecializados": [],
+      "ofertaVariable": true,
+      "estado": "verificado",
+      "pagina": 1,
+      "nota": "Menú abierto de la Escuela; el documento solo nombra un caso: «Seminario: lo que hacen las imágenes» (p. 12)."
+    }
+  },
+  "ofertas": [
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-proy-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-est-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-proy-2",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-est-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-proy-3",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-arte-est-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": "Se ofrece «Seminario: lo que hacen las imágenes» (p. 12)."
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-proy-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-est-edicion",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-proy-2",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-est-tiempo",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-proy-3",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-foto-est-publicacion",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-fotografia",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-musica-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-comp-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-musica-contexto-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-comp-2",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-musica-contexto-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-comp-3",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-musica-contexto-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-composicion",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-musica-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-prod-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-musica-contexto-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-lab-gestion"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": "«Laboratorio cocreación o gestión estratégica»."
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-prod-2",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-musica-contexto-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-prod-3",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-musica-contexto-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-produccion",
+      "cursoId": "cur-lab-gestion",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 26,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de cocreación»)."
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-proy-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-taller-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-proy-2",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-taller-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-proy-3",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-escritura-taller-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-creacion-escritura",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-lit-seminario",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-he-teoria-2",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-transversal",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-he-diseno",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-he-teoria-3",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-he-trabajo-grado",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-lit-seminario",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-literatura",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-harte-pensar",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-harte-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-electiva",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-he-diseno",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-harte-seminario",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-he-teoria-2",
+        "cur-he-teoria-3"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": "«Seminario teoría 1, 2 o 3»."
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-he-trabajo-grado",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-harte-seminario",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-he-teoria-2",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
+    },
+    {
+      "programaId": "enf-he-historia-arte",
+      "cursoId": "cur-he-teoria-3",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 51,
+      "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-clas-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-electiva",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-he-diseno",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-clas-seminario",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-he-teoria-2",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-he-teoria-3"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": "«Seminario teoría 2 o 3»."
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-he-trabajo-grado",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-clas-seminario",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-clasicos",
+      "cursoId": "cur-he-teoria-3",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 55,
+      "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 2: teorías contemporáneas sobre arte y sociedad»)."
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-hd-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-hd-datos",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-hd-electivo",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-he-diseno",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-hd-narrativas",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-he-trabajo-grado",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-hd-prototipado",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-digitales",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-he-teoria-2",
+        "cur-he-teoria-3",
+        "cur-hd-electivo"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": "«Seminario teoría 1, 2 o 3, o seminario electivo en humanidades digitales»."
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-he-diseno",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-seminario",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-he-trabajo-grado",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-seminario",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-he-teoria-2",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-he-teoria-3",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
+    },
+    {
+      "programaId": "enf-he-humanidades-ambientales",
+      "cursoId": "cur-hd-electivo",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 62,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-gepc-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-neg-musica",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-lab-gestion",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-neg-estrategias",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-transversal",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-gepc-practica-1",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-neg-marketing",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-gepc-practica-2",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-neg-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-negocios-musica",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-gepc-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-garte-ecosistemas",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-lab-gestion",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": "«Laboratorio de gestión estratégica / cocreación»."
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-garte-publicos",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-gepc-practica-1",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-garte-gestion",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-gepc-practica-2",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-garte-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-arte",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-gepc-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-edit-editorial",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-lab-gestion",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": "«Laboratorio de gestión estratégica / cocreación»."
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-edit-gestion",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-transversal",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-gepc-practica-1",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-edit-diseno",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-gepc-practica-2",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-edit-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "enf-gepc-edicion",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-metodos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-transversal",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-desafios-1",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-escrito",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-lab-sala",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-tg-1",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-per-practica"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": "«Trabajo de grado 1 o Práctica de grado»."
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-imagen",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-transversal",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-tg-2",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-per-practica"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": "«Trabajo de grado 2 o Práctica de grado»."
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-desafios-2",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-electiva",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-periodismo",
+      "cursoId": "cur-per-practica",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 93,
+      "nota": "Alternativa en el periodo 3 (casilla ocupada por «Trabajo de grado 1»)."
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-icg",
+      "periodo": 1,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-valoracion",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-electivo",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-lab-gestion",
+      "periodo": 2,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [
+        "cur-lab-teorico-practico",
+        "cur-lab-cocreacion"
+      ],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": "«Laboratorio de gestión estratégica, teórico práctico o cocreación»."
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-gestion",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-transversal",
+      "periodo": 2,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-proyecto-1",
+      "periodo": 3,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-apropiacion",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-electiva",
+      "periodo": 3,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-proyecto-2",
+      "periodo": 4,
+      "columna": 1,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-pat-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-transversal",
+      "periodo": 4,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": ""
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-lab-teorico-practico",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de gestión estratégica»)."
+    },
+    {
+      "programaId": "mae-patrimonio",
+      "cursoId": "cur-lab-cocreacion",
+      "periodo": null,
+      "columna": null,
+      "obligatoriedad": "alternativa",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "verificado",
+      "pagina": 106,
+      "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de gestión estratégica»)."
+    },
+    {
+      "programaId": "pe-creacion-arte",
+      "cursoId": "cur-arte-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-arte",
+      "cursoId": "cur-arte-est-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-arte",
+      "cursoId": "cur-arte-est-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-arte",
+      "cursoId": "cur-arte-est-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 4,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-fotografia",
+      "cursoId": "cur-foto-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-fotografia",
+      "cursoId": "cur-foto-est-edicion",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-fotografia",
+      "cursoId": "cur-foto-est-tiempo",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-fotografia",
+      "cursoId": "cur-foto-est-publicacion",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 11,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-composicion",
+      "cursoId": "cur-musica-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-composicion",
+      "cursoId": "cur-musica-contexto-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-composicion",
+      "cursoId": "cur-musica-contexto-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-composicion",
+      "cursoId": "cur-musica-contexto-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 20,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-produccion",
+      "cursoId": "cur-musica-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-produccion",
+      "cursoId": "cur-musica-contexto-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-produccion",
+      "cursoId": "cur-musica-contexto-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-produccion",
+      "cursoId": "cur-musica-contexto-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 26,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-escritura",
+      "cursoId": "cur-escritura-intro",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-escritura",
+      "cursoId": "cur-escritura-taller-1",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-escritura",
+      "cursoId": "cur-escritura-taller-2",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-creacion-escritura",
+      "cursoId": "cur-escritura-taller-3",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 31,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-literatura",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-literatura",
+      "cursoId": "cur-lit-seminario",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-literatura",
+      "cursoId": "cur-he-teoria-2",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-literatura",
+      "cursoId": "cur-he-teoria-3",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 46,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-historia-arte",
+      "cursoId": "cur-harte-pensar",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 51,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-historia-arte",
+      "cursoId": "cur-harte-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 3,
+      "estado": "derivado",
+      "pagina": 51,
+      "nota": "Ocupa 3 casillas del cuerpo de especialización."
+    },
+    {
+      "programaId": "pe-he-clasicos",
+      "cursoId": "cur-he-teoria-1",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 55,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-clasicos",
+      "cursoId": "cur-clas-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 3,
+      "estado": "derivado",
+      "pagina": 55,
+      "nota": "Ocupa 3 casillas del cuerpo de especialización."
+    },
+    {
+      "programaId": "pe-he-humanidades-digitales",
+      "cursoId": "cur-hd-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-humanidades-digitales",
+      "cursoId": "cur-hd-datos",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-humanidades-digitales",
+      "cursoId": "cur-hd-narrativas",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-humanidades-digitales",
+      "cursoId": "cur-hd-prototipado",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 58,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-fundamentos",
+      "periodo": 1,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 62,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-he-humanidades-ambientales",
+      "cursoId": "cur-hamb-seminario",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 3,
+      "estado": "derivado",
+      "pagina": 62,
+      "nota": "Ocupa 3 casillas del cuerpo de especialización."
+    },
+    {
+      "programaId": "pe-gepc-negocios-musica",
+      "cursoId": "cur-neg-musica",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-negocios-musica",
+      "cursoId": "cur-neg-estrategias",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-negocios-musica",
+      "cursoId": "cur-neg-marketing",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-negocios-musica",
+      "cursoId": "cur-neg-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 75,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-arte",
+      "cursoId": "cur-garte-ecosistemas",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-arte",
+      "cursoId": "cur-garte-publicos",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-arte",
+      "cursoId": "cur-garte-gestion",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-arte",
+      "cursoId": "cur-garte-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 80,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-edicion",
+      "cursoId": "cur-edit-editorial",
+      "periodo": 1,
+      "columna": 3,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-edicion",
+      "cursoId": "cur-edit-gestion",
+      "periodo": 2,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-edicion",
+      "cursoId": "cur-edit-diseno",
+      "periodo": 3,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 85,
+      "nota": ""
+    },
+    {
+      "programaId": "pe-gepc-edicion",
+      "cursoId": "cur-edit-electivo",
+      "periodo": 4,
+      "columna": 2,
+      "obligatoriedad": "obligatorio",
+      "alternativas": [],
+      "repeticiones": 1,
+      "estado": "derivado",
+      "pagina": 85,
+      "nota": ""
+    }
+  ]
+}

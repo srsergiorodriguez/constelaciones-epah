@@ -42,6 +42,21 @@ el código o los datos; no se deja «para después».
 - **Datos verificados:** 15 planes, 83 cursos, 180 casillas de plan, 236 registros de pertenencia.
 - **Fuera de alcance por ahora:** el doctorado. Sus cursos y su tabla se agregarán cuando el comité los entregue (D-3 en `plan.md`).
 
+## Cómo correr
+
+```bash
+pnpm install
+pnpm data        # data/*.csv      → src/lib/data/curriculum.json
+pnpm atlas       # curriculum.json → src/lib/data/atlas.json (nebulosa)
+pnpm dev         # http://localhost:5173
+pnpm test        # 15 pruebas: contrato, grafo, figuras, nebulosa, composición
+pnpm check       # svelte-check
+pnpm build       # dist/ estático
+pnpm figures     # regenera las láminas de docs/assets
+```
+
+Para GitHub Pages: `BASE_PATH=/constelacion-epah/ pnpm build` y publicar `dist/`.
+
 ## Cómo se actualiza
 
 1. Si cambia el currículo → se edita `scripts/build-data.mjs` y se regeneran los CSV.

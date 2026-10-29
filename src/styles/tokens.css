@@ -1,0 +1,91 @@
+/* Tokens — fuente única de color, tipografía, espacio y movimiento.
+   Cualquier valor que no esté aquí no debe aparecer en un componente.
+   Ver docs/design-system.md. */
+
+:root {
+  /* Tipografía. El kit de Adobe Fonts de la Facultad aún no está disponible:
+     estas pilas son el respaldo y se reemplazarán por --ff-* reales. */
+  --ff-display: 'Helvetica Neue', 'Archivo', Arial, sans-serif;
+  --ff-serif: 'Iowan Old Style', Baskerville, Georgia, serif;
+  --ff-sans: 'Helvetica Neue', 'Archivo', Arial, sans-serif;
+
+  --fz-11: 0.6875rem;
+  --fz-125: 0.78125rem;
+  --fz-14: 0.875rem;
+  --fz-16: 1rem;
+  --fz-20: 1.25rem;
+  --fz-25: 1.5625rem;
+  --fz-30: 1.875rem;
+  --fz-40: 2.5rem;
+
+  /* Color base */
+  --c-paper: #ffffff;
+  --c-papel: #efeee8;
+  --c-ink: #070707;
+  --c-ink-2: #3a3a38;
+  --c-ink-3: #5a5a58;
+  --c-rule: #d9d7cf;
+  --c-grid: #f1f0ea;
+  --c-focus: #007fe1;
+
+  /* Familias de maestría: tonos 1–4 para líneas y rótulos, vivo para rellenos */
+  --c-creacion-1: #6a0e3e;
+  --c-creacion-2: #931355;
+  --c-creacion-3: #c41a72;
+  --c-creacion-4: #dd1d80;
+  --c-creacion-vivo: #dd1d80;
+
+  --c-he-1: #003864;
+  --c-he-2: #004e8b;
+  --c-he-3: #0069bb;
+  --c-he-4: #007fe1;
+  --c-he-vivo: #007fe1;
+
+  --c-gepc-1: #640761;
+  --c-gepc-2: #8a0986;
+  --c-gepc-3: #a40b9f;
+  --c-gepc-4: #b80cb3;
+  --c-gepc-vivo: #a40b9f;
+
+  --c-perio-1: #00401b;
+  --c-perio-2: #005925;
+  --c-perio-3: #007832;
+  --c-perio-4: #009e42;
+  --c-perio-vivo: #00cc55;
+
+  --c-patrim-1: #453403;
+  --c-patrim-2: #614904;
+  --c-patrim-3: #826306;
+  --c-patrim-4: #ac8208;
+  --c-patrim-vivo: #dca70a;
+
+  /* Espacio */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Trazos y opacidades */
+  --stroke-grid: 0.8;
+  --stroke-const: 1.5;
+  --stroke-active: 2;
+  --op-dim: 0.28;
+  --op-mid: 0.6;
+  --op-on: 1;
+
+  /* Movimiento */
+  --t-fast: 120ms;
+  --t-base: 220ms;
+  --t-slow: 360ms;
+  --d-move: 600ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Medidas de interfaz */
+  --w-picker: 240px;
+  --w-sheet: 360px;
+  --h-toolbar: 52px;
+}
