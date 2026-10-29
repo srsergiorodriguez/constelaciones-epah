@@ -120,3 +120,15 @@ anillos. Vuelve el reparto por longitud de arco, en orden de plan.
 
 **El sistema de diseño sube un escalón.** Escala semántica de 12 a 44 px, estrellas de 9 a 20 px y
 línea de constelación de 2,4 px. El rótulo superior cambia de sujeto: manda el nombre del programa.
+
+---
+
+## 2026-10-29 · El cielo, por fin cielo
+
+**Fuera el atractor.** La nebulosa atraía cada curso hacia la región de su maestría; el resultado se
+leía como un diagrama de clusters, no como un cielo. Se cambió por azar sembrado con separación
+mínima: hay huecos, parejas cercanas y ninguna estructura que leer. *Por qué:* en reposo la Escuela no
+tiene forma; inventarle una era mentir con la disposición.
+
+**Fuera los rótulos de región.** Sin cúmulos, los nombres flotaban sobre nada. Los reemplaza una
+leyenda de color al pie: el color distingue la maestría y la posición no codifica nada.

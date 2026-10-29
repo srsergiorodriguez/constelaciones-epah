@@ -89,6 +89,14 @@ brazos; `prefers-reduced-motion` salta al estado final.
   así los brazos propios se separan aunque el tronco sea el mismo.
 - El enlace tronco → figura es una línea punteada: el tronco alimenta la constelación, no la contiene.
 
+### Ajustes post-Sprint 2 (tercera revisión: el cielo)
+
+- [x] Nebulosa **al azar** (semilla fija + separación mínima de 17 px), sin cúmulos por maestría
+- [x] Fuera los rótulos de región: el color y una leyenda al pie explican las maestrías
+- [x] La caja del atlas pasa a 1200×900: el cielo llena el escenario
+
+---
+
 ### Ajustes post-Sprint 2 (segunda revisión del comité)
 
 - [x] **Comparación aplazada**: un programa a la vez; se retira la bisagra y la alineación rígida

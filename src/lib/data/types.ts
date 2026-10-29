@@ -72,8 +72,7 @@ export interface Atlas {
   version: number
   semilla: number
   caja: { w: number; h: number }
-  grupos: Record<string, [number, number] | null>
-  regiones?: Record<string, [number, number]>
+  nota?: string
   puntos: Record<string, [number, number]>
 }
 

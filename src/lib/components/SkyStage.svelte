@@ -11,10 +11,9 @@
   interface Props {
     escena: Escena
     seleccion: string[]
-    etiquetas: { x: number; y: number; texto: string }[]
   }
 
-  let { escena, seleccion, etiquetas }: Props = $props()
+  let { escena, seleccion }: Props = $props()
 
   let pos = $state<Record<string, Punto>>({})
   let viajando = $state(false)
@@ -148,13 +147,6 @@
     {/each}
   </g>
 
-  {#if enNebulosa}
-    <g class="rótulos" aria-hidden="true">
-      {#each etiquetas as et}
-        <text x={et.x} y={et.y}>{et.texto}</text>
-      {/each}
-    </g>
-  {/if}
 </svg>
 
 <style>
@@ -221,16 +213,6 @@
 
   .código.visible {
     opacity: 1;
-  }
-
-  .rótulos text {
-    font-family: var(--ff-sans);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    fill: var(--c-ink-3);
-    opacity: 0.4;
-    text-anchor: middle;
   }
 
   @media (prefers-reduced-motion: reduce) {

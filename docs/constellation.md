@@ -108,12 +108,15 @@ componer(A, B?) → posiciones finales + núcleo           (puro)
 
 ### 4.1 La nebulosa
 
-Sin selección, los 83 cursos forman una nube con estructura: cada curso cae cerca de los suyos por
-afinidad de programa (fuerza de atracción por maestría + semilla fija), no al azar.
+Sin selección, los 83 cursos forman un cielo **al azar**, no un diagrama:
 
-- Se calcula **una vez** en build y se guarda en `atlas.json`. En pantalla nadie simula: se lee.
-- Sin aristas y sin figuras: la nebulosa no cuenta historias, muestra magnitud y densidad.
-- Es la prueba de la oferta completa: ochenta y tres estrellas, todas a la vista.
+- Posiciones sembradas, con una separación mínima de 17 px que solo evita que dos estrellas se
+  pisen. Hay huecos y parejas cercanas, como en un cielo de verdad.
+- **La posición no codifica nada.** Nada de cúmulos por maestría: agrupar por facultad convertía el
+  cielo en un diagrama de clusters, justo lo que la metáfora quiere evitar.
+- El color sigue distinguiendo la maestría, y una leyenda al pie lo explica. El color informa; la
+  posición descansa.
+- Se calcula una vez en build (`atlas.json`) con semilla fija. En pantalla nadie simula: se lee.
 
 ### 4.2 Una constelación
 

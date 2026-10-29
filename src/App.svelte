@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { curriculum, atlas } from './lib/data/types'
+  import { curriculum } from './lib/data/types'
   import { compose, propiosOf } from './lib/domain/compose'
-  import { atlasToViewport } from './lib/domain/nebula'
   import SkyStage from './lib/components/SkyStage.svelte'
   import ProgramPicker from './lib/components/ProgramPicker.svelte'
   import Legend from './lib/components/Legend.svelte'
-  import { colorDe } from './lib/viz/palette'
+  import { colorDe, vivoDe } from './lib/viz/palette'
 
   const ANCHO = 1200
   const ALTO = 900
@@ -26,19 +25,9 @@
     history.replaceState(null, '', hash ? `#${hash}` : location.pathname + location.search)
   })
 
-  const map = atlasToViewport(ANCHO, ALTO)
-  const centro: [number, number] = [ANCHO / 2, ALTO / 2]
-  const marcas = Object.entries(atlas.regiones ?? {}).map(([id, p]) => {
-    const [x, y] = map(p as [number, number])
-    const dx = x - centro[0]
-    const dy = y - centro[1]
-    const d = Math.hypot(dx, dy) || 1
-    return {
-      x: x + (dx / d) * 92,
-      y: y + (dy / d) * 92,
-      texto: curriculum.programas[id].nombreCorto,
-    }
-  })
+  const maestrias = Object.values(curriculum.programas)
+    .filter((p) => p.tipo === 'maestria')
+    .map((p) => ({ id: p.id, nombre: p.nombreCorto, vivo: vivoDe(p.id) }))
 
   const totalCursos = Object.keys(curriculum.cursos).length
   const totalProgramas = Object.keys(curriculum.programas).length
@@ -106,7 +95,7 @@
     </aside>
 
     <div class="cielo-contenedor">
-      <SkyStage {escena} {seleccion} etiquetas={marcas} />
+      <SkyStage {escena} {seleccion} />
     </div>
   </div>
 
@@ -117,6 +106,14 @@
         <button class="limpiar" onclick={limpiar}>Volver al cielo</button>
       {:else}
         <span class="pista">Elige un programa: sus estrellas se reúnen y forman su figura.</span>
+        <ul class="familias">
+          {#each maestrias as m (m.id)}
+            <li>
+              <svg viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="3.2" fill={m.vivo} /></svg>
+              {m.nombre}
+            </li>
+          {/each}
+        </ul>
       {/if}
     </div>
     <p class="vivo" aria-live="polite">{aviso}</p>
@@ -241,6 +238,29 @@
   .vivo {
     font-size: var(--fz-xs);
     color: var(--c-ink-3);
+  }
+
+  .familias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .familias li {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    color: var(--c-ink-3);
+  }
+
+  .familias svg {
+    width: 8px;
+    height: 8px;
   }
 
   @media (max-width: 900px) {
