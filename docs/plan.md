@@ -44,6 +44,10 @@ Objetivo: que la app pueda construir el grafo sin tocar CSV y sin adivinar nada.
 **Aceptación:** ✔ el cielo se renderiza con 83 estrellas en 1200×900; recargar no mueve ninguna;
 `vitest` 15/15; `svelte-check` sin errores; build de 137 kB (27 kB gzip).
 
+![La nebulosa](assets/app-nebulosa.png)
+
+*Primer render: cinco regiones, el núcleo de la Escuela en tinta y ninguna figura todavía.*
+
 **Notas de implementación.**
 
 - No se instaló `d3`: el SVG lo resuelve Svelte. `d3-scale`/`d3-zoom` entrarán con la cámara y la
