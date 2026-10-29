@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+<rect width="1280" height="800" fill="#FFFFFF"/>
+<text x="92" y="72" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="30" font-weight="700" fill="#070707" letter-spacing="-0.02em">Gramática visual</text>
+<text x="92" y="96" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#5A5A58">glifos por eje · paleta institucional · patrones de línea</text>
+<line x1="92" y1="118" x2="470" y2="118" stroke="#D9D7CF"/>
+<text x="92" y="152" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8" fill="#5A5A58" letter-spacing=".16em">GLIFO · EJE CURRICULAR</text>
+<g transform="translate(92,178)">
+      <path d="M0.00,-12.60 L1.64,-3.96 L8.91,-8.91 L3.96,-1.64 L12.60,0.00 L3.96,1.64 L8.91,8.91 L1.64,3.96 L0.00,12.60 L-1.64,3.96 L-8.91,8.91 L-3.96,1.64 L-12.60,0.00 L-3.96,-1.64 L-8.91,-8.91 L-1.64,-3.96 Z" fill="#070707"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">TRONCO</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Investigación, creación y gestión</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">8 puntas · el eje de los 15 planes</text>
+    </g><g transform="translate(92,264)">
+      <circle r="14.58" fill="none" stroke="#070707" stroke-width="1"/><path d="M0,-1 C0.17,-0.17 0.17,-0.17 1,0 C0.17,0.17 0.17,0.17 0,1 C-0.17,0.17 -0.17,0.17 -1,0 C-0.17,-0.17 -0.17,-0.17 0,-1 Z" fill="#070707" transform="scale(5.22)"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">TRANSVERSAL</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Curso transversal</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">anillo + destello · menú de la Escuela</text>
+    </g><g transform="translate(92,350)">
+      <circle r="13.50" fill="none" stroke="#070707" stroke-width="1"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">LABORATORIO</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Laboratorio de cocreación</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">anillo vacío · codocencia</text>
+    </g><g transform="translate(92,436)">
+      <path d="M0,-10.62 C0.9557999999999999,-0.9557999999999999 0.9557999999999999,-0.9557999999999999 10.62,0 C0.9557999999999999,0.9557999999999999 0.9557999999999999,0.9557999999999999 0,10.62 C-0.9557999999999999,0.9557999999999999 -0.9557999999999999,0.9557999999999999 -10.62,0 C-0.9557999999999999,-0.9557999999999999 -0.9557999999999999,-0.9557999999999999 0,-10.62 Z" fill="none" stroke="#070707" stroke-width="1.15"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">ELECTIVA</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Electiva</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">destello hueco · casilla abierta</text>
+    </g><g transform="translate(92,522)">
+      <path d="M0,-10.799999999999999 C1.8359999999999999,-1.8359999999999999 1.8359999999999999,-1.8359999999999999 10.799999999999999,0 C1.8359999999999999,1.8359999999999999 1.8359999999999999,1.8359999999999999 0,10.799999999999999 C-1.8359999999999999,1.8359999999999999 -1.8359999999999999,1.8359999999999999 -10.799999999999999,0 C-1.8359999999999999,-1.8359999999999999 -1.8359999999999999,-1.8359999999999999 0,-10.799999999999999 Z" fill="#070707"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">DISCIPLINAR</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Estudio 1</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">destello lleno · cuerpo del énfasis</text>
+    </g><g transform="translate(92,608)">
+      <path d="M0.00,-11.70 L2.57,-4.46 L10.13,-5.85 L5.15,0.00 L10.13,5.85 L2.57,4.46 L0.00,11.70 L-2.57,4.46 L-10.13,5.85 L-5.15,0.00 L-10.13,-5.85 L-2.57,-4.46 Z" fill="#070707"/>
+      <text x="56" y="-6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="9" fill="#070707" letter-spacing=".14em">TRAYECTORIA</text>
+      <text x="56" y="11" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13.5" fill="#3A3A38">Proyecto de creación 1</text>
+      <text x="56" y="26" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">estrella de 6 puntas · secuencia</text>
+    </g>
+<line x1="480" y1="118" x2="480" y2="756" stroke="#D9D7CF"/>
+<text x="530" y="152" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8" fill="#5A5A58" letter-spacing=".16em">TONOS 1–4 + COLOR VIVO · FAMILIA DE MAESTRÍA</text>
+<text x="530" y="220" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#3A3A38">Creación</text><g transform="translate(530,236)"><rect width="80" height="32" fill="#6A0E3E"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#6A0E3E</text></g><g transform="translate(626,236)"><rect width="80" height="32" fill="#931355"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#931355</text></g><g transform="translate(722,236)"><rect width="80" height="32" fill="#C41A72"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#C41A72</text></g><g transform="translate(818,236)"><rect width="80" height="32" fill="#DD1D80"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#DD1D80</text></g><text x="530" y="298" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#3A3A38">Humanidades Experimentales</text><g transform="translate(530,314)"><rect width="80" height="32" fill="#003864"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#003864</text></g><g transform="translate(626,314)"><rect width="80" height="32" fill="#004E8B"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#004E8B</text></g><g transform="translate(722,314)"><rect width="80" height="32" fill="#0069BB"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#0069BB</text></g><g transform="translate(818,314)"><rect width="80" height="32" fill="#007FE1"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#007FE1</text></g><text x="530" y="376" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#3A3A38">Gestión Estratégica</text><g transform="translate(530,392)"><rect width="80" height="32" fill="#640761"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#640761</text></g><g transform="translate(626,392)"><rect width="80" height="32" fill="#8A0986"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#8A0986</text></g><g transform="translate(722,392)"><rect width="80" height="32" fill="#A40B9F"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#A40B9F</text></g><g transform="translate(818,392)"><rect width="80" height="32" fill="#B80CB3"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#B80CB3</text></g><text x="530" y="454" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#3A3A38">Periodismo</text><g transform="translate(530,470)"><rect width="80" height="32" fill="#00401B"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#00401B</text></g><g transform="translate(626,470)"><rect width="80" height="32" fill="#005925"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#005925</text></g><g transform="translate(722,470)"><rect width="80" height="32" fill="#007832"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#007832</text></g><g transform="translate(818,470)"><rect width="80" height="32" fill="#009E42"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#009E42</text></g><g transform="translate(914,470)"><rect width="80" height="32" fill="#00CC55"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#070707" letter-spacing=".04em">#00CC55</text></g><text x="530" y="532" font-family="'Iowan Old Style', Baskerville, Georgia, serif" font-style="italic" font-size="13" fill="#3A3A38">Patrimonio Cultural</text><g transform="translate(530,548)"><rect width="80" height="32" fill="#453403"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#453403</text></g><g transform="translate(626,548)"><rect width="80" height="32" fill="#614904"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#614904</text></g><g transform="translate(722,548)"><rect width="80" height="32" fill="#826306"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#826306</text></g><g transform="translate(818,548)"><rect width="80" height="32" fill="#AC8208"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#fff" letter-spacing=".04em">#AC8208</text></g><g transform="translate(914,548)"><rect width="80" height="32" fill="#DCA70A"/>
+        <text x="6" y="20" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="7.6" fill="#070707" letter-spacing=".04em">#DCA70A</text></g>
+<line x1="530" y1="650" x2="1188" y2="650" stroke="#D9D7CF"/>
+<text x="530" y="672" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8" fill="#5A5A58" letter-spacing=".16em">PATRÓN DE LÍNEA</text>
+<line x1="530" y1="686" x2="612" y2="686" stroke="#070707" stroke-width="1.6" stroke-dasharray=""/>
+      <text x="624" y="689.6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">solid — obligatorio</text><line x1="530" y1="712" x2="612" y2="712" stroke="#070707" stroke-width="1.6" stroke-dasharray="7 4"/>
+      <text x="624" y="715.6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">dash — alternativa · puente</text><line x1="530" y1="738" x2="612" y2="738" stroke="#070707" stroke-width="1.6" stroke-dasharray="1.2 3.6"/>
+      <text x="624" y="741.6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">dot — referencia</text><line x1="530" y1="764" x2="612" y2="764" stroke="#070707" stroke-width="1.6" stroke-dasharray="16 3 2 3"/>
+      <text x="624" y="767.6" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.4" fill="#5A5A58">long — programa especializado</text>
+<text x="92" y="774" font-family="'Helvetica Neue', 'Archivo', Arial, sans-serif" font-size="8.2" fill="#5A5A58">Los tonos 1–4 verifican ≥ 3:1 sobre blanco; el color vivo se usa solo en rellenos con texto en tinta.</text>
+</svg>
