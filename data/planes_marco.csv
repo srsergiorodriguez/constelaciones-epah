@@ -1,0 +1,37 @@
+maestria_id,periodo,columna,curso_id,abierta
+mae-creacion,1,1,cur-icg,
+mae-creacion,1,2,,Introducción disciplinar
+mae-creacion,1,3,cur-transversal,
+mae-creacion,2,1,,Proyecto / Composición / Producción 1
+mae-creacion,2,2,,Seminario disciplinar 1
+mae-creacion,2,3,cur-lab-cocreacion,
+mae-creacion,3,1,,Proyecto / composición / producción 2
+mae-creacion,3,2,,Seminario disciplinar 2
+mae-creacion,3,3,cur-electiva,
+mae-creacion,4,1,,Proyecto / composición / producción 3
+mae-creacion,4,2,,Seminario disciplinar 3
+mae-creacion,4,3,cur-transversal,
+mae-he,1,1,cur-icg,
+mae-he,1,2,,Introducción disciplinar
+mae-he,1,3,cur-transversal,
+mae-he,2,1,cur-lab-teorico-practico,
+mae-he,2,2,,Seminario disciplinar 1
+mae-he,2,3,cur-electiva,
+mae-he,3,1,cur-he-diseno,
+mae-he,3,2,,Seminario disciplinar 2
+mae-he,3,3,,"Seminario teoría 1, 2 o 3"
+mae-he,4,1,cur-he-trabajo-grado,
+mae-he,4,2,,Seminario disciplinar 3
+mae-he,4,3,cur-transversal,
+mae-gepc,1,1,cur-icg,
+mae-gepc,1,2,cur-gepc-fundamentos,
+mae-gepc,1,3,,Seminario disciplinar 1
+mae-gepc,2,1,cur-lab-gestion,
+mae-gepc,2,2,,Seminario disciplinar 2
+mae-gepc,2,3,cur-transversal,
+mae-gepc,3,1,cur-gepc-practica-1,
+mae-gepc,3,2,,Seminario disciplinar 3
+mae-gepc,3,3,cur-electiva,
+mae-gepc,4,1,cur-gepc-practica-2,
+mae-gepc,4,2,,Seminario disciplinar 4
+mae-gepc,4,3,cur-transversal,

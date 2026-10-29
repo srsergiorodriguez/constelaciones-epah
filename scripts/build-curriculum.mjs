@@ -46,6 +46,7 @@ const list = (v) => (v ? String(v).split(';').filter(Boolean) : [])
 const programasCsv = readCsv('programas.csv')
 const cursosCsv = readCsv('cursos.csv')
 const curriculoCsv = readCsv('curriculo.csv')
+const marcosCsv = readCsv('planes_marco.csv')
 
 const programas = programasCsv.map((r) => ({
   id: r.id,
@@ -89,6 +90,17 @@ const ofertas = curriculoCsv.map((r) => ({
   pagina: num(r.fuente_pagina),
   nota: r.nota || '',
 }))
+
+const planesMarco = {}
+for (const r of marcosCsv) {
+  const lista = planesMarco[r.maestria_id] ?? (planesMarco[r.maestria_id] = [])
+  lista.push({
+    periodo: Number(r.periodo),
+    columna: Number(r.columna),
+    cursoId: r.curso_id || null,
+    abierta: r.abierta || null,
+  })
+}
 
 /* ---------- invariantes ---------- */
 const errores = []
@@ -144,6 +156,14 @@ for (const c of cursos) {
   if (n === 0) fail(`${c.id}: curso sin ningún programa`)
 }
 
+for (const [maestriaId, casillas] of Object.entries(planesMarco)) {
+  if (!programById.has(maestriaId)) fail(`plan marco de programa inexistente: ${maestriaId}`)
+  if (casillas.length !== 12) fail(`plan marco ${maestriaId}: ${casillas.length} casillas`)
+  for (const c of casillas) {
+    if (c.cursoId && !cursoById.has(c.cursoId)) fail(`plan marco ${maestriaId}: curso inexistente ${c.cursoId}`)
+  }
+}
+
 // un curso solo puede estar una vez por casilla y programa
 const casillas = new Set()
 for (const o of ofertas) {
@@ -171,6 +191,7 @@ const bundle = {
   programas: Object.fromEntries(programas.map((p) => [p.id, p])),
   cursos: Object.fromEntries(cursos.map((c) => [c.id, c])),
   ofertas,
+  planesMarco,
 }
 
 mkdirSync(OUT, { recursive: true })

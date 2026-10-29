@@ -71,6 +71,12 @@ Los campos con comas van entre comillas; las listas internas usan `;`.
 | `fuente_pagina` | int | Página del PDF. |
 | `nota` | string | Ej. «el plan lo ofrece tres veces». |
 
+### 2.2b `data/planes_marco.csv` — 36 filas
+
+El plan de la maestría **a secas**: una rejilla de 12 casillas donde unas son cursos concretos del
+tronco y otras quedan abiertas (`abierta` = nombre de la casilla, `curso_id` vacío) para llenarlas con
+cursos del énfasis que el estudiante escoja. Tres maestrías, 12 casillas cada una.
+
 ### 2.3 `data/curriculo.csv` — 236 filas (la tabla larga)
 
 Una fila por pertenencia curso ↔ programa.
@@ -94,6 +100,9 @@ Una fila por pertenencia curso ↔ programa.
 | `estado` | enum | `verificado` · `derivado` · `propuesto` |
 | `fuente_pagina` | int | Página del PDF. |
 | `nota` | string | Texto original cuando hay ambigüedad. |
+
+> **Programa especializado**: 12 créditos en **dos periodos**, dos cursos por periodo. La casilla
+> hereda el orden del cuerpo, no el periodo del énfasis donde aparecía.
 
 > **Créditos de un programa** = Σ (`creditos` × `repeticiones`) **solo de las filas
 > `obligatorio`**. Las alternativas no suman: son caminos posibles, no simultáneos. La suma

@@ -60,12 +60,21 @@ export interface Oferta {
   nota: string
 }
 
+export interface CasillaMarco {
+  periodo: number
+  columna: number
+  cursoId: string | null
+  abierta: string | null
+}
+
 export interface Curriculum {
   version: number
   meta: { escuela: string; fuente: string; programas: number; cursos: number; ofertas: number }
   programas: Record<string, Programa>
   cursos: Record<string, Curso>
   ofertas: Oferta[]
+  /** Plan de la maestría "a secas": casillas concretas y casillas abiertas. */
+  planesMarco: Record<string, CasillaMarco[]>
 }
 
 export interface Atlas {

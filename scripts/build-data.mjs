@@ -335,6 +335,36 @@ const PLANS = [
 ];
 
 /* ------------------------------------------------------------------ *
+ * 3bis. Planes marco: la maestría "a secas"
+ *    Una maestría puede cursarse sin énfasis. Su plan es esta rejilla: los
+ *    cursos del tronco son concretos y las casillas disciplinares quedan
+ *    abiertas, para llenarlas con cursos del énfasis que el estudiante escoja.
+ * ------------------------------------------------------------------ */
+
+const A = (abierta) => ({ abierta });
+
+const PLANES_MARCO = {
+  "mae-creacion": [
+    ["cur-icg", A("Introducción disciplinar"), "cur-transversal"],
+    [A("Proyecto / Composición / Producción 1"), A("Seminario disciplinar 1"), "cur-lab-cocreacion"],
+    [A("Proyecto / composición / producción 2"), A("Seminario disciplinar 2"), "cur-electiva"],
+    [A("Proyecto / composición / producción 3"), A("Seminario disciplinar 3"), "cur-transversal"],
+  ],
+  "mae-he": [
+    ["cur-icg", A("Introducción disciplinar"), "cur-transversal"],
+    ["cur-lab-teorico-practico", A("Seminario disciplinar 1"), "cur-electiva"],
+    ["cur-he-diseno", A("Seminario disciplinar 2"), A("Seminario teoría 1, 2 o 3")],
+    ["cur-he-trabajo-grado", A("Seminario disciplinar 3"), "cur-transversal"],
+  ],
+  "mae-gepc": [
+    ["cur-icg", "cur-gepc-fundamentos", A("Seminario disciplinar 1")],
+    ["cur-lab-gestion", A("Seminario disciplinar 2"), "cur-transversal"],
+    ["cur-gepc-practica-1", A("Seminario disciplinar 3"), "cur-electiva"],
+    ["cur-gepc-practica-2", A("Seminario disciplinar 4"), "cur-transversal"],
+  ],
+};
+
+/* ------------------------------------------------------------------ *
  * 4. Membresías no derivadas de un plan
  *    - programas especializados: se derivan de las casillas `pe`
  *    - doctorado: propuesto (sin tabla en el documento)
@@ -402,12 +432,12 @@ for (const p of plans) {
 for (const pe of PE) {
   /* Una fila por curso; `repeticiones` cuenta cuántas casillas del cuerpo ocupa.
      Créditos del programa = Σ (creditos × repeticiones) = 12. */
-  for (const id of [...new Set(pe.slots.map((s) => s.id))]) {
+  for (const [i, id] of [...new Set(pe.slots.map((s) => s.id))].entries()) {
     const propias = pe.slots.filter((s) => s.id === id);
-    const primera = propias[0];
+    /* Un programa especializado se cursa en dos periodos: dos cursos por periodo. */
     offers.push({
       programa_id: pe.id, curso_id: id,
-      periodo: primera.periodo, columna: primera.columna,
+      periodo: Math.floor(i / 2) + 1, columna: (i % 2) + 1,
       obligatoriedad: "obligatorio", alternativas: "",
       nota: propias.length > 1 ? `Ocupa ${propias.length} casillas del cuerpo de especialización.` : "",
       estado: pe.estado, pagina: pe.pagina, pe: true, repeticiones: propias.length,
@@ -521,10 +551,23 @@ if (errors.length) {
   process.exit(1);
 }
 
+/* plan marco: la maestría "a secas" (casillas concretas + casillas abiertas) */
+const marcoCsv = [["maestria_id", "periodo", "columna", "curso_id", "abierta"]];
+for (const [maestriaId, filas] of Object.entries(PLANES_MARCO)) {
+  filas.forEach((fila, i) => {
+    fila.forEach((celda, j) => {
+      const esCurso = typeof celda === "string";
+      if (esCurso && !COURSES[celda]) fail(`plan marco ${maestriaId}: curso inexistente «${celda}»`);
+      marcoCsv.push([maestriaId, i + 1, j + 1, esCurso ? celda : "", esCurso ? "" : celda.abierta]);
+    });
+  });
+}
+
 mkdirSync(DATA, { recursive: true });
 writeFileSync(join(DATA, "programas.csv"), csv(programsCsv));
 writeFileSync(join(DATA, "cursos.csv"), csv(coursesCsv));
 writeFileSync(join(DATA, "curriculo.csv"), csv(curriculoCsv));
+writeFileSync(join(DATA, "planes_marco.csv"), csv(marcoCsv));
 
 const unique = Object.keys(COURSES).length;
 const counts = {

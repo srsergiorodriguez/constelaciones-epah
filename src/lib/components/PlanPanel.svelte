@@ -17,52 +17,38 @@
   const programa = $derived(curriculum.programas[programaId])
   const figura = $derived(figureNameOf(programaId, programa?.padreId ?? null))
   const color = $derived(colorDe(programaId))
-
   const plan = $derived(planDe(programaId))
   const periodos = $derived(periodosDe(plan))
   const hijos = $derived(hijosDe(programaId))
+  const abiertas = $derived(plan.filter((c) => c.cursoId === null).length)
+  const creditos = $derived(
+    plan.reduce((a, c) => a + (c.cursoId ? curriculum.cursos[c.cursoId].creditos : 3), 0),
+  )
 
   const curso = (id: string) => curriculum.cursos[id]
-
   const nombrePeriodo = (n: number) => `${n}º periodo`
 </script>
 
 <aside class="panel" aria-label="Plan de estudios de {programa?.nombreCorto}">
   <header class="cabeza">
-    <p class="tipo">{hijos.length > 0 ? 'Énfasis de la maestría' : 'Plan de estudios'}</p>
+    <p class="tipo">{hijos.length > 0 ? 'Plan común de la maestría' : 'Plan de estudios'}</p>
     <p class="meta">
-      {#if hijos.length > 0}
-        {hijos.length} rutas, una figura cada una
-      {:else}
-        {plan.length} casillas · {plan.reduce((a, c) => a + curso(c.cursoId).creditos, 0)} créditos{#if figura} · figura {figura}{/if}
-      {/if}
+      {plan.length} casillas · {creditos} créditos{#if abiertas} · {abiertas} abiertas{/if}{#if figura} · figura {figura}{/if}
     </p>
     <svg class="trazo" viewBox="0 0 120 4" aria-hidden="true">
       <line x1="0" y1="2" x2="120" y2="2" stroke={color} stroke-width="3" />
     </svg>
   </header>
 
-  {#if hijos.length > 0}
-    <p class="intro">Una maestría no tiene un plan único: tiene {hijos.length} énfasis.</p>
-    <ul class="hijos">
-      {#each hijos as h (h.id)}
-        <li>
-          <button class="hijo" onclick={() => onElegir(h.id)} onmouseenter={() => onHover(null)}>
-            <span class="hijo-nombre">{h.nombreCorto}</span>
-            <span class="hijo-meta">{planDe(h.id).length} casillas · {figureNameOf(h.id) ?? ''}</span>
-          </button>
-        </li>
-      {/each}
-    </ul>
-  {:else}
-    <div class="plan">
-      {#each periodos as p (p)}
-        <section class="periodo">
-          <h3>{nombrePeriodo(p)}</h3>
-          <ul>
-            {#each plan.filter((c) => c.periodo === p) as c (c.cursoId + c.columna)}
-              {@const k = curso(c.cursoId)}
-              <li>
+  <div class="plan">
+    {#each periodos as p (p)}
+      <section class="periodo">
+        <h3>{nombrePeriodo(p)}</h3>
+        <ul>
+          {#each plan.filter((c) => c.periodo === p) as c (c.periodo + '-' + c.columna)}
+            <li>
+              {#if c.cursoId}
+                {@const k = curso(c.cursoId)}
                 <button
                   class="casilla"
                   class:resaltada={resaltado === c.cursoId}
@@ -79,12 +65,41 @@
                     <span class="meta">{k.codigo} · {k.creditos} cr{#if k.ofertaVariable} · oferta variable{/if}</span>
                   </span>
                 </button>
-              </li>
-            {/each}
-          </ul>
-        </section>
-      {/each}
-    </div>
+              {:else}
+                <div class="casilla abierta">
+                  <svg class="glifo" viewBox="-12 -12 24 24" aria-hidden="true">
+                    <circle r="6" fill="none" stroke="var(--c-ink-3)" stroke-width="1" stroke-dasharray="2 2" />
+                  </svg>
+                  <span class="texto">
+                    <span class="nombre">{c.abierta}</span>
+                    <span class="meta">casilla abierta · curso del énfasis</span>
+                  </span>
+                </div>
+              {/if}
+            </li>
+          {/each}
+        </ul>
+      </section>
+    {/each}
+  </div>
+
+  {#if hijos.length > 0}
+    <section class="con-enfasis">
+      <h3>Si eliges un énfasis</h3>
+      <p class="intro">
+        La misma maestría, con {hijos.length} figuras posibles. Cada una llena las casillas abiertas.
+      </p>
+      <ul class="hijos">
+        {#each hijos as h (h.id)}
+          <li>
+            <button class="hijo" onclick={() => onElegir(h.id)} onmouseenter={() => onHover(null)}>
+              <span class="hijo-nombre">{h.nombreCorto}</span>
+              <span class="hijo-meta">{planDe(h.id).length} casillas · {figureNameOf(h.id) ?? ''}</span>
+            </button>
+          </li>
+        {/each}
+      </ul>
+    </section>
   {/if}
 </aside>
 
@@ -128,18 +143,91 @@
     margin-top: var(--sp-2);
   }
 
+  .periodo {
+    padding: var(--sp-3) 0 var(--sp-2);
+    border-top: 1px solid var(--c-rule);
+  }
+
+  .periodo h3,
+  .con-enfasis h3 {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    margin-bottom: var(--sp-1);
+  }
+
+  .periodo ul,
+  .hijos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .casilla {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: start;
+    gap: var(--sp-2);
+    width: 100%;
+    padding: var(--sp-1) var(--sp-2) var(--sp-1) 0;
+    border-radius: 2px;
+    text-align: left;
+    transition: background-color var(--t-fast) var(--ease);
+  }
+
+  .casilla:hover,
+  .casilla.resaltada {
+    background: var(--c-papel);
+  }
+
+  .abierta {
+    cursor: default;
+    opacity: 0.72;
+  }
+
+  .glifo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .nombre {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-sm);
+    line-height: 1.2;
+    color: var(--c-ink);
+  }
+
+  .abierta .nombre {
+    font-family: var(--ff-serif);
+    font-style: italic;
+  }
+
+  .casilla .meta {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.04em;
+    color: var(--c-ink-3);
+  }
+
+  .con-enfasis {
+    padding-top: var(--sp-3);
+    border-top: 1px solid var(--c-rule);
+  }
+
   .intro {
     font-family: var(--ff-serif);
     font-style: italic;
     font-size: var(--fz-sm);
     color: var(--c-ink-3);
-    padding: var(--sp-3) 0;
-  }
-
-  .hijos {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    padding: var(--sp-2) 0;
   }
 
   .hijo {
@@ -168,68 +256,6 @@
   .hijo:hover .hijo-nombre {
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-
-  .periodo {
-    padding: var(--sp-3) 0 var(--sp-2);
-    border-top: 1px solid var(--c-rule);
-  }
-
-  .periodo h3 {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--c-ink-3);
-    margin-bottom: var(--sp-1);
-  }
-
-  .periodo ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .casilla {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    align-items: start;
-    gap: var(--sp-2);
-    width: 100%;
-    padding: var(--sp-1) var(--sp-2) var(--sp-1) 0;
-    border-radius: 2px;
-    text-align: left;
-    transition: background-color var(--t-fast) var(--ease);
-  }
-
-  .casilla:hover,
-  .casilla.resaltada {
-    background: var(--c-papel);
-  }
-
-  .glifo {
-    width: 24px;
-    height: 24px;
-  }
-
-  .texto {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  .nombre {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-sm);
-    line-height: 1.2;
-    color: var(--c-ink);
-  }
-
-  .meta {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.04em;
-    color: var(--c-ink-3);
   }
 
   @media (max-width: 1100px) {

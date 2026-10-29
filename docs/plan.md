@@ -123,6 +123,9 @@ brazos; `prefers-reduced-motion` salta al estado final.
 
 ## Sprint 3 · Lectura ✅ (parcial)
 
+- [x] **Programa especializado en dos periodos** (dos cursos por periodo)
+- [x] **Maestría a secas**: plan marco con casillas abiertas, y los énfasis como rutas opcionales
+
 - [x] Panel derecho con el **plan en orden cronológico** (periodo → casilla)
 - [x] Hover cruzado: estrella ↔ fila del plan, con halo y rótulo fijo
 - [x] Estrellas enfocables por teclado con `aria-label`

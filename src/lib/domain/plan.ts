@@ -4,13 +4,26 @@ import type { Programa } from '../data/types'
 export interface Casilla {
   periodo: number
   columna: number
-  cursoId: string
+  /** null cuando es una casilla abierta del plan marco. */
+  cursoId: string | null
+  abierta: string | null
   alternativas: string[]
   nota: string
 }
 
-/** Casillas del plan de un programa, en orden cronológico (periodo, columna). */
+/**
+ * Casillas del plan de un programa, en orden cronológico (periodo, columna).
+ * Una maestría sin énfasis cursa el plan marco: unos cursos concretos y unas
+ * casillas abiertas que se llenan con cursos del énfasis elegido.
+ */
 export function planDe(programaId: string): Casilla[] {
+  const marco = curriculum.planesMarco?.[programaId]
+  if (marco) {
+    return [...marco]
+      .sort((a, b) => a.periodo - b.periodo || a.columna - b.columna)
+      .map((c) => ({ ...c, alternativas: [], nota: '' }))
+  }
+
   return curriculum.ofertas
     .filter(
       (o) =>
@@ -24,6 +37,7 @@ export function planDe(programaId: string): Casilla[] {
       periodo: o.periodo!,
       columna: o.columna!,
       cursoId: o.cursoId,
+      abierta: null,
       alternativas: o.alternativas,
       nota: o.nota,
     }))

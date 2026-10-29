@@ -145,6 +145,11 @@ amontona: a 31 estrellas sobre un trazo de doce vértices no se lee nada. Por es
 
 La maestría no tiene silueta propia. Tiene nombre, color y las siluetas de sus hijos.
 
+**Y se puede cursar sin énfasis.** La maestría «a secas» es válida: su plan es la rejilla del plan
+marco —doce casillas, de las cuales siete están abiertas— y el panel derecho la muestra completa,
+con los énfasis como rutas opcionales debajo. Elegir un énfasis no es condición para graduarse; es
+una forma de llenar esas casillas.
+
 ### 4.5 Comparación: aplazada
 
 Comparar dos programas exigía que dos figuras compartieran estrellas. Se probó con alineación rígida

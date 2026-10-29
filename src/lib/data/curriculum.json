@@ -4554,7 +4554,7 @@
       "programaId": "pe-creacion-arte",
       "cursoId": "cur-arte-intro",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4565,7 +4565,7 @@
     {
       "programaId": "pe-creacion-arte",
       "cursoId": "cur-arte-est-1",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4577,8 +4577,8 @@
     {
       "programaId": "pe-creacion-arte",
       "cursoId": "cur-arte-est-2",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4589,7 +4589,7 @@
     {
       "programaId": "pe-creacion-arte",
       "cursoId": "cur-arte-est-3",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4602,7 +4602,7 @@
       "programaId": "pe-creacion-fotografia",
       "cursoId": "cur-foto-intro",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4613,7 +4613,7 @@
     {
       "programaId": "pe-creacion-fotografia",
       "cursoId": "cur-foto-est-edicion",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4625,8 +4625,8 @@
     {
       "programaId": "pe-creacion-fotografia",
       "cursoId": "cur-foto-est-tiempo",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4637,7 +4637,7 @@
     {
       "programaId": "pe-creacion-fotografia",
       "cursoId": "cur-foto-est-publicacion",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4650,7 +4650,7 @@
       "programaId": "pe-creacion-composicion",
       "cursoId": "cur-musica-intro",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4661,7 +4661,7 @@
     {
       "programaId": "pe-creacion-composicion",
       "cursoId": "cur-musica-contexto-1",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4673,8 +4673,8 @@
     {
       "programaId": "pe-creacion-composicion",
       "cursoId": "cur-musica-contexto-2",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4685,7 +4685,7 @@
     {
       "programaId": "pe-creacion-composicion",
       "cursoId": "cur-musica-contexto-3",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4698,7 +4698,7 @@
       "programaId": "pe-creacion-produccion",
       "cursoId": "cur-musica-intro",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4709,7 +4709,7 @@
     {
       "programaId": "pe-creacion-produccion",
       "cursoId": "cur-musica-contexto-1",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4721,8 +4721,8 @@
     {
       "programaId": "pe-creacion-produccion",
       "cursoId": "cur-musica-contexto-2",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4733,7 +4733,7 @@
     {
       "programaId": "pe-creacion-produccion",
       "cursoId": "cur-musica-contexto-3",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4746,7 +4746,7 @@
       "programaId": "pe-creacion-escritura",
       "cursoId": "cur-escritura-intro",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4757,7 +4757,7 @@
     {
       "programaId": "pe-creacion-escritura",
       "cursoId": "cur-escritura-taller-1",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4769,8 +4769,8 @@
     {
       "programaId": "pe-creacion-escritura",
       "cursoId": "cur-escritura-taller-2",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4781,7 +4781,7 @@
     {
       "programaId": "pe-creacion-escritura",
       "cursoId": "cur-escritura-taller-3",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4794,7 +4794,7 @@
       "programaId": "pe-he-literatura",
       "cursoId": "cur-he-teoria-1",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4806,7 +4806,7 @@
       "programaId": "pe-he-literatura",
       "cursoId": "cur-lit-seminario",
       "periodo": 1,
-      "columna": 3,
+      "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4818,7 +4818,7 @@
       "programaId": "pe-he-literatura",
       "cursoId": "cur-he-teoria-2",
       "periodo": 2,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4829,7 +4829,7 @@
     {
       "programaId": "pe-he-literatura",
       "cursoId": "cur-he-teoria-3",
-      "periodo": 3,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4842,7 +4842,7 @@
       "programaId": "pe-he-historia-arte",
       "cursoId": "cur-harte-pensar",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4853,7 +4853,7 @@
     {
       "programaId": "pe-he-historia-arte",
       "cursoId": "cur-harte-seminario",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4866,7 +4866,7 @@
       "programaId": "pe-he-clasicos",
       "cursoId": "cur-he-teoria-1",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4877,7 +4877,7 @@
     {
       "programaId": "pe-he-clasicos",
       "cursoId": "cur-clas-seminario",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4890,7 +4890,7 @@
       "programaId": "pe-he-humanidades-digitales",
       "cursoId": "cur-hd-fundamentos",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4901,7 +4901,7 @@
     {
       "programaId": "pe-he-humanidades-digitales",
       "cursoId": "cur-hd-datos",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4913,8 +4913,8 @@
     {
       "programaId": "pe-he-humanidades-digitales",
       "cursoId": "cur-hd-narrativas",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4925,7 +4925,7 @@
     {
       "programaId": "pe-he-humanidades-digitales",
       "cursoId": "cur-hd-prototipado",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4938,7 +4938,7 @@
       "programaId": "pe-he-humanidades-ambientales",
       "cursoId": "cur-hamb-fundamentos",
       "periodo": 1,
-      "columna": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4949,7 +4949,7 @@
     {
       "programaId": "pe-he-humanidades-ambientales",
       "cursoId": "cur-hamb-seminario",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4962,7 +4962,7 @@
       "programaId": "pe-gepc-negocios-musica",
       "cursoId": "cur-neg-musica",
       "periodo": 1,
-      "columna": 3,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4973,7 +4973,7 @@
     {
       "programaId": "pe-gepc-negocios-musica",
       "cursoId": "cur-neg-estrategias",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -4985,8 +4985,8 @@
     {
       "programaId": "pe-gepc-negocios-musica",
       "cursoId": "cur-neg-marketing",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -4997,7 +4997,7 @@
     {
       "programaId": "pe-gepc-negocios-musica",
       "cursoId": "cur-neg-electivo",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -5010,7 +5010,7 @@
       "programaId": "pe-gepc-arte",
       "cursoId": "cur-garte-ecosistemas",
       "periodo": 1,
-      "columna": 3,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -5021,7 +5021,7 @@
     {
       "programaId": "pe-gepc-arte",
       "cursoId": "cur-garte-publicos",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -5033,8 +5033,8 @@
     {
       "programaId": "pe-gepc-arte",
       "cursoId": "cur-garte-gestion",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -5045,7 +5045,7 @@
     {
       "programaId": "pe-gepc-arte",
       "cursoId": "cur-garte-electivo",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -5058,7 +5058,7 @@
       "programaId": "pe-gepc-edicion",
       "cursoId": "cur-edit-editorial",
       "periodo": 1,
-      "columna": 3,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -5069,7 +5069,7 @@
     {
       "programaId": "pe-gepc-edicion",
       "cursoId": "cur-edit-gestion",
-      "periodo": 2,
+      "periodo": 1,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -5081,8 +5081,8 @@
     {
       "programaId": "pe-gepc-edicion",
       "cursoId": "cur-edit-diseno",
-      "periodo": 3,
-      "columna": 2,
+      "periodo": 2,
+      "columna": 1,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
@@ -5093,7 +5093,7 @@
     {
       "programaId": "pe-gepc-edicion",
       "cursoId": "cur-edit-electivo",
-      "periodo": 4,
+      "periodo": 2,
       "columna": 2,
       "obligatoriedad": "obligatorio",
       "alternativas": [],
@@ -5102,5 +5102,229 @@
       "pagina": 85,
       "nota": ""
     }
-  ]
+  ],
+  "planesMarco": {
+    "mae-creacion": [
+      {
+        "periodo": 1,
+        "columna": 1,
+        "cursoId": "cur-icg",
+        "abierta": null
+      },
+      {
+        "periodo": 1,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Introducción disciplinar"
+      },
+      {
+        "periodo": 1,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      },
+      {
+        "periodo": 2,
+        "columna": 1,
+        "cursoId": null,
+        "abierta": "Proyecto / Composición / Producción 1"
+      },
+      {
+        "periodo": 2,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 1"
+      },
+      {
+        "periodo": 2,
+        "columna": 3,
+        "cursoId": "cur-lab-cocreacion",
+        "abierta": null
+      },
+      {
+        "periodo": 3,
+        "columna": 1,
+        "cursoId": null,
+        "abierta": "Proyecto / composición / producción 2"
+      },
+      {
+        "periodo": 3,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 2"
+      },
+      {
+        "periodo": 3,
+        "columna": 3,
+        "cursoId": "cur-electiva",
+        "abierta": null
+      },
+      {
+        "periodo": 4,
+        "columna": 1,
+        "cursoId": null,
+        "abierta": "Proyecto / composición / producción 3"
+      },
+      {
+        "periodo": 4,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 3"
+      },
+      {
+        "periodo": 4,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      }
+    ],
+    "mae-he": [
+      {
+        "periodo": 1,
+        "columna": 1,
+        "cursoId": "cur-icg",
+        "abierta": null
+      },
+      {
+        "periodo": 1,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Introducción disciplinar"
+      },
+      {
+        "periodo": 1,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      },
+      {
+        "periodo": 2,
+        "columna": 1,
+        "cursoId": "cur-lab-teorico-practico",
+        "abierta": null
+      },
+      {
+        "periodo": 2,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 1"
+      },
+      {
+        "periodo": 2,
+        "columna": 3,
+        "cursoId": "cur-electiva",
+        "abierta": null
+      },
+      {
+        "periodo": 3,
+        "columna": 1,
+        "cursoId": "cur-he-diseno",
+        "abierta": null
+      },
+      {
+        "periodo": 3,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 2"
+      },
+      {
+        "periodo": 3,
+        "columna": 3,
+        "cursoId": null,
+        "abierta": "Seminario teoría 1, 2 o 3"
+      },
+      {
+        "periodo": 4,
+        "columna": 1,
+        "cursoId": "cur-he-trabajo-grado",
+        "abierta": null
+      },
+      {
+        "periodo": 4,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 3"
+      },
+      {
+        "periodo": 4,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      }
+    ],
+    "mae-gepc": [
+      {
+        "periodo": 1,
+        "columna": 1,
+        "cursoId": "cur-icg",
+        "abierta": null
+      },
+      {
+        "periodo": 1,
+        "columna": 2,
+        "cursoId": "cur-gepc-fundamentos",
+        "abierta": null
+      },
+      {
+        "periodo": 1,
+        "columna": 3,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 1"
+      },
+      {
+        "periodo": 2,
+        "columna": 1,
+        "cursoId": "cur-lab-gestion",
+        "abierta": null
+      },
+      {
+        "periodo": 2,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 2"
+      },
+      {
+        "periodo": 2,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      },
+      {
+        "periodo": 3,
+        "columna": 1,
+        "cursoId": "cur-gepc-practica-1",
+        "abierta": null
+      },
+      {
+        "periodo": 3,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 3"
+      },
+      {
+        "periodo": 3,
+        "columna": 3,
+        "cursoId": "cur-electiva",
+        "abierta": null
+      },
+      {
+        "periodo": 4,
+        "columna": 1,
+        "cursoId": "cur-gepc-practica-2",
+        "abierta": null
+      },
+      {
+        "periodo": 4,
+        "columna": 2,
+        "cursoId": null,
+        "abierta": "Seminario disciplinar 4"
+      },
+      {
+        "periodo": 4,
+        "columna": 3,
+        "cursoId": "cur-transversal",
+        "abierta": null
+      }
+    ]
+  }
 }

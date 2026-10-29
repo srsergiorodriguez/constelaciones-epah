@@ -143,3 +143,14 @@ maestría, en vez de inventar un plan que no existe, lista sus énfasis y los ab
 
 **Hover cruzado.** Pasar el cursor por una estrella enciende su fila; pasar por la fila enciende la
 estrella. Las dos vistas son la misma cosa dicha dos veces, y ahora se comportan como tal.
+
+---
+
+## 2026-10-29 · Especializados y maestría a secas
+
+**Especializado en dos periodos.** El cuerpo de cuatro cursos heredaba los periodos del énfasis; en la
+práctica se cursa en dos. Ahora la casilla es `ceil(i/2)`: dos cursos por periodo.
+
+**La maestría a secas existe.** Faltaba el plan de quien se gradúa sin énfasis: la rejilla del plan
+marco, con cursos del tronco y casillas abiertas que se llenan con cursos del énfasis elegido. El
+panel muestra ese plan completo y, debajo, los énfasis como rutas opcionales.
