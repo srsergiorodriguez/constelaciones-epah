@@ -111,7 +111,7 @@
         {@const p = curriculum.programas[s.programaId]}
         {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
         {@const by = Math.max(...s.puntos.map((q) => q[1]))}
-        {@const anchoEt = Math.max(64, p.nombreCorto.length * 8.4 + 22)}
+        {@const anchoEt = Math.max(72, p.nombreCorto.length * 7.4 + 22)}
         {@const etY = Math.min(by + 12, escena.alto - 26)}
         {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
         <g
@@ -297,7 +297,7 @@
 
   .nombre-silueta {
     font-family: var(--ff-sans);
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
     letter-spacing: 0.06em;
     fill: var(--c-ink);

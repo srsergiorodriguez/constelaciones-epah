@@ -194,11 +194,13 @@
 
   .programa {
     font-family: var(--ff-display);
-    font-size: var(--fz-2xl);
+    font-size: var(--fz-xl);
     font-weight: 700;
     letter-spacing: -0.01em;
-    line-height: 1.05;
+    line-height: 1.1;
     color: var(--c-ink);
+    max-width: 34ch;
+    margin-left: auto;
   }
 
   .detalle {

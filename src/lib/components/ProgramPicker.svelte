@@ -176,7 +176,8 @@
     font-family: var(--ff-sans);
     font-size: var(--fz-sm);
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
     color: var(--c-ink);
     text-align: left;
   }
@@ -201,9 +202,7 @@
   }
 
   .texto {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 1.25;
   }
 
   .fila:hover {

@@ -247,6 +247,11 @@ En `< 720 px`: chips en fila desplazable, cielo a ancho completo, panel como hoj
 ## 9. Microcopy
 
 Español, frase simple, sin exclamaciones. «Constelación», «estrella», «figura», «núcleo», «encuadre».
-Se dice **curso**, no «materia»; **énfasis**, no «mención»; **programa especializado**, completo.
+Se dice **curso**, no «materia»; **énfasis**, no «mención».
+
+**Todo programa se nombra con su nivel, nunca con el campo a secas:** «Maestría en Creación»,
+«Énfasis en Arte», «Programa Especializado en Arte». El nivel no se abrevia: `PE Arte` y
+`Gestión estratégica` dejan al lector adivinando qué está mirando. El nombre de la maestría va
+completo: «Maestría en Gestión Estratégica de Proyectos Culturales».
 Los vacíos explican: «Los cursos umbral se toman de un programa especializado; aún no hay inscripción
 abierta».

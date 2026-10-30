@@ -35,27 +35,27 @@ const PROGRAMS = [
   { id: "escuela-epah", nombre: "Escuela de Posgrados · Artes y Humanidades", nombre_corto: "Escuela", tipo: "escuela", padre_id: "", maestria_id: "", creditos: "", estado: "derivado", pagina: "" },
 
 
-  { id: "mae-creacion", nombre: "Maestría en Creación", nombre_corto: "Creación", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 1, nota: "El plan marco (p. 1) es la plantilla curricular; cada énfasis la instancia con sus propios cursos." },
-  { id: "enf-creacion-arte", nombre: "Maestría en Creación — Énfasis en Arte", nombre_corto: "Arte", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 4 },
-  { id: "enf-creacion-fotografia", nombre: "Maestría en Creación — Énfasis en Fotografía, Imagen y Medios", nombre_corto: "Fotografía e imagen", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 11 },
-  { id: "enf-creacion-composicion", nombre: "Maestría en Creación — Énfasis en Composición Musical", nombre_corto: "Composición musical", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 20 },
-  { id: "enf-creacion-produccion", nombre: "Maestría en Creación — Énfasis en Producción Musical", nombre_corto: "Producción musical", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 26 },
-  { id: "enf-creacion-escritura", nombre: "Maestría en Creación — Énfasis en Escritura Creativa", nombre_corto: "Escritura creativa", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 31 },
+  { id: "mae-creacion", nombre: "Maestría en Creación", nombre_corto: "Maestría en Creación", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 1, nota: "El plan marco (p. 1) es la plantilla curricular; cada énfasis la instancia con sus propios cursos." },
+  { id: "enf-creacion-arte", nombre: "Maestría en Creación — Énfasis en Arte", nombre_corto: "Énfasis en Arte", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 4 },
+  { id: "enf-creacion-fotografia", nombre: "Maestría en Creación — Énfasis en Fotografía, Imagen y Medios", nombre_corto: "Énfasis en Fotografía e imagen", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 11 },
+  { id: "enf-creacion-composicion", nombre: "Maestría en Creación — Énfasis en Composición Musical", nombre_corto: "Énfasis en Composición musical", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 20 },
+  { id: "enf-creacion-produccion", nombre: "Maestría en Creación — Énfasis en Producción Musical", nombre_corto: "Énfasis en Producción musical", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 26 },
+  { id: "enf-creacion-escritura", nombre: "Maestría en Creación — Énfasis en Escritura Creativa", nombre_corto: "Énfasis en Escritura creativa", tipo: "enfasis", padre_id: "mae-creacion", maestria_id: "mae-creacion", creditos: 36, estado: "verificado", pagina: 31 },
 
-  { id: "mae-he", nombre: "Maestría en Humanidades Experimentales", nombre_corto: "Humanidades Experimentales", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 41 },
-  { id: "enf-he-literatura", nombre: "Maestría en Humanidades Experimentales — Énfasis en Literatura", nombre_corto: "Literatura", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 46 },
-  { id: "enf-he-historia-arte", nombre: "Maestría en Humanidades Experimentales — Énfasis en Historia y Teoría del Arte", nombre_corto: "Historia y teoría del arte", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 51 },
-  { id: "enf-he-clasicos", nombre: "Maestría en Humanidades Experimentales — Énfasis en Estudios Clásicos", nombre_corto: "Estudios clásicos", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 55 },
-  { id: "enf-he-humanidades-digitales", nombre: "Maestría en Humanidades Experimentales — Énfasis en Humanidades Digitales", nombre_corto: "Humanidades digitales", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 58 },
-  { id: "enf-he-humanidades-ambientales", nombre: "Maestría en Humanidades Experimentales — Énfasis en Humanidades Ambientales", nombre_corto: "Humanidades ambientales", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 62 },
+  { id: "mae-he", nombre: "Maestría en Humanidades Experimentales", nombre_corto: "Maestría en Humanidades Experimentales", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 41 },
+  { id: "enf-he-literatura", nombre: "Maestría en Humanidades Experimentales — Énfasis en Literatura", nombre_corto: "Énfasis en Literatura", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 46 },
+  { id: "enf-he-historia-arte", nombre: "Maestría en Humanidades Experimentales — Énfasis en Historia y Teoría del Arte", nombre_corto: "Énfasis en Historia y teoría del arte", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 51 },
+  { id: "enf-he-clasicos", nombre: "Maestría en Humanidades Experimentales — Énfasis en Estudios Clásicos", nombre_corto: "Énfasis en Estudios clásicos", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 55 },
+  { id: "enf-he-humanidades-digitales", nombre: "Maestría en Humanidades Experimentales — Énfasis en Humanidades Digitales", nombre_corto: "Énfasis en Humanidades digitales", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 58 },
+  { id: "enf-he-humanidades-ambientales", nombre: "Maestría en Humanidades Experimentales — Énfasis en Humanidades Ambientales", nombre_corto: "Énfasis en Humanidades ambientales", tipo: "enfasis", padre_id: "mae-he", maestria_id: "mae-he", creditos: 36, estado: "verificado", pagina: 62 },
 
-  { id: "mae-gepc", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales", nombre_corto: "Gestión estratégica", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 70 },
-  { id: "enf-gepc-negocios-musica", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Negocios de la Música", nombre_corto: "Negocios de la música", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 75 },
-  { id: "enf-gepc-arte", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Arte", nombre_corto: "Arte", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 80 },
-  { id: "enf-gepc-edicion", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Edición", nombre_corto: "Edición", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 85 },
+  { id: "mae-gepc", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales", nombre_corto: "Maestría en Gestión Estratégica de Proyectos Culturales", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 70 },
+  { id: "enf-gepc-negocios-musica", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Negocios de la Música", nombre_corto: "Énfasis en Negocios de la música", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 75 },
+  { id: "enf-gepc-arte", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Arte", nombre_corto: "Énfasis en Arte", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 80 },
+  { id: "enf-gepc-edicion", nombre: "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Edición", nombre_corto: "Énfasis en Edición", tipo: "enfasis", padre_id: "mae-gepc", maestria_id: "mae-gepc", creditos: 36, estado: "verificado", pagina: 85 },
 
-  { id: "mae-periodismo", nombre: "Maestría en Periodismo", nombre_corto: "Periodismo", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-periodismo", creditos: 36, estado: "verificado", pagina: 93, nota: "Sin énfasis: su plan es único." },
-  { id: "mae-patrimonio", nombre: "Maestría en Patrimonio Cultural", nombre_corto: "Patrimonio cultural", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-patrimonio", creditos: 36, estado: "verificado", pagina: 106, nota: "Sin énfasis: su plan es único." },
+  { id: "mae-periodismo", nombre: "Maestría en Periodismo", nombre_corto: "Maestría en Periodismo", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-periodismo", creditos: 36, estado: "verificado", pagina: 93, nota: "Sin énfasis: su plan es único." },
+  { id: "mae-patrimonio", nombre: "Maestría en Patrimonio Cultural", nombre_corto: "Maestría en Patrimonio Cultural", tipo: "maestria", padre_id: "escuela-epah", maestria_id: "mae-patrimonio", creditos: 36, estado: "verificado", pagina: 106, nota: "Sin énfasis: su plan es único." },
 
 ];
 
@@ -415,7 +415,8 @@ const PE = plans
   .filter((p) => p.prog.tipo === "enfasis")
   .map((p) => {
     const suffix = p.id.replace(/^enf-/, "");
-    return { id: `pe-${suffix}`, nombre: `Programa especializado en ${p.prog.nombre_corto} (${programById.get(p.prog.maestria_id).nombre_corto})`, nombre_corto: `PE ${p.prog.nombre_corto}`, tipo: "programa_especializado", padre_id: p.id, maestria_id: p.prog.maestria_id, creditos: 12, estado: "derivado", pagina: p.pagina, nota: "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules.", slots: p.slots.filter((s) => s.pe) };
+    const corto = p.prog.nombre_corto.replace('Énfasis en ', '')
+    return { id: `pe-${suffix}`, nombre: `Programa Especializado en ${corto} — Maestría en ${programById.get(p.prog.maestria_id).nombre_corto.replace('Maestría en ', '')}`, nombre_corto: `Programa Especializado en ${corto}`, tipo: "programa_especializado", padre_id: p.id, maestria_id: p.prog.maestria_id, creditos: 12, estado: "derivado", pagina: p.pagina, nota: "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules.", slots: p.slots.filter((s) => s.pe) };
   });
 
 /* --- lookup combinado (maestrías, énfasis y especializados) --- */

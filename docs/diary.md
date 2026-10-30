@@ -211,3 +211,15 @@ decisión estética; una coincidencia es un error de accesibilidad.
 **Clic en «Constelaciones» vuelve al universo.** El título ya estaba ahí y no hacía nada; ahora es el
 botón de inicio, con subrayado al pasar el cursor. *Por qué:* además de «Volver al universo» al pie,
 la salida más obvia es la que el ojo busca primero.
+
+---
+
+## 2026-10-30 · El nivel se dice
+
+**Los nombres dicen qué son.** «Creación» pasa a «Maestría en Creación»; «Arte» a «Énfasis en Arte»;
+«PE Arte» a «Programa Especializado en Arte». El cambio se hizo en el dato (`nombre_corto`), no en las
+etiquetas, para que valga en la lista, el rótulo de la silueta, la cabecera y los CSV a la vez.
+
+**Consecuencia de diseño.** El selector pasa de 240 a 300 px y los nombres envuelven; la cabecera baja
+un escalón de tamaño (22 px) y se limita a 34 caracteres por línea. Los nombres largos son el precio
+de que nadie tenga que adivinar qué nivel está mirando.

@@ -22,7 +22,7 @@
     "mae-creacion": {
       "id": "mae-creacion",
       "nombre": "Maestría en Creación",
-      "nombreCorto": "Creación",
+      "nombreCorto": "Maestría en Creación",
       "tipo": "maestria",
       "padreId": "escuela-epah",
       "maestriaId": "mae-creacion",
@@ -33,7 +33,7 @@
     "enf-creacion-arte": {
       "id": "enf-creacion-arte",
       "nombre": "Maestría en Creación — Énfasis en Arte",
-      "nombreCorto": "Arte",
+      "nombreCorto": "Énfasis en Arte",
       "tipo": "enfasis",
       "padreId": "mae-creacion",
       "maestriaId": "mae-creacion",
@@ -44,7 +44,7 @@
     "enf-creacion-fotografia": {
       "id": "enf-creacion-fotografia",
       "nombre": "Maestría en Creación — Énfasis en Fotografía, Imagen y Medios",
-      "nombreCorto": "Fotografía e imagen",
+      "nombreCorto": "Énfasis en Fotografía e imagen",
       "tipo": "enfasis",
       "padreId": "mae-creacion",
       "maestriaId": "mae-creacion",
@@ -55,7 +55,7 @@
     "enf-creacion-composicion": {
       "id": "enf-creacion-composicion",
       "nombre": "Maestría en Creación — Énfasis en Composición Musical",
-      "nombreCorto": "Composición musical",
+      "nombreCorto": "Énfasis en Composición musical",
       "tipo": "enfasis",
       "padreId": "mae-creacion",
       "maestriaId": "mae-creacion",
@@ -66,7 +66,7 @@
     "enf-creacion-produccion": {
       "id": "enf-creacion-produccion",
       "nombre": "Maestría en Creación — Énfasis en Producción Musical",
-      "nombreCorto": "Producción musical",
+      "nombreCorto": "Énfasis en Producción musical",
       "tipo": "enfasis",
       "padreId": "mae-creacion",
       "maestriaId": "mae-creacion",
@@ -77,7 +77,7 @@
     "enf-creacion-escritura": {
       "id": "enf-creacion-escritura",
       "nombre": "Maestría en Creación — Énfasis en Escritura Creativa",
-      "nombreCorto": "Escritura creativa",
+      "nombreCorto": "Énfasis en Escritura creativa",
       "tipo": "enfasis",
       "padreId": "mae-creacion",
       "maestriaId": "mae-creacion",
@@ -88,7 +88,7 @@
     "mae-he": {
       "id": "mae-he",
       "nombre": "Maestría en Humanidades Experimentales",
-      "nombreCorto": "Humanidades Experimentales",
+      "nombreCorto": "Maestría en Humanidades Experimentales",
       "tipo": "maestria",
       "padreId": "escuela-epah",
       "maestriaId": "mae-he",
@@ -99,7 +99,7 @@
     "enf-he-literatura": {
       "id": "enf-he-literatura",
       "nombre": "Maestría en Humanidades Experimentales — Énfasis en Literatura",
-      "nombreCorto": "Literatura",
+      "nombreCorto": "Énfasis en Literatura",
       "tipo": "enfasis",
       "padreId": "mae-he",
       "maestriaId": "mae-he",
@@ -110,7 +110,7 @@
     "enf-he-historia-arte": {
       "id": "enf-he-historia-arte",
       "nombre": "Maestría en Humanidades Experimentales — Énfasis en Historia y Teoría del Arte",
-      "nombreCorto": "Historia y teoría del arte",
+      "nombreCorto": "Énfasis en Historia y teoría del arte",
       "tipo": "enfasis",
       "padreId": "mae-he",
       "maestriaId": "mae-he",
@@ -121,7 +121,7 @@
     "enf-he-clasicos": {
       "id": "enf-he-clasicos",
       "nombre": "Maestría en Humanidades Experimentales — Énfasis en Estudios Clásicos",
-      "nombreCorto": "Estudios clásicos",
+      "nombreCorto": "Énfasis en Estudios clásicos",
       "tipo": "enfasis",
       "padreId": "mae-he",
       "maestriaId": "mae-he",
@@ -132,7 +132,7 @@
     "enf-he-humanidades-digitales": {
       "id": "enf-he-humanidades-digitales",
       "nombre": "Maestría en Humanidades Experimentales — Énfasis en Humanidades Digitales",
-      "nombreCorto": "Humanidades digitales",
+      "nombreCorto": "Énfasis en Humanidades digitales",
       "tipo": "enfasis",
       "padreId": "mae-he",
       "maestriaId": "mae-he",
@@ -143,7 +143,7 @@
     "enf-he-humanidades-ambientales": {
       "id": "enf-he-humanidades-ambientales",
       "nombre": "Maestría en Humanidades Experimentales — Énfasis en Humanidades Ambientales",
-      "nombreCorto": "Humanidades ambientales",
+      "nombreCorto": "Énfasis en Humanidades ambientales",
       "tipo": "enfasis",
       "padreId": "mae-he",
       "maestriaId": "mae-he",
@@ -154,7 +154,7 @@
     "mae-gepc": {
       "id": "mae-gepc",
       "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales",
-      "nombreCorto": "Gestión estratégica",
+      "nombreCorto": "Maestría en Gestión Estratégica de Proyectos Culturales",
       "tipo": "maestria",
       "padreId": "escuela-epah",
       "maestriaId": "mae-gepc",
@@ -165,7 +165,7 @@
     "enf-gepc-negocios-musica": {
       "id": "enf-gepc-negocios-musica",
       "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Negocios de la Música",
-      "nombreCorto": "Negocios de la música",
+      "nombreCorto": "Énfasis en Negocios de la música",
       "tipo": "enfasis",
       "padreId": "mae-gepc",
       "maestriaId": "mae-gepc",
@@ -176,7 +176,7 @@
     "enf-gepc-arte": {
       "id": "enf-gepc-arte",
       "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Arte",
-      "nombreCorto": "Arte",
+      "nombreCorto": "Énfasis en Arte",
       "tipo": "enfasis",
       "padreId": "mae-gepc",
       "maestriaId": "mae-gepc",
@@ -187,7 +187,7 @@
     "enf-gepc-edicion": {
       "id": "enf-gepc-edicion",
       "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales — Énfasis en Edición",
-      "nombreCorto": "Edición",
+      "nombreCorto": "Énfasis en Edición",
       "tipo": "enfasis",
       "padreId": "mae-gepc",
       "maestriaId": "mae-gepc",
@@ -198,7 +198,7 @@
     "mae-periodismo": {
       "id": "mae-periodismo",
       "nombre": "Maestría en Periodismo",
-      "nombreCorto": "Periodismo",
+      "nombreCorto": "Maestría en Periodismo",
       "tipo": "maestria",
       "padreId": "escuela-epah",
       "maestriaId": "mae-periodismo",
@@ -209,7 +209,7 @@
     "mae-patrimonio": {
       "id": "mae-patrimonio",
       "nombre": "Maestría en Patrimonio Cultural",
-      "nombreCorto": "Patrimonio cultural",
+      "nombreCorto": "Maestría en Patrimonio Cultural",
       "tipo": "maestria",
       "padreId": "escuela-epah",
       "maestriaId": "mae-patrimonio",
@@ -219,8 +219,8 @@
     },
     "pe-creacion-arte": {
       "id": "pe-creacion-arte",
-      "nombre": "Programa especializado en Arte (Creación)",
-      "nombreCorto": "PE Arte",
+      "nombre": "Programa Especializado en Arte — Maestría en Creación",
+      "nombreCorto": "Programa Especializado en Arte",
       "tipo": "programa_especializado",
       "padreId": "enf-creacion-arte",
       "maestriaId": "mae-creacion",
@@ -230,8 +230,8 @@
     },
     "pe-creacion-fotografia": {
       "id": "pe-creacion-fotografia",
-      "nombre": "Programa especializado en Fotografía e imagen (Creación)",
-      "nombreCorto": "PE Fotografía e imagen",
+      "nombre": "Programa Especializado en Fotografía e imagen — Maestría en Creación",
+      "nombreCorto": "Programa Especializado en Fotografía e imagen",
       "tipo": "programa_especializado",
       "padreId": "enf-creacion-fotografia",
       "maestriaId": "mae-creacion",
@@ -241,8 +241,8 @@
     },
     "pe-creacion-composicion": {
       "id": "pe-creacion-composicion",
-      "nombre": "Programa especializado en Composición musical (Creación)",
-      "nombreCorto": "PE Composición musical",
+      "nombre": "Programa Especializado en Composición musical — Maestría en Creación",
+      "nombreCorto": "Programa Especializado en Composición musical",
       "tipo": "programa_especializado",
       "padreId": "enf-creacion-composicion",
       "maestriaId": "mae-creacion",
@@ -252,8 +252,8 @@
     },
     "pe-creacion-produccion": {
       "id": "pe-creacion-produccion",
-      "nombre": "Programa especializado en Producción musical (Creación)",
-      "nombreCorto": "PE Producción musical",
+      "nombre": "Programa Especializado en Producción musical — Maestría en Creación",
+      "nombreCorto": "Programa Especializado en Producción musical",
       "tipo": "programa_especializado",
       "padreId": "enf-creacion-produccion",
       "maestriaId": "mae-creacion",
@@ -263,8 +263,8 @@
     },
     "pe-creacion-escritura": {
       "id": "pe-creacion-escritura",
-      "nombre": "Programa especializado en Escritura creativa (Creación)",
-      "nombreCorto": "PE Escritura creativa",
+      "nombre": "Programa Especializado en Escritura creativa — Maestría en Creación",
+      "nombreCorto": "Programa Especializado en Escritura creativa",
       "tipo": "programa_especializado",
       "padreId": "enf-creacion-escritura",
       "maestriaId": "mae-creacion",
@@ -274,8 +274,8 @@
     },
     "pe-he-literatura": {
       "id": "pe-he-literatura",
-      "nombre": "Programa especializado en Literatura (Humanidades Experimentales)",
-      "nombreCorto": "PE Literatura",
+      "nombre": "Programa Especializado en Literatura — Maestría en Humanidades Experimentales",
+      "nombreCorto": "Programa Especializado en Literatura",
       "tipo": "programa_especializado",
       "padreId": "enf-he-literatura",
       "maestriaId": "mae-he",
@@ -285,8 +285,8 @@
     },
     "pe-he-historia-arte": {
       "id": "pe-he-historia-arte",
-      "nombre": "Programa especializado en Historia y teoría del arte (Humanidades Experimentales)",
-      "nombreCorto": "PE Historia y teoría del arte",
+      "nombre": "Programa Especializado en Historia y teoría del arte — Maestría en Humanidades Experimentales",
+      "nombreCorto": "Programa Especializado en Historia y teoría del arte",
       "tipo": "programa_especializado",
       "padreId": "enf-he-historia-arte",
       "maestriaId": "mae-he",
@@ -296,8 +296,8 @@
     },
     "pe-he-clasicos": {
       "id": "pe-he-clasicos",
-      "nombre": "Programa especializado en Estudios clásicos (Humanidades Experimentales)",
-      "nombreCorto": "PE Estudios clásicos",
+      "nombre": "Programa Especializado en Estudios clásicos — Maestría en Humanidades Experimentales",
+      "nombreCorto": "Programa Especializado en Estudios clásicos",
       "tipo": "programa_especializado",
       "padreId": "enf-he-clasicos",
       "maestriaId": "mae-he",
@@ -307,8 +307,8 @@
     },
     "pe-he-humanidades-digitales": {
       "id": "pe-he-humanidades-digitales",
-      "nombre": "Programa especializado en Humanidades digitales (Humanidades Experimentales)",
-      "nombreCorto": "PE Humanidades digitales",
+      "nombre": "Programa Especializado en Humanidades digitales — Maestría en Humanidades Experimentales",
+      "nombreCorto": "Programa Especializado en Humanidades digitales",
       "tipo": "programa_especializado",
       "padreId": "enf-he-humanidades-digitales",
       "maestriaId": "mae-he",
@@ -318,8 +318,8 @@
     },
     "pe-he-humanidades-ambientales": {
       "id": "pe-he-humanidades-ambientales",
-      "nombre": "Programa especializado en Humanidades ambientales (Humanidades Experimentales)",
-      "nombreCorto": "PE Humanidades ambientales",
+      "nombre": "Programa Especializado en Humanidades ambientales — Maestría en Humanidades Experimentales",
+      "nombreCorto": "Programa Especializado en Humanidades ambientales",
       "tipo": "programa_especializado",
       "padreId": "enf-he-humanidades-ambientales",
       "maestriaId": "mae-he",
@@ -329,8 +329,8 @@
     },
     "pe-gepc-negocios-musica": {
       "id": "pe-gepc-negocios-musica",
-      "nombre": "Programa especializado en Negocios de la música (Gestión estratégica)",
-      "nombreCorto": "PE Negocios de la música",
+      "nombre": "Programa Especializado en Negocios de la música — Maestría en Gestión Estratégica de Proyectos Culturales",
+      "nombreCorto": "Programa Especializado en Negocios de la música",
       "tipo": "programa_especializado",
       "padreId": "enf-gepc-negocios-musica",
       "maestriaId": "mae-gepc",
@@ -340,8 +340,8 @@
     },
     "pe-gepc-arte": {
       "id": "pe-gepc-arte",
-      "nombre": "Programa especializado en Arte (Gestión estratégica)",
-      "nombreCorto": "PE Arte",
+      "nombre": "Programa Especializado en Arte — Maestría en Gestión Estratégica de Proyectos Culturales",
+      "nombreCorto": "Programa Especializado en Arte",
       "tipo": "programa_especializado",
       "padreId": "enf-gepc-arte",
       "maestriaId": "mae-gepc",
@@ -351,8 +351,8 @@
     },
     "pe-gepc-edicion": {
       "id": "pe-gepc-edicion",
-      "nombre": "Programa especializado en Edición (Gestión estratégica)",
-      "nombreCorto": "PE Edición",
+      "nombre": "Programa Especializado en Edición — Maestría en Gestión Estratégica de Proyectos Culturales",
+      "nombreCorto": "Programa Especializado en Edición",
       "tipo": "programa_especializado",
       "padreId": "enf-gepc-edicion",
       "maestriaId": "mae-gepc",
@@ -372,13 +372,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -395,13 +395,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -418,13 +418,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -441,13 +441,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -464,10 +464,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -485,10 +485,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -506,10 +506,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -527,13 +527,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Estudios clásicos"
+        "Énfasis en Estudios clásicos"
       ],
       "programasEspecializados": [
-        "PE Estudios clásicos"
+        "Programa Especializado en Estudios clásicos"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -550,10 +550,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical"
+        "Énfasis en Composición musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -571,10 +571,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical"
+        "Énfasis en Composición musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -592,10 +592,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical"
+        "Énfasis en Composición musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -613,13 +613,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Edición"
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [
-        "PE Edición"
+        "Programa Especializado en Edición"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -636,13 +636,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Edición"
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [
-        "PE Edición"
+        "Programa Especializado en Edición"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -659,13 +659,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Edición"
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [
-        "PE Edición"
+        "Programa Especializado en Edición"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -682,13 +682,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Edición"
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [
-        "PE Edición"
+        "Programa Especializado en Edición"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -705,25 +705,25 @@
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [
-        "Creación",
-        "Humanidades Experimentales",
-        "Gestión estratégica",
-        "Periodismo",
-        "Patrimonio cultural"
+        "Maestría en Creación",
+        "Maestría en Humanidades Experimentales",
+        "Maestría en Gestión Estratégica de Proyectos Culturales",
+        "Maestría en Periodismo",
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [
-        "Arte",
-        "Fotografía e imagen",
-        "Composición musical",
-        "Producción musical",
-        "Escritura creativa",
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales",
-        "Negocios de la música",
-        "Edición"
+        "Énfasis en Arte",
+        "Énfasis en Fotografía e imagen",
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical",
+        "Énfasis en Escritura creativa",
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales",
+        "Énfasis en Negocios de la música",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": true,
@@ -741,13 +741,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [
-        "PE Escritura creativa"
+        "Programa Especializado en Escritura creativa"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -764,10 +764,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -785,10 +785,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -806,10 +806,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -827,13 +827,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [
-        "PE Escritura creativa"
+        "Programa Especializado en Escritura creativa"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -850,13 +850,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [
-        "PE Escritura creativa"
+        "Programa Especializado en Escritura creativa"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -873,13 +873,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Escritura creativa"
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [
-        "PE Escritura creativa"
+        "Programa Especializado en Escritura creativa"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -896,13 +896,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [
-        "PE Fotografía e imagen"
+        "Programa Especializado en Fotografía e imagen"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -919,13 +919,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [
-        "PE Fotografía e imagen"
+        "Programa Especializado en Fotografía e imagen"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -942,13 +942,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [
-        "PE Fotografía e imagen"
+        "Programa Especializado en Fotografía e imagen"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -965,13 +965,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [
-        "PE Fotografía e imagen"
+        "Programa Especializado en Fotografía e imagen"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -988,10 +988,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1009,10 +1009,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1030,10 +1030,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Fotografía e imagen"
+        "Énfasis en Fotografía e imagen"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1051,13 +1051,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1074,13 +1074,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -1097,13 +1097,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1120,13 +1120,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Arte"
+        "Énfasis en Arte"
       ],
       "programasEspecializados": [
-        "PE Arte"
+        "Programa Especializado en Arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1143,12 +1143,12 @@
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música",
-        "Arte",
-        "Edición"
+        "Énfasis en Negocios de la música",
+        "Énfasis en Arte",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1166,12 +1166,12 @@
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música",
-        "Arte",
-        "Edición"
+        "Énfasis en Negocios de la música",
+        "Énfasis en Arte",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1189,12 +1189,12 @@
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música",
-        "Arte",
-        "Edición"
+        "Énfasis en Negocios de la música",
+        "Énfasis en Arte",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1212,13 +1212,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades ambientales"
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [
-        "PE Humanidades ambientales"
+        "Programa Especializado en Humanidades ambientales"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1235,13 +1235,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades ambientales"
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [
-        "PE Humanidades ambientales"
+        "Programa Especializado en Humanidades ambientales"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -1258,13 +1258,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Historia y teoría del arte"
+        "Énfasis en Historia y teoría del arte"
       ],
       "programasEspecializados": [
-        "PE Historia y teoría del arte"
+        "Programa Especializado en Historia y teoría del arte"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1281,13 +1281,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Historia y teoría del arte"
+        "Énfasis en Historia y teoría del arte"
       ],
       "programasEspecializados": [
-        "PE Historia y teoría del arte"
+        "Programa Especializado en Historia y teoría del arte"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -1304,13 +1304,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades digitales"
+        "Énfasis en Humanidades digitales"
       ],
       "programasEspecializados": [
-        "PE Humanidades digitales"
+        "Programa Especializado en Humanidades digitales"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1327,11 +1327,11 @@
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades digitales",
-        "Humanidades ambientales"
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [],
       "ofertaVariable": true,
@@ -1349,13 +1349,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades digitales"
+        "Énfasis en Humanidades digitales"
       ],
       "programasEspecializados": [
-        "PE Humanidades digitales"
+        "Programa Especializado en Humanidades digitales"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1372,13 +1372,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades digitales"
+        "Énfasis en Humanidades digitales"
       ],
       "programasEspecializados": [
-        "PE Humanidades digitales"
+        "Programa Especializado en Humanidades digitales"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1395,13 +1395,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Humanidades digitales"
+        "Énfasis en Humanidades digitales"
       ],
       "programasEspecializados": [
-        "PE Humanidades digitales"
+        "Programa Especializado en Humanidades digitales"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1418,14 +1418,14 @@
       "alcance": "maestria",
       "nProgramas": 5,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1443,17 +1443,17 @@
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [
-        "PE Literatura",
-        "PE Estudios clásicos"
+        "Programa Especializado en Literatura",
+        "Programa Especializado en Estudios clásicos"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1470,16 +1470,16 @@
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura",
-        "Estudios clásicos",
-        "Historia y teoría del arte",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [
-        "PE Literatura"
+        "Programa Especializado en Literatura"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1496,16 +1496,16 @@
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [
-        "PE Literatura"
+        "Programa Especializado en Literatura"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1522,14 +1522,14 @@
       "alcance": "maestria",
       "nProgramas": 5,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1547,25 +1547,25 @@
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [
-        "Creación",
-        "Humanidades Experimentales",
-        "Gestión estratégica",
-        "Periodismo",
-        "Patrimonio cultural"
+        "Maestría en Creación",
+        "Maestría en Humanidades Experimentales",
+        "Maestría en Gestión Estratégica de Proyectos Culturales",
+        "Maestría en Periodismo",
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [
-        "Arte",
-        "Fotografía e imagen",
-        "Composición musical",
-        "Producción musical",
-        "Escritura creativa",
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales",
-        "Negocios de la música",
-        "Edición"
+        "Énfasis en Arte",
+        "Énfasis en Fotografía e imagen",
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical",
+        "Énfasis en Escritura creativa",
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales",
+        "Énfasis en Negocios de la música",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1583,15 +1583,15 @@
       "alcance": "escuela",
       "nProgramas": 6,
       "maestrias": [
-        "Creación",
-        "Patrimonio cultural"
+        "Maestría en Creación",
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [
-        "Arte",
-        "Fotografía e imagen",
-        "Composición musical",
-        "Producción musical",
-        "Escritura creativa"
+        "Énfasis en Arte",
+        "Énfasis en Fotografía e imagen",
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical",
+        "Énfasis en Escritura creativa"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1609,15 +1609,15 @@
       "alcance": "escuela",
       "nProgramas": 5,
       "maestrias": [
-        "Gestión estratégica",
-        "Patrimonio cultural",
-        "Creación"
+        "Maestría en Gestión Estratégica de Proyectos Culturales",
+        "Maestría en Patrimonio Cultural",
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Negocios de la música",
-        "Arte",
-        "Edición",
-        "Producción musical"
+        "Énfasis en Negocios de la música",
+        "Énfasis en Arte",
+        "Énfasis en Edición",
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1635,15 +1635,15 @@
       "alcance": "escuela",
       "nProgramas": 6,
       "maestrias": [
-        "Humanidades Experimentales",
-        "Patrimonio cultural"
+        "Maestría en Humanidades Experimentales",
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales"
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -1661,13 +1661,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Humanidades Experimentales"
+        "Maestría en Humanidades Experimentales"
       ],
       "enfasis": [
-        "Literatura"
+        "Énfasis en Literatura"
       ],
       "programasEspecializados": [
-        "PE Literatura"
+        "Programa Especializado en Literatura"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -1684,15 +1684,15 @@
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical",
-        "Producción musical"
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [
-        "PE Composición musical",
-        "PE Producción musical"
+        "Programa Especializado en Composición musical",
+        "Programa Especializado en Producción musical"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1709,15 +1709,15 @@
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical",
-        "Producción musical"
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [
-        "PE Composición musical",
-        "PE Producción musical"
+        "Programa Especializado en Composición musical",
+        "Programa Especializado en Producción musical"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1734,15 +1734,15 @@
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical",
-        "Producción musical"
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [
-        "PE Composición musical",
-        "PE Producción musical"
+        "Programa Especializado en Composición musical",
+        "Programa Especializado en Producción musical"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1759,15 +1759,15 @@
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Composición musical",
-        "Producción musical"
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [
-        "PE Composición musical",
-        "PE Producción musical"
+        "Programa Especializado en Composición musical",
+        "Programa Especializado en Producción musical"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1784,13 +1784,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música"
+        "Énfasis en Negocios de la música"
       ],
       "programasEspecializados": [
-        "PE Negocios de la música"
+        "Programa Especializado en Negocios de la música"
       ],
       "ofertaVariable": true,
       "estado": "verificado",
@@ -1807,13 +1807,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música"
+        "Énfasis en Negocios de la música"
       ],
       "programasEspecializados": [
-        "PE Negocios de la música"
+        "Programa Especializado en Negocios de la música"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1830,13 +1830,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música"
+        "Énfasis en Negocios de la música"
       ],
       "programasEspecializados": [
-        "PE Negocios de la música"
+        "Programa Especializado en Negocios de la música"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1853,13 +1853,13 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Gestión estratégica"
+        "Maestría en Gestión Estratégica de Proyectos Culturales"
       ],
       "enfasis": [
-        "Negocios de la música"
+        "Énfasis en Negocios de la música"
       ],
       "programasEspecializados": [
-        "PE Negocios de la música"
+        "Programa Especializado en Negocios de la música"
       ],
       "ofertaVariable": false,
       "estado": "verificado",
@@ -1876,7 +1876,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1895,7 +1895,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1914,7 +1914,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1933,7 +1933,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1952,7 +1952,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1971,7 +1971,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Patrimonio cultural"
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -1990,7 +1990,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2009,7 +2009,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2028,7 +2028,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2047,7 +2047,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2066,7 +2066,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2085,7 +2085,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2104,7 +2104,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2123,7 +2123,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2142,7 +2142,7 @@
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
-        "Periodismo"
+        "Maestría en Periodismo"
       ],
       "enfasis": [],
       "programasEspecializados": [],
@@ -2161,10 +2161,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Producción musical"
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -2182,10 +2182,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Producción musical"
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -2203,10 +2203,10 @@
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
-        "Creación"
+        "Maestría en Creación"
       ],
       "enfasis": [
-        "Producción musical"
+        "Énfasis en Producción musical"
       ],
       "programasEspecializados": [],
       "ofertaVariable": false,
@@ -2224,25 +2224,25 @@
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [
-        "Creación",
-        "Humanidades Experimentales",
-        "Gestión estratégica",
-        "Periodismo",
-        "Patrimonio cultural"
+        "Maestría en Creación",
+        "Maestría en Humanidades Experimentales",
+        "Maestría en Gestión Estratégica de Proyectos Culturales",
+        "Maestría en Periodismo",
+        "Maestría en Patrimonio Cultural"
       ],
       "enfasis": [
-        "Arte",
-        "Fotografía e imagen",
-        "Composición musical",
-        "Producción musical",
-        "Escritura creativa",
-        "Literatura",
-        "Historia y teoría del arte",
-        "Estudios clásicos",
-        "Humanidades digitales",
-        "Humanidades ambientales",
-        "Negocios de la música",
-        "Edición"
+        "Énfasis en Arte",
+        "Énfasis en Fotografía e imagen",
+        "Énfasis en Composición musical",
+        "Énfasis en Producción musical",
+        "Énfasis en Escritura creativa",
+        "Énfasis en Literatura",
+        "Énfasis en Historia y teoría del arte",
+        "Énfasis en Estudios clásicos",
+        "Énfasis en Humanidades digitales",
+        "Énfasis en Humanidades ambientales",
+        "Énfasis en Negocios de la música",
+        "Énfasis en Edición"
       ],
       "programasEspecializados": [],
       "ofertaVariable": true,

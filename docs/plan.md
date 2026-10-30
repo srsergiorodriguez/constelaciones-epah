@@ -160,8 +160,7 @@ Objetivo: el caso de uso del comité — «especializado + maestría, ¿qué com
 - [ ] Modo Cielo (83 estrellas, sin aristas) y transición desde/hacia constelación
 - [ ] Rótulos con evitación de colisiones por prioridad
 
-**Aceptación:** seleccionar «PE Arte (Creación)» y «Maestría en Creación» produce dos colores, la
-línea larga del especializado dentro de la figura de Arte y las estrellas comunes con doble anillo.
+**Aceptación:** (función aplazada, ver §4.5 de `constellation.md`).
 
 ---
 
