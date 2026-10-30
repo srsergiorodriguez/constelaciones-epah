@@ -222,7 +222,7 @@
     </g>
   {/if}
 
-  <g class="figuras" aria-hidden="true">
+  <g class="figuras">
     {#if escena.eje}
       <line
         x1={escena.eje[0][0]}
@@ -235,13 +235,51 @@
       />
     {/if}
     {#each escena.figuras as f (f.programaId)}
-      <path
-        d={polylinePath(f.puntos)}
-        fill="none"
-        stroke={colorDe(f.programaId)}
-        class="silueta"
-        class:visible={!enNebulosa}
-      />
+      {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
+      {#if escena.figuras.length > 1}
+        <!-- una maestría con énfasis: cada figura es una puerta a su plan -->
+        <g
+          class="figura"
+          class:activa
+          role="button"
+          tabindex="0"
+          aria-label="Ver {curriculum.programas[f.programaId]?.nombreCorto ?? ''}"
+          onmouseenter={() => onHoverPrograma(f.programaId)}
+          onmouseleave={() => onHoverPrograma(null)}
+          onfocus={() => onHoverPrograma(f.programaId)}
+          onblur={() => onHoverPrograma(null)}
+          onclick={() => onElegir(f.programaId)}
+          onkeydown={(ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault()
+              onElegir(f.programaId)
+            }
+          }}
+        >
+          <path d={polylinePath(f.puntos)} fill="transparent" stroke="none" class="zona-figura" />
+          <path
+            d={polylinePath(f.puntos)}
+            fill="none"
+            stroke={colorDe(f.programaId)}
+            class="silueta"
+            class:visible={!enNebulosa}
+          />
+          <text
+            x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
+            y={Math.max(...f.puntos.map((q) => q[1])) + 22}
+            class="nombre-figura"
+            class:visible={activa}
+          >{curriculum.programas[f.programaId]?.nombreCorto ?? ''}</text>
+        </g>
+      {:else}
+        <path
+          d={polylinePath(f.puntos)}
+          fill="none"
+          stroke={colorDe(f.programaId)}
+          class="silueta"
+          class:visible={!enNebulosa}
+        />
+      {/if}
     {/each}
   </g>
 
@@ -455,6 +493,41 @@
   }
 
   /* el relleno lo pone la clase hl-* de app.css, para no pisarla con el scope */
+
+  .figura {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .zona-figura {
+    pointer-events: all;
+  }
+
+  .figura.activa .silueta {
+    stroke-width: calc(var(--stroke-const) + 1.2);
+    opacity: 1;
+  }
+
+  .figura:focus-visible .silueta {
+    stroke: var(--c-focus);
+  }
+
+  .nombre-figura {
+    font-family: var(--ff-sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    fill: var(--c-ink);
+    text-anchor: middle;
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
+    pointer-events: none;
+  }
+
+  .nombre-figura.visible {
+    opacity: 1;
+  }
 
   .silueta {
     stroke-width: var(--stroke-const);

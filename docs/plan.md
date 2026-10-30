@@ -140,6 +140,7 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] El rótulo de una región es un botón: abre la maestría
 - [x] Los umbrales orbitan la figura del programa que abren
 - [x] Un solo `Foco` para toda la interfaz: enciende y desplaza en el selector, el plan y el detalle
+- [x] En la maestría, cada figura abre su énfasis con un clic
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

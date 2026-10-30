@@ -364,3 +364,11 @@ el que coincide se enciende y se desplaza hasta él.
 
 **La regla queda escrita.** Cualquier superficie nueva que muestre cursos o programas recibe `foco` y
 pinta su fila. Sin eso, la interfaz vuelve a señalar sin encontrarse.
+
+---
+
+## 2026-10-30 · Las figuras son puertas
+
+**En la maestría, cada figura abre su énfasis.** Antes había que volver a la lista; ahora el cielo y
+la lista ofrecen lo mismo. El interior de la figura también responde: lleva un relleno transparente
+para que el blanco no sea el trazo.
