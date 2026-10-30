@@ -353,3 +353,14 @@ Era el gesto que faltaba: el rótulo estaba ahí, grande, y no hacía nada.
 donde cayera obligaba a leer la lista para saber de qué era puerta. Ahora cada uno se reparte en
 anillo alrededor de la figura que lo abre: cuarenta y una puertas, trece constelaciones, y la
 pertenencia se ve antes de leer.
+
+---
+
+## 2026-10-30 · Un solo foco
+
+**El resaltado era por componente.** El cielo tenía el suyo, el plan el suyo, el selector el suyo, y
+cada uno se enteraba de cosas distintas. Ahora hay un `Foco` —curso o programa— que todos reciben:
+el que coincide se enciende y se desplaza hasta él.
+
+**La regla queda escrita.** Cualquier superficie nueva que muestre cursos o programas recibe `foco` y
+pinta su fila. Sin eso, la interfaz vuelve a señalar sin encontrarse.

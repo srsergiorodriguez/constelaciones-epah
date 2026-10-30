@@ -110,7 +110,23 @@ Reglas:
 - Nunca es el único portador de significado: el nombre del programa y la palabra «periodo» siguen
   ahí aunque no se distinga el color.
 
-### 3.4 Estado del dato
+### 3.4 El foco es uno solo
+
+Señalar algo en cualquier superficie produce el mismo efecto en todas las demás: la fila se enciende
+y la lista **se desplaza hasta ella**. No hay un «resaltado» por componente; hay un `Foco`:
+
+```ts
+type Foco = { tipo: 'curso' | 'programa'; id: string }
+```
+
+- **El cielo** enfoca cursos (estrellas, puntos umbral) y programas (siluetas, rótulos de región).
+- **El selector, el plan y el detalle de curso** enfocan y reaccionan.
+- Todos comparan `foco.id` contra el suyo y, si coincide, se encienden y se desplazan.
+
+Regla: cualquier superficie nueva que muestre cursos o programas **debe** recibir `foco` y pintar la
+fila correspondiente. Sin eso, la interfaz vuelve a señalar sin encontrarse.
+
+### 3.5 Estado del dato
 
 | Estado | Tratamiento |
 |---|---|

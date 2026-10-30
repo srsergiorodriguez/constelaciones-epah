@@ -51,3 +51,9 @@ export function escalones(): Escalon[] {
     },
   ]
 }
+
+/** Lo que el cursor está señalando en cualquier superficie: un curso o un programa. */
+export interface Foco {
+  tipo: 'curso' | 'programa'
+  id: string
+}

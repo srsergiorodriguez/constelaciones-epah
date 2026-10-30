@@ -1,17 +1,20 @@
 <script lang="ts">
   import { curriculum } from '../data/types'
   import { hijosDe, periodosDe, planDe } from '../domain/plan'
+  import type { Foco } from '../domain/niveles'
   import { colorDe, marcaDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
 
   interface Props {
     programaId: string
-    resaltado: string | null
+    foco: Foco | null
     onHover: (cursoId: string | null) => void
     onElegir: (programaId: string) => void
   }
 
-  let { programaId, resaltado, onHover, onElegir }: Props = $props()
+  let { programaId, foco, onHover, onElegir }: Props = $props()
+
+  const resaltado = $derived(foco?.tipo === 'curso' ? foco.id : null)
 
   const programa = $derived(curriculum.programas[programaId])
   const color = $derived(colorDe(programaId))

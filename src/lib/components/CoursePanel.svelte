@@ -3,17 +3,29 @@
   import { hijosDe } from '../domain/plan'
   import { programasOf } from '../domain/graph'
   import { marcaDe } from '../viz/palette'
+  import type { Foco } from '../domain/niveles'
   import StarGlyph from './StarGlyph.svelte'
 
   interface Props {
     cursoId: string
+    foco: Foco | null
     onCerrar: () => void
     onElegir: (programaId: string) => void
+    onFoco: (programaId: string | null) => void
   }
 
-  let { cursoId, onCerrar, onElegir }: Props = $props()
+  let { cursoId, foco, onCerrar, onElegir, onFoco }: Props = $props()
 
   const curso = $derived(curriculum.cursos[cursoId])
+
+  let panel = $state<HTMLElement | null>(null)
+
+  $effect(() => {
+    const id = foco?.id
+    if (!id || !panel) return
+    const fila = panel.querySelector(`[data-foco="${CSS.escape(id)}"]`)
+    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  })
 
   /** Escalones a los que este curso cuenta: especializado → énfasis → maestría. */
   const cadena = $derived.by(() => {
@@ -37,7 +49,7 @@
   const familia = $derived(cadena.length > 0 ? (familias[0] ?? '') : '')
 </script>
 
-<aside class="panel" aria-label="Detalle del curso">
+<aside class="panel" bind:this={panel} aria-label="Detalle del curso">
   <header>
     <div class="fila-curso">
       <svg class="glifo" viewBox="-12 -12 24 24" aria-hidden="true">
@@ -102,7 +114,16 @@
     <ul class="planes">
       {#each planes as p (p.id)}
         <li>
-          <button class="plan" onclick={() => onElegir(p.id)}>
+          <button
+            class="plan"
+            class:resaltada={foco?.id === p.id}
+            data-foco={p.id}
+            onclick={() => onElegir(p.id)}
+            onmouseenter={() => onFoco(p.id)}
+            onmouseleave={() => onFoco(null)}
+            onfocus={() => onFoco(p.id)}
+            onblur={() => onFoco(null)}
+          >
             <span class="nombre">{p.nombreCorto}</span>
             <span class="meta">{p.tipo === 'enfasis' ? 'énfasis' : 'maestría'}</span>
           </button>
@@ -267,6 +288,10 @@
     text-transform: none;
     letter-spacing: 0.04em;
     margin: 0;
+  }
+
+  .plan.resaltada {
+    background: var(--c-papel);
   }
 
   .plan:hover .nombre {

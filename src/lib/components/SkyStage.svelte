@@ -2,7 +2,7 @@
   import { untrack } from 'svelte'
   import { curriculum } from '../data/types'
   import type { Escena } from '../domain/compose'
-  import type { Nivel } from '../domain/niveles'
+  import type { Foco, Nivel } from '../domain/niveles'
   import type { Punto } from '../domain/figures'
   import { polylinePath } from '../viz/geometry'
   import { envolventePath } from '../domain/hull'
@@ -13,16 +13,18 @@
   interface Props {
     escena: Escena
     seleccion: string[]
-    resaltado: string | null
+    foco: Foco | null
     nivel: Nivel
     onHover: (cursoId: string | null) => void
+    onHoverPrograma: (programaId: string | null) => void
     onElegir: (programaId: string) => void
     onAbrirCurso: (cursoId: string) => void
   }
 
-  let { escena, seleccion, resaltado, nivel, onHover, onElegir, onAbrirCurso }: Props = $props()
+  let { escena, seleccion, foco, nivel, onHover, onHoverPrograma, onElegir, onAbrirCurso }: Props = $props()
 
-  let siluetaHover = $state<string | null>(null)
+  const resaltado = $derived(foco?.tipo === 'curso' ? foco.id : null)
+  const siluetaHover = $derived(foco?.tipo === 'programa' ? foco.id : null)
 
   /** Parte un nombre largo en líneas cortas para rotular una región sin desbordar. */
   function partirEtiqueta(texto: string, max = 26): string[] {
@@ -140,6 +142,8 @@
         role="button"
         tabindex="0"
         aria-label="Ver {p.nombreCorto}"
+        onmouseenter={() => onHoverPrograma(l.programaId)}
+        onmouseleave={() => onHoverPrograma(null)}
         onclick={() => onElegir(l.programaId)}
         onkeydown={(ev) => {
           if (ev.key === 'Enter' || ev.key === ' ') {
@@ -176,15 +180,15 @@
         {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
         <g
           class="silueta-selector"
-          class:activa={nivel !== 'curso' && siluetaHover === s.programaId}
+          class:activa={nivel !== 'curso' && siluetaHover === objetivo}
           role="button"
           tabindex={nivel === 'curso' ? -1 : 0}
           aria-disabled={nivel === 'curso'}
           aria-label={`Ver ${p.nombreCorto}`}
-          onmouseenter={() => nivel !== 'curso' && (siluetaHover = s.programaId)}
-          onmouseleave={() => (siluetaHover = null)}
-          onfocus={() => nivel !== 'curso' && (siluetaHover = s.programaId)}
-          onblur={() => (siluetaHover = null)}
+          onmouseenter={() => nivel !== 'curso' && onHoverPrograma(objetivo)}
+          onmouseleave={() => onHoverPrograma(null)}
+          onfocus={() => nivel !== 'curso' && onHoverPrograma(objetivo)}
+          onblur={() => onHoverPrograma(null)}
           onclick={() => onElegir(objetivo)}
           onkeydown={(ev) => {
             if (ev.key === 'Enter' || ev.key === ' ') {

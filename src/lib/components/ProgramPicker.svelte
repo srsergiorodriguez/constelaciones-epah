@@ -2,27 +2,28 @@
   import { SvelteSet } from 'svelte/reactivity'
   import { curriculum } from '../data/types'
   import { hijosDe } from '../domain/plan'
-  import type { Nivel } from '../domain/niveles'
+  import type { Foco, Nivel } from '../domain/niveles'
   import { marcaDe, vivoDe } from '../viz/palette'
 
   interface Props {
     nivel: Nivel
     seleccion: string[]
     cursoAbierto: string | null
-    resaltado: string | null
+    foco: Foco | null
     onToggle: (id: string) => void
     onCurso: (id: string) => void
+    onFoco: (id: string | null) => void
   }
 
-  let { nivel, seleccion, cursoAbierto, resaltado, onToggle, onCurso }: Props = $props()
+  let { nivel, seleccion, cursoAbierto, foco, onToggle, onCurso, onFoco }: Props = $props()
 
   let lista = $state<HTMLUListElement | null>(null)
 
   // al pasar el cursor por el cielo, la lista va hasta esa fila
   $effect(() => {
-    const id = resaltado
+    const id = foco?.id
     if (!id || !lista) return
-    const fila = lista.querySelector(`[data-curso="${CSS.escape(id)}"]`)
+    const fila = lista.querySelector(`[data-foco="${CSS.escape(id)}"]`)
     fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   })
 
@@ -173,8 +174,12 @@
               <button
                 class="nombre"
                 class:activo
-                class:resaltada={resaltado === fila.id}
-                data-curso={fila.tipo === 'curso' ? fila.id : undefined}
+                class:resaltada={foco?.id === fila.id}
+                data-foco={fila.id}
+                onmouseenter={() => onFoco(fila.id)}
+                onmouseleave={() => onFoco(null)}
+                onfocus={() => onFoco(fila.id)}
+                onblur={() => onFoco(null)}
                 aria-pressed={activo}
                 onclick={() => (fila.tipo === 'curso' ? onCurso(fila.id) : onToggle(fila.id))}
               >

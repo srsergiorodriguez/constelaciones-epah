@@ -7,7 +7,7 @@
   import CoursePanel from './lib/components/CoursePanel.svelte'
   import Rail from './lib/components/Rail.svelte'
   import Debug from './lib/components/Debug.svelte'
-  import type { Nivel } from './lib/domain/niveles'
+  import type { Foco, Nivel } from './lib/domain/niveles'
   import { colorDe, vivoDe } from './lib/viz/palette'
 
   const ANCHO = 1200
@@ -23,7 +23,7 @@
 
   let seleccion = $state<string[]>(desdeHash())
   let aviso = $state('')
-  let resaltado = $state<string | null>(null)
+  let foco = $state<Foco | null>(null)
   let nivel = $state<Nivel>('maestria')
   let cursoAbierto = $state<string | null>(null)
 
@@ -70,32 +70,35 @@
 
   function alternar(id: string) {
     seleccion = seleccion[0] === id ? [] : [id]
-    resaltado = null
+    foco = null
     cursoAbierto = null
     aviso = ''
   }
 
   function abrirCurso(id: string) {
     cursoAbierto = cursoAbierto === id ? null : id
-    resaltado = id
+    foco = { tipo: 'curso', id }
   }
+
+  const enfocarCurso = (id: string | null) => (foco = id ? { tipo: 'curso', id } : null)
+  const enfocarPrograma = (id: string | null) => (foco = id ? { tipo: 'programa', id } : null)
 
   function cambiarNivel(n: Nivel) {
     nivel = n
     seleccion = []
     cursoAbierto = null
-    resaltado = null
+    foco = null
   }
 
   function elegir(id: string) {
     seleccion = [id]
-    resaltado = null
+    foco = null
   }
 
   function limpiar() {
     seleccion = []
     cursoAbierto = null
-    resaltado = null
+    foco = null
     nivel = 'maestria'
     aviso = ''
   }
@@ -140,16 +143,17 @@
   <div class="cuerpo">
     <aside class="lateral">
       <Rail {nivel} programaId={seleccion[0] ?? null} onNivel={cambiarNivel} />
-      <ProgramPicker {nivel} {seleccion} {cursoAbierto} {resaltado} onToggle={alternar} onCurso={abrirCurso} />
+      <ProgramPicker {nivel} {seleccion} {cursoAbierto} {foco} onToggle={alternar} onCurso={abrirCurso} onFoco={enfocarPrograma} />
     </aside>
 
     <div class="cielo-contenedor">
       <SkyStage
         {escena}
         {seleccion}
-        {resaltado}
+        {foco}
         {nivel}
-        onHover={(id) => (resaltado = id)}
+        onHover={(id) => enfocarCurso(id)}
+        onHoverPrograma={(id) => enfocarPrograma(id)}
         onElegir={elegir}
         onAbrirCurso={abrirCurso}
       />
@@ -157,11 +161,17 @@
 
     {#if cursoActivo}
       <div class="lateral-derecho">
-        <CoursePanel cursoId={cursoActivo.id} onCerrar={() => (cursoAbierto = null)} onElegir={elegir} />
+        <CoursePanel
+          cursoId={cursoActivo.id}
+          {foco}
+          onCerrar={() => (cursoAbierto = null)}
+          onElegir={elegir}
+          onFoco={enfocarPrograma}
+        />
       </div>
     {:else if actual}
       <div class="lateral-derecho">
-        <PlanPanel programaId={actual.id} {resaltado} onHover={(id) => (resaltado = id)} onElegir={elegir} />
+        <PlanPanel programaId={actual.id} {foco} onHover={(id) => enfocarCurso(id)} onElegir={elegir} />
       </div>
     {/if}
   </div>
