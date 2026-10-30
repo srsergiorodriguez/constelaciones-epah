@@ -76,7 +76,21 @@
   const programas = $derived(
     datos ? [...datos.programas].sort((a, b) => a.id.localeCompare(b.id)) : [],
   )
+  /** Un solo filtro de maestría para toda la sesión: elegirla acota énfasis y planes. */
+  const planesFiltrados = $derived(
+    (datos?.planes ?? []).filter(
+      (p) =>
+        maestriaFiltro === 'todas' ||
+        (datos?.programas.find((x) => x.id === p.id)?.padre_id ?? '') === maestriaFiltro,
+    ),
+  )
   const plan = $derived(datos?.planes.find((p) => p.id === planElegido) ?? null)
+
+  // si el filtro deja fuera el plan elegido, se pasa al primero que quede
+  $effect(() => {
+    if (!planesFiltrados.length) return
+    if (!planesFiltrados.some((p) => p.id === planElegido)) planElegido = planesFiltrados[0].id
+  })
   const maestrias = $derived(programas.filter((p) => p.tipo === 'maestria'))
 
   /** Una casilla del plan marco: curso, o casilla abierta con su etiqueta. */
@@ -237,21 +251,21 @@
     <section>
       {#if pestana === 'enfasis'}
         <div class="barra">
-          <label>
+          <label class="filtro">
             Maestría
             <select bind:value={maestriaFiltro}>
               <option value="todas">Todas</option>
               {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
             </select>
           </label>
-          <label>
+          <label class="filtro">
             Nueva en
             <select bind:value={maestriaNueva}>
               {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
             </select>
           </label>
-          <button onclick={nuevoEnfasis}>＋ Nuevo énfasis</button>
-          <span class="meta">{enfasis.length} de {todosEnfasis.length} énfasis</span>
+          <button class="accion" onclick={nuevoEnfasis}>＋ Nuevo énfasis</button>
+          <span class="conteo">{enfasis.length} de {todosEnfasis.length} énfasis</span>
         </div>
         <table>
           <thead>
@@ -325,14 +339,14 @@
         </table>
       {:else if pestana === 'cursos'}
         <div class="barra">
-          <label>
+          <label class="filtro">
             Maestría
             <select bind:value={maestriaCurso}>
               <option value="todas">Todas</option>
               {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
             </select>
           </label>
-          <label>
+          <label class="filtro">
             Eje
             <select bind:value={ejeCurso}>
               <option value="todos">Todos</option>
@@ -341,12 +355,12 @@
               {/each}
             </select>
           </label>
-          <label class="buscar">
+          <label class="filtro">
             Buscar
             <input placeholder="nombre o id" bind:value={busqueda} />
           </label>
-          <button onclick={nuevoCurso}>＋ Nuevo curso</button>
-          <span class="meta">{cursosFiltrados.length} de {cursos.length} cursos</span>
+          <button class="accion" onclick={nuevoCurso}>＋ Nuevo curso</button>
+          <span class="conteo">{cursosFiltrados.length} de {cursos.length} cursos</span>
         </div>
         <table>
           <thead>
@@ -381,21 +395,34 @@
         </table>
       {:else if pestana === 'planes'}
         <div class="barra">
-          <label>
+          <label class="filtro">
+            Maestría
+            <select bind:value={maestriaFiltro}>
+              <option value="todas">Todas</option>
+              {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
+            </select>
+          </label>
+          <label class="filtro">
             Plan
             <select bind:value={planElegido}>
-              {#each datos.planes as p (p.id)}
+              {#each planesFiltrados as p (p.id)}
                 <option value={p.id}>{nombreDe(p.id)}</option>
               {/each}
             </select>
           </label>
           {#if plan}
-            <span class="meta">
+            <span class="conteo">
               {plan.slots.flat().length} casillas ·
               {plan.slots.flat().reduce((a: number, s: any) => a + (datos!.cursos[s.id]?.creditos ?? 0), 0)} créditos
             </span>
           {/if}
         </div>
+        {#if plan}
+          <p class="contexto">
+            {nombreDe(datos!.programas.find((p) => p.id === planElegido)?.padre_id ?? '')}
+            <span class="id">{planElegido}</span>
+          </p>
+        {/if}
         {#if plan}
           <table class="cuadricula">
             <thead>
@@ -585,40 +612,15 @@
     white-space: nowrap;
   }
 
-  .barra {
+  .contexto {
     display: flex;
-    align-items: end;
-    flex-wrap: wrap;
-    gap: var(--sp-4);
-    padding-bottom: var(--sp-4);
-  }
-
-  .barra label {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    font-size: var(--fz-xs);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    align-items: baseline;
+    gap: var(--sp-2);
+    font-family: var(--ff-serif);
+    font-style: italic;
+    font-size: var(--fz-sm);
     color: var(--c-ink-3);
-  }
-
-  .barra select {
-    min-width: 220px;
-  }
-
-  .buscar input {
-    width: 200px;
-  }
-
-  .buscar input::placeholder {
-    color: var(--c-ink-3);
-  }
-
-  .meta {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    color: var(--c-ink-3);
+    padding-bottom: var(--sp-3);
   }
 
   .cuadricula th {

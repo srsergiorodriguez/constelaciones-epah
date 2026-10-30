@@ -46,6 +46,15 @@ Los errores son los del compilador, que ya conoce las reglas: 12 casillas y 36 c
 4 cursos por especializado, ningún curso huérfano, todo umbral con su programa de origen. El editor no
 duplica esas reglas: las usa.
 
+## Piezas compartidas
+
+La interfaz no tiene una barra por pestaña: tiene **una** barra con filtros, acción y conteo, y las
+tres pestañas que filtran la usan igual. Lo mismo con el conteo (`N de M`), siempre a la derecha.
+
+`.barra`, `.filtro`, `.conteo` y `.accion` viven en `src/editor/editor.css`; los componentes solo
+componen. El filtro de **maestría es único para toda la sesión**: si elegís Humanidades en Énfasis,
+Planes ya está acotado a sus énfasis, y el plan elegido se mueve al primero que quede.
+
 ## La API (solo desarrollo)
 
 `scripts/editor/api.mjs`, montada por `vite.config.ts` únicamente cuando el comando es `serve`.

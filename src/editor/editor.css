@@ -57,3 +57,63 @@ td {
   border-bottom: 1px solid var(--c-rule);
   vertical-align: middle;
 }
+
+/* ---------- piezas compartidas del editor ----------
+   Una barra de filtros, un filtro y un conteo: las tres pestañas que filtran
+   usan exactamente esto, no una variante cada una. */
+
+.barra {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-4);
+}
+
+.filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--ff-sans);
+  font-size: var(--fz-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}
+
+.filtro select,
+.filtro input {
+  min-width: 220px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: var(--fz-sm);
+}
+
+.filtro input::placeholder {
+  color: var(--c-ink-3);
+}
+
+.conteo {
+  margin-left: auto;
+  font-family: var(--ff-sans);
+  font-size: var(--fz-xs);
+  color: var(--c-ink-3);
+  padding-bottom: 6px;
+}
+
+.accion {
+  font-family: var(--ff-sans);
+  font-size: var(--fz-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border: 1px solid var(--c-rule);
+  border-radius: 2px;
+  background: var(--c-paper);
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+
+.accion:hover {
+  border-color: var(--c-ink-3);
+}
