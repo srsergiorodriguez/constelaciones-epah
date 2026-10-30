@@ -281,8 +281,9 @@ function componerFamilia(
 }
 
 /**
- * Sin selección, el cielo muestra todas las siluetas en un anillo: son otro
- * selector. Se dibujan sin estrellas: la figura, no el plan.
+ * Sin selección, el cielo muestra todas las siluetas sueltas: ni anillo ni
+ * rejilla, porque así no se ordena el cielo. Se siembran al azar y se separan
+ * hasta que ninguna pisa a otra.
  */
 function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
   const ids = Object.values(curriculum.programas)
@@ -290,15 +291,52 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
     .map((p) => p.id)
     .filter((id) => figureOf(id, curriculum.programas[id]?.padreId ?? null))
 
-  const cx = ancho / 2
-  const cy = alto / 2
-  const radio = Math.min(ancho, alto) * 0.43
-  const lado = 86
+  const lado = 104
+  const margen = 34
+  const minD = 150
+  let semilla = 20261030
+  const azar = () => {
+    semilla |= 0
+    semilla = (semilla + 0x6d2b79f5) | 0
+    let t = Math.imul(semilla ^ (semilla >>> 15), 1 | semilla)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+
+  const minX = margen + lado / 2
+  const maxX = ancho - margen - lado / 2
+  const minY = margen + lado / 2
+  const maxY = alto - margen - lado / 2
+
+  const centros: Punto[] = ids.map(() => [
+    minX + azar() * (maxX - minX),
+    minY + azar() * (maxY - minY),
+  ])
+
+  for (let paso = 0; paso < 260; paso++) {
+    for (let i = 0; i < centros.length; i++) {
+      for (let j = i + 1; j < centros.length; j++) {
+        const a = centros[i]
+        const b = centros[j]
+        const dx = a[0] - b[0]
+        const dy = a[1] - b[1]
+        const d = Math.hypot(dx, dy) || 0.01
+        if (d >= minD) continue
+        const empuje = ((minD - d) / d) * 0.25
+        a[0] += dx * empuje
+        a[1] += dy * empuje
+        b[0] -= dx * empuje
+        b[1] -= dy * empuje
+      }
+    }
+    for (const c of centros) {
+      c[0] = Math.min(maxX, Math.max(minX, c[0]))
+      c[1] = Math.min(maxY, Math.max(minY, c[1]))
+    }
+  }
 
   return ids.map((id, i) => {
-    const ang = (-90 + (360 / ids.length) * i) * (Math.PI / 180)
-    const x = cx + Math.sin(ang) * radio
-    const y = cy - Math.cos(ang) * radio
+    const [x, y] = centros[i]
     const silueta = figureOf(id, curriculum.programas[id]?.padreId ?? null)!
     return {
       programaId: id,

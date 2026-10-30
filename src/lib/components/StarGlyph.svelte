@@ -16,6 +16,9 @@
   const seis = $derived(polygonPath(r * 1.3, 6, 0.44))
 </script>
 
+<!-- zona de contacto: el glifo se puede tocar en todo su disco, no solo en el trazo -->
+<circle r={r * 1.95} fill="transparent" pointer-events="all" />
+
 {#if eje === 'tronco'}
   <path d={rosa} fill="var(--c-ink)" />
 {:else if eje === 'transversal'}

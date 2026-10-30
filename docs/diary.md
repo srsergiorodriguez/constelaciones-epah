@@ -165,3 +165,15 @@ cuerpo, nunca el único portador del significado.
 
 **Siluetas en el cielo.** Sin selección, las quince figuras se dibujan en anillo alrededor del campo,
 sin estrellas. Un clic abre el programa: el cielo deja de ser decorado y pasa a ser el otro selector.
+
+---
+
+## 2026-10-30 · Zonas de contacto
+
+**Las siluetas se sueltan.** El anillo era una rejilla con otra forma. Ahora se siembran al azar y se
+separan hasta no pisarse: un cielo no ordena sus figuras en círculo.
+
+**El blanco no es el trazo.** Un trazo de 1,6 px no se acierta con el ratón. Cada glifo lleva un disco
+transparente de casi el doble de su radio y cada silueta un relleno transparente más un círculo de
+46 px en el centro. Es una regla del sistema de diseño, no un parche: toda forma interactiva tiene
+zona de contacto.

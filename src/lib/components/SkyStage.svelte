@@ -127,6 +127,13 @@
             }
           }}
         >
+          <path d={polylinePath(s.puntos)} fill="transparent" stroke="none" class="zona" />
+          <circle
+            cx={s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
+            cy={s.puntos.reduce((a, q) => a + q[1], 0) / s.puntos.length}
+            r="46"
+            fill="transparent"
+          />
           <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(s.programaId)} />
           <text
             x={s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
@@ -246,7 +253,11 @@
     outline: none;
   }
 
-  .silueta-selector path {
+  .silueta-selector .zona {
+    pointer-events: all;
+  }
+
+  .silueta-selector path:not(.zona) {
     stroke-width: 1.6;
     stroke-linejoin: round;
     stroke-linecap: round;
@@ -254,8 +265,8 @@
     transition: opacity var(--t-fast) var(--ease), stroke-width var(--t-fast) var(--ease);
   }
 
-  .silueta-selector.activa path,
-  .silueta-selector:focus-visible path {
+  .silueta-selector.activa path:not(.zona),
+  .silueta-selector:focus-visible path:not(.zona) {
     opacity: 0.85;
     stroke-width: 2.2;
   }

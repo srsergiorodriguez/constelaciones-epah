@@ -118,10 +118,13 @@ Sin selección, los 83 cursos forman un cielo **al azar**, no un diagrama:
   posición descansa.
 - Se calcula una vez en build (`atlas.json`) con semilla fija. En pantalla nadie simula: se lee.
 
-**Las siluetas también son selector.** Alrededor del cielo, en anillo, se dibujan las quince figuras
-—los trece énfasis y las dos maestrías sin énfasis— sin estrellas: solo el trazo. Un clic en una
-silueta abre ese programa. Es el segundo camino de entrada, además de la lista de la izquierda, y el
-que hace que el cielo se pueda leer sin menús.
+**Las siluetas también son selector.** Repartidas por el cielo —al azar sembrado, sin pisarse— se
+dibujan las quince figuras: los trece énfasis y las dos maestrías sin énfasis. Sin estrellas: solo el
+trazo. Un clic en una silueta abre ese programa. Es el segundo camino de entrada, además de la lista
+de la izquierda, y el que hace que el cielo se pueda leer sin menús.
+
+Nada de anillos ni de rejillas: un cielo no ordena sus figuras en círculo. Se siembran y se separan
+hasta que ninguna toca a otra.
 
 ### 4.2 Una constelación
 
