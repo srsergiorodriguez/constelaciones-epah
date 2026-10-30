@@ -113,3 +113,11 @@ mostrará cero casillas.
 - Editar figuras: es la Fase 2, con su propio lienzo.
 - Borrar un plan sin borrar su énfasis (hoy van juntos).
 - Borrar un plan común (por decisión: no se borra).
+
+## Lo que la tabla no muestra
+
+- **`nota`** (cursos y programas): documenta de dónde salió cada dato —«el plan lo ofrece tres
+  veces»—. No se edita ni se muestra en la app: vive en el JSON como rastro de la transcripción.
+- **`estado`** (programas): hoy vale `verificado` en los trece énfasis y **nada lo lee**. Era la marca
+  de transcripción contra el PDF; se retiró del editor porque no tenía uso práctico. Si más adelante
+  hace falta un flujo de borrador/publicado, ese campo es el sitio natural.

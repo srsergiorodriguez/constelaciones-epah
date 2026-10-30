@@ -330,7 +330,7 @@
         </div>
         <table>
           <thead>
-            <tr><th>id</th><th>nombre</th><th>nombre corto</th><th>maestría</th><th>créd.</th><th>estado</th><th></th></tr>
+            <tr><th>id</th><th>nombre</th><th>nombre corto</th><th>maestría</th><th>créd.</th><th></th></tr>
           </thead>
           <tbody>
             {#each enfasis as p (p.id)}
@@ -344,11 +344,6 @@
                   </select>
                 </td>
                 <td><input type="number" bind:value={p.creditos} /></td>
-                <td>
-                  <select bind:value={p.estado}>
-                    {#each ['verificado', 'borrador', 'propuesto'] as e (e)}<option value={e}>{e}</option>{/each}
-                  </select>
-                </td>
                 <td><button class="borrar" onclick={() => borrarEnfasis(p.id)} title="Borrar">✕</button></td>
               </tr>
             {/each}
@@ -432,7 +427,7 @@
         </div>
         <table>
           <thead>
-            <tr><th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th><th>oferta variable</th><th>nota</th><th></th></tr>
+            <tr><th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th><th>oferta variable</th><th></th></tr>
           </thead>
           <tbody>
             {#each cursosFiltrados as [id, c] (id)}
@@ -455,7 +450,6 @@
                 </td>
                 <td><input type="number" bind:value={c.creditos} /></td>
                 <td class="centro"><input type="checkbox" bind:checked={c.oferta_variable} /></td>
-                <td><input bind:value={c.nota} /></td>
                 <td><button class="borrar" onclick={() => borrarCurso(id)} title="Borrar">✕</button></td>
               </tr>
             {/each}
