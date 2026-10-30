@@ -150,3 +150,19 @@ describe('escala del especializado', () => {
     expect(ids).not.toContain('mae-patrimonio')
   })
 })
+
+describe('cursos umbrales', () => {
+  it('son cuarenta y uno y todos abren un programa especializado', () => {
+    const umbrales = Object.values(curriculum.cursos).filter((c) => c.umbral)
+    expect(umbrales).toHaveLength(41)
+    for (const c of umbrales) expect(c.umbralDesde.length).toBeGreaterThan(0)
+  })
+
+  it('la escala del curso solo enciende los umbrales', () => {
+    const escena = compose([], ANCHO, ALTO, 'curso')
+    const ocultas = escena.estrellas.filter((e) => e.estado === 'oculto')
+    expect(ocultas).toHaveLength(83 - 41)
+    const visibles = escena.estrellas.filter((e) => e.estado !== 'oculto')
+    expect(visibles.every((e) => curriculum.cursos[e.cursoId].umbral)).toBe(true)
+  })
+})

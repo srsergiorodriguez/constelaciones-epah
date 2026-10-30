@@ -97,7 +97,7 @@ compromiso, y la escala se elige en una **barra vertical** a la izquierda del se
 
 | Escala | Créditos | Objetos | Qué se ve |
 |---|---|---|---|
-| Un curso | 3 | 83 | las estrellas; las siluetas al 12 %, como contexto |
+| Cursos umbrales | 3 | 41 | solo los umbrales; las siluetas al 12 %, como contexto |
 | Especializado | 12 | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
 | Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
 | Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
@@ -112,7 +112,11 @@ variantes o no. El especializado no necesita contorno: al abrirlo, su figura se 
 estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
 No hay galaxias ni órbitas: el cielo gana fronteras, no astros nuevos.
 
-**A tres créditos las constelaciones son contexto.** Se ven al 12 % —el programa existe, está ahí— pero
+**A tres créditos solo se ven los umbrales.** No los 83 cursos: los 41 que se pueden tomar solos y
+homologar después. Es la escala más baja de la reforma —una puerta de tres créditos— y por eso el
+cielo se aclara: quedan los que abren algo.
+
+**Las constelaciones son contexto.** Se ven al 12 % —el programa existe, está ahí— pero
 no se pueden tocar: `pointer-events: none`, sin foco y sin rótulo. Para explorarlas hay que subir de
 escala. La lista sí es accionable: a esa escala se recorren los 83 cursos uno por uno.
 

@@ -411,6 +411,12 @@ const plans = PLANS.map((p) => {
 });
 
 /* --- programas especializados: uno por énfasis, 12 cr --- */
+/* Cuerpos de los programas especializados.
+ * Hoy se derivan del énfasis —regla provisional del comité—, pero un
+ * especializado podrá declarar su propio cuerpo aquí, incluso si cuelga de otro
+ * sitio o de ninguno. Ver docs/data-model.md § Especializados. */
+const PE_CUERPOS = {};
+
 const PE = plans
   .filter((p) => p.prog.tipo === "enfasis")
   .map((p) => {
@@ -433,7 +439,10 @@ for (const p of plans) {
 for (const pe of PE) {
   /* Una fila por curso; `repeticiones` cuenta cuántas casillas del cuerpo ocupa.
      Créditos del programa = Σ (creditos × repeticiones) = 12. */
-  for (const [i, id] of [...new Set(pe.slots.map((s) => s.id))].entries()) {
+  const explicito = PE_CUERPOS[pe.id];
+  if (explicito && explicito.length !== 4) fail(`${pe.id}: el cuerpo declarado debe tener 4 cursos`);
+  const cuerpo = explicito ?? [...new Set(pe.slots.map((s) => s.id))];
+  for (const [i, id] of cuerpo.entries()) {
     const propias = pe.slots.filter((s) => s.id === id);
     /* Un programa especializado se cursa en dos periodos: dos cursos por periodo. */
     offers.push({
@@ -467,6 +476,17 @@ for (const p of plans) {
 
 /* --- alcance por curso --- */
 const byCourse = new Map();
+/* Umbral: un curso que se puede tomar solo y homologar después.
+ * Provisionalmente son los que forman cuerpo de un especializado. */
+const umbralDe = new Map();
+for (const o of offers) {
+  const p = prog(o.programa_id);
+  if (p.tipo !== "programa_especializado" || o.obligatoriedad !== "obligatorio") continue;
+  const arr = umbralDe.get(o.curso_id) || [];
+  arr.push(p.id);
+  umbralDe.set(o.curso_id, [...new Set(arr)]);
+}
+
 for (const o of offers) {
   const arr = byCourse.get(o.curso_id) || [];
   arr.push(o);
@@ -521,11 +541,12 @@ for (const p of [...PROGRAMS, ...PE]) {
 }
 
 /* cursos.csv */
-const coursesCsv = [["curso_id", "nombre", "nombre_corto", "creditos", "eje_curricular", "formato", "alcance", "n_programas", "maestrias", "enfasis", "programas_especializados", "oferta_variable", "estado", "fuente_pagina", "nota"]];
+const coursesCsv = [["curso_id", "nombre", "nombre_corto", "creditos", "eje_curricular", "formato", "alcance", "n_programas", "maestrias", "enfasis", "programas_especializados", "umbral", "umbral_desde", "oferta_variable", "estado", "fuente_pagina", "nota"]];
 for (const id of Object.keys(COURSES).sort()) {
   const c = COURSES[id];
   const m = courseMeta.get(id) || { alcance: "programa", n_programas: 0, maestrias: [], enfasis: [], pe: [] };
-  coursesCsv.push([id, c.nombre, shortName(id), c.creditos, c.eje, c.formato, m.alcance, m.n_programas, m.maestrias.join(";"), m.enfasis.join(";"), m.pe.join(";"), c.oferta_variable ? "si" : "no", c.estado || "verificado", c.pagina, c.nota || ""]);
+  const umbral = umbralDe.get(id) || [];
+  coursesCsv.push([id, c.nombre, shortName(id), c.creditos, c.eje, c.formato, m.alcance, m.n_programas, m.maestrias.join(";"), m.enfasis.join(";"), m.pe.join(";"), umbral.length ? "si" : "no", umbral.join(";"), c.oferta_variable ? "si" : "no", c.estado || "verificado", c.pagina, c.nota || ""]);
 }
 
 /* curriculo.csv */
@@ -588,4 +609,5 @@ console.log(`  programas        ${counts.programas}  (${counts.maestrias} maestr
 console.log(`  planes           ${counts.planes}  → ${counts.planes * 12} ofertas de curso (36 cr cada plan)`);
 console.log(`  cursos únicos    ${counts.cursos}`);
 console.log(`  ofertas          ${counts.ofertas}`);
+console.log(`  umbrales         ${umbralDe.size} cursos`);
 console.log(`  alcance          escuela ${alcance.escuela} · maestría ${alcance.maestria} · énfasis ${alcance.enfasis}`);

@@ -41,6 +41,10 @@ export interface Curso {
   maestrias: string[]
   enfasis: string[]
   programasEspecializados: string[]
+  /** Se puede tomar solo y homologar después en un programa mayor. */
+  umbral: boolean
+  /** Programas especializados cuyo cuerpo lo abre. */
+  umbralDesde: string[]
   ofertaVariable: boolean
   estado: Estado
   pagina: number | null

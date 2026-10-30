@@ -128,7 +128,9 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Regiones: contorno discontinuo por maestría con sus énfasis dentro
 - [x] Sin contornos en la vista de detalle: la figura ya es la forma
 - [x] Escala del especializado: trece fragmentos (figura fantasma + cuatro estrellas)
-- [x] Escala del curso: las constelaciones al 12 % y sin interacción
+- [x] Escala del curso: solo los 41 umbrales; constelaciones al 12 % y sin interacción
+- [x] `umbral` como propiedad del curso, con procedencia (`umbral_desde`)
+- [x] Cuerpos de especializado declarables (`PE_CUERPOS`), derivación como respaldo
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

@@ -20,15 +20,15 @@ export function escalones(): Escalon[] {
     {
       nivel: 'curso',
       credito: '3',
-      etiqueta: 'Un curso',
-      detalle: 'una estrella, homologable',
-      cuenta: Object.keys(curriculum.cursos).length,
+      etiqueta: 'Cursos umbrales',
+      detalle: 'un curso solo, homologable',
+      cuenta: Object.values(curriculum.cursos).filter((c) => c.umbral).length,
       activo: true,
     },
     {
       nivel: 'especializado',
       credito: '12',
-      etiqueta: 'Programa Especializado',
+      etiqueta: 'Programas Especializados',
       detalle: 'cuatro cursos en dos periodos',
       cuenta: cuantos('programa_especializado'),
       activo: true,
@@ -36,7 +36,7 @@ export function escalones(): Escalon[] {
     {
       nivel: 'maestria',
       credito: '36',
-      etiqueta: 'Maestría',
+      etiqueta: 'Maestrías',
       detalle: 'con o sin énfasis',
       cuenta: cuantos('maestria'),
       activo: true,

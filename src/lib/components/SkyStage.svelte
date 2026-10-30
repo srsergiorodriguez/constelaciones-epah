@@ -223,7 +223,9 @@
       {@const c = curriculum.cursos[e.cursoId]}
       {@const p = pos[e.cursoId] ?? [e.x, e.y]}
       {@const r = enFragmento ? 7 : radioDe(c.nProgramas)}
-      {#if e.estado === 'nebulosa'}
+      {#if e.estado === 'oculto'}
+        <!-- fuera de esta escala -->
+      {:else if e.estado === 'nebulosa'}
         {#if !enFragmento}
         {@const fam = familiaDe(e.cursoId)}
         <circle

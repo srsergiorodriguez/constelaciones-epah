@@ -12,7 +12,7 @@ describe('escalones', () => {
 
   it('cada escalón dice cuántos objetos hay en esa escala', () => {
     const [curso, especializado, maestria] = escalones()
-    expect(curso.cuenta).toBe(83)
+    expect(curso.cuenta).toBe(41) // los umbrales, no los 83 cursos
     expect(especializado.cuenta).toBe(13)
     expect(maestria.cuenta).toBe(5)
   })

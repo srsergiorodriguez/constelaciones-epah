@@ -71,6 +71,16 @@ Los campos con comas van entre comillas; las listas internas usan `;`.
 | `fuente_pagina` | int | Página del PDF. |
 | `nota` | string | Ej. «el plan lo ofrece tres veces». |
 
+### 2.2a Umbral: una propiedad del curso
+
+`cursos.csv` lleva `umbral` (`si`/`no`) y `umbral_desde` (los programas especializados cuyo cuerpo lo
+abre). **Un umbral es un curso que se puede tomar solo y homologar después**, no «cualquier curso»:
+hoy son 41 de los 83, porque son los que forman cuerpo de un especializado.
+
+Que sea propiedad del curso —y no de la relación curso-programa— es una decisión: se puede tomar solo
+o no, con independencia de dónde aparezca. La procedencia queda en `umbral_desde`, y el validador
+exige que todo umbral tenga al menos un programa de origen.
+
 ### 2.2b `data/planes_marco.csv` — 36 filas
 
 El plan de la maestría **a secas**: una rejilla de 12 casillas donde unas son cursos concretos del
@@ -103,6 +113,29 @@ Una fila por pertenencia curso ↔ programa.
 
 > **Programa especializado**: 12 créditos en **dos periodos**, dos cursos por periodo. La casilla
 > hereda el orden del cuerpo, no el periodo del énfasis donde aparecía.
+
+### Especializados: derivados hoy, declarables mañana
+
+Un especializado se **deriva** del énfasis —toma sus cuatro casillas de especialización— porque así lo
+decidió el comité mientras la reforma se estabiliza. Esa regla es provisional y está aislada en un
+solo sitio: `PE_CUERPOS` en `scripts/build-data.mjs`. Un programa puede declarar ahí su cuerpo, y
+entonces deja de derivarse:
+
+```js
+const PE_CUERPOS = {};           // hoy: vacío, todo se deriva
+// mañana: { "pe-creacion-arte": ["cur-arte-intro", ...] }
+```
+
+El modelo ya tolera lo que la derivación prohíbe:
+
+- `padre_id` es **opcional**: un especializado puede colgar de un énfasis, de una maestría o de nada.
+- `maestria_id` se mantiene: de ahí salen el color y la familia. Sin él, el programa tendría familia
+  neutra.
+- El cuerpo declarado se valida (4 cursos, 12 créditos) pero **no** se exige que sea subconjunto del
+  énfasis: si cuelga de otro sitio, la homologación es otra pregunta.
+
+Falta, cuando exista el caso: una figura propia para el especializado suelto (hoy hereda la del
+énfasis) o un asterismo neutro de cuatro estrellas.
 
 > **Créditos de un programa** = Σ (`creditos` × `repeticiones`) **solo de las filas
 > `obligatorio`**. Las alternativas no suman: son caminos posibles, no simultáneos. La suma

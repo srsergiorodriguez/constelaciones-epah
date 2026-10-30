@@ -298,3 +298,18 @@ pista del pie lo dice con palabras distintas en cada escalón.
 
 **El título vuelve al universo entero.** Antes limpiaba la selección pero dejaba la escala donde
 estaba; ahora devuelve también a maestría, que es la vista por defecto.
+
+---
+
+## 2026-10-30 · Umbral
+
+**Umbral no es «curso».** La escala más baja dice «Cursos umbrales» y muestra 41, no 83: los que se
+pueden tomar solos y homologar después. El resto sigue existiendo en el universo; simplemente no son
+puertas.
+
+**La propiedad está en el curso.** `umbral` y `umbral_desde` en `cursos.csv`, con validación: todo
+umbral declara qué programa abre. Si mañana el comité agrega umbrales sueltos, el campo los acepta.
+
+**El especializado se declara, no se calcula.** Hoy se deriva del énfasis, pero esa regla quedó
+aislada en `PE_CUERPOS`: un programa puede traer su propio cuerpo y su `padre_id` puede ser nulo. El
+modelo tolera lo que la derivación prohíbe, que es lo que pedía el cambio.

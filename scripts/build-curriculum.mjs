@@ -72,6 +72,8 @@ const cursos = cursosCsv.map((r) => ({
   maestrias: list(r.maestrias),
   enfasis: list(r.enfasis),
   programasEspecializados: list(r.programas_especializados),
+  umbral: r.umbral === 'si',
+  umbralDesde: list(r.umbral_desde),
   ofertaVariable: r.oferta_variable === 'si',
   estado: r.estado,
   pagina: num(r.fuente_pagina),
@@ -154,7 +156,17 @@ for (const p of programas.filter((x) => x.tipo === 'programa_especializado')) {
 for (const c of cursos) {
   const n = ofertas.filter((o) => o.cursoId === c.id).length
   if (n === 0) fail(`${c.id}: curso sin ningún programa`)
+  // umbral es una propiedad del curso: si se declara, tiene que poder homologarse
+  if (c.umbral && c.umbralDesde.length === 0) fail(`${c.id}: umbral sin programa de origen`)
+  for (const pe of c.umbralDesde) {
+    const prog = programById.get(pe)
+    if (!prog) fail(`${c.id}: umbral desde un programa inexistente (${pe})`)
+    if (prog.tipo !== 'programa_especializado') fail(`${c.id}: umbral desde un programa que no es especializado (${pe})`)
+  }
 }
+
+const umbrales = cursos.filter((c) => c.umbral).length
+if (umbrales === 0) fail('ningún curso umbral: la escala más baja se quedaría vacía')
 
 for (const [maestriaId, casillas] of Object.entries(planesMarco)) {
   if (!programById.has(maestriaId)) fail(`plan marco de programa inexistente: ${maestriaId}`)

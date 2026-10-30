@@ -41,16 +41,18 @@
     if (nivel === 'curso') {
       // los del tronco, que no son de nadie en particular
       const escuela = Object.values(curriculum.cursos)
-        .filter((c) => c.alcance === 'escuela')
+        .filter((c) => c.umbral && c.alcance === 'escuela')
         .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
-      out.push({ clave: 'g-escuela', tipo: 'grupo', id: 'escuela', nombre: 'Escuela', nivel: 0, familia: '' })
+      if (escuela.length) {
+        out.push({ clave: 'g-escuela', tipo: 'grupo', id: 'escuela', nombre: 'Escuela', nivel: 0, familia: '' })
+      }
       for (const c of escuela) {
         out.push({ clave: `escuela-${c.id}`, tipo: 'curso', id: c.id, nombre: c.nombre, nivel: 1, meta: `${c.codigo} · ${c.creditos} cr`, familia: '' })
       }
 
       for (const m of maestrias) {
         const cursos = Object.values(curriculum.cursos)
-          .filter((c) => c.maestrias.length === 1 && c.maestrias[0] === m.nombreCorto)
+          .filter((c) => c.umbral && c.maestrias.length === 1 && c.maestrias[0] === m.nombreCorto)
           .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
         if (!cursos.length) continue
         out.push({ clave: `g-${m.id}`, tipo: 'grupo', id: m.id, nombre: m.nombreCorto, nivel: 0, familia: m.id })
@@ -121,7 +123,7 @@
 
   const titulo = $derived(
     nivel === 'curso'
-      ? `Cursos · ${Object.keys(curriculum.cursos).length}`
+      ? `Cursos umbrales · ${Object.values(curriculum.cursos).filter((c) => c.umbral).length}`
       : nivel === 'especializado'
         ? `Especializados · ${filas.filter((f) => f.tipo === 'pe').length}`
         : nivel === 'maestria'

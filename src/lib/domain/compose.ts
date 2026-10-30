@@ -5,7 +5,7 @@ import { nebulaToViewport } from './nebula'
 import { envolvente } from './hull'
 import type { Nivel } from './niveles'
 
-export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace'
+export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace' | 'oculto'
 
 export interface Estrella {
   cursoId: string
@@ -111,6 +111,12 @@ export function compose(
   if (!activo) {
     const siluetas = siluetasDelCielo(ancho, alto)
     if (nivel === 'especializado') return componerFragmentos(siluetas, estrellas, ancho, alto)
+    if (nivel === 'curso') {
+      // la escala más baja solo muestra lo que se puede tomar solo
+      for (const e of estrellas.values()) {
+        if (!curriculum.cursos[e.cursoId]?.umbral) e.estado = 'oculto'
+      }
+    }
     return {
       ancho,
       alto,
