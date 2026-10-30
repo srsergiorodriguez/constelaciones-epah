@@ -268,7 +268,8 @@
       {@const c = curriculum.cursos[e.cursoId]}
       {@const p = pos[e.clave] ?? [e.x, e.y]}
       {@const senalada = foco?.tipo === 'curso' && foco.id === e.cursoId}
-      {@const r = enFragmento || !enNebulosa ? radioDe(c.nProgramas) : 6.6}
+      /* la misma estrella en todas las vistas generales; crece al abrir un programa */
+      {@const r = sinPrograma ? 6.6 : radioDe(c.nProgramas)}
       {@const color = colorEstrella(e.en)}
       {#if e.estado !== 'oculto'}
         <g
