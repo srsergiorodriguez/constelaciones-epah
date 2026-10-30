@@ -138,15 +138,6 @@
     {/each}
   </g>
 
-  {#if escena.recinto && escena.recinto.length >= 3}
-    <path
-      d={envolventePath(escena.recinto)}
-      fill="none"
-      stroke={colorDe(seleccion[0] ?? '')}
-      class="recinto"
-    />
-  {/if}
-
   {#if enNebulosa}
     <g class="selector-siluetas nivel-{nivel}">
       {#each escena.siluetas as s (s.programaId)}
@@ -332,12 +323,6 @@
     text-transform: uppercase;
     fill: var(--c-ink-3);
     text-anchor: middle;
-  }
-
-  .recinto {
-    stroke-width: 1.4;
-    stroke-dasharray: 7 5;
-    opacity: 0.55;
   }
 
   .silueta-selector {

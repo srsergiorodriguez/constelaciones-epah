@@ -160,7 +160,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
-| `Region` | `puntos` | visible, oculta | Contorno discontinuo que encierra un grupo de figuras. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». |
+| `Region` | `puntos` | visible, oculta | Contorno discontinuo que encierra las figuras de una maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
@@ -181,7 +181,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 │ Toolbar · modo · alternativas · leyenda                      │
 ├──────────────┬───────────────────────────────┬───────────────┤
 │ Rail │ ProgramPicker│ SkyStage                │ PlanPanel     │
-│ 150  │ 264 px       │ flex, mín. 480 px       │ 340 px        │
+│ 190  │ 252 px       │ flex, mín. 480 px       │ 340 px        │
 └──────────────┴───────────────────────────────┴───────────────┘
 ```
 

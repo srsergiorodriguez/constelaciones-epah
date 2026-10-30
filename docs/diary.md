@@ -242,3 +242,15 @@ un cielo con galaxias inventa una segunda cosmología encima de la primera.
 **El detalle del curso llega con la escalera.** «Cuenta para» muestra el camino de 12 → 36 →
 título, que es lo que la reforma promete cuando dice que todo es apilable. Un curso del tronco no
 tiene escalera y lo dice: cuenta para cualquier plan, pero no forma cuerpo.
+
+---
+
+## 2026-10-30 · El contorno que sobraba
+
+**Fuera el contorno del especializado.** Envolver con una línea las cuatro estrellas de un
+especializado dibujaba un polígono sobre la figura que no decía nada nuevo: la constelación ya
+muestra qué cuatro cursos son. La contención con línea queda solo donde aporta —las regiones de
+maestría en el universo— y el detalle se queda con la forma desnuda.
+
+**La barra recupera el nombre.** «Especializado» era una abreviación, y ya acordamos que el nivel no
+se abrevia. La barra pasa a 190 px para que quepa «Programa Especializado».

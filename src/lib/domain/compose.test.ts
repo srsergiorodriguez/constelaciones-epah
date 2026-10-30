@@ -112,13 +112,8 @@ describe('escalas', () => {
     expect(ids).toEqual(['mae-creacion', 'mae-gepc', 'mae-he'])
   })
 
-  it('un especializado se encierra en un contorno; un énfasis no', () => {
-    expect(compose(['pe-creacion-arte'], ANCHO, ALTO).recinto?.length).toBeGreaterThan(2)
-    expect(compose(['enf-creacion-arte'], ANCHO, ALTO).recinto).toBeNull()
-  })
-
-  it('una maestría con énfasis encierra sus figuras', () => {
-    const escena = compose(['mae-creacion'], ANCHO, ALTO)
-    expect(escena.recinto?.length).toBeGreaterThan(2)
+  it('en la vista de detalle no hay contornos: la figura ya es la forma', () => {
+    expect(compose(['pe-creacion-arte'], ANCHO, ALTO).limites).toHaveLength(0)
+    expect(compose(['mae-creacion'], ANCHO, ALTO).limites).toHaveLength(0)
   })
 })

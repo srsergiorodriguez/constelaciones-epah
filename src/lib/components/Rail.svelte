@@ -45,7 +45,7 @@
   .rail::before {
     content: '';
     position: absolute;
-    left: 25px;
+    left: 33px;
     top: 14px;
     bottom: 14px;
     width: 1px;
@@ -54,9 +54,9 @@
 
   .paso {
     display: grid;
-    grid-template-columns: 28px 12px 1fr;
+    grid-template-columns: 24px 10px 1fr;
     align-items: center;
-    gap: var(--sp-2);
+    gap: var(--sp-1);
     padding: var(--sp-2) 0;
     text-align: left;
     color: var(--c-ink-3);

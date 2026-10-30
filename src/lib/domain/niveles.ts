@@ -28,7 +28,7 @@ export function escalones(): Escalon[] {
     {
       nivel: 'especializado',
       credito: '12',
-      etiqueta: 'Especializado',
+      etiqueta: 'Programa Especializado',
       detalle: 'cuatro cursos en dos periodos',
       cuenta: cuantos('programa_especializado'),
       activo: true,

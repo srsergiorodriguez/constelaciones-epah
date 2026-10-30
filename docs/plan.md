@@ -126,7 +126,7 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Barra de escala vertical: curso · especializado · maestría · doctorado (deshabilitado)
 - [x] La escala filtra la lista y re-pondera el cielo; no rehace el layout
 - [x] Regiones: contorno discontinuo por maestría con sus énfasis dentro
-- [x] Contorno del especializado seleccionado y de la maestría con figuras
+- [x] Sin contornos en la vista de detalle: la figura ya es la forma
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas
 

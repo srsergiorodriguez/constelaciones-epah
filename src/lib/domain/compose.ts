@@ -40,8 +40,6 @@ export interface Escena {
   siluetas: Silueta[]
   /** Regiones de maestría: la línea que encierra sus figuras. */
   limites: Silueta[]
-  /** Contorno del programa elegido cuando no lo define su propia silueta. */
-  recinto: Punto[] | null
 }
 
 /** Ajusta una polilínea (0..100) a una caja conservando proporción y orientación. */
@@ -113,7 +111,6 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
       eje: null,
       siluetas,
       limites: limitesDeMaestria(siluetas),
-      recinto: null,
     }
   }
 
@@ -151,7 +148,6 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
       eje: null,
       siluetas: [],
       limites: [],
-      recinto: null,
     }
   }
 
@@ -180,11 +176,6 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
     eje: primera ? [centroTronco, [primera.x, primera.y]] : null,
     siluetas: [],
     limites: [],
-    // un especializado no tiene silueta propia: se encierra en un contorno
-    recinto:
-      curriculum.programas[programaId]?.tipo === 'programa_especializado'
-        ? envolvente(propios.map((id) => estrellas.get(id)!).map((e) => [e.x, e.y] as Punto), 20)
-        : null,
   }
 }
 
@@ -294,7 +285,6 @@ function componerFamilia(
     eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
     siluetas: [],
     limites: [],
-    recinto: figuras.length ? envolvente(figuras.flatMap((f) => f.puntos), 22) : null,
   }
 }
 
