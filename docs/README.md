@@ -20,6 +20,7 @@ el código o los datos; no se deja «para después».
 | `diary.md` | Bitácora | Registro de cambios y por qué. Se lee antes de empezar la siguiente tarea y se poda cuando crece. |
 | `assets/` | Figuras | Láminas SVG/PNG generadas con `scripts/make-figures.mjs` a partir de los datos reales: una constelación, las dieciocho figuras y la gramática visual. |
 | `../data/` | Datos | `programas.csv`, `cursos.csv`, `curriculo.csv`. Artefactos generados: no editar a mano. |
+| `editor.md` | Cómo editar el currículo sin tocar código | — |
 | `../scripts/` | Generadores | `build-data.mjs` (fuente → CSV), `build-curriculum.mjs` (CSV → JSON) y `make-figures.mjs` (láminas). |
 
 ## Glosario
@@ -47,6 +48,7 @@ el código o los datos; no se deja «para después».
 ```bash
 pnpm install
 pnpm data        # data/source/*.json → data/*.csv → src/lib/data/curriculum.json
+pnpm editar      # editor local de datos en /editor.html (solo desarrollo)
 pnpm atlas       # curriculum.json → src/lib/data/atlas.json (nebulosa)
 pnpm dev         # http://localhost:5173
 pnpm test        # 15 pruebas: contrato, grafo, figuras, nebulosa, composición
