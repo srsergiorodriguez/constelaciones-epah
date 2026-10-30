@@ -1,8 +1,8 @@
 import { curriculum } from '../data/types'
 import { cursosOf, nucleoOf } from './graph'
 import { figureOf, placeOnFigure, type Punto } from './figures'
-import { nebulaToViewport } from './nebula'
-import { envolvente, poligonoNeutro } from './hull'
+import { centroDe, envolvente, poligonoNeutro } from './hull'
+import { hijosDe } from './plan'
 import type { Nivel } from './niveles'
 
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace' | 'oculto'
@@ -81,13 +81,7 @@ export function propiosOf(programaId: string): string[] {
   return ordenarPorPlan(programaId, cursosOf(programaId).filter((id) => !nucleo.has(id)))
 }
 
-const hijosDe = (programaId: string) =>
-  Object.values(curriculum.programas).filter((p) => p.tipo === 'enfasis' && p.padreId === programaId)
 
-const centroDe = (pts: Punto[]): Punto => [
-  pts.reduce((a, p) => a + p[0], 0) / pts.length,
-  pts.reduce((a, p) => a + p[1], 0) / pts.length,
-]
 
 /**
  * Compone la escena: nebulosa o un programa.

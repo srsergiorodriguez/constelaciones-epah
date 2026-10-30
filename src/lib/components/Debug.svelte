@@ -8,7 +8,7 @@
 </script>
 
 <aside class="debug" aria-label="Ajustes de depuración">
-  <p class="titulo">Depuración · trazos</p>
+  <p class="rotulo">Depuración · trazos</p>
 
   <label>
     <span>Constelaciones <b>{constelacion.toFixed(1)}</b></span>
@@ -53,13 +53,6 @@
     width: 220px;
   }
 
-  .titulo {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--c-ink-3);
-  }
 
   label {
     display: flex;

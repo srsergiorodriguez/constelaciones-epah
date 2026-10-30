@@ -3,6 +3,7 @@
   import { hijosDe } from '../domain/plan'
   import { programasOf } from '../domain/graph'
   import { marcaDe } from '../viz/palette'
+  import { desplazarAlFoco } from '../viz/scroll'
   import type { Foco } from '../domain/niveles'
   import StarGlyph from './StarGlyph.svelte'
 
@@ -20,12 +21,7 @@
 
   let panel = $state<HTMLElement | null>(null)
 
-  $effect(() => {
-    const id = foco?.id
-    if (!id || !panel) return
-    const fila = panel.querySelector(`[data-foco="${CSS.escape(id)}"]`)
-    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-  })
+  $effect(() => desplazarAlFoco(panel, foco))
 
   /** Escalones a los que este curso cuenta: especializado → énfasis → maestría. */
   const cadena = $derived.by(() => {
@@ -56,7 +52,7 @@
         <StarGlyph eje={curso.eje} r={7} color="var(--c-ink)" />
       </svg>
       <div>
-        <p class="codigo">{curso.codigo}</p>
+        <p class="rotulo">{curso.codigo}</p>
         <h2>{curso.nombre}</h2>
       </div>
     </div>
@@ -159,13 +155,6 @@
     margin-top: 2px;
   }
 
-  .codigo {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--c-ink-3);
-  }
 
   h2 {
     font-family: var(--ff-display);

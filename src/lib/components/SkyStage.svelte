@@ -5,7 +5,7 @@
   import type { Foco, Nivel } from '../domain/niveles'
   import type { Punto } from '../domain/figures'
   import { polylinePath } from '../viz/geometry'
-  import { envolventePath } from '../domain/hull'
+  import { centroDe, envolventePath } from '../domain/hull'
   import Etiqueta from './Etiqueta.svelte'
   import { finDelPlan, planViaje, posicionEn, prefiereMenosMovimiento } from '../viz/motion'
   import { colorDe, marcaDe, radioDe } from '../viz/palette'
@@ -367,7 +367,7 @@
       {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
       {#if activa}
         {@const nombre = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
-        {@const cx = f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
+        {@const cx = centroDe(f.puntos)[0]}
         {@const abajo = Math.max(...f.puntos.map((q) => q[1]))}
         <Etiqueta texto={nombre} x={cx} y={abajo + 22} clase="nombre-figura" marca={marcaDe(f.programaId)} />
       {/if}

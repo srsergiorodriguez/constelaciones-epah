@@ -316,3 +316,29 @@ Se dice **curso**, no «materia»; **énfasis**, no «mención».
 completo: «Maestría en Gestión Estratégica de Proyectos Culturales».
 Los vacíos explican: «Los cursos umbral se toman de un programa especializado; aún no hay inscripción
 abierta».
+
+---
+
+## 9. Deuda y duplicaciones
+
+Revisión de mantenibilidad. Lo resuelto, y lo que sigue:
+
+### Resuelto
+
+| Duplicación | Dónde estaba | Dónde vive ahora |
+|---|---|---|
+| Desplazar la lista hasta el foco | tres copias del mismo `$effect` (selector, plan, detalle) | `viz/scroll.ts` · `desplazarAlFoco` |
+| `hijosDe` | `compose.ts` y `plan.ts` | `domain/plan.ts` |
+| `centroDe` | `compose.ts` y tres usos inline en el cielo | `domain/hull.ts` |
+| Estilo del rótulo de sección | cuatro copias idénticas | `app.css` · `.rotulo` |
+| Rótulo con su marca | tres copias con ancho estimado | `Etiqueta.svelte`, que mide |
+| Atributo de fila | `data-curso` y `data-foco` | `data-foco` en todas |
+
+### Pendiente, con criterio
+
+- **Filas de los paneles** (`.casilla`, `.hijo`, `.plan`, `.escalon`): comparten rejilla y hover. Unificarlas
+  exige tocar cuatro bloques visuales a la vez; no compensa hasta que haya una quinta lista.
+- **Variantes del rótulo** (`0.06em`, `0.08em`, tinta 2, peso 600): son tres variantes reales, no
+  duplicación. Se documentan como `.rotulo` + modificador cuando se toquen.
+- **`compose.ts` (700 líneas)**: mezcla las cuatro escalas. Partirlo por escala es la deuda más grande;
+  se hará con pruebas de caracterización delante, no a ciegas.

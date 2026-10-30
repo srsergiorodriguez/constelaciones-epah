@@ -138,3 +138,12 @@ button {
 }
 
 /* el relleno lo pone la clase .hl-* — declararlo aquí la pisaba por orden */
+
+/* Rótulo de sección: el estilo se repite en todos los paneles y vive aquí una vez. */
+.rotulo {
+  font-family: var(--ff-sans);
+  font-size: var(--fz-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-ink-3);
+}

@@ -1,5 +1,13 @@
 import type { Punto } from './figures'
 
+/** Centro de un conjunto de puntos. */
+export function centroDe(puntos: Punto[]): Punto {
+  return [
+    puntos.reduce((a, q) => a + q[0], 0) / puntos.length,
+    puntos.reduce((a, q) => a + q[1], 0) / puntos.length,
+  ]
+}
+
 /**
  * Envolvente convexa (Andrew, cadena monótona) y un margen hacia afuera.
  * Es el único gesto nuevo del universo: una línea que encierra un grupo.

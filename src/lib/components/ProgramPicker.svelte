@@ -4,6 +4,7 @@
   import { hijosDe } from '../domain/plan'
   import type { Foco, Nivel } from '../domain/niveles'
   import { marcaDe, vivoDe } from '../viz/palette'
+  import { desplazarAlFoco } from '../viz/scroll'
 
   interface Props {
     nivel: Nivel
@@ -20,12 +21,7 @@
   let lista = $state<HTMLUListElement | null>(null)
 
   // al pasar el cursor por el cielo, la lista va hasta esa fila
-  $effect(() => {
-    const id = foco?.id
-    if (!id || !lista) return
-    const fila = lista.querySelector(`[data-foco="${CSS.escape(id)}"]`)
-    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-  })
+  $effect(() => desplazarAlFoco(lista, foco))
 
   const maestrias = Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')
   const maestriaDe = (id: string) => curriculum.programas[id]?.maestriaId ?? id
@@ -143,7 +139,7 @@
 </script>
 
 <nav class="selector" aria-label="Programas por escala">
-  <p class="cabecera">{titulo}</p>
+  <p class="rotulo cabecera">{titulo}</p>
 
   {#if nivel === 'doctorado'}
     <p class="vacio">El doctorado aún no tiene tabla en el documento maestro. La escala existe; los datos no.</p>
@@ -220,11 +216,6 @@
   }
 
   .cabecera {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--c-ink-3);
     padding-bottom: var(--sp-2);
   }
 

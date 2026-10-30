@@ -3,6 +3,7 @@
   import { hijosDe, periodosDe, planDe } from '../domain/plan'
   import type { Foco } from '../domain/niveles'
   import { colorDe, marcaDe } from '../viz/palette'
+  import { desplazarAlFoco } from '../viz/scroll'
   import StarGlyph from './StarGlyph.svelte'
 
   interface Props {
@@ -29,12 +30,7 @@
 
   let panel = $state<HTMLElement | null>(null)
 
-  $effect(() => {
-    const id = resaltado
-    if (!id || !panel) return
-    const fila = panel.querySelector(`[data-curso="${CSS.escape(id)}"]`)
-    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-  })
+  $effect(() => desplazarAlFoco(panel, foco))
 
   const curso = (id: string) => curriculum.cursos[id]
   const nombrePeriodo = (n: number) => `${n}º periodo`
@@ -42,7 +38,7 @@
 
 <aside class="panel" bind:this={panel} aria-label="Plan de estudios de {programa?.nombreCorto}">
   <header class="cabeza">
-    <p class="tipo">{hijos.length > 0 ? 'Plan común de la maestría' : 'Plan de estudios'}</p>
+    <p class="rotulo">{hijos.length > 0 ? 'Plan común de la maestría' : 'Plan de estudios'}</p>
     <p class="meta">
       {plan.length} casillas · {creditos} créditos{#if abiertas} · {abiertas} abiertas{/if}
     </p>
@@ -63,7 +59,7 @@
                 <button
                   class="casilla"
                   class:resaltada={resaltado === c.cursoId}
-                  data-curso={c.cursoId}
+                  data-foco={c.cursoId}
                   onmouseenter={() => onHover(c.cursoId)}
                   onmouseleave={() => onHover(null)}
                   onfocus={() => onHover(c.cursoId)}
@@ -132,13 +128,6 @@
     padding-bottom: var(--sp-3);
   }
 
-  .tipo {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--c-ink-3);
-  }
 
   .meta {
     font-family: var(--ff-serif);

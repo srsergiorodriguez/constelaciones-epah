@@ -528,3 +528,16 @@ pesan lo que deben pesar cuando son el tema. Los deslizadores de `?debug` arranc
 **La silueta de la vista general tenía el trazo fijo.** Al subir `--stroke-const` no cambió nada a la
 vista, porque esa silueta declaraba `stroke-width: 1.6` en duro. Ahora tiene su propio token,
 `--stroke-silueta` (2,6), y el deslizador de depuración mueve los dos a la vez.
+
+---
+
+## 2026-10-30 · Pasar la escoba sin romper nada
+
+**Auditoría de duplicación.** Cuatro cosas se repetían de verdad: el desplazamiento de la lista hasta el
+foco (tres copias), `hijosDe` (dos), `centroDe` (cuatro sitios) y el estilo del rótulo de sección
+(cuatro). Todas viven ahora en un solo sitio, y cada paso se verificó con `svelte-check`, las 40
+pruebas y una captura de las tres vistas.
+
+**Lo que se dejó quieto a propósito.** Las filas de los paneles y las variantes del rótulo no son
+duplicación sino decisiones visuales; unificarlas toca cuatro bloques a la vez y no compensa. Queda
+anotado en `design-system.md` §9 con el criterio, para que la próxima persona no lo improvise.
