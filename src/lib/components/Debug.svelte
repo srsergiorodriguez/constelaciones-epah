@@ -1,7 +1,7 @@
 <script lang="ts">
   /** Panel de depuración: ajusta los trazos del cielo sin tocar los tokens. */
-  let constelacion = $state(2.4)
-  let region = $state(1)
+  let constelacion = $state(3.8)
+  let region = $state(2.2)
 
   const aplicar = (nombre: string, valor: number) =>
     document.documentElement.style.setProperty(nombre, String(valor))

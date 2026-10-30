@@ -177,7 +177,8 @@ fila correspondiente. Sin eso, la interfaz vuelve a señalar sin encontrarse.
 
 - Escala: `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96`. Base 4.
 - Radios: `0` por defecto; `999px` solo en chips y botones (como el sitio de la Facultad).
-- Trazos: `--stroke-grid` 0.9 (retícula) · `--stroke-const` 2.4 (constelación) ·
+- Trazos: `--stroke-grid` 0.9 (retícula) · `--stroke-const` 3,8 (constelación) · `--stroke-region` 2,2
+  (envolvente de maestría) ·
   `--stroke-link` 1.2 (enlace tronco → figura) · `--stroke-active` 3 (foco).
   La línea de constelación pesa más que cualquier otra cosa en pantalla: es el dibujo.
 - Sombras: ninguna. Gradientes: ninguno.
@@ -270,7 +271,7 @@ En `< 720 px`: chips en fila desplazable, cielo a ancho completo, panel como hoj
   /* Espacio, trazo, movimiento */
   --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
   --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px;
-  --stroke-grid: 0.8; --stroke-const: 1.5; --stroke-active: 2;
+  --stroke-grid: 0.8; --stroke-const: 3.8; --stroke-region: 2.2; --stroke-active: 2;
   --op-dim: 0.28; --op-mid: 0.6; --op-on: 1;
   --d-move: 600ms; /* viaje de las estrellas a su figura */
   --t-fast: 120ms; --t-base: 220ms; --t-slow: 360ms;

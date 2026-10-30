@@ -513,3 +513,10 @@ además aparecía al pasar el cursor. Ahora el rótulo fijo calla al flotante.
 `.fondo-etiqueta { fill: var(--hl-ink) }` como red de seguridad. Como quedaba después de las clases
 `.hl-*`, ganaba por orden y todos los rótulos salieron grises. El relleno lo pone una sola clase; sin
 respaldo.
+
+---
+
+## 2026-10-30 · Trazos más gruesos
+
+Constelaciones de 3 a **3,8** y envolventes de 1,6 a **2,2**. Se leen mejor proyectadas y las figuras
+pesan lo que deben pesar cuando son el tema. Los deslizadores de `?debug` arrancan en estos valores.
