@@ -304,7 +304,8 @@
           x={p[0] + r + 7}
           y={p[1] - r - 2}
           class="código"
-          class:visible={!viajando && ((!enNebulosa && e.estado === 'figura') || deFoco || senalada)}
+          class:visible={!viajando &&
+            ((!sinPrograma && (e.estado === 'figura' || e.estado === 'nucleo')) || deFoco || senalada)}
         >{c.codigo}</text>
       {/if}
     {/each}

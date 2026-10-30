@@ -149,6 +149,8 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Cursos clicables solo en umbrales y en vistas enfocadas
 - [x] Rótulos en capa final: nunca detrás de una estrella
 - [x] Rótulos a 14–15 px; constelaciones y envolventes más gruesas (3 / 1,6)
+- [x] Sin códigos en las vistas generales; solo en la constelación y al enfocar
+- [x] Un especializado abierto muestra sus cursos (usa las estrellas de su énfasis)
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

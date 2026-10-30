@@ -460,3 +460,15 @@ son sus figuras, y se reconocen por su forma.
 `pointer-events: none`, pero su zona de contacto hija declaraba `pointer-events: all` y volvía a
 encenderlas: se podían tocar, y por eso aparecían rótulos que no correspondían a esa escala. Ahora se
 apaga el grupo y todos sus descendientes, y el clic está cerrado también en el manejador.
+
+---
+
+## 2026-10-30 · Los códigos, solo donde se leen
+
+**Fuera los 52 códigos del especializado.** La vista general mostraba el código de cada estrella
+encendida; a esa escala no se leen, se cuentan. Los códigos vuelven a la constelación abierta y al
+enfoque de una figura.
+
+**Un especializado no tiene estrellas propias.** Al abrirlo no aparecía ningún curso: sus copias
+pertenecen al énfasis del que cuelga. Ahora `componerFigura` busca las estrellas del dueño real —el
+programa o, si no tiene, su padre— y las coloca en la figura. El bug venía del paso a copias.

@@ -354,8 +354,13 @@ function componerFigura(programaId: string, estrellas: Estrella[], ancho: number
   const canonica = fitFigure(silueta, caja)
   const posiciones = placeOnFigure(canonica, propios.length)
 
+  /* Un especializado no tiene estrellas propias: usa las de su énfasis. */
+  const duenoEstrellas = estrellas.some((s) => s.dueno === programaId)
+    ? programaId
+    : (curriculum.programas[programaId]?.padreId ?? programaId)
+
   propios.forEach((cursoId, i) => {
-    const e = estrellas.find((s) => s.dueno === programaId && s.cursoId === cursoId)
+    const e = estrellas.find((s) => s.dueno === duenoEstrellas && s.cursoId === cursoId)
     if (!e) return
     e.x = posiciones[i][0]
     e.y = posiciones[i][1]
@@ -363,7 +368,7 @@ function componerFigura(programaId: string, estrellas: Estrella[], ancho: number
     e.en = [programaId]
   })
 
-  const primera = estrellas.find((s) => s.dueno === programaId && s.cursoId === propios[0])
+  const primera = estrellas.find((s) => s.dueno === duenoEstrellas && s.cursoId === propios[0])
   const centroTronco = centroDe(nucleoPts)
   return {
     ancho,
