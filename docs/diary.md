@@ -553,3 +553,12 @@ resto es el mapa.
 **Un hallazgo del camino:** las reglas que hacían inertes esas siluetas habían desaparecido en una
 limpieza anterior de CSS. Vuelven, con la especificidad suficiente para ganarle a la zona de contacto
 (`.selector-siluetas.inactivas .silueta-selector *`).
+
+---
+
+## 2026-10-30 · Las estrellas rojas
+
+**Eran copias sobrantes.** En la escala de umbrales se encendía la copia elegida de cada curso, pero
+las *otras* copias —las que el curso tiene en figuras que lo comparten— seguían visibles, con el color
+de su familia: de ahí las estrellas rosadas. Ahora se apagan todas y se encienden solo las cuarenta y
+una elegidas. La prueba exige exactamente 41, una por curso.

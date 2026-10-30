@@ -160,11 +160,11 @@ describe('cursos umbrales', () => {
     for (const c of umbrales) expect(c.umbralDesde.length).toBeGreaterThan(0)
   })
 
-  it('la escala del curso solo enciende los umbrales', () => {
+  it('la escala del curso enciende exactamente los umbrales, una vez cada uno', () => {
     const escena = compose([], ANCHO, ALTO, 'curso')
-    const ocultas = escena.estrellas.filter((e) => e.estado === 'oculto')
-    expect(ocultas).toHaveLength(83 - 41)
     const visibles = escena.estrellas.filter((e) => e.estado !== 'oculto')
+    expect(visibles).toHaveLength(41)
+    expect(new Set(visibles.map((e) => e.cursoId)).size).toBe(41)
     expect(visibles.every((e) => curriculum.cursos[e.cursoId].umbral)).toBe(true)
   })
 })

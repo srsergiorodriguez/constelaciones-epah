@@ -501,29 +501,34 @@ function componerFamilia(
  * sitio: se ve de qué programa es puerta antes de leer nada.
  */
 function colocarUmbrales(siluetas: Silueta[], estrellas: Estrella[]): void {
-  const casa = new Map<string, { centro: Punto; cursos: string[] }>()
   const porFigura = new Map(siluetas.map((s) => [s.programaId, s.puntos]))
+  const elegida = new Map<string, Estrella>()
+  const casa = new Map<string, { centro: Punto; cursos: string[] }>()
 
   for (const c of Object.values(curriculum.cursos)) {
-    const e = estrellas.find((s) => s.cursoId === c.id && s.dueno !== null) ?? estrellas.find((s) => s.cursoId === c.id)
-    if (!e) continue
-    if (!c.umbral) {
-      e.estado = 'oculto'
-      continue
-    }
+    if (!c.umbral) continue
+    const copia =
+      estrellas.find((s) => s.cursoId === c.id && s.dueno !== null) ??
+      estrellas.find((s) => s.cursoId === c.id)
+    if (!copia) continue
     const pe = c.umbralDesde[0] ? curriculum.programas[c.umbralDesde[0]] : null
     const figuraId = pe?.padreId ?? pe?.id ?? null
     const puntos = figuraId ? porFigura.get(figuraId) : null
     if (!puntos) continue
+    elegida.set(c.id, copia)
     const actual = casa.get(figuraId!) ?? { centro: centroDe(puntos), cursos: [] }
     actual.cursos.push(c.id)
     casa.set(figuraId!, actual)
   }
 
+  // se apagan todas las copias: en esta escala un curso es una sola estrella
+  for (const e of estrellas) e.estado = 'oculto'
+
   for (const { centro, cursos } of casa.values()) {
     const n = cursos.length
     cursos.forEach((cursoId, i) => {
-      const e = estrellas.find((s) => s.cursoId === cursoId && s.estado === 'nebulosa')!
+      const e = elegida.get(cursoId)
+      if (!e) return
       const ang = -Math.PI / 2 + (i * 2 * Math.PI) / n
       e.x = centro[0] + Math.cos(ang) * 128
       e.y = centro[1] + Math.sin(ang) * 104
@@ -531,11 +536,6 @@ function colocarUmbrales(siluetas: Silueta[], estrellas: Estrella[]): void {
       e.en = []
     })
   }
-
-  // las copias que no se usaron se apagan
-  const usadas = new Set<string>()
-  for (const grupo of casa.values()) for (const id of grupo.cursos) usadas.add(id)
-  for (const e of estrellas) if (!usadas.has(e.cursoId)) e.estado = 'oculto'
 }
 
 /**
