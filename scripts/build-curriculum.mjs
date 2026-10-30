@@ -76,7 +76,6 @@ const cursos = cursosCsv.map((r) => ({
   umbralDesde: list(r.umbral_desde),
   ofertaVariable: r.oferta_variable === 'si',
   estado: r.estado,
-  pagina: num(r.fuente_pagina),
   nota: r.nota || '',
 }))
 
@@ -89,7 +88,6 @@ const ofertas = curriculoCsv.map((r) => ({
   alternativas: list(r.alternativas),
   repeticiones: Number(r.repeticiones || 1),
   estado: r.estado,
-  pagina: num(r.fuente_pagina),
   nota: r.nota || '',
 }))
 

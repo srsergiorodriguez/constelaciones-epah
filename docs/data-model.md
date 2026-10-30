@@ -40,13 +40,19 @@ Cinco tablas en JSON, editables a mano o desde un editor:
 
 | Archivo | Contenido |
 |---|---|
-| `programas.json` | 32 programas: id, nombre, tipo, padre, maestría |
+| `estructura.json` | **fija**: la Escuela y las 5 maestrías |
+| `programas.json` | 13 énfasis: id, nombre, padre (maestría), créditos |
 | `cursos.json` | 83 cursos: créditos, eje, formato, estado |
 | `planes.json` | 15 planes × 12 casillas |
 | `marco.json` | plan común de cada maestría (casillas abiertas incluidas) |
 | `cuerpos.json` | cuerpos declarados de programas especializados |
 
-`figures.json` vive aparte, con la app, porque la dibuja ella.
+Los programas especializados **no** están en `programas.json`: se derivan, uno por énfasis, de las
+cuatro casillas marcadas como cuerpo. `figures.json` vive aparte, con la app, porque la dibuja ella.
+
+La Escuela y las maestrías son estructura fija por decisión de diseño: son el marco del currículo y no
+se editan. Que una maestría tenga o no énfasis **no** está fijado: hoy Periodismo y Patrimonio no
+tienen, mañana pueden tenerlos.
 
 Los CSV **se generan** desde ahí con `pnpm data`. Se edita el JSON, nunca el CSV: el próximo
 `pnpm data` los sobrescribe. La CI corre `pnpm data` y falla si el resultado difiere de lo versionado,

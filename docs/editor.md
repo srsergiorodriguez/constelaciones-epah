@@ -15,8 +15,10 @@ pnpm editar --port 4310
 
 | Pestaña | Tabla | Operación |
 |---|---|---|
-| Programas | `programas.json` | nombre, tipo, padre, maestría, créditos, página |
-| Cursos | `cursos.json` | nombre, eje, formato, créditos, oferta variable |
+| Énfasis | `programas.json` | crear, editar y borrar; elegir su maestría |
+| Especializados | — (derivados) | se revisan; cada uno nace de cuatro casillas marcadas en su énfasis |
+| Cursos | `cursos.json` | crear, editar y borrar |
+| Estructura fija | `estructura.json` | solo lectura: Escuela y maestrías |
 | Planes | `planes.json` | cuadrícula 4 × 3: un curso por casilla, marca de cuerpo de especializado |
 | Plan común | `marco.json` | las 12 casillas de cada maestría; curso concreto o casilla abierta |
 | Cuerpos | `cuerpos.json` | cuatro cursos por especializado; vacío = derivado del énfasis |
@@ -46,9 +48,29 @@ duplica esas reglas: las usa.
 | `/api/fuente` | POST | escribe las tablas recibidas |
 | `/api/compilar` | POST | corre la tubería y devuelve `{ ok, salida }` |
 
+## Crear
+
+- **Énfasis**: «＋ Nuevo énfasis» crea el programa **y su plan vacío**. El compilador lo rechaza
+  hasta que las doce casillas tengan curso — es el contrato de borrador que acordamos.
+- **Curso**: «＋ Nuevo curso» añade una fila con `cur-nuevo-N`, eje `disciplinar`, 3 créditos.
+- **Especializado**: no se crea aparte. Nace cuando un énfasis marca cuatro casillas como *cuerpo del
+  especializado* (12 créditos). «Cuerpos» permite fijar su contenido a mano.
+
+## Estructura fija, y lo que puede dejar de serlo
+
+La Escuela y las maestrías viven en `estructura.json` y no se editan: son el marco. Todo lo demás
+—énfasis, especializados, cursos— sí cambia.
+
+Periodismo y Patrimonio Cultural hoy no tienen énfasis; **pueden tenerlos mañana**. El modelo lo
+soporta sin tocar código: basta crear sus énfasis desde el editor. Eso sí: una maestría con énfasis
+necesita además un **plan común** en `marco.json` (el que cursa quien no elige énfasis), y hoy solo
+Creación, Humanidades Experimentales y Gestión lo tienen. Si algún día se agregan énfasis a
+Periodismo, hay que agregar su plan común en la pestaña «Plan común»; si no, el panel de la maestría
+mostrará cero casillas.
+
 ## Lo que todavía no hace
 
-- Crear o borrar programas y cursos (hoy se edita lo existente).
 - Editar alternativas (`alt`) de una casilla.
 - Reordenar arrastrando.
 - Editar figuras: es la Fase 2, con su propio lienzo.
+- Crear el plan común de una maestría que no lo tiene (hoy se edita el de las tres que existen).

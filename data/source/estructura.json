@@ -1,0 +1,65 @@
+[
+  {
+    "id": "escuela-epah",
+    "nombre": "Escuela de Posgrados · Artes y Humanidades",
+    "nombre_corto": "Escuela",
+    "tipo": "escuela",
+    "padre_id": "",
+    "maestria_id": "",
+    "creditos": "",
+    "estado": "derivado"
+  },
+  {
+    "id": "mae-creacion",
+    "nombre": "Maestría en Creación",
+    "nombre_corto": "Maestría en Creación",
+    "tipo": "maestria",
+    "padre_id": "escuela-epah",
+    "maestria_id": "mae-creacion",
+    "creditos": 36,
+    "estado": "verificado",
+    "nota": "El plan marco (p. 1) es la plantilla curricular; cada énfasis la instancia con sus propios cursos."
+  },
+  {
+    "id": "mae-he",
+    "nombre": "Maestría en Humanidades Experimentales",
+    "nombre_corto": "Maestría en Humanidades Experimentales",
+    "tipo": "maestria",
+    "padre_id": "escuela-epah",
+    "maestria_id": "mae-he",
+    "creditos": 36,
+    "estado": "verificado"
+  },
+  {
+    "id": "mae-gepc",
+    "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales",
+    "nombre_corto": "Maestría en Gestión Estratégica de Proyectos Culturales",
+    "tipo": "maestria",
+    "padre_id": "escuela-epah",
+    "maestria_id": "mae-gepc",
+    "creditos": 36,
+    "estado": "verificado"
+  },
+  {
+    "id": "mae-periodismo",
+    "nombre": "Maestría en Periodismo",
+    "nombre_corto": "Maestría en Periodismo",
+    "tipo": "maestria",
+    "padre_id": "escuela-epah",
+    "maestria_id": "mae-periodismo",
+    "creditos": 36,
+    "estado": "verificado",
+    "nota": "Sin énfasis: su plan es único."
+  },
+  {
+    "id": "mae-patrimonio",
+    "nombre": "Maestría en Patrimonio Cultural",
+    "nombre_corto": "Maestría en Patrimonio Cultural",
+    "tipo": "maestria",
+    "padre_id": "escuela-epah",
+    "maestria_id": "mae-patrimonio",
+    "creditos": 36,
+    "estado": "verificado",
+    "nota": "Sin énfasis: su plan es único."
+  }
+]

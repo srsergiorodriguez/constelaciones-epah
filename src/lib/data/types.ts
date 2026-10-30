@@ -46,7 +46,6 @@ export interface Curso {
   umbralDesde: string[]
   ofertaVariable: boolean
   estado: Estado
-  pagina: number | null
   nota: string
 }
 
@@ -59,7 +58,6 @@ export interface Oferta {
   alternativas: string[]
   repeticiones: number
   estado: Estado
-  pagina: number | null
   nota: string
 }
 

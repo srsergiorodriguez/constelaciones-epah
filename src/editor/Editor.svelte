@@ -1,7 +1,8 @@
 <script lang="ts">
-  type Tabla = 'programas' | 'cursos' | 'planes' | 'marco' | 'cuerpos'
+  type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'marco' | 'cuerpos' | 'estructura'
 
   interface Fuente {
+    estructura: any[]
     programas: any[]
     cursos: Record<string, any>
     planes: any[]
@@ -12,22 +13,25 @@
   let datos = $state<Fuente | null>(null)
   const desdeUrl = new URLSearchParams(location.search).get('p') as Tabla | null
   let pestana = $state<Tabla>(
-    desdeUrl && ['programas', 'cursos', 'planes', 'marco', 'cuerpos'].includes(desdeUrl)
+    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'marco', 'cuerpos'].includes(desdeUrl)
       ? desdeUrl
-      : 'programas',
+      : 'enfasis',
   )
   let cargando = $state(true)
   let guardando = $state(false)
   let salida = $state('')
   let fallo = $state(false)
   let planElegido = $state('')
+  let maestriaNueva = $state('')
 
   const pestanas: { id: Tabla; nombre: string }[] = [
-    { id: 'programas', nombre: 'Programas' },
+    { id: 'enfasis', nombre: 'Énfasis' },
+    { id: 'especializados', nombre: 'Especializados' },
     { id: 'cursos', nombre: 'Cursos' },
     { id: 'planes', nombre: 'Planes' },
     { id: 'marco', nombre: 'Plan común' },
     { id: 'cuerpos', nombre: 'Cuerpos' },
+    { id: 'estructura', nombre: 'Estructura fija' },
   ]
 
   async function cargar() {
@@ -76,6 +80,60 @@
   function ponerMarco(m: string, i: number, j: number, valor: any) {
     datos!.marco[m][i][j] = valor
   }
+
+  const maestriasFijas = $derived(datos?.estructura.filter((e) => e.tipo === 'maestria') ?? [])
+  const enfasis = $derived(programas.filter((p) => p.tipo === 'enfasis'))
+  const versionCorta = (n: string) => n.replace(/^Énfasis en /, '')
+
+  /** Un énfasis nuevo nace con su plan vacío: el compilador no deja publicarlo
+   *  hasta que las doce casillas tengan curso. */
+  function nuevoEnfasis() {
+    if (!datos) return
+    const maestria = maestriasFijas.find((m) => m.id === maestriaNueva) ?? maestriasFijas[0]
+    if (!maestria) return
+    const n = enfasis.length + 1
+    const id = `enf-${maestria.id.replace('mae-', '')}-nuevo-${n}`
+    datos.programas.push({
+      id,
+      nombre: `${maestria.nombre} — Énfasis en Nuevo ${n}`,
+      nombre_corto: `Énfasis en Nuevo ${n}`,
+      tipo: 'enfasis',
+      padre_id: maestria.id,
+      maestria_id: maestria.id,
+      creditos: 36,
+      estado: 'borrador',
+    })
+    datos.planes.push({
+      id,
+      slots: [0, 1, 2, 3].map(() => [0, 1, 2].map(() => ({ id: '' }))),
+    })
+    planElegido = id
+  }
+
+  function borrarEnfasis(id: string) {
+    if (!datos) return
+    if (!confirm(`¿Borrar ${id} y su plan?`)) return
+    datos.programas = datos.programas.filter((p) => p.id !== id)
+    datos.planes = datos.planes.filter((p) => p.id !== id)
+    delete datos.cuerpos[id]
+  }
+
+  function nuevoCurso() {
+    if (!datos) return
+    const n = Object.keys(datos.cursos).length + 1
+    datos.cursos[`cur-nuevo-${n}`] = {
+      nombre: `Curso nuevo ${n}`,
+      eje: 'disciplinar',
+      formato: 'curso',
+      creditos: 3,
+    }
+  }
+
+  function borrarCurso(id: string) {
+    if (!datos) return
+    if (!confirm(`¿Borrar ${id}?`)) return
+    delete datos.cursos[id]
+  }
 </script>
 
 <main class="editor">
@@ -107,53 +165,95 @@
     <p class="vacio">No se pudo leer la fuente. ¿Está corriendo con <code>pnpm edit</code>?</p>
   {:else}
     <section>
-      {#if pestana === 'programas'}
+      {#if pestana === 'enfasis'}
+        <div class="barra">
+          <label>
+            Maestría
+            <select bind:value={maestriaNueva}>
+              {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
+            </select>
+          </label>
+          <button onclick={nuevoEnfasis}>＋ Nuevo énfasis</button>
+          <span class="meta">{enfasis.length} énfasis · viven en <code>programas.json</code></span>
+        </div>
         <table>
           <thead>
-            <tr>
-              <th>id</th><th>nombre</th><th>nombre corto</th><th>tipo</th><th>padre</th>
-              <th>maestría</th><th>créd.</th><th>pág.</th><th>nota</th>
-            </tr>
+            <tr><th>id</th><th>nombre</th><th>nombre corto</th><th>maestría</th><th>créd.</th><th>estado</th><th></th></tr>
           </thead>
           <tbody>
-            {#each programas as p (p.id)}
+            {#each enfasis as p (p.id)}
               <tr>
                 <td class="id">{p.id}</td>
                 <td><input bind:value={p.nombre} /></td>
                 <td><input bind:value={p.nombre_corto} /></td>
                 <td>
-                  <select bind:value={p.tipo}>
-                    {#each ['escuela', 'maestria', 'enfasis', 'programa_especializado', 'doctorado'] as t (t)}
-                      <option value={t}>{t}</option>
-                    {/each}
-                  </select>
-                </td>
-                <td>
-                  <select bind:value={p.padre_id}>
-                    <option value="">—</option>
-                    {#each programas as q (q.id)}<option value={q.id}>{q.id}</option>{/each}
-                  </select>
-                </td>
-                <td>
-                  <select bind:value={p.maestria_id}>
-                    <option value="">—</option>
-                    {#each maestrias as m (m.id)}<option value={m.id}>{m.id}</option>{/each}
+                  <select bind:value={p.padre_id} onchange={() => (p.maestria_id = p.padre_id)}>
+                    {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
                   </select>
                 </td>
                 <td><input type="number" bind:value={p.creditos} /></td>
-                <td><input type="number" bind:value={p.pagina} /></td>
-                <td><input bind:value={p.nota} /></td>
+                <td>
+                  <select bind:value={p.estado}>
+                    {#each ['verificado', 'borrador', 'propuesto'] as e (e)}<option value={e}>{e}</option>{/each}
+                  </select>
+                </td>
+                <td><button class="borrar" onclick={() => borrarEnfasis(p.id)} title="Borrar">✕</button></td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      {:else if pestana === 'especializados'}
+        <p class="nota">
+          Un especializado no se declara aparte: nace cuando un énfasis marca cuatro casillas como
+          «cuerpo del especializado» (12 créditos). Aquí se revisan, y en «Cuerpos» se puede fijar su
+          contenido a mano.
+        </p>
+        <table>
+          <thead><tr><th>deriva de</th><th>nombre</th><th>cuerpo</th></tr></thead>
+          <tbody>
+            {#each enfasis as e (e.id)}
+              {@const propias = (datos!.planes.find((p) => p.id === e.id)?.slots ?? []).flat().filter((s: any) => s.pe)}
+              <tr>
+                <td class="id">{e.id}</td>
+                <td>{e.nombre_corto.replace('Énfasis en ', 'Programa Especializado en ')}</td>
+                <td class="cuerpo-lista">
+                  {#if propias.length === 0}
+                    <em class="falta">sin cuerpo: este énfasis no tiene especializado</em>
+                  {:else}
+                    {propias.length} casillas · {propias.map((s: any) => s.id).join(', ')}
+                  {/if}
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      {:else if pestana === 'estructura'}
+        <p class="nota">
+          La Escuela y las maestrías se asumen fijas: viven en <code>estructura.json</code> y acá solo
+          se leen. Lo que cambia son los énfasis, los especializados y los cursos.
+        </p>
+        <table>
+          <thead><tr><th>id</th><th>nombre</th><th>nombre corto</th><th>tipo</th><th>créd.</th></tr></thead>
+          <tbody>
+            {#each datos.estructura as e (e.id)}
+              <tr>
+                <td class="id">{e.id}</td>
+                <td>{e.nombre}</td>
+                <td>{e.nombre_corto}</td>
+                <td>{e.tipo}</td>
+                <td>{e.creditos ?? '—'}</td>
               </tr>
             {/each}
           </tbody>
         </table>
       {:else if pestana === 'cursos'}
+        <div class="barra">
+          <button onclick={nuevoCurso}>＋ Nuevo curso</button>
+          <span class="meta">{cursos.length} cursos · viven en <code>cursos.json</code></span>
+        </div>
         <table>
           <thead>
-            <tr>
-              <th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th>
-              <th>pág.</th><th>oferta variable</th><th>nota</th>
-            </tr>
+            <tr><th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th><th>oferta variable</th><th>nota</th><th></th></tr>
           </thead>
           <tbody>
             {#each cursos as [id, c] (id)}
@@ -175,9 +275,9 @@
                   </select>
                 </td>
                 <td><input type="number" bind:value={c.creditos} /></td>
-                <td><input type="number" bind:value={c.pagina} /></td>
                 <td class="centro"><input type="checkbox" bind:checked={c.oferta_variable} /></td>
                 <td><input bind:value={c.nota} /></td>
+                <td><button class="borrar" onclick={() => borrarCurso(id)} title="Borrar">✕</button></td>
               </tr>
             {/each}
           </tbody>
@@ -209,6 +309,7 @@
                   {#each fila as slot, j (j)}
                     <td>
                       <select bind:value={slot.id}>
+                        <option value="">— vacía —</option>
                         {#each cursos as [id, c] (id)}
                           <option value={id}>{id} · {c.nombre}</option>
                         {/each}
@@ -259,8 +360,8 @@
         {/each}
       {:else if pestana === 'cuerpos'}
         <p class="nota">
-          Vacío = el cuerpo se deriva del énfasis (regla provisional). Si declarás los cuatro cursos,
-          manda lo declarado.
+          Vacío = el cuerpo se deriva de las casillas marcadas en el plan. Si declarás los cuatro
+          cursos, manda lo declarado.
         </p>
         {#each especializados as pe (pe.id)}
           <div class="cuerpo">
@@ -461,6 +562,27 @@
 
   .centro {
     text-align: center;
+  }
+
+  .borrar {
+    border: 0;
+    color: var(--c-ink-3);
+    padding: 2px 6px;
+    font-size: var(--fz-sm);
+  }
+
+  .borrar:hover {
+    color: #8a1b4f;
+  }
+
+  .cuerpo-lista {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    color: var(--c-ink-2);
+  }
+
+  .falta {
+    color: #8a1b4f;
   }
 
   .centro input {

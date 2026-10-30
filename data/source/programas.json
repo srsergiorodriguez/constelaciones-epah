@@ -1,28 +1,5 @@
 [
   {
-    "id": "escuela-epah",
-    "nombre": "Escuela de Posgrados · Artes y Humanidades",
-    "nombre_corto": "Escuela",
-    "tipo": "escuela",
-    "padre_id": "",
-    "maestria_id": "",
-    "creditos": "",
-    "estado": "derivado",
-    "pagina": ""
-  },
-  {
-    "id": "mae-creacion",
-    "nombre": "Maestría en Creación",
-    "nombre_corto": "Maestría en Creación",
-    "tipo": "maestria",
-    "padre_id": "escuela-epah",
-    "maestria_id": "mae-creacion",
-    "creditos": 36,
-    "estado": "verificado",
-    "pagina": 1,
-    "nota": "El plan marco (p. 1) es la plantilla curricular; cada énfasis la instancia con sus propios cursos."
-  },
-  {
     "id": "enf-creacion-arte",
     "nombre": "Maestría en Creación — Énfasis en Arte",
     "nombre_corto": "Énfasis en Arte",
@@ -30,8 +7,7 @@
     "padre_id": "mae-creacion",
     "maestria_id": "mae-creacion",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 4
+    "estado": "verificado"
   },
   {
     "id": "enf-creacion-fotografia",
@@ -41,8 +17,7 @@
     "padre_id": "mae-creacion",
     "maestria_id": "mae-creacion",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 11
+    "estado": "verificado"
   },
   {
     "id": "enf-creacion-composicion",
@@ -52,8 +27,7 @@
     "padre_id": "mae-creacion",
     "maestria_id": "mae-creacion",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 20
+    "estado": "verificado"
   },
   {
     "id": "enf-creacion-produccion",
@@ -63,8 +37,7 @@
     "padre_id": "mae-creacion",
     "maestria_id": "mae-creacion",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 26
+    "estado": "verificado"
   },
   {
     "id": "enf-creacion-escritura",
@@ -74,19 +47,7 @@
     "padre_id": "mae-creacion",
     "maestria_id": "mae-creacion",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 31
-  },
-  {
-    "id": "mae-he",
-    "nombre": "Maestría en Humanidades Experimentales",
-    "nombre_corto": "Maestría en Humanidades Experimentales",
-    "tipo": "maestria",
-    "padre_id": "escuela-epah",
-    "maestria_id": "mae-he",
-    "creditos": 36,
-    "estado": "verificado",
-    "pagina": 41
+    "estado": "verificado"
   },
   {
     "id": "enf-he-literatura",
@@ -96,8 +57,7 @@
     "padre_id": "mae-he",
     "maestria_id": "mae-he",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 46
+    "estado": "verificado"
   },
   {
     "id": "enf-he-historia-arte",
@@ -107,8 +67,7 @@
     "padre_id": "mae-he",
     "maestria_id": "mae-he",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 51
+    "estado": "verificado"
   },
   {
     "id": "enf-he-clasicos",
@@ -118,8 +77,7 @@
     "padre_id": "mae-he",
     "maestria_id": "mae-he",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 55
+    "estado": "verificado"
   },
   {
     "id": "enf-he-humanidades-digitales",
@@ -129,8 +87,7 @@
     "padre_id": "mae-he",
     "maestria_id": "mae-he",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 58
+    "estado": "verificado"
   },
   {
     "id": "enf-he-humanidades-ambientales",
@@ -140,19 +97,7 @@
     "padre_id": "mae-he",
     "maestria_id": "mae-he",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 62
-  },
-  {
-    "id": "mae-gepc",
-    "nombre": "Maestría en Gestión Estratégica de Proyectos Culturales",
-    "nombre_corto": "Maestría en Gestión Estratégica de Proyectos Culturales",
-    "tipo": "maestria",
-    "padre_id": "escuela-epah",
-    "maestria_id": "mae-gepc",
-    "creditos": 36,
-    "estado": "verificado",
-    "pagina": 70
+    "estado": "verificado"
   },
   {
     "id": "enf-gepc-negocios-musica",
@@ -162,8 +107,7 @@
     "padre_id": "mae-gepc",
     "maestria_id": "mae-gepc",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 75
+    "estado": "verificado"
   },
   {
     "id": "enf-gepc-arte",
@@ -173,8 +117,7 @@
     "padre_id": "mae-gepc",
     "maestria_id": "mae-gepc",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 80
+    "estado": "verificado"
   },
   {
     "id": "enf-gepc-edicion",
@@ -184,31 +127,6 @@
     "padre_id": "mae-gepc",
     "maestria_id": "mae-gepc",
     "creditos": 36,
-    "estado": "verificado",
-    "pagina": 85
-  },
-  {
-    "id": "mae-periodismo",
-    "nombre": "Maestría en Periodismo",
-    "nombre_corto": "Maestría en Periodismo",
-    "tipo": "maestria",
-    "padre_id": "escuela-epah",
-    "maestria_id": "mae-periodismo",
-    "creditos": 36,
-    "estado": "verificado",
-    "pagina": 93,
-    "nota": "Sin énfasis: su plan es único."
-  },
-  {
-    "id": "mae-patrimonio",
-    "nombre": "Maestría en Patrimonio Cultural",
-    "nombre_corto": "Maestría en Patrimonio Cultural",
-    "tipo": "maestria",
-    "padre_id": "escuela-epah",
-    "maestria_id": "mae-patrimonio",
-    "creditos": 36,
-    "estado": "verificado",
-    "pagina": 106,
-    "nota": "Sin énfasis: su plan es único."
+    "estado": "verificado"
   }
 ]

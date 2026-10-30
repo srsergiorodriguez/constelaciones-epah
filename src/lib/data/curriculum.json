@@ -386,7 +386,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": "Temas rotativos: información y forma, abstracción remanufacturada, arte y contexto, acciones y medios (p. 71)."
     },
     "cur-arte-est-2": {
@@ -413,7 +412,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-arte-est-3": {
@@ -440,7 +438,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-arte-intro": {
@@ -467,7 +464,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-arte-proy-1": {
@@ -490,7 +486,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-arte-proy-2": {
@@ -513,7 +508,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-arte-proy-3": {
@@ -536,7 +530,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 5,
       "nota": ""
     },
     "cur-clas-seminario": {
@@ -563,7 +556,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 55,
       "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
     },
     "cur-comp-1": {
@@ -586,7 +578,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": ""
     },
     "cur-comp-2": {
@@ -609,7 +600,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": ""
     },
     "cur-comp-3": {
@@ -632,7 +622,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": ""
     },
     "cur-edit-diseno": {
@@ -659,7 +648,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 86,
       "nota": ""
     },
     "cur-edit-editorial": {
@@ -686,7 +674,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     "cur-edit-electivo": {
@@ -713,7 +700,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 86,
       "nota": ""
     },
     "cur-edit-gestion": {
@@ -740,7 +726,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 86,
       "nota": ""
     },
     "cur-electiva": {
@@ -778,7 +763,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 1,
       "nota": "Casilla abierta; se homologa desde cualquier programa de la Escuela."
     },
     "cur-escritura-intro": {
@@ -805,7 +789,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-escritura-proy-1": {
@@ -828,7 +811,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-escritura-proy-2": {
@@ -851,7 +833,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-escritura-proy-3": {
@@ -874,7 +855,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-escritura-taller-1": {
@@ -901,7 +881,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 31,
       "nota": "Oferta rotativa: crónica, poesía, cuento, autoficción… (p. 34)."
     },
     "cur-escritura-taller-2": {
@@ -928,7 +907,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-escritura-taller-3": {
@@ -955,7 +933,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     "cur-foto-est-edicion": {
@@ -982,7 +959,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-est-publicacion": {
@@ -1009,7 +985,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-est-tiempo": {
@@ -1036,7 +1011,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-intro": {
@@ -1063,7 +1037,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-proy-1": {
@@ -1086,7 +1059,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-proy-2": {
@@ -1109,7 +1081,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-foto-proy-3": {
@@ -1132,7 +1103,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     "cur-garte-ecosistemas": {
@@ -1159,7 +1129,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     "cur-garte-electivo": {
@@ -1186,7 +1155,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     "cur-garte-gestion": {
@@ -1213,7 +1181,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     "cur-garte-publicos": {
@@ -1240,7 +1207,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     "cur-gepc-fundamentos": {
@@ -1265,7 +1231,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 70,
       "nota": ""
     },
     "cur-gepc-practica-1": {
@@ -1290,7 +1255,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 72,
       "nota": ""
     },
     "cur-gepc-practica-2": {
@@ -1315,7 +1279,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 72,
       "nota": ""
     },
     "cur-hamb-fundamentos": {
@@ -1342,7 +1305,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     "cur-hamb-seminario": {
@@ -1369,7 +1331,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 62,
       "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
     },
     "cur-harte-pensar": {
@@ -1396,7 +1357,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     "cur-harte-seminario": {
@@ -1423,7 +1383,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 51,
       "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
     },
     "cur-hd-datos": {
@@ -1450,7 +1409,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     "cur-hd-electivo": {
@@ -1474,7 +1432,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     "cur-hd-fundamentos": {
@@ -1501,7 +1458,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     "cur-hd-narrativas": {
@@ -1528,7 +1484,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     "cur-hd-prototipado": {
@@ -1555,7 +1510,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     "cur-he-diseno": {
@@ -1582,7 +1536,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 45,
       "nota": ""
     },
     "cur-he-teoria-1": {
@@ -1614,7 +1567,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 47,
       "nota": ""
     },
     "cur-he-teoria-2": {
@@ -1644,7 +1596,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 47,
       "nota": ""
     },
     "cur-he-teoria-3": {
@@ -1674,7 +1625,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 48,
       "nota": ""
     },
     "cur-he-trabajo-grado": {
@@ -1701,7 +1651,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 46,
       "nota": "Puede ser colectivo e inter-énfasis (p. 46)."
     },
     "cur-icg": {
@@ -1739,7 +1688,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 1,
       "nota": "Presente en los 15 planes: el centro del cielo."
     },
     "cur-lab-cocreacion": {
@@ -1767,7 +1715,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 2,
       "nota": ""
     },
     "cur-lab-gestion": {
@@ -1795,7 +1742,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 70,
       "nota": ""
     },
     "cur-lab-teorico-practico": {
@@ -1823,7 +1769,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 42,
       "nota": ""
     },
     "cur-lit-seminario": {
@@ -1850,7 +1795,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 49,
       "nota": "Familia de seminarios; el plan lo ofrece dos veces (p. 1 y p. 4)."
     },
     "cur-musica-contexto-1": {
@@ -1880,7 +1824,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": "Compartido por Composición y Producción musical."
     },
     "cur-musica-contexto-2": {
@@ -1910,7 +1853,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": ""
     },
     "cur-musica-contexto-3": {
@@ -1940,7 +1882,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 21,
       "nota": ""
     },
     "cur-musica-intro": {
@@ -1970,7 +1911,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 20,
       "nota": "Compartido por Composición y Producción musical."
     },
     "cur-neg-electivo": {
@@ -1997,7 +1937,6 @@
       ],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 76,
       "nota": ""
     },
     "cur-neg-estrategias": {
@@ -2024,7 +1963,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     "cur-neg-marketing": {
@@ -2051,7 +1989,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 76,
       "nota": ""
     },
     "cur-neg-musica": {
@@ -2078,7 +2015,6 @@
       ],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     "cur-pat-apropiacion": {
@@ -2099,7 +2035,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     "cur-pat-electivo": {
@@ -2120,7 +2055,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 106,
       "nota": "El plan lo ofrece dos veces (p. 1 y p. 4)."
     },
     "cur-pat-gestion": {
@@ -2141,7 +2075,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     "cur-pat-proyecto-1": {
@@ -2162,7 +2095,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     "cur-pat-proyecto-2": {
@@ -2183,7 +2115,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     "cur-pat-valoracion": {
@@ -2204,7 +2135,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     "cur-per-desafios-1": {
@@ -2225,7 +2155,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     "cur-per-desafios-2": {
@@ -2246,7 +2175,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 94,
       "nota": ""
     },
     "cur-per-escrito": {
@@ -2267,7 +2195,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     "cur-per-imagen": {
@@ -2288,7 +2215,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     "cur-per-lab-sala": {
@@ -2309,7 +2235,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 93,
       "nota": "«u otro laboratorio de la Escuela»."
     },
     "cur-per-metodos": {
@@ -2330,7 +2255,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     "cur-per-practica": {
@@ -2351,7 +2275,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 94,
       "nota": "6 créditos; reemplaza Trabajo de grado 1 y 2."
     },
     "cur-per-tg-1": {
@@ -2372,7 +2295,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 94,
       "nota": ""
     },
     "cur-per-tg-2": {
@@ -2393,7 +2315,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 94,
       "nota": ""
     },
     "cur-prod-1": {
@@ -2416,7 +2337,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 27,
       "nota": ""
     },
     "cur-prod-2": {
@@ -2439,7 +2359,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 27,
       "nota": ""
     },
     "cur-prod-3": {
@@ -2462,7 +2381,6 @@
       "umbralDesde": [],
       "ofertaVariable": false,
       "estado": "verificado",
-      "pagina": 27,
       "nota": ""
     },
     "cur-transversal": {
@@ -2500,7 +2418,6 @@
       "umbralDesde": [],
       "ofertaVariable": true,
       "estado": "verificado",
-      "pagina": 1,
       "nota": "Menú abierto de la Escuela; el documento solo nombra un caso: «Seminario: lo que hacen las imágenes» (p. 12)."
     }
   },
@@ -2514,7 +2431,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2526,7 +2442,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2538,7 +2453,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2550,7 +2464,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2562,7 +2475,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2574,7 +2486,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2586,7 +2497,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2598,7 +2508,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2610,7 +2519,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2622,7 +2530,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2634,7 +2541,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2646,7 +2552,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -2658,7 +2563,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2670,7 +2574,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2682,7 +2585,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": "Se ofrece «Seminario: lo que hacen las imágenes» (p. 12)."
     },
     {
@@ -2694,7 +2596,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2706,7 +2607,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2718,7 +2618,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2730,7 +2629,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2742,7 +2640,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2754,7 +2651,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2766,7 +2662,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2778,7 +2673,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2790,7 +2684,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -2802,7 +2695,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2814,7 +2706,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2826,7 +2717,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2838,7 +2728,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2850,7 +2739,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2862,7 +2750,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2874,7 +2761,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2886,7 +2772,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2898,7 +2783,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2910,7 +2794,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2922,7 +2805,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2934,7 +2816,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -2946,7 +2827,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -2958,7 +2838,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -2970,7 +2849,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -2982,7 +2860,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -2994,7 +2871,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3008,7 +2884,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": "«Laboratorio cocreación o gestión estratégica»."
     },
     {
@@ -3020,7 +2895,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3032,7 +2906,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3044,7 +2917,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3056,7 +2928,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3068,7 +2939,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3080,7 +2950,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -3092,7 +2961,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 26,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de cocreación»)."
     },
     {
@@ -3104,7 +2972,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3116,7 +2983,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3128,7 +2994,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3140,7 +3005,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3152,7 +3016,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3164,7 +3027,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3176,7 +3038,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3188,7 +3049,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3200,7 +3060,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3212,7 +3071,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3224,7 +3082,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3236,7 +3093,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -3248,7 +3104,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3260,7 +3115,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3272,7 +3126,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3284,7 +3137,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3296,7 +3148,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3308,7 +3159,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3320,7 +3170,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3332,7 +3181,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3344,7 +3192,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3356,7 +3203,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3368,7 +3214,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3380,7 +3225,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -3392,7 +3236,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3404,7 +3247,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3416,7 +3258,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3428,7 +3269,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3440,7 +3280,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3452,7 +3291,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3464,7 +3302,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3476,7 +3313,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3491,7 +3327,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": "«Seminario teoría 1, 2 o 3»."
     },
     {
@@ -3503,7 +3338,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3515,7 +3349,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3527,7 +3360,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -3539,7 +3371,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
     },
     {
@@ -3551,7 +3382,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 51,
       "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
     },
     {
@@ -3563,7 +3393,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3575,7 +3404,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3587,7 +3415,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3599,7 +3426,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3611,7 +3437,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3623,7 +3448,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3635,7 +3459,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3647,7 +3470,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3661,7 +3483,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": "«Seminario teoría 2 o 3»."
     },
     {
@@ -3673,7 +3494,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3685,7 +3505,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3697,7 +3516,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -3709,7 +3527,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 55,
       "nota": "Alternativa en el periodo 3 (casilla ocupada por «Seminario teoría 2: teorías contemporáneas sobre arte y sociedad»)."
     },
     {
@@ -3721,7 +3538,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3733,7 +3549,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3745,7 +3560,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3757,7 +3571,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3769,7 +3582,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3781,7 +3593,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3793,7 +3604,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3805,7 +3615,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3817,7 +3626,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3829,7 +3637,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3841,7 +3648,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3853,7 +3659,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -3865,7 +3670,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3877,7 +3681,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3889,7 +3692,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3901,7 +3703,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3913,7 +3714,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3929,7 +3729,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": "«Seminario teoría 1, 2 o 3, o seminario electivo en humanidades digitales»."
     },
     {
@@ -3941,7 +3740,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3953,7 +3751,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3965,7 +3762,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3977,7 +3773,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -3989,7 +3784,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -4001,7 +3795,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -4013,7 +3806,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
     },
     {
@@ -4025,7 +3817,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
     },
     {
@@ -4037,7 +3828,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 62,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Seminario teoría 1: de la Antigüedad a la Modernidad»)."
     },
     {
@@ -4049,7 +3839,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4061,7 +3850,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4073,7 +3861,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4085,7 +3872,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4097,7 +3883,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4109,7 +3894,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4121,7 +3905,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4133,7 +3916,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4145,7 +3927,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4157,7 +3938,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4169,7 +3949,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4181,7 +3960,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -4193,7 +3971,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4205,7 +3982,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4217,7 +3993,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4229,7 +4004,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": "«Laboratorio de gestión estratégica / cocreación»."
     },
     {
@@ -4241,7 +4015,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4253,7 +4026,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4265,7 +4037,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4277,7 +4048,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4289,7 +4059,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4301,7 +4070,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4313,7 +4081,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4325,7 +4092,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -4337,7 +4103,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4349,7 +4114,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4361,7 +4125,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4373,7 +4136,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": "«Laboratorio de gestión estratégica / cocreación»."
     },
     {
@@ -4385,7 +4147,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4397,7 +4158,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4409,7 +4169,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4421,7 +4180,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4433,7 +4191,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4445,7 +4202,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4457,7 +4213,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4469,7 +4224,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -4481,7 +4235,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4493,7 +4246,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4505,7 +4257,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4517,7 +4268,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4529,7 +4279,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4541,7 +4290,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4555,7 +4303,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": "«Trabajo de grado 1 o Práctica de grado»."
     },
     {
@@ -4567,7 +4314,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4579,7 +4325,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4593,7 +4338,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": "«Trabajo de grado 2 o Práctica de grado»."
     },
     {
@@ -4605,7 +4349,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4617,7 +4360,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": ""
     },
     {
@@ -4629,7 +4371,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 93,
       "nota": "Alternativa en el periodo 3 (casilla ocupada por «Trabajo de grado 1»)."
     },
     {
@@ -4641,7 +4382,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4653,7 +4393,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4665,7 +4404,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4680,7 +4418,6 @@
       ],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": "«Laboratorio de gestión estratégica, teórico práctico o cocreación»."
     },
     {
@@ -4692,7 +4429,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4704,7 +4440,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4716,7 +4451,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4728,7 +4462,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4740,7 +4473,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4752,7 +4484,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4764,7 +4495,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4776,7 +4506,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": ""
     },
     {
@@ -4788,7 +4517,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de gestión estratégica»)."
     },
     {
@@ -4800,7 +4528,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "verificado",
-      "pagina": 106,
       "nota": "Alternativa en el periodo 2 (casilla ocupada por «Laboratorio de gestión estratégica»)."
     },
     {
@@ -4812,7 +4539,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -4824,7 +4550,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -4836,7 +4561,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -4848,7 +4572,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 4,
       "nota": ""
     },
     {
@@ -4860,7 +4583,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -4872,7 +4594,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -4884,7 +4605,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -4896,7 +4616,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 11,
       "nota": ""
     },
     {
@@ -4908,7 +4627,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -4920,7 +4638,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -4932,7 +4649,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -4944,7 +4660,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 20,
       "nota": ""
     },
     {
@@ -4956,7 +4671,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -4968,7 +4682,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -4980,7 +4693,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -4992,7 +4704,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 26,
       "nota": ""
     },
     {
@@ -5004,7 +4715,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -5016,7 +4726,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -5028,7 +4737,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -5040,7 +4748,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 31,
       "nota": ""
     },
     {
@@ -5052,7 +4759,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -5064,7 +4770,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -5076,7 +4781,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -5088,7 +4792,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 46,
       "nota": ""
     },
     {
@@ -5100,7 +4803,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 51,
       "nota": ""
     },
     {
@@ -5112,7 +4814,6 @@
       "alternativas": [],
       "repeticiones": 3,
       "estado": "derivado",
-      "pagina": 51,
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -5124,7 +4825,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 55,
       "nota": ""
     },
     {
@@ -5136,7 +4836,6 @@
       "alternativas": [],
       "repeticiones": 3,
       "estado": "derivado",
-      "pagina": 55,
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -5148,7 +4847,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -5160,7 +4858,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -5172,7 +4869,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -5184,7 +4880,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 58,
       "nota": ""
     },
     {
@@ -5196,7 +4891,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 62,
       "nota": ""
     },
     {
@@ -5208,7 +4902,6 @@
       "alternativas": [],
       "repeticiones": 3,
       "estado": "derivado",
-      "pagina": 62,
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -5220,7 +4913,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -5232,7 +4924,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -5244,7 +4935,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -5256,7 +4946,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 75,
       "nota": ""
     },
     {
@@ -5268,7 +4957,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -5280,7 +4968,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -5292,7 +4979,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -5304,7 +4990,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 80,
       "nota": ""
     },
     {
@@ -5316,7 +5001,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -5328,7 +5012,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -5340,7 +5023,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 85,
       "nota": ""
     },
     {
@@ -5352,7 +5034,6 @@
       "alternativas": [],
       "repeticiones": 1,
       "estado": "derivado",
-      "pagina": 85,
       "nota": ""
     }
   ],
