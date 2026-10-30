@@ -142,7 +142,7 @@
   </g>
 
   {#if sinPrograma}
-    <g class="selector-siluetas nivel-{nivel}">
+    <g class="selector-siluetas nivel-{nivel}" class:inactivas={nivel === 'curso'}>
       {#each escena.siluetas as s (s.programaId)}
         {@const objetivo = s.objetivo ?? s.programaId}
         {@const p = curriculum.programas[objetivo]}
@@ -153,13 +153,14 @@
         {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
         <g
           class="silueta-selector"
-          class:activa={siluetaHover === s.programaId}
+          class:activa={nivel !== 'curso' && siluetaHover === s.programaId}
           role="button"
-          tabindex="0"
-          aria-label="Ver {p.nombreCorto}"
-          onmouseenter={() => (siluetaHover = s.programaId)}
+          tabindex={nivel === 'curso' ? -1 : 0}
+          aria-disabled={nivel === 'curso'}
+          aria-label={`Ver ${p.nombreCorto}`}
+          onmouseenter={() => nivel !== 'curso' && (siluetaHover = s.programaId)}
           onmouseleave={() => (siluetaHover = null)}
-          onfocus={() => (siluetaHover = s.programaId)}
+          onfocus={() => nivel !== 'curso' && (siluetaHover = s.programaId)}
           onblur={() => (siluetaHover = null)}
           onclick={() => onElegir(objetivo)}
           onkeydown={(ev) => {

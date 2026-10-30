@@ -287,3 +287,14 @@ ausencia es información, no un olvido: el escalón dice cuáles son las puertas
 
 **Tres escalas, tres estados del mismo cielo:** estrellas sueltas (un curso), fragmentos (doce
 créditos), figuras y regiones (el título). Ninguna posición cambia entre una y otra.
+
+---
+
+## 2026-10-30 · Las constelaciones como contexto
+
+**A la escala del curso, las constelaciones no se tocan.** Se ven al 12 %, sin foco, sin rótulo y sin
+clic. Sabes que están ahí —son una posibilidad— pero para explorarlas hay que subir de escala. La
+pista del pie lo dice con palabras distintas en cada escalón.
+
+**El título vuelve al universo entero.** Antes limpiaba la selección pero dejaba la escala donde
+estaba; ahora devuelve también a maestría, que es la vista por defecto.

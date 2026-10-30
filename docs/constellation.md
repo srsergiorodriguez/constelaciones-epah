@@ -97,7 +97,7 @@ compromiso, y la escala se elige en una **barra vertical** a la izquierda del se
 
 | Escala | Créditos | Objetos | Qué se ve |
 |---|---|---|---|
-| Un curso | 3 | 83 | estrellas y siluetas al 12 % |
+| Un curso | 3 | 83 | las estrellas; las siluetas al 12 %, como contexto |
 | Especializado | 12 | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
 | Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
 | Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
@@ -111,6 +111,10 @@ figuras que le pertenecen: en las que tienen énfasis, alrededor de sus énfasis
 variantes o no. El especializado no necesita contorno: al abrirlo, su figura se dibuja con sus cuatro
 estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
 No hay galaxias ni órbitas: el cielo gana fronteras, no astros nuevos.
+
+**A tres créditos las constelaciones son contexto.** Se ven al 12 % —el programa existe, está ahí— pero
+no se pueden tocar: `pointer-events: none`, sin foco y sin rótulo. Para explorarlas hay que subir de
+escala. La lista sí es accionable: a esa escala se recorren los 83 cursos uno por uno.
 
 **A doce créditos se ve el fragmento.** Un programa especializado es un trozo de su énfasis: cuatro
 cursos de los doce que tiene el plan. Por eso a esa escala la figura queda de fantasma y solo se
@@ -288,7 +292,7 @@ mayor `n_programas` y el otro se oculta hasta el hover.
 | Clic en una estrella | Detalle del curso y resalte de sus otras constelaciones | `selectedCourse` |
 | Hover en estrella | Atenúa el resto; muestra los programas que la contienen | `hoveredCourse` |
 | Hover en estrella compartida | Nombra el curso y las constelaciones que lo usan | `hoveredCourse` |
-| Clic en el título «Constelaciones» | Vuelve al universo | `selectedPrograms` |
+| Clic en el título «Constelaciones» | Vuelve al universo y a la escala de maestría | `selectedPrograms`, `nivel` |
 | Esc | Cierra el detalle; segundo Esc deselecciona todo | `panel`, `selectedPrograms` |
 | `Tab` / `←→` | Recorre constelaciones y estrellas | `focusIndex` |
 | «Mostrar alternativas» | Muestra u oculta aristas discontinuas | `showAlternatives` |

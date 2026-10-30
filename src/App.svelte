@@ -28,6 +28,17 @@
 
   const cursoActivo = $derived(cursoAbierto ? curriculum.cursos[cursoAbierto] : null)
 
+  /** Cada escala se explora de una manera; la pista lo dice. */
+  const pista = $derived(
+    nivel === 'curso'
+      ? 'Elige un curso en la lista. Las constelaciones se exploran en la escala de maestría.'
+      : nivel === 'especializado'
+        ? 'Elige un programa especializado en la lista o toca un fragmento.'
+        : nivel === 'doctorado'
+          ? 'El doctorado aún no tiene datos.'
+          : 'Elige una maestría en la lista o toca una silueta del universo.',
+  )
+
   $effect(() => {
     const hash = seleccion.map(encodeURIComponent).join(',')
     history.replaceState(null, '', hash ? `#${hash}` : location.pathname + location.search)
@@ -82,6 +93,7 @@
     seleccion = []
     cursoAbierto = null
     resaltado = null
+    nivel = 'maestria'
     aviso = ''
   }
 
@@ -156,7 +168,7 @@
       {#if seleccion.length > 0}
         <button class="limpiar" onclick={limpiar}>Volver al universo</button>
       {:else}
-        <span class="pista">Elige un programa en la lista o toca una silueta del universo.</span>
+        <span class="pista">{pista}</span>
         <ul class="familias">
           {#each maestrias as m (m.id)}
             <li>
