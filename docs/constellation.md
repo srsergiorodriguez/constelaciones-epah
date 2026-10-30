@@ -255,6 +255,7 @@ mayor `n_programas` y el otro se oculta hasta el hover.
 | Clic en una estrella | Detalle del curso y resalte de sus otras constelaciones | `selectedCourse` |
 | Hover en estrella | Atenúa el resto; muestra los programas que la contienen | `hoveredCourse` |
 | Hover en estrella compartida | Nombra el curso y las constelaciones que lo usan | `hoveredCourse` |
+| Clic en el título «Constelaciones» | Vuelve al universo | `selectedPrograms` |
 | Esc | Cierra el detalle; segundo Esc deselecciona todo | `panel`, `selectedPrograms` |
 | `Tab` / `←→` | Recorre constelaciones y estrellas | `focusIndex` |
 | «Mostrar alternativas» | Muestra u oculta aristas discontinuas | `showAlternatives` |

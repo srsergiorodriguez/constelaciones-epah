@@ -203,3 +203,11 @@ figuras se tocan y el roce cuenta la flexibilidad entre programas.
 sobre otra: la de abajo no se podía seleccionar. Se agregó una segunda fase de separación dura
 (`0.84 · lado` entre centros) y una prueba que compara todos los pares. *Por qué:* un solape es una
 decisión estética; una coincidencia es un error de accesibilidad.
+
+---
+
+## 2026-10-30 · El título es el camino de vuelta
+
+**Clic en «Constelaciones» vuelve al universo.** El título ya estaba ahí y no hacía nada; ahora es el
+botón de inicio, con subrayado al pasar el cursor. *Por qué:* además de «Volver al universo» al pie,
+la salida más obvia es la que el ojo busca primero.

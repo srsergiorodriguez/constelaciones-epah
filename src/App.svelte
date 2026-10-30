@@ -76,7 +76,9 @@
 <main class="lienzo">
   <header class="cabecera">
     <div class="marca">
-      <h1>Constelaciones</h1>
+      <h1>
+        <button class="titulo" onclick={limpiar} title="Volver al universo">Constelaciones</button>
+      </h1>
       <p>Escuela de Posgrados · Facultad de Artes y Humanidades</p>
     </div>
 
@@ -161,6 +163,21 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1;
+  }
+
+  /* el título es el camino de vuelta al universo */
+  .titulo {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+    cursor: pointer;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  .titulo:hover {
+    text-decoration: underline;
   }
 
   .marca p {
