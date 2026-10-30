@@ -112,7 +112,24 @@ Reglas:
 - Nunca es el único portador de significado: el nombre del programa y la palabra «periodo» siguen
   ahí aunque no se distinga el color.
 
-### 3.4 El foco es uno solo
+### 3.4 Rótulos: fijos o al pasar el cursor
+
+Un rótulo es fijo si nombra **el objeto de la vista**; si no, aparece al pasar el cursor.
+
+| Dónde | Rótulo |
+|---|---|
+| Universidad, escala de maestría | **fijo**: nombre de cada región (maestría) |
+| Maestría abierta (familia) | **fijo**: nombre de cada énfasis |
+| Escala del especializado | al pasar el cursor |
+| Escala de cursos umbrales | ninguno |
+
+Los códigos de curso siguen la misma lógica: aparecen en la constelación abierta y al enfocar una
+figura; nunca en el universo, donde serían 91 etiquetas.
+
+**Regla:** todo rótulo lleva su marca de familia; el texto va en tinta. No hay rótulos «a pelo» ni
+rectángulos de color sin texto.
+
+### 3.5 El foco es uno solo
 
 Señalar algo en cualquier superficie produce el mismo efecto en todas las demás: la fila se enciende
 y la lista **se desplaza hasta ella**. No hay un «resaltado» por componente; hay un `Foco`:
@@ -128,7 +145,7 @@ type Foco = { tipo: 'curso' | 'programa'; id: string }
 Regla: cualquier superficie nueva que muestre cursos o programas **debe** recibir `foco` y pintar la
 fila correspondiente. Sin eso, la interfaz vuelve a señalar sin encontrarse.
 
-### 3.5 Estado del dato
+### 3.6 Estado del dato
 
 | Estado | Tratamiento |
 |---|---|
@@ -182,7 +199,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `Region` | `puntos` | visible, oculta, rótulo pulsable | Contorno discontinuo que encierra las figuras de una maestría. Su rótulo es un botón: abre la maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Figure` | `programaId`, `puntos` | normal, hover, foco | En la maestría con énfasis, cada figura es un botón: abre su plan. Trazo con relleno transparente para que se pueda tocar el interior, no solo la línea. En la constelación de un solo programa la figura no es interactiva. |
-| `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
+| `Star` | `curso`, `x`, `y`, `r`, `estado` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
 | `Rail` | `nivel`, `onNivel`, `programaId` | 4 pasos | Barra de escala vertical, arriba de la lista y dentro de su misma columna: crédito, punto y nombre sobre un eje continuo. El paso activo se rellena; el deshabilitado (doctorado) se atenúa al 45 %. |
 | `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, plan común más sus énfasis. |

@@ -410,3 +410,21 @@ plan común de una maestría flota dentro de su región; los de la Escuela, dond
 figura dibuja su copia. El Seminario teoría 1 aparece cuatro veces y enfocarlo enciende las cuatro.
 *Por qué:* una figura nunca debe parecer incompleta, y la repetición dice la verdad —ese curso
 atraviesa cuatro rutas.
+
+---
+
+## 2026-10-30 · Una sola gramática
+
+**Todo curso es una estrella.** Los puntos del universo eran círculos y las estrellas de la
+constelación, glifos: dos vocabularios para el mismo objeto. Ahora todas son estrellas; los ejes
+especiales —transversal, electiva, laboratorio, tronco— conservan su icono.
+
+**Los rótulos tienen regla.** Fijos cuando nombran el objeto de la vista (regiones de maestría, y los
+énfasis dentro de una maestría abierta); al pasar el cursor en el resto; ninguno en la escala de
+cursos. Los códigos, igual: constelación abierta o figura enfocada, nunca el universo.
+
+**El rectángulo fantasma.** En la familia, la marca de cada figura se pintaba siempre mientras el
+texto esperaba al cursor: un rectángulo de color sin nombre. Ahora marca y texto comparten estado.
+
+**Enfocar una figura enciende sus cursos.** Era lo que faltaba: se veía la silueta sin saber qué
+estrellas eran suyas.

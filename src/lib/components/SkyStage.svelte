@@ -237,6 +237,7 @@
     {#each escena.figuras as f (f.programaId)}
       {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
       {@const nombreFig = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
+      {@const etiquetaFija = escena.figuras.length > 1}
       {#if escena.figuras.length > 1}
         <!-- una maestría con énfasis: cada figura es una puerta a su plan -->
         <g
@@ -270,14 +271,14 @@
             y={Math.max(...f.puntos.map((q) => q[1])) + 8}
             width={nombreFig.length * 7.9 + 18}
             height="18"
-            class="fondo-region {marcaDe(f.programaId)}"
-            class:visible={activa}
+            class="fondo-figura {marcaDe(f.programaId)}"
+            class:visible={activa || etiquetaFija}
           />
           <text
             x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
             y={Math.max(...f.puntos.map((q) => q[1])) + 21.5}
             class="nombre-figura"
-            class:visible={activa}
+            class:visible={activa || etiquetaFija}
           >{nombreFig}</text>
         </g>
       {:else}
@@ -296,57 +297,17 @@
     {#each escena.estrellas as e (e.clave)}
       {@const c = curriculum.cursos[e.cursoId]}
       {@const p = pos[e.clave] ?? [e.x, e.y]}
-      {@const r = enFragmento ? 7 : radioDe(c.nProgramas)}
-      {#if e.estado === 'oculto'}
-        <!-- fuera de esta escala -->
-      {:else if e.estado === 'nebulosa'}
-        {#if !enFragmento}
-          {@const fam = familiaDe(e.cursoId)}
-          {@const rr = Math.max(3.2, r * 0.42)}
-          {#if nivel === 'curso'}
-            <g
-              class="punto-umbral"
-              class:resaltada={resaltado === e.cursoId}
-              role="button"
-              tabindex="0"
-              aria-label="{c.nombre}, {c.creditos} créditos"
-              onmouseenter={() => onHover(e.cursoId)}
-              onmouseleave={() => onHover(null)}
-              onfocus={() => onHover(e.cursoId)}
-              onblur={() => onHover(null)}
-              onclick={() => onAbrirCurso(e.cursoId)}
-              onkeydown={(ev) => {
-                if (ev.key === 'Enter' || ev.key === ' ') {
-                  ev.preventDefault()
-                  onAbrirCurso(e.cursoId)
-                }
-              }}
-            >
-              <circle cx={p[0]} cy={p[1]} r={Math.max(11, rr * 2.6)} fill="transparent" />
-              <circle
-                cx={p[0]}
-                cy={p[1]}
-                r={rr}
-                fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
-                opacity="0.85"
-              />
-            </g>
-          {:else}
-            <circle
-              cx={p[0]}
-              cy={p[1]}
-              r={rr}
-              fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
-              opacity={enNebulosa ? 0.62 : 0.22}
-            />
-          {/if}
-        {/if}
-      {:else}
-        {@const color = colorEstrella(e.en)}
+      {@const deFoco = foco?.tipo === 'programa' && e.dueno === foco.id}
+      {@const senalada = foco?.tipo === 'curso' && foco.id === e.cursoId}
+      {@const r = enFragmento || !enNebulosa ? radioDe(c.nProgramas) : 6.6}
+      {@const color = colorEstrella(e.en)}
+      {#if e.estado !== 'oculto'}
         <g
           transform="translate({p[0]},{p[1]})"
           class="estrella"
-          class:resaltada={resaltado === e.cursoId}
+          class:resaltada={senalada}
+          class:de-foco={deFoco}
+          class:apagada={!enNebulosa && !deFoco && e.estado === 'nebulosa'}
           role="button"
           tabindex="0"
           aria-label="{c.nombre}, {c.creditos} créditos"
@@ -362,7 +323,7 @@
             }
           }}
         >
-          {#if resaltado === e.cursoId}
+          {#if senalada || deFoco}
             <circle r={r * 2.6} class="halo" />
           {/if}
           <StarGlyph eje={c.eje} r={r} {color} />
@@ -371,8 +332,7 @@
           x={p[0] + r + 7}
           y={p[1] - r - 2}
           class="código"
-          class:fragmento={enFragmento}
-          class:visible={!viajando || resaltado === e.cursoId}
+          class:visible={!viajando && ((!enNebulosa && e.estado === 'figura') || deFoco || senalada)}
         >{c.codigo}</text>
       {/if}
     {/each}
@@ -535,8 +495,19 @@
   }
 
   .nombre-figura.visible,
-  .fondo-region.visible {
+  .fondo-figura.visible,
+  .etiqueta.visible {
     opacity: 1;
+  }
+
+  .fondo-figura {
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
+  }
+
+  .etiqueta {
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
   }
 
   .silueta {
@@ -569,6 +540,16 @@
   .estrella {
     cursor: pointer;
     outline: none;
+    opacity: 0.85;
+    transition: opacity var(--t-fast) var(--ease);
+  }
+
+  .estrella.apagada {
+    opacity: 0.13;
+  }
+
+  .estrella.de-foco {
+    opacity: 1;
   }
 
   .estrella:focus-visible .halo {
