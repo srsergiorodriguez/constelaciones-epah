@@ -127,7 +127,8 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Siluetas repartidas por el cielo (azar sembrado, sin solaparse): segundo selector, sin estrellas
 - [x] Zonas de contacto: el blanco no es el trazo sino el disco completo
 - [x] Título «Constelaciones»; la vista general se llama **Universo**
-- [x] Siluetas más grandes, agrupadas por maestría y con roce permitido
+- [x] Siluetas a 192 px (1,5×), agrupadas por maestría y con solape de hasta 16 %
+- [x] Separación dura entre siluetas: dos figuras nunca coinciden (prueba de regresión)
 - [x] Rótulo de la silueta con la marca de familia, 13 px y posición fija bajo la figura
 - [x] Fuera la nota «una constelación a la vez»
 

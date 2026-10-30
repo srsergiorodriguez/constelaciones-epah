@@ -291,12 +291,12 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
   )
   const ids = programas.map((p) => p.id).filter((id) => figureOf(id, curriculum.programas[id]?.padreId ?? null))
 
-  const lado = 128
-  const margen = 30
-  const minD = lado * 1.16 // se rozan, no se pisan
-  const anclaD = 400
+  const lado = 192
+  const margen = 26
+  const minD = lado * 0.84 // se solapan un 16 %, pero nunca se tapan
+  const anclaD = 420
 
-  let semilla = 20261030
+  let semilla = 20261031
   const azar = () => {
     semilla |= 0
     semilla = (semilla + 0x6d2b79f5) | 0
@@ -344,13 +344,13 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
   const centros: Punto[] = programas.map((p) => {
     const a = anclas.get(p.tipo === 'enfasis' ? p.padreId! : p.id)!
     return [
-      Math.min(maxX, Math.max(minX, a[0] + (azar() - 0.5) * 150)),
-      Math.min(maxY, Math.max(minY, a[1] + (azar() - 0.5) * 140)),
+      Math.min(maxX, Math.max(minX, a[0] + (azar() - 0.5) * 170)),
+      Math.min(maxY, Math.max(minY, a[1] + (azar() - 0.5) * 150)),
     ]
   })
 
-  // se separan sin alejarse de su familia
-  for (let paso = 0; paso < 420; paso++) {
+  // Fase 1: se separan sin alejarse de su familia
+  for (let paso = 0; paso < 320; paso++) {
     for (let i = 0; i < centros.length; i++) {
       for (let j = i + 1; j < centros.length; j++) {
         const a = centros[i]
@@ -370,11 +370,45 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
       const p = programas[i]
       const a = anclas.get(p.tipo === 'enfasis' ? p.padreId! : p.id)!
       const c = centros[i]
-      c[0] += (a[0] - c[0]) * 0.008
-      c[1] += (a[1] - c[1]) * 0.008
+      c[0] += (a[0] - c[0]) * 0.012
+      c[1] += (a[1] - c[1]) * 0.012
       c[0] = Math.min(maxX, Math.max(minX, c[0]))
       c[1] = Math.min(maxY, Math.max(minY, c[1]))
     }
+  }
+
+  // Fase 2: separación dura. Ninguna figura puede quedar encima de otra:
+  // dos siluetas superpuestas dejan una imposible de seleccionar.
+  for (let paso = 0; paso < 600; paso++) {
+    let movido = false
+    for (let i = 0; i < centros.length; i++) {
+      for (let j = i + 1; j < centros.length; j++) {
+        const a = centros[i]
+        const b = centros[j]
+        let dx = a[0] - b[0]
+        let dy = a[1] - b[1]
+        let d = Math.hypot(dx, dy)
+        if (d >= minD) continue
+        if (d < 0.01) {
+          // dos centros exactos: se abren en una dirección fija, no al azar
+          const ang = ((i * 7 + j * 13) % 360) * (Math.PI / 180)
+          dx = Math.cos(ang)
+          dy = Math.sin(ang)
+          d = 1
+        }
+        const empuje = (minD - d) / d / 2
+        a[0] += dx * empuje
+        a[1] += dy * empuje
+        b[0] -= dx * empuje
+        b[1] -= dy * empuje
+        movido = true
+      }
+    }
+    for (const c of centros) {
+      c[0] = Math.min(maxX, Math.max(minX, c[0]))
+      c[1] = Math.min(maxY, Math.max(minY, c[1]))
+    }
+    if (!movido) break
   }
 
   return ids.map((id, i) => {

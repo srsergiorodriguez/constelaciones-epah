@@ -88,3 +88,19 @@ describe('selector de siluetas', () => {
     expect(compose(['enf-creacion-arte'], ANCHO, ALTO).siluetas).toHaveLength(0)
   })
 })
+
+describe('separación de las siluetas', () => {
+  it('ninguna figura queda encima de otra: con dos centros iguales, una no se puede elegir', () => {
+    const escena = compose([], ANCHO, ALTO)
+    const centros = escena.siluetas.map((s) => [
+      s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length,
+      s.puntos.reduce((a, q) => a + q[1], 0) / s.puntos.length,
+    ])
+    for (let i = 0; i < centros.length; i++) {
+      for (let j = i + 1; j < centros.length; j++) {
+        const d = Math.hypot(centros[i][0] - centros[j][0], centros[i][1] - centros[j][1])
+        expect(d, `${escena.siluetas[i].programaId} vs ${escena.siluetas[j].programaId}`).toBeGreaterThan(120)
+      }
+    }
+  })
+})

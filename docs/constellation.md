@@ -124,8 +124,12 @@ trazo. Un clic en una silueta abre ese programa. Es el segundo camino de entrada
 de la izquierda, y el que hace que el cielo se pueda leer sin menús.
 
 Nada de anillos ni de rejillas: un cielo no ordena sus figuras en círculo. Las de una misma maestría
-se agrupan —son parientes— y el conjunto se siembra al azar. Se permiten roces de hasta un 15 %: las
+se agrupan —son parientes— y el conjunto se siembra al azar. Se permiten solapes de hasta un 16 %: las
 figuras se tocan, no se confunden, y el roce dice algo de la flexibilidad entre programas.
+
+La colocación tiene dos fases: una de relajación con atracción a la familia, y una **separación dura**
+que impide que dos centros queden a menos de `0.84 · lado`. Sin esa segunda fase, dos figuras pueden
+terminar exactamente una sobre otra y la de abajo se vuelve imposible de seleccionar.
 
 El nombre aparece al pasar el cursor, grande y con la marca de la familia de fondo. Un rótulo gris de
 12 px sobre un trazo fino no se leía.

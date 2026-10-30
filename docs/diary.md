@@ -191,3 +191,15 @@ flexibilidad, no un defecto del empaquetado.
 
 **El rótulo se lee.** Era gris, de 12 px y flotaba donde cayera. Ahora va en tinta sobre la marca de
 la familia, a 13 px, siempre bajo la figura y acotado al borde del escenario.
+
+---
+
+## 2026-10-30 · 1,5×
+
+**Más grandes.** Las siluetas pasan de 128 a 192 px y se permite un solape de hasta el 16 %: las
+figuras se tocan y el roce cuenta la flexibilidad entre programas.
+
+**Dos figuras no pueden coincidir.** La relajación suave dejó Composición y Fotografía exactamente una
+sobre otra: la de abajo no se podía seleccionar. Se agregó una segunda fase de separación dura
+(`0.84 · lado` entre centros) y una prueba que compara todos los pares. *Por qué:* un solape es una
+decisión estética; una coincidencia es un error de accesibilidad.
