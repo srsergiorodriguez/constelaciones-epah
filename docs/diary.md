@@ -330,3 +330,17 @@ fila y el clic abre el detalle del curso.
 
 **Deslizadores de depuración.** Con `?debug`, dos controles escriben `--stroke-const` y
 `--stroke-region` en la raíz. Es la manera de decidir el grosor mirándolo, no adivinándolo.
+
+---
+
+## 2026-10-30 · Las figuras no se llaman
+
+**Fuera los nombres de las figuras.** «La lira» bajo *Énfasis en Producción musical* no aportaba: la
+forma es una ilustración, no un concepto. Los nombres siguen en `figures.json` para documentar el
+dibujo; la interfaz no los dice.
+
+**La fila resaltada se enciende.** Desplazar la lista no bastaba: el ojo llegaba a una fila que no se
+distinguía. Ahora el fondo cambia.
+
+**El rótulo de la región es un botón.** Tocar el nombre de una maestría en el mapa abre su plan común.
+Era el gesto que faltaba: el rótulo estaba ahí, grande, y no hacía nada.

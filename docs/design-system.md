@@ -161,7 +161,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
 | `Debug` | — | panel | Solo con `?debug` en la URL. Dos deslizadores que escriben `--stroke-const` y `--stroke-region` en la raíz. Es una herramienta, no interfaz: no se documenta como componente de producto. |
-| `Region` | `puntos` | visible, oculta | Contorno discontinuo que encierra las figuras de una maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
+| `Region` | `puntos` | visible, oculta, rótulo pulsable | Contorno discontinuo que encierra las figuras de una maestría. Su rótulo es un botón: abre la maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 

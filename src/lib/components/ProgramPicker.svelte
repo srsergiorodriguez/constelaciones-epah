@@ -1,7 +1,6 @@
 <script lang="ts">
   import { SvelteSet } from 'svelte/reactivity'
   import { curriculum } from '../data/types'
-  import { figureNameOf } from '../domain/figures'
   import { hijosDe } from '../domain/plan'
   import type { Nivel } from '../domain/niveles'
   import { marcaDe, vivoDe } from '../viz/palette'
@@ -116,7 +115,6 @@
             id: e.id,
             nombre: e.nombreCorto,
             nivel: 1,
-            meta: figureNameOf(e.id) ?? '',
             familia: m.id,
           })
         }
@@ -175,6 +173,7 @@
               <button
                 class="nombre"
                 class:activo
+                class:resaltada={resaltado === fila.id}
                 data-curso={fila.tipo === 'curso' ? fila.id : undefined}
                 aria-pressed={activo}
                 onclick={() => (fila.tipo === 'curso' ? onCurso(fila.id) : onToggle(fila.id))}
@@ -301,6 +300,14 @@
   .nombre.activo .texto {
     color: var(--c-ink);
     font-weight: 600;
+  }
+
+  .nombre.resaltada {
+    background: var(--c-papel);
+  }
+
+  .nombre.resaltada .texto {
+    color: var(--c-ink);
   }
 
   .texto {

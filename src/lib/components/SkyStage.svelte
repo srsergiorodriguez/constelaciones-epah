@@ -135,18 +135,32 @@
       {@const lineas = partirEtiqueta(p.nombreCorto)}
       {@const xEt = Math.min(Math.max(arriba[0], 110), escena.ancho - 110)}
       <path d={envolventePath(l.puntos)} fill="none" stroke={colorDe(l.programaId)} class="region" />
-      {#each lineas as linea, i (linea)}
-        <rect
-          x={xEt - (linea.length * 7.9 + 18) / 2}
-          y={arriba[1] - 24 - (lineas.length - 1 - i) * 15}
-          width={linea.length * 7.9 + 18}
-          height="17"
-          class="fondo-region {marcaDe(l.programaId)}"
-        />
-      {/each}
-      {#each lineas as linea, i (linea)}
-        <text x={xEt} y={arriba[1] - 11.5 - (lineas.length - 1 - i) * 15} class="nombre-region">{linea}</text>
-      {/each}
+      <g
+        class="rotulo-region"
+        role="button"
+        tabindex="0"
+        aria-label="Ver {p.nombreCorto}"
+        onclick={() => onElegir(l.programaId)}
+        onkeydown={(ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault()
+            onElegir(l.programaId)
+          }
+        }}
+      >
+        {#each lineas as linea, i (linea)}
+          <rect
+            x={xEt - (linea.length * 7.9 + 18) / 2}
+            y={arriba[1] - 24 - (lineas.length - 1 - i) * 15}
+            width={linea.length * 7.9 + 18}
+            height="17"
+            class="fondo-region {marcaDe(l.programaId)}"
+          />
+        {/each}
+        {#each lineas as linea, i (linea)}
+          <text x={xEt} y={arriba[1] - 11.5 - (lineas.length - 1 - i) * 15} class="nombre-region">{linea}</text>
+        {/each}
+      </g>
     {/each}
   </g>
 
@@ -364,6 +378,21 @@
     stroke-width: var(--stroke-region);
     stroke-dasharray: 6 6;
     opacity: 0.5;
+  }
+
+  .rotulo-region {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .rotulo-region:hover .nombre-region {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .rotulo-region:focus-visible .fondo-region {
+    stroke: var(--c-focus);
+    stroke-width: 2;
   }
 
   .nombre-region {

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { curriculum } from '../data/types'
-  import { figureNameOf } from '../domain/figures'
   import { hijosDe, periodosDe, planDe } from '../domain/plan'
   import { colorDe, marcaDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
@@ -15,7 +14,6 @@
   let { programaId, resaltado, onHover, onElegir }: Props = $props()
 
   const programa = $derived(curriculum.programas[programaId])
-  const figura = $derived(figureNameOf(programaId, programa?.padreId ?? null))
   const color = $derived(colorDe(programaId))
   const marca = $derived(marcaDe(programaId))
   const plan = $derived(planDe(programaId))
@@ -43,7 +41,7 @@
   <header class="cabeza">
     <p class="tipo">{hijos.length > 0 ? 'Plan común de la maestría' : 'Plan de estudios'}</p>
     <p class="meta">
-      {plan.length} casillas · {creditos} créditos{#if abiertas} · {abiertas} abiertas{/if}{#if figura} · figura {figura}{/if}
+      {plan.length} casillas · {creditos} créditos{#if abiertas} · {abiertas} abiertas{/if}
     </p>
     <svg class="trazo" viewBox="0 0 120 4" aria-hidden="true">
       <line x1="0" y1="2" x2="120" y2="2" stroke={color} stroke-width="3" />
@@ -105,7 +103,7 @@
           <li>
             <button class="hijo" onclick={() => onElegir(h.id)} onmouseenter={() => onHover(null)}>
               <span class="hijo-nombre">{h.nombreCorto}</span>
-              <span class="hijo-meta">{planDe(h.id).length} casillas · {figureNameOf(h.id) ?? ''}</span>
+              <span class="hijo-meta">{planDe(h.id).length} casillas</span>
             </button>
           </li>
         {/each}
