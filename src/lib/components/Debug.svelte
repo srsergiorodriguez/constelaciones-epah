@@ -18,7 +18,10 @@
       max="6"
       step="0.2"
       bind:value={constelacion}
-      oninput={() => aplicar('--stroke-const', constelacion)}
+      oninput={() => {
+        aplicar('--stroke-const', constelacion)
+        aplicar('--stroke-silueta', constelacion * 0.68)
+      }}
     />
   </label>
 

@@ -454,7 +454,7 @@
   }
 
   .silueta-selector path:not(.zona) {
-    stroke-width: 1.6;
+    stroke-width: var(--stroke-silueta);
     stroke-linejoin: round;
     stroke-linecap: round;
     opacity: 0.22;
@@ -464,7 +464,7 @@
   .silueta-selector.activa path:not(.zona),
   .silueta-selector:focus-visible path:not(.zona) {
     opacity: 0.85;
-    stroke-width: 2.2;
+    stroke-width: calc(var(--stroke-silueta) + 0.8);
   }
 
   .etiqueta {

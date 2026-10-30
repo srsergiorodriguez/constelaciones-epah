@@ -177,8 +177,8 @@ fila correspondiente. Sin eso, la interfaz vuelve a señalar sin encontrarse.
 
 - Escala: `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96`. Base 4.
 - Radios: `0` por defecto; `999px` solo en chips y botones (como el sitio de la Facultad).
-- Trazos: `--stroke-grid` 0.9 (retícula) · `--stroke-const` 3,8 (constelación) · `--stroke-region` 2,2
-  (envolvente de maestría) ·
+- Trazos: `--stroke-grid` 0.9 (retícula) · `--stroke-silueta` 2,6 (silueta en la vista general) ·
+  `--stroke-const` 3,8 (constelación abierta) · `--stroke-region` 2,2 (envolvente de maestría) ·
   `--stroke-link` 1.2 (enlace tronco → figura) · `--stroke-active` 3 (foco).
   La línea de constelación pesa más que cualquier otra cosa en pantalla: es el dibujo.
 - Sombras: ninguna. Gradientes: ninguno.

@@ -520,3 +520,11 @@ respaldo.
 
 Constelaciones de 3 a **3,8** y envolventes de 1,6 a **2,2**. Se leen mejor proyectadas y las figuras
 pesan lo que deben pesar cuando son el tema. Los deslizadores de `?debug` arrancan en estos valores.
+
+---
+
+## 2026-10-30 · El grosor que no llegaba
+
+**La silueta de la vista general tenía el trazo fijo.** Al subir `--stroke-const` no cambió nada a la
+vista, porque esa silueta declaraba `stroke-width: 1.6` en duro. Ahora tiene su propio token,
+`--stroke-silueta` (2,6), y el deslizador de depuración mueve los dos a la vez.
