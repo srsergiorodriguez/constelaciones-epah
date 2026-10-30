@@ -94,7 +94,6 @@ Los campos con comas van entre comillas; las listas internas usan `;`.
 | `programas_especializados` | list | Idem. |
 | `oferta_variable` | `si`/`no` | Curso-familia con temas rotativos. |
 | `estado` | enum | `verificado` · `derivado` · `propuesto` |
-| `fuente_pagina` | int | Página del PDF. |
 | `nota` | string | Ej. «el plan lo ofrece tres veces». |
 
 ### 2.2a Umbral: una propiedad del curso
@@ -134,7 +133,6 @@ Una fila por pertenencia curso ↔ programa.
 | `alternativas` | list | Cursos que pueden ocupar la misma casilla, listados en la fila titular. |
 | `repeticiones` | int | Casillas que ocupa el curso dentro del programa. |
 | `estado` | enum | `verificado` · `derivado` · `propuesto` |
-| `fuente_pagina` | int | Página del PDF. |
 | `nota` | string | Texto original cuando hay ambigüedad. |
 
 > **Programa especializado**: 12 créditos en **dos periodos**, dos cursos por periodo. La casilla
