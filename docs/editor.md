@@ -20,8 +20,8 @@ pnpm editar --port 4310
 | Cursos | `cursos.json` | crear, editar y borrar; filtros por maestría, eje y texto |
 | Estructura fija | `estructura.json` | solo lectura: Escuela y maestrías |
 | Planes | `planes.json` | cuadrícula 4 × 3: un curso por casilla, marca de cuerpo de especializado |
-| Plan común | `marco.json` | las 12 casillas de cada maestría; curso concreto o casilla abierta |
-| Cuerpos | `cuerpos.json` | cuatro cursos por especializado; vacío = derivado del énfasis |
+| Plan común | `marco.json` | las 12 casillas de cada maestría, encabezadas por su nombre; curso concreto o casilla abierta |
+| Cuerpos | `cuerpos.json` | cuatro cursos por especializado, con su nombre; vacío = derivado del énfasis |
 
 ## Cómo guarda
 
@@ -61,7 +61,8 @@ duplica esas reglas: las usa.
 - **Énfasis**: «＋ Nuevo énfasis» crea el programa **y su plan vacío**. El compilador lo rechaza
   hasta que las doce casillas tengan curso — es el contrato de borrador que acordamos.
 - **Curso**: «＋ Nuevo curso» añade una fila con `cur-nuevo-N`, eje `disciplinar`, 3 créditos.
-- **Especializado**: no se crea aparte. Nace cuando un énfasis marca cuatro casillas como *cuerpo del
+- **Especializado**: la lista de «Cuerpos» se **deriva** de los énfasis que tienen casillas `pe`, no de
+  una tabla. No se crea aparte. Nace cuando un énfasis marca cuatro casillas como *cuerpo del
   especializado* (12 créditos). «Cuerpos» permite fijar su contenido a mano.
 
 ## Estructura fija, y lo que puede dejar de serlo

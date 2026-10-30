@@ -77,7 +77,6 @@
     datos ? [...datos.programas].sort((a, b) => a.id.localeCompare(b.id)) : [],
   )
   const plan = $derived(datos?.planes.find((p) => p.id === planElegido) ?? null)
-  const especializados = $derived(programas.filter((p) => p.tipo === 'programa_especializado'))
   const maestrias = $derived(programas.filter((p) => p.tipo === 'maestria'))
 
   /** Una casilla del plan marco: curso, o casilla abierta con su etiqueta. */
@@ -134,6 +133,21 @@
   )
 
   const todosEnfasis = $derived(programas.filter((p) => p.tipo === 'enfasis'))
+
+  /** Los especializados no están en la fuente: se derivan de las casillas `pe`. */
+  const especializados = $derived(
+    todosEnfasis
+      .filter((e) =>
+        (datos?.planes.find((p) => p.id === e.id)?.slots ?? [])
+          .flat()
+          .some((s: any) => s.pe),
+      )
+      .map((e) => ({
+        id: `pe-${e.id.replace(/^enf-/, '')}`,
+        nombre_corto: e.nombre_corto.replace('Énfasis en ', 'Programa Especializado en '),
+      })),
+  )
+
   const enfasis = $derived(
     maestriaFiltro === 'todas'
       ? todosEnfasis
@@ -409,7 +423,7 @@
         {/if}
       {:else if pestana === 'marco'}
         {#each Object.keys(datos.marco) as m (m)}
-          <h2>{m}</h2>
+          <h2>{nombreDe(m)} <span class="id">{m}</span></h2>
           <table class="cuadricula">
             <tbody>
               {#each datos!.marco[m] as fila, i (i)}
@@ -450,7 +464,7 @@
         </p>
         {#each especializados as pe (pe.id)}
           <div class="cuerpo">
-            <span class="id">{pe.id}</span>
+            <span class="cuerpo-nombre">{pe.nombre_corto}<span class="id">{pe.id}</span></span>
             {#each datos!.cuerpos[pe.id] ?? ['', '', '', ''] as _c, k (k)}
               <select
                 value={datos!.cuerpos[pe.id]?.[k] ?? ''}
@@ -631,7 +645,7 @@
 
   .cuerpo {
     display: grid;
-    grid-template-columns: 260px repeat(4, 1fr);
+    grid-template-columns: 320px repeat(4, 1fr);
     gap: var(--sp-2);
     align-items: center;
     padding: var(--sp-1) 0;
@@ -639,6 +653,9 @@
   }
 
   h2 {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
     font-family: var(--ff-display);
     font-size: var(--fz-lg);
     font-weight: 700;
@@ -675,6 +692,14 @@
 
   .borrar:hover {
     color: #8a1b4f;
+  }
+
+  .cuerpo-nombre {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--ff-serif);
+    font-size: var(--fz-sm);
+    color: var(--c-ink);
   }
 
   .cuerpo-lista {
