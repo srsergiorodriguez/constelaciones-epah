@@ -26,6 +26,9 @@
   let planElegido = $state('')
   let maestriaNueva = $state('')
   let maestriaFiltro = $state('todas')
+  let maestriaCurso = $state('todas')
+  let ejeCurso = $state('todos')
+  let busqueda = $state('')
 
   const pestanas: { id: Tabla; nombre: string }[] = [
     { id: 'enfasis', nombre: 'Énfasis' },
@@ -91,6 +94,44 @@
     datos?.programas.find((p) => p.id === id)?.nombre_corto ??
     datos?.estructura.find((p: any) => p.id === id)?.nombre_corto ??
     id
+
+  /** A qué maestrías pertenece cada curso, según los planes donde aparece. */
+  const membresia = $derived.by(() => {
+    const mapa = new Map<string, Set<string>>()
+    const marcar = (cursoId: string, maestriaId: string | null | undefined) => {
+      if (!cursoId || !maestriaId) return
+      const set = mapa.get(cursoId) ?? new Set<string>()
+      set.add(maestriaId)
+      mapa.set(cursoId, set)
+    }
+    const maestriaDePlan = (planId: string) => {
+      const prog =
+        datos?.programas.find((p) => p.id === planId) ?? datos?.estructura.find((p: any) => p.id === planId)
+      return prog?.maestria_id ?? prog?.padre_id ?? null
+    }
+    for (const plan of datos?.planes ?? []) {
+      const mid = maestriaDePlan(plan.id)
+      for (const slot of plan.slots.flat()) marcar(slot.id, mid)
+    }
+    for (const [mid, filas] of Object.entries(datos?.marco ?? {})) {
+      for (const fila of filas as any[]) {
+        for (const celda of fila) if (typeof celda === 'string') marcar(celda, mid)
+      }
+    }
+    return mapa
+  })
+
+  const cursosFiltrados = $derived(
+    cursos.filter(([id, c]) => {
+      if (ejeCurso !== 'todos' && c.eje !== ejeCurso) return false
+      if (maestriaCurso !== 'todas' && !membresia.get(id)?.has(maestriaCurso)) return false
+      if (busqueda) {
+        const t = busqueda.toLowerCase()
+        if (!c.nombre.toLowerCase().includes(t) && !id.includes(t)) return false
+      }
+      return true
+    }),
+  )
 
   const todosEnfasis = $derived(programas.filter((p) => p.tipo === 'enfasis'))
   const enfasis = $derived(
@@ -270,15 +311,35 @@
         </table>
       {:else if pestana === 'cursos'}
         <div class="barra">
+          <label>
+            Maestría
+            <select bind:value={maestriaCurso}>
+              <option value="todas">Todas</option>
+              {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
+            </select>
+          </label>
+          <label>
+            Eje
+            <select bind:value={ejeCurso}>
+              <option value="todos">Todos</option>
+              {#each ['tronco', 'transversal', 'laboratorio', 'electiva', 'disciplinar', 'trayectoria'] as e (e)}
+                <option value={e}>{e}</option>
+              {/each}
+            </select>
+          </label>
+          <label class="buscar">
+            Buscar
+            <input placeholder="nombre o id" bind:value={busqueda} />
+          </label>
           <button onclick={nuevoCurso}>＋ Nuevo curso</button>
-          <span class="meta">{cursos.length} cursos · viven en <code>cursos.json</code></span>
+          <span class="meta">{cursosFiltrados.length} de {cursos.length} cursos</span>
         </div>
         <table>
           <thead>
             <tr><th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th><th>oferta variable</th><th>nota</th><th></th></tr>
           </thead>
           <tbody>
-            {#each cursos as [id, c] (id)}
+            {#each cursosFiltrados as [id, c] (id)}
               <tr>
                 <td class="id">{id}</td>
                 <td><input bind:value={c.nombre} /></td>
@@ -529,7 +590,15 @@
   }
 
   .barra select {
-    min-width: 240px;
+    min-width: 220px;
+  }
+
+  .buscar input {
+    width: 200px;
+  }
+
+  .buscar input::placeholder {
+    color: var(--c-ink-3);
   }
 
   .meta {

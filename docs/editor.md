@@ -17,13 +17,17 @@ pnpm editar --port 4310
 |---|---|---|
 | Énfasis | `programas.json` | crear, editar y borrar; elegir su maestría |
 | Especializados | — (derivados) | se revisan; cada uno nace de cuatro casillas marcadas en su énfasis |
-| Cursos | `cursos.json` | crear, editar y borrar |
+| Cursos | `cursos.json` | crear, editar y borrar; filtros por maestría, eje y texto |
 | Estructura fija | `estructura.json` | solo lectura: Escuela y maestrías |
 | Planes | `planes.json` | cuadrícula 4 × 3: un curso por casilla, marca de cuerpo de especializado |
 | Plan común | `marco.json` | las 12 casillas de cada maestría; curso concreto o casilla abierta |
 | Cuerpos | `cuerpos.json` | cuatro cursos por especializado; vacío = derivado del énfasis |
 
 ## Cómo guarda
+
+La pestaña **Cursos** filtra por maestría, por eje y por texto (nombre o id). La pertenencia a una
+maestría no está en `cursos.json`: se deduce de los planes y del plan común donde aparece el curso,
+igual que hace el compilador.
 
 La interfaz usa el nombre del programa, no su id: el selector de planes dice *Énfasis en Arte*, no
 `enf-creacion-arte`. Los ids quedan a la vista solo como dato de depuración. Las maestrías llevan su
