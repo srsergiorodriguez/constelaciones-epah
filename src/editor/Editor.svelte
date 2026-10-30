@@ -31,6 +31,9 @@
   let ejeCurso = $state('todos')
   let busqueda = $state('')
   let nombrePE = $state('')
+  let borradorEnfasis = $state<null | { nombre: string; nombre_corto: string; maestria: string }>(null)
+  let borradorCurso = $state<null | { nombre: string; eje: string; creditos: number }>(null)
+  let borradorPE = $state<null | { nombre: string }>(null)
 
   /* Dos niveles: lo que se crea (contenidos) y cómo se organiza (estructuras).
      La estructura fija solo se consulta. */
@@ -190,27 +193,39 @@
 
   /** Un énfasis nuevo nace con su plan vacío: el compilador no deja publicarlo
    *  hasta que las doce casillas tengan curso. */
-  function nuevoEnfasis() {
-    if (!datos) return
+  /** Crear abre una fila de borrador arriba de la tabla; se confirma o se descarta. */
+  function abrirEnfasis() {
     const maestria = maestriasFijas.find((m) => m.id === maestriaNueva) ?? maestriasFijas[0]
+    if (!maestria) return
+    const n = enfasis.length + 1
+    borradorEnfasis = {
+      nombre: `${maestria.nombre} — Énfasis en Nuevo ${n}`,
+      nombre_corto: `Énfasis en Nuevo ${n}`,
+      maestria: maestria.id,
+    }
+  }
+
+  function confirmarEnfasis() {
+    if (!datos || !borradorEnfasis) return
+    const maestria = maestriasFijas.find((m) => m.id === borradorEnfasis!.maestria) ?? maestriasFijas[0]
     if (!maestria) return
     const n = enfasis.length + 1
     const id = `enf-${maestria.id.replace('mae-', '')}-nuevo-${n}`
     datos.programas.push({
       id,
-      nombre: `${maestria.nombre} — Énfasis en Nuevo ${n}`,
-      nombre_corto: `Énfasis en Nuevo ${n}`,
+      nombre: borradorEnfasis.nombre,
+      nombre_corto: borradorEnfasis.nombre_corto,
       tipo: 'enfasis',
       padre_id: maestria.id,
       maestria_id: maestria.id,
       creditos: 36,
-      estado: 'borrador',
     })
     datos.planes.push({
       id,
       slots: [0, 1, 2, 3].map(() => [0, 1, 2].map(() => ({ id: '' }))),
     })
     planElegido = id
+    borradorEnfasis = null
   }
 
   function borrarEnfasis(id: string) {
@@ -221,26 +236,31 @@
     delete datos.cuerpos[id]
   }
 
-  function nuevoCurso() {
-    if (!datos) return
-    const n = Object.keys(datos.cursos).length + 1
-    datos.cursos[`cur-nuevo-${n}`] = {
-      nombre: `Curso nuevo ${n}`,
-      eje: 'disciplinar',
-      creditos: 3,
-    }
+  function abrirCurso() {
+    const n = Object.keys(datos?.cursos ?? {}).length + 1
+    borradorCurso = { nombre: `Curso nuevo ${n}`, eje: 'disciplinar', creditos: 3 }
   }
 
-  function nuevoEspecializado() {
-    if (!datos) return
+  function confirmarCurso() {
+    if (!datos || !borradorCurso) return
+    const n = Object.keys(datos.cursos).length + 1
+    datos.cursos[`cur-nuevo-${n}`] = { ...borradorCurso }
+    borradorCurso = null
+  }
+
+  function abrirPE() {
+    borradorPE = { nombre: '' }
+  }
+
+  function confirmarPE() {
+    if (!datos || !borradorPE) return
     const n = Object.keys(datos.cuerpos).length + 1
-    const nombre = nombrePE.trim() || `Nuevo ${n}`
-    const id = `pe-nuevo-${n}`
-    datos.cuerpos[id] = {
+    const nombre = borradorPE.nombre.trim() || `Nuevo ${n}`
+    datos.cuerpos[`pe-nuevo-${n}`] = {
       nombre: `Programa Especializado en ${nombre}`,
       cursos: ['', '', '', ''],
     }
-    nombrePE = ''
+    borradorPE = null
   }
 
   /** Maestría sin plan común: se le puede crear uno vacío. */
@@ -324,7 +344,7 @@
               {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
             </select>
           </label>
-          <button class="accion" onclick={nuevoEnfasis}>＋ Nuevo énfasis</button>
+          <button class="accion" onclick={abrirEnfasis} disabled={!!borradorEnfasis}>＋ Nuevo énfasis</button>
           <span class="conteo">{enfasis.length} de {todosEnfasis.length} énfasis</span>
         </div>
         <table>
@@ -332,6 +352,23 @@
             <tr><th>id</th><th>nombre</th><th>nombre corto</th><th>maestría</th><th>créd.</th><th></th></tr>
           </thead>
           <tbody>
+            {#if borradorEnfasis}
+              <tr class="borrador">
+                <td class="id">(nuevo)</td>
+                <td><input bind:value={borradorEnfasis.nombre} /></td>
+                <td><input bind:value={borradorEnfasis.nombre_corto} /></td>
+                <td>
+                  <select bind:value={borradorEnfasis.maestria}>
+                    {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
+                  </select>
+                </td>
+                <td>36</td>
+                <td class="acciones">
+                  <button class="accion" onclick={confirmarEnfasis}>Crear</button>
+                  <button class="borrar" onclick={() => (borradorEnfasis = null)} title="Descartar">✕</button>
+                </td>
+              </tr>
+            {/if}
             {#each enfasis as p (p.id)}
               <tr>
                 <td class="id">{p.id}</td>
@@ -350,11 +387,7 @@
         </table>
       {:else if pestana === 'especializados'}
         <div class="barra">
-          <label class="filtro">
-            Nombre
-            <input placeholder="Arte, Edición…" bind:value={nombrePE} />
-          </label>
-          <button class="accion" onclick={nuevoEspecializado}>＋ Nuevo especializado</button>
+          <button class="accion" onclick={abrirPE} disabled={!!borradorPE}>＋ Nuevo especializado</button>
           <span class="conteo">{especializados.length} programas</span>
         </div>
         <p class="nota">
@@ -364,6 +397,17 @@
         <table>
           <thead><tr><th>id</th><th>nombre</th><th>cuerpo</th><th></th></tr></thead>
           <tbody>
+            {#if borradorPE}
+              <tr class="borrador">
+                <td class="id">(nuevo)</td>
+                <td><input placeholder="Arte, Edición…" bind:value={borradorPE.nombre} /></td>
+                <td class="cuerpo-lista"><em class="falta">sin cuerpo todavía: se carga en Cuerpos</em></td>
+                <td class="acciones">
+                  <button class="accion" onclick={confirmarPE}>Crear</button>
+                  <button class="borrar" onclick={() => (borradorPE = null)} title="Descartar">✕</button>
+                </td>
+              </tr>
+            {/if}
             {#each especializados as pe (pe.id)}
               <tr>
                 <td class="id">{pe.id}</td>
@@ -421,7 +465,7 @@
             Buscar
             <input placeholder="nombre o id" bind:value={busqueda} />
           </label>
-          <button class="accion" onclick={nuevoCurso}>＋ Nuevo curso</button>
+          <button class="accion" onclick={abrirCurso} disabled={!!borradorCurso}>＋ Nuevo curso</button>
           <span class="conteo">{cursosFiltrados.length} de {cursos.length} cursos</span>
         </div>
         <table>
@@ -429,6 +473,25 @@
             <tr><th>id</th><th>nombre</th><th>eje</th><th>créd.</th><th>oferta variable</th><th></th></tr>
           </thead>
           <tbody>
+            {#if borradorCurso}
+              <tr class="borrador">
+                <td class="id">(nuevo)</td>
+                <td><input bind:value={borradorCurso.nombre} /></td>
+                <td>
+                  <select bind:value={borradorCurso.eje}>
+                    {#each ['tronco', 'transversal', 'laboratorio', 'electiva', 'disciplinar', 'trayectoria'] as e (e)}
+                      <option value={e}>{e}</option>
+                    {/each}
+                  </select>
+                </td>
+                <td><input type="number" bind:value={borradorCurso.creditos} /></td>
+                <td class="centro"></td>
+                <td class="acciones">
+                  <button class="accion" onclick={confirmarCurso}>Crear</button>
+                  <button class="borrar" onclick={() => (borradorCurso = null)} title="Descartar">✕</button>
+                </td>
+              </tr>
+            {/if}
             {#each cursosFiltrados as [id, c] (id)}
               <tr>
                 <td class="id">{id}</td>
@@ -787,6 +850,27 @@
 
   .centro {
     text-align: center;
+  }
+
+  .borrador {
+    background: var(--c-papel);
+    box-shadow: inset 2px 0 0 var(--c-ink);
+  }
+
+  .borrador input,
+  .borrador select {
+    border-color: var(--c-ink-3);
+  }
+
+  .acciones {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    white-space: nowrap;
+  }
+
+  .acciones .accion {
+    padding: 4px 10px;
   }
 
   .borrar {

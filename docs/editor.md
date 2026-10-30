@@ -82,7 +82,18 @@ Planes ya está acotado a sus énfasis, y el plan elegido se mueve al primero qu
 | `/api/fuente` | POST | escribe las tablas recibidas |
 | `/api/compilar` | POST | corre la tubería y devuelve `{ ok, salida }` |
 
-## Crear
+## Crear: fila de borrador
+
+«＋ Nuevo» no inserta nada en la tabla: abre una **fila de borrador arriba de todo**, con fondo
+destacado y el id `(nuevo)`, donde se completan los datos. Ahí se elige entre **Crear** —y entonces sí
+entra en la tabla, en su orden— o **✕** para descartarla.
+
+Mientras hay un borrador abierto, el botón «＋ Nuevo» se deshabilita: un borrador a la vez. Es el
+mismo patrón en las tres tablas de contenido (énfasis, especializados y cursos), y no guarda ni
+compila nada hasta que se pulsa «Guardar y compilar».
+
+*Por qué:* antes la fila nueva caía en la posición alfabética y había que buscarla. Ahora está donde
+aparece, y confirmar es un acto explícito.
 
 - **Énfasis**: «＋ Nuevo énfasis» crea el programa **y su plan vacío**. El compilador lo rechaza
   hasta que las doce casillas tengan curso — es el contrato de borrador que acordamos.
