@@ -66,7 +66,6 @@ const cursos = cursosCsv.map((r) => ({
   codigo: r.nombre_corto,
   creditos: Number(r.creditos),
   eje: r.eje_curricular,
-  formato: r.formato,
   alcance: r.alcance,
   nProgramas: Number(r.n_programas),
   maestrias: list(r.maestrias),

@@ -34,7 +34,6 @@ export interface Curso {
   codigo: string
   creditos: number
   eje: Eje
-  formato: Formato
   alcance: Alcance
   nProgramas: number
   maestrias: string[]

@@ -57,7 +57,7 @@
       </div>
     </div>
     <p class="meta">
-      {curso.creditos} créditos · {curso.formato}{#if curso.ofertaVariable} · oferta variable{/if}
+      {curso.creditos} créditos{#if curso.ofertaVariable} · oferta variable{/if}
     </p>
     <svg class="trazo" viewBox="0 0 120 4" aria-hidden="true">
       <line x1="0" y1="2" x2="120" y2="2" stroke="var(--c-ink)" stroke-width="3" />

@@ -42,7 +42,7 @@ Cinco tablas en JSON, editables a mano o desde un editor:
 |---|---|
 | `estructura.json` | **fija**: la Escuela y las 5 maestrías |
 | `programas.json` | 13 énfasis: id, nombre, padre (maestría), créditos |
-| `cursos.json` | 83 cursos: créditos, eje, formato, estado |
+| `cursos.json` | 83 cursos: créditos, eje, oferta variable |
 | `planes.json` | 15 planes × 12 casillas |
 | `marco.json` | plan común de cada maestría (casillas abiertas incluidas) |
 | `cuerpos.json` | el cuerpo de cada especializado: **la fuente**. `{ nombre?, cursos: [4] }` |
@@ -86,7 +86,6 @@ Los campos con comas van entre comillas; las listas internas usan `;`.
 | `nombre_corto` | string | Código de carta estelar, autorado (`ICG`, `E2`, `PYC1`). Es la etiqueta del nodo. |
 | `creditos` | int | 3 en todos los cursos del documento. |
 | `eje_curricular` | enum | `tronco` · `transversal` · `laboratorio` · `electiva` · `disciplinar` · `trayectoria` |
-| `formato` | enum | `introduccion` · `curso` · `seminario` · `taller` · `estudio` · `laboratorio` · `proyecto` · `practica` |
 | `alcance` | enum | `escuela` · `maestria` · `enfasis` (derivado, ver §4). |
 | `n_programas` | int | Programas concretos que lo incluyen (excluye especializados). Máximo 15. |
 | `maestrias` | list | Nombres cortos separados por `;`. |
@@ -128,7 +127,6 @@ Una fila por pertenencia curso ↔ programa.
 | `curso_nombre` | string | Desnormalizado. |
 | `creditos` | int | Créditos del curso (3). |
 | `eje_curricular` | enum | Idem a `cursos.csv`. |
-| `formato` | enum | Idem. |
 | `obligatoriedad` | enum | `obligatorio` · `alternativa` |
 | `alternativas` | list | Cursos que pueden ocupar la misma casilla, listados en la fila titular. |
 | `repeticiones` | int | Casillas que ocupa el curso dentro del programa. |
@@ -293,3 +291,7 @@ node scripts/make-figures.mjs    # regenera las láminas de docs/assets
 2. Se corre el generador: si una invariante se rompe, falla y no escribe nada.
 3. Se revisa `git diff data/` — el diff es legible porque hay una fila por pertenencia.
 4. **Nunca** se edita un CSV a mano: el siguiente build lo sobrescribe.
+
+> **Sin formato.** El campo `formato` (seminario · taller · estudio…) se retiró en todos los niveles:
+> no es un concepto oficial de la Escuela y solo se mostraba en el detalle del curso. Quedan eje,
+> créditos y oferta variable, que sí son datos del currículo.

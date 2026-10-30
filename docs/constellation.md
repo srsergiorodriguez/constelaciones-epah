@@ -334,7 +334,7 @@ periodo, con el nombre completo del curso, su código, sus créditos y su glifo.
 sus énfasis —cada uno se abre con un clic—. Pasar el cursor por una casilla enciende su estrella y
 viceversa: los dos lados se buscan.
 
-**Modo curso:** nombre, código, créditos, eje, formato, oferta variable; programas que lo contienen
+**Modo curso:** nombre, código, créditos, eje, oferta variable; programas que lo contienen
 agrupados por escala; «aparece en N de los 15 planes»; acción «ver como umbral» si pertenece a un
 cuerpo de especialización.
 

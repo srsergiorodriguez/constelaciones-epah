@@ -227,7 +227,6 @@
     datos.cursos[`cur-nuevo-${n}`] = {
       nombre: `Curso nuevo ${n}`,
       eje: 'disciplinar',
-      formato: 'curso',
       creditos: 3,
     }
   }
@@ -427,7 +426,7 @@
         </div>
         <table>
           <thead>
-            <tr><th>id</th><th>nombre</th><th>eje</th><th>formato</th><th>créd.</th><th>oferta variable</th><th></th></tr>
+            <tr><th>id</th><th>nombre</th><th>eje</th><th>créd.</th><th>oferta variable</th><th></th></tr>
           </thead>
           <tbody>
             {#each cursosFiltrados as [id, c] (id)}
@@ -438,13 +437,6 @@
                   <select bind:value={c.eje}>
                     {#each ['tronco', 'transversal', 'laboratorio', 'electiva', 'disciplinar', 'trayectoria'] as e (e)}
                       <option value={e}>{e}</option>
-                    {/each}
-                  </select>
-                </td>
-                <td>
-                  <select bind:value={c.formato}>
-                    {#each ['introduccion', 'curso', 'seminario', 'taller', 'estudio', 'laboratorio', 'proyecto', 'practica'] as f (f)}
-                      <option value={f}>{f}</option>
                     {/each}
                   </select>
                 </td>

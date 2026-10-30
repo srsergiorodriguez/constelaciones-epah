@@ -368,7 +368,6 @@
       "codigo": "E1",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -394,7 +393,6 @@
       "codigo": "E2",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -420,7 +418,6 @@
       "codigo": "E3",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -446,7 +443,6 @@
       "codigo": "ICA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -472,7 +468,6 @@
       "codigo": "PC1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -494,7 +489,6 @@
       "codigo": "PC2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -516,7 +510,6 @@
       "codigo": "PC3",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -538,7 +531,6 @@
       "codigo": "SEC",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -564,7 +556,6 @@
       "codigo": "CM1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -586,7 +577,6 @@
       "codigo": "CM2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -608,7 +598,6 @@
       "codigo": "CM3",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -630,7 +619,6 @@
       "codigo": "DIE",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -656,7 +644,6 @@
       "codigo": "EAM",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -682,7 +669,6 @@
       "codigo": "SEE",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -708,7 +694,6 @@
       "codigo": "GAE",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -734,7 +719,6 @@
       "codigo": "ELE",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "curso",
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [
@@ -771,7 +755,6 @@
       "codigo": "IEC",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -797,7 +780,6 @@
       "codigo": "PE1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -819,7 +801,6 @@
       "codigo": "PE2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -841,7 +822,6 @@
       "codigo": "PE3",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -863,7 +843,6 @@
       "codigo": "TE1",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "taller",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -889,7 +868,6 @@
       "codigo": "TE2",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "taller",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -915,7 +893,6 @@
       "codigo": "TE3",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "taller",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -941,7 +918,6 @@
       "codigo": "EES",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -967,7 +943,6 @@
       "codigo": "EPC",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -993,7 +968,6 @@
       "codigo": "EIT",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "estudio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1019,7 +993,6 @@
       "codigo": "ICF",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1045,7 +1018,6 @@
       "codigo": "PYC1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1067,7 +1039,6 @@
       "codigo": "PYC2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1089,7 +1060,6 @@
       "codigo": "PYC3",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1111,7 +1081,6 @@
       "codigo": "ECA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1137,7 +1106,6 @@
       "codigo": "SEA",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1163,7 +1131,6 @@
       "codigo": "GEA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1189,7 +1156,6 @@
       "codigo": "PMA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1215,7 +1181,6 @@
       "codigo": "FGE",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
@@ -1239,7 +1204,6 @@
       "codigo": "PP1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "practica",
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
@@ -1263,7 +1227,6 @@
       "codigo": "PP2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "practica",
       "alcance": "maestria",
       "nProgramas": 3,
       "maestrias": [
@@ -1287,7 +1250,6 @@
       "codigo": "FHA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1313,7 +1275,6 @@
       "codigo": "SAM",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1339,7 +1300,6 @@
       "codigo": "PHA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1365,7 +1325,6 @@
       "codigo": "SHA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1391,7 +1350,6 @@
       "codigo": "GAD",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1417,7 +1375,6 @@
       "codigo": "EHD",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
@@ -1440,7 +1397,6 @@
       "codigo": "FHD",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1466,7 +1422,6 @@
       "codigo": "ND",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1492,7 +1447,6 @@
       "codigo": "LPD",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "laboratorio",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1518,7 +1472,6 @@
       "codigo": "DPR",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "curso",
       "alcance": "maestria",
       "nProgramas": 5,
       "maestrias": [
@@ -1544,7 +1497,6 @@
       "codigo": "T1",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
@@ -1575,7 +1527,6 @@
       "codigo": "T2",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
@@ -1604,7 +1555,6 @@
       "codigo": "T3",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 4,
       "maestrias": [
@@ -1633,7 +1583,6 @@
       "codigo": "TDG",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "maestria",
       "nProgramas": 5,
       "maestrias": [
@@ -1659,7 +1608,6 @@
       "codigo": "ICG",
       "creditos": 3,
       "eje": "tronco",
-      "formato": "curso",
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [
@@ -1696,7 +1644,6 @@
       "codigo": "LCO",
       "creditos": 3,
       "eje": "laboratorio",
-      "formato": "laboratorio",
       "alcance": "escuela",
       "nProgramas": 6,
       "maestrias": [
@@ -1723,7 +1670,6 @@
       "codigo": "LGE",
       "creditos": 3,
       "eje": "laboratorio",
-      "formato": "laboratorio",
       "alcance": "escuela",
       "nProgramas": 5,
       "maestrias": [
@@ -1750,7 +1696,6 @@
       "codigo": "LTP",
       "creditos": 3,
       "eje": "laboratorio",
-      "formato": "laboratorio",
       "alcance": "escuela",
       "nProgramas": 6,
       "maestrias": [
@@ -1777,7 +1722,6 @@
       "codigo": "SL",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1803,7 +1747,6 @@
       "codigo": "CT1",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
@@ -1832,7 +1775,6 @@
       "codigo": "CT2",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
@@ -1861,7 +1803,6 @@
       "codigo": "CT3",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
@@ -1890,7 +1831,6 @@
       "codigo": "ICM",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "introduccion",
       "alcance": "maestria",
       "nProgramas": 2,
       "maestrias": [
@@ -1919,7 +1859,6 @@
       "codigo": "SEM",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "seminario",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1945,7 +1884,6 @@
       "codigo": "EMN",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1971,7 +1909,6 @@
       "codigo": "MKD",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -1997,7 +1934,6 @@
       "codigo": "NDM",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -2023,7 +1959,6 @@
       "codigo": "SAP",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2043,7 +1978,6 @@
       "codigo": "SEP",
       "creditos": 3,
       "eje": "electiva",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2063,7 +1997,6 @@
       "codigo": "SGC",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2083,7 +2016,6 @@
       "codigo": "PG1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2103,7 +2035,6 @@
       "codigo": "PG2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2123,7 +2054,6 @@
       "codigo": "SVA",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2143,7 +2073,6 @@
       "codigo": "DP1",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2163,7 +2092,6 @@
       "codigo": "DP2",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "seminario",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2183,7 +2111,6 @@
       "codigo": "PES",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "taller",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2203,7 +2130,6 @@
       "codigo": "IYS",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "taller",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2223,7 +2149,6 @@
       "codigo": "LSR",
       "creditos": 3,
       "eje": "laboratorio",
-      "formato": "laboratorio",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2243,7 +2168,6 @@
       "codigo": "MAI",
       "creditos": 3,
       "eje": "disciplinar",
-      "formato": "curso",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2263,7 +2187,6 @@
       "codigo": "PGR",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "practica",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2283,7 +2206,6 @@
       "codigo": "TG1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2303,7 +2225,6 @@
       "codigo": "TG2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "maestria",
       "nProgramas": 1,
       "maestrias": [
@@ -2323,7 +2244,6 @@
       "codigo": "PM1",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -2345,7 +2265,6 @@
       "codigo": "PM2",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -2367,7 +2286,6 @@
       "codigo": "PM3",
       "creditos": 3,
       "eje": "trayectoria",
-      "formato": "proyecto",
       "alcance": "enfasis",
       "nProgramas": 1,
       "maestrias": [
@@ -2389,7 +2307,6 @@
       "codigo": "TRV",
       "creditos": 3,
       "eje": "transversal",
-      "formato": "seminario",
       "alcance": "escuela",
       "nProgramas": 15,
       "maestrias": [

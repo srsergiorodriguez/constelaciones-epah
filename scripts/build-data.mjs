@@ -51,7 +51,6 @@ const PROGRAMS = [
 /* ------------------------------------------------------------------ *
  * 2. Cursos
  *    eje    : tronco | transversal | laboratorio | electiva | disciplinar | trayectoria
- *    formato: introduccion | curso | seminario | taller | estudio | laboratorio | proyecto | practica
  * ------------------------------------------------------------------ */
 
 
@@ -275,16 +274,16 @@ for (const p of [...PROGRAMS, ...PE]) {
 }
 
 /* cursos.csv */
-const coursesCsv = [["curso_id", "nombre", "nombre_corto", "creditos", "eje_curricular", "formato", "alcance", "n_programas", "maestrias", "enfasis", "programas_especializados", "umbral", "umbral_desde", "oferta_variable", "estado", "nota"]];
+const coursesCsv = [["curso_id", "nombre", "nombre_corto", "creditos", "eje_curricular", "alcance", "n_programas", "maestrias", "enfasis", "programas_especializados", "umbral", "umbral_desde", "oferta_variable", "estado", "nota"]];
 for (const id of Object.keys(COURSES).sort()) {
   const c = COURSES[id];
   const m = courseMeta.get(id) || { alcance: "programa", n_programas: 0, maestrias: [], enfasis: [], pe: [] };
   const umbral = umbralDe.get(id) || [];
-  coursesCsv.push([id, c.nombre, shortName(id), c.creditos, c.eje, c.formato, m.alcance, m.n_programas, m.maestrias.join(";"), m.enfasis.join(";"), m.pe.join(";"), umbral.length ? "si" : "no", umbral.join(";"), c.oferta_variable ? "si" : "no", c.estado || "verificado", c.nota || ""]);
+  coursesCsv.push([id, c.nombre, shortName(id), c.creditos, c.eje, m.alcance, m.n_programas, m.maestrias.join(";"), m.enfasis.join(";"), m.pe.join(";"), umbral.length ? "si" : "no", umbral.join(";"), c.oferta_variable ? "si" : "no", c.estado || "verificado", c.nota || ""]);
 }
 
 /* curriculo.csv */
-const curriculoCsv = [["programa_id", "programa_nombre", "programa_tipo", "maestria_id", "periodo", "columna", "curso_id", "curso_nombre", "creditos", "eje_curricular", "formato", "obligatoriedad", "alternativas", "repeticiones", "estado", "nota"]];
+const curriculoCsv = [["programa_id", "programa_nombre", "programa_tipo", "maestria_id", "periodo", "columna", "curso_id", "curso_nombre", "creditos", "eje_curricular", "obligatoriedad", "alternativas", "repeticiones", "estado", "nota"]];
 const order = { escuela: 0, doctorado: 0, maestria: 1, enfasis: 2, programa_especializado: 3, umbral: 4 };
 const progRank = new Map(PROGRAMS.map((p, i) => [p.id, i]));
 offers.sort((a, b) => {
@@ -295,7 +294,7 @@ offers.sort((a, b) => {
 for (const o of offers) {
   const p = prog(o.programa_id);
   const c = COURSES[o.curso_id];
-  curriculoCsv.push([o.programa_id, p.nombre, p.tipo, p.maestria_id, o.periodo, o.columna, o.curso_id, c.nombre, c.creditos, c.eje, c.formato, o.obligatoriedad, o.alternativas, o.repeticiones || 1, o.estado, o.nota]);
+  curriculoCsv.push([o.programa_id, p.nombre, p.tipo, p.maestria_id, o.periodo, o.columna, o.curso_id, c.nombre, c.creditos, c.eje, o.obligatoriedad, o.alternativas, o.repeticiones || 1, o.estado, o.nota]);
 }
 
 /* ------------------------------------------------------------------ *
