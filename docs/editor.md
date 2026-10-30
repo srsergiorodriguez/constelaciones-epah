@@ -25,6 +25,10 @@ pnpm editar --port 4310
 
 ## Cómo guarda
 
+La interfaz usa el nombre del programa, no su id: el selector de planes dice *Énfasis en Arte*, no
+`enf-creacion-arte`. Los ids quedan a la vista solo como dato de depuración. Las maestrías llevan su
+marca de familia, igual que en la app.
+
 «Guardar y compilar» hace dos cosas, en este orden:
 
 1. `POST /api/fuente` → escribe los cinco JSON.

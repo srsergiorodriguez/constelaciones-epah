@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { marcaDe } from '../lib/viz/palette'
+
   type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'marco' | 'cuerpos' | 'estructura'
 
   interface Fuente {
@@ -13,7 +15,7 @@
   let datos = $state<Fuente | null>(null)
   const desdeUrl = new URLSearchParams(location.search).get('p') as Tabla | null
   let pestana = $state<Tabla>(
-    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'marco', 'cuerpos'].includes(desdeUrl)
+    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'marco', 'cuerpos', 'estructura'].includes(desdeUrl)
       ? desdeUrl
       : 'enfasis',
   )
@@ -23,6 +25,7 @@
   let fallo = $state(false)
   let planElegido = $state('')
   let maestriaNueva = $state('')
+  let maestriaFiltro = $state('todas')
 
   const pestanas: { id: Tabla; nombre: string }[] = [
     { id: 'enfasis', nombre: 'Énfasis' },
@@ -39,6 +42,7 @@
     const res = await fetch('/api/fuente')
     datos = await res.json()
     planElegido = datos?.planes?.[0]?.id ?? ''
+    maestriaNueva = datos?.estructura?.find((e: any) => e.tipo === 'maestria')?.id ?? ''
     cargando = false
   }
 
@@ -82,7 +86,18 @@
   }
 
   const maestriasFijas = $derived(datos?.estructura.filter((e) => e.tipo === 'maestria') ?? [])
-  const enfasis = $derived(programas.filter((p) => p.tipo === 'enfasis'))
+  /** El énfasis se nombra por su nombre corto; el id queda como dato secundario. */
+  const nombreDe = (id: string) =>
+    datos?.programas.find((p) => p.id === id)?.nombre_corto ??
+    datos?.estructura.find((p: any) => p.id === id)?.nombre_corto ??
+    id
+
+  const todosEnfasis = $derived(programas.filter((p) => p.tipo === 'enfasis'))
+  const enfasis = $derived(
+    maestriaFiltro === 'todas'
+      ? todosEnfasis
+      : todosEnfasis.filter((p) => p.padre_id === maestriaFiltro),
+  )
   const versionCorta = (n: string) => n.replace(/^Énfasis en /, '')
 
   /** Un énfasis nuevo nace con su plan vacío: el compilador no deja publicarlo
@@ -169,12 +184,19 @@
         <div class="barra">
           <label>
             Maestría
+            <select bind:value={maestriaFiltro}>
+              <option value="todas">Todas</option>
+              {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
+            </select>
+          </label>
+          <label>
+            Nueva en
             <select bind:value={maestriaNueva}>
               {#each maestriasFijas as m (m.id)}<option value={m.id}>{m.nombre_corto}</option>{/each}
             </select>
           </label>
           <button onclick={nuevoEnfasis}>＋ Nuevo énfasis</button>
-          <span class="meta">{enfasis.length} énfasis · viven en <code>programas.json</code></span>
+          <span class="meta">{enfasis.length} de {todosEnfasis.length} énfasis</span>
         </div>
         <table>
           <thead>
@@ -239,7 +261,7 @@
               <tr>
                 <td class="id">{e.id}</td>
                 <td>{e.nombre}</td>
-                <td>{e.nombre_corto}</td>
+                <td><span class="marca {marcaDe(e.id)}">{e.nombre_corto}</span></td>
                 <td>{e.tipo}</td>
                 <td>{e.creditos ?? '—'}</td>
               </tr>
@@ -287,7 +309,9 @@
           <label>
             Plan
             <select bind:value={planElegido}>
-              {#each datos.planes as p (p.id)}<option value={p.id}>{p.id}</option>{/each}
+              {#each datos.planes as p (p.id)}
+                <option value={p.id}>{nombreDe(p.id)}</option>
+              {/each}
             </select>
           </label>
           {#if plan}
@@ -311,7 +335,7 @@
                       <select bind:value={slot.id}>
                         <option value="">— vacía —</option>
                         {#each cursos as [id, c] (id)}
-                          <option value={id}>{id} · {c.nombre}</option>
+                          <option value={id}>{c.nombre}</option>
                         {/each}
                       </select>
                       <label class="pe"><input type="checkbox" bind:checked={slot.pe} /> cuerpo del especializado</label>
@@ -342,7 +366,7 @@
                       >
                         <option value="__abierta">— casilla abierta —</option>
                         {#each cursos as [id, c] (id)}
-                          <option value={id}>{id} · {c.nombre}</option>
+                          <option value={id}>{c.nombre}</option>
                         {/each}
                       </select>
                       {#if !esCurso(celda)}
@@ -378,7 +402,7 @@
               >
                 <option value="">—</option>
                 {#each cursos as [id, c] (id)}
-                  <option value={id}>{id} · {c.nombre}</option>
+                  <option value={id}>{c.nombre}</option>
                 {/each}
               </select>
             {/each}
@@ -395,8 +419,8 @@
 
 <style>
   .editor {
-    padding: var(--sp-4) var(--sp-5) var(--sp-6);
-    max-width: 1500px;
+    padding: 48px clamp(24px, 5vw, 88px) 96px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -404,15 +428,17 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--sp-4);
-    padding-bottom: var(--sp-3);
+    gap: var(--sp-6);
+    padding-bottom: var(--sp-4);
     border-bottom: 1px solid var(--c-rule);
   }
 
   h1 {
     font-family: var(--ff-display);
-    font-size: var(--fz-2xl);
+    font-size: var(--fz-3xl);
     font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
   }
 
   .nota {
@@ -451,8 +477,9 @@
 
   .pestanas {
     display: flex;
-    gap: var(--sp-1);
-    padding: var(--sp-3) 0;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    padding: var(--sp-4) 0 var(--sp-5);
   }
 
   .pestanas button {
@@ -473,6 +500,7 @@
 
   section {
     overflow-x: auto;
+    padding-bottom: var(--sp-4);
   }
 
   .id {
@@ -485,18 +513,23 @@
   .barra {
     display: flex;
     align-items: end;
+    flex-wrap: wrap;
     gap: var(--sp-4);
-    padding-bottom: var(--sp-3);
+    padding-bottom: var(--sp-4);
   }
 
   .barra label {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     font-size: var(--fz-xs);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--c-ink-3);
+  }
+
+  .barra select {
+    min-width: 240px;
   }
 
   .meta {

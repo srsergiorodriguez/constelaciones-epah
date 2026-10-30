@@ -5,6 +5,7 @@ body {
   color: var(--c-ink);
   font-family: var(--ff-sans);
   font-size: var(--fz-sm);
+  -webkit-font-smoothing: antialiased;
 }
 
 input,
@@ -12,11 +13,12 @@ select,
 textarea {
   font-family: var(--ff-sans);
   font-size: var(--fz-sm);
+  height: 28px;
   color: var(--c-ink);
   background: var(--c-paper);
   border: 1px solid var(--c-rule);
   border-radius: 2px;
-  padding: 3px 5px;
+  padding: 2px 6px;
   width: 100%;
 }
 
