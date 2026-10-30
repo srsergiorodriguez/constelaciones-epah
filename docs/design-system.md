@@ -342,3 +342,9 @@ Revisión de mantenibilidad. Lo resuelto, y lo que sigue:
   duplicación. Se documentan como `.rotulo` + modificador cuando se toquen.
 - **`compose.ts` (700 líneas)**: mezcla las cuatro escalas. Partirlo por escala es la deuda más grande;
   se hará con pruebas de caracterización delante, no a ciegas.
+
+### 3.7 Silueta de contexto
+
+A la escala de cursos umbrales las constelaciones no son el tema: se dibujan en `--c-silueta-apagada`
+(#B9B7AD) al 55 %, sin color de familia y sin interacción. El gris es deliberado: deja que la única
+familia cromática de la vista sea la de las estrellas que sí importan.

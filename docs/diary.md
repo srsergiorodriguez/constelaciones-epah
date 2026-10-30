@@ -541,3 +541,15 @@ pruebas y una captura de las tres vistas.
 **Lo que se dejó quieto a propósito.** Las filas de los paneles y las variantes del rótulo no son
 duplicación sino decisiones visuales; unificarlas toca cuatro bloques a la vez y no compensa. Queda
 anotado en `design-system.md` §9 con el criterio, para que la próxima persona no lo improvise.
+
+---
+
+## 2026-10-30 · Gris de contexto
+
+**A la escala del umbral, las constelaciones pierden su color.** Pasan a un gris (`--c-silueta-apagada`)
+al 55 %. La vista queda con una sola familia cromática —la de los cursos que se pueden tomar— y el
+resto es el mapa.
+
+**Un hallazgo del camino:** las reglas que hacían inertes esas siluetas habían desaparecido en una
+limpieza anterior de CSS. Vuelven, con la especificidad suficiente para ganarle a la zona de contacto
+(`.selector-siluetas.inactivas .silueta-selector *`).

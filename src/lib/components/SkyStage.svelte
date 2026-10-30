@@ -166,7 +166,7 @@
   </g>
 
   {#if sinPrograma}
-    <g class="selector-siluetas nivel-{nivel}" class:inactivas={nivel === 'curso'}>
+    <g class="selector-siluetas nivel-{nivel}" class:inactivas={nivel === 'curso'} class:contexto={nivel === 'curso'}>
       {#each escena.siluetas as s (s.programaId)}
         {@const objetivo = s.objetivo ?? s.programaId}
         {@const p = curriculum.programas[objetivo]}
@@ -465,6 +465,18 @@
   .silueta-selector:focus-visible path:not(.zona) {
     opacity: 0.85;
     stroke-width: calc(var(--stroke-silueta) + 0.8);
+  }
+
+  /* a la escala del curso las constelaciones son contexto: gris, sin interacción */
+  .selector-siluetas.contexto path:not(.zona) {
+    stroke: var(--c-silueta-apagada);
+    opacity: 0.55;
+  }
+
+  .selector-siluetas.inactivas .silueta-selector,
+  .selector-siluetas.inactivas .silueta-selector * {
+    pointer-events: none;
+    cursor: default;
   }
 
   .etiqueta {

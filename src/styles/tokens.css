@@ -28,6 +28,8 @@
   --c-ink-3: #5a5a58;
   --c-rule: #d9d7cf;
   --c-grid: #f1f0ea;
+  /* Silueta de contexto: gris, nunca el color de la familia. */
+  --c-silueta-apagada: #b9b7ad;
   --c-focus: #007fe1;
 
   /* Familias de maestría: tonos 1–4 para líneas y rótulos, vivo para rellenos */
