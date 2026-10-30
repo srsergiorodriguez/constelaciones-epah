@@ -34,6 +34,26 @@ Esa regla es la que produce las estrellas compartidas, que son el argumento de l
 
 ## 2. Archivos
 
+### 1.0 La fuente: `data/source/`
+
+Cinco tablas en JSON, editables a mano o desde un editor:
+
+| Archivo | Contenido |
+|---|---|
+| `programas.json` | 32 programas: id, nombre, tipo, padre, maestría |
+| `cursos.json` | 83 cursos: créditos, eje, formato, estado |
+| `planes.json` | 15 planes × 12 casillas |
+| `marco.json` | plan común de cada maestría (casillas abiertas incluidas) |
+| `cuerpos.json` | cuerpos declarados de programas especializados |
+
+`figures.json` vive aparte, con la app, porque la dibuja ella.
+
+Los CSV **se generan** desde ahí con `pnpm data`. Se edita el JSON, nunca el CSV: el próximo
+`pnpm data` los sobrescribe. La CI corre `pnpm data` y falla si el resultado difiere de lo versionado,
+así que un JSON editado sin recompilar no llega a producción.
+
+### 1.1 Los CSV
+
 Los tres CSV se generan desde `scripts/build-data.mjs`. Tienen cabecera y codificación UTF-8.
 Los campos con comas van entre comillas; las listas internas usan `;`.
 

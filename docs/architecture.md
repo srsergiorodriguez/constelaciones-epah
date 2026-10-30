@@ -14,8 +14,9 @@ No hay servidor: los datos se compilan en el bundle. Toda la complejidad está e
 | Exportar la vista de tabla (CSV) | Autenticación, roles, base de datos |
 | Empaquetado web estático | Backend nativo, escritorio, móvil nativo |
 
-La app es **de solo lectura**. El currículo se cambia en `scripts/build-data.mjs`, se revisa en
-`git diff data/` y se despliega. Esa es toda la administración de contenidos.
+La app es **de solo lectura**. El currículo se edita en `data/source/*.json`, se compila con
+`pnpm data`, se revisa en `git diff` y se despliega. Esa es toda la administración de contenidos:
+**el editor es una comodidad encima de ese flujo, no un segundo sistema**.
 
 ---
 
@@ -23,8 +24,9 @@ La app es **de solo lectura**. El currículo se cambia en `scripts/build-data.mj
 
 ```
             ┌──────────────────────────────────────────────┐
-  build     │ data/*.csv  →  scripts/build-data.mjs         │  fuente curada
-            │              →  src/lib/data/*.json          │  artefacto validado
+  build     │ data/source/*.json  →  build-data.mjs       │  fuente curada (editable)
+            │   → data/*.csv  →  build-curriculum.mjs      │  artefactos generados
+            │   → src/lib/data/curriculum.json             │  contrato validado
             └──────────────────────────────────────────────┘
                                    │
             ┌──────────────────────▼───────────────────────┐
@@ -88,34 +90,43 @@ interface DataPort {
 ```
 src/
   main.ts
-  app.css                    # reset y estilos de elemento
-  App.svelte                 # armazón: cabecera, cielo, pie
+  app.css                    # reset, elementos y utilidades compartidas (.marca, .rotulo)
+  App.svelte                 # armazón: cabecera, cielo, paneles, pie
   lib/
     data/
-      curriculum.json        # generado: cursos, programas, ofertas
-      atlas.json             # generado: posición de reposo de los 83 cursos
-      figures.json           # las 18 siluetas, fuente única con scripts/make-figures.mjs
-      types.ts               # tipos + acceso tipado a los tres JSON
+      curriculum.json        # generado: cursos, programas, ofertas, planes marco
+      figures.json           # las 18 siluetas y el mapa programa → figura
+      types.ts               # tipos + acceso tipado a los JSON
       contract.test.ts       # contrato de datos
     domain/
-      graph.ts               # cursos de un programa, núcleo, grafo, hermanos
+      graph.ts               # cursos de un programa, núcleo, hermanos, pertenencias
       figures.ts             # placeOnFigure(n) por longitud de arco
-      nebula.ts              # atlas → viewport
-      compose.ts             # escena para 0, 1 y 2 programas; bisagra
-      *.test.ts
+      hull.ts                # centro, envolvente, polígono neutro
+      plan.ts                # plan de un programa, énfasis, casillas
+      niveles.ts             # escalones (curso → doctorado) y el tipo Foco
+      compose.ts             # escena por escala: universo, fragmento, figura, familia
     viz/
       geometry.ts            # destello, polígono, polilínea → d
       palette.ts             # familia cromática, tono, radio por compartición
+      motion.ts              # plan de viaje de las estrellas
+      scroll.ts              # llevar una lista hasta la fila del foco
     components/
       SkyStage.svelte        # único componente que dibuja el SVG
       StarGlyph.svelte       # glifo por eje curricular
+      Etiqueta.svelte        # rótulo con su marca, medido
+      ProgramPicker.svelte   # lista por escala
+      PlanPanel.svelte       # plan del programa elegido
+      CoursePanel.svelte     # detalle de curso y su escalera
+      Rail.svelte            # barra de escalas
+      Debug.svelte           # deslizadores de trazo (?debug)
   styles/
-    tokens.css               # única fuente de color, tipo y espacio
+    tokens.css               # única fuente de color, tipo, espacio y trazo
 scripts/
-  build-curriculum.mjs       # CSV → JSON con validación
-  build-atlas.mjs            # nebulosa determinista
+  build-data.mjs             # fuente JSON → CSV (valida invariantes)
+  build-curriculum.mjs       # CSV → JSON con validación del contrato
   make-figures.mjs           # láminas de docs/assets
-data/*.csv                   # fuente curada del currículo
+data/source/*.json           # FUENTE: programas, cursos, planes, marco, cuerpos
+data/*.csv                   # artefactos generados
 ```
 
 ---
@@ -172,7 +183,8 @@ estado, el cambio se hace en el store y el evento solo describe el resultado.
 
 ## 7. Flujo de datos y validación
 
-1. `build-data.mjs` valida invariantes (ver `data-model.md` §5) y escribe los CSV. Falla el build
+1. `build-data.mjs` lee `data/source/*.json`, valida invariantes (ver `data-model.md` §5) y escribe
+   los CSV. Falla el build
    si algo no cuadra.
 2. `scripts/build-curriculum.mjs` (sprint 1) convierte los CSV a `curriculum.json` tipado y
    **vuelve a validar** en el bundle: ninguna app arranca con datos inconsistentes.

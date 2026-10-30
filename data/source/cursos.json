@@ -1,0 +1,614 @@
+{
+  "cur-icg": {
+    "nombre": "Investigación, creación y gestión",
+    "eje": "tronco",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 1,
+    "nota": "Presente en los 15 planes: el centro del cielo."
+  },
+  "cur-transversal": {
+    "nombre": "Curso transversal",
+    "eje": "transversal",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 1,
+    "oferta_variable": true,
+    "nota": "Menú abierto de la Escuela; el documento solo nombra un caso: «Seminario: lo que hacen las imágenes» (p. 12)."
+  },
+  "cur-electiva": {
+    "nombre": "Electiva",
+    "eje": "electiva",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 1,
+    "oferta_variable": true,
+    "nota": "Casilla abierta; se homologa desde cualquier programa de la Escuela."
+  },
+  "cur-lab-cocreacion": {
+    "nombre": "Laboratorio de cocreación",
+    "eje": "laboratorio",
+    "formato": "laboratorio",
+    "creditos": 3,
+    "pagina": 2
+  },
+  "cur-lab-teorico-practico": {
+    "nombre": "Laboratorio teórico-práctico",
+    "eje": "laboratorio",
+    "formato": "laboratorio",
+    "creditos": 3,
+    "pagina": 42
+  },
+  "cur-lab-gestion": {
+    "nombre": "Laboratorio de gestión estratégica",
+    "eje": "laboratorio",
+    "formato": "laboratorio",
+    "creditos": 3,
+    "pagina": 70
+  },
+  "cur-per-lab-sala": {
+    "nombre": "Laboratorio: sala de redacción",
+    "eje": "laboratorio",
+    "formato": "laboratorio",
+    "creditos": 3,
+    "pagina": 93,
+    "nota": "«u otro laboratorio de la Escuela»."
+  },
+  "cur-he-teoria-1": {
+    "nombre": "Seminario teoría 1: de la Antigüedad a la Modernidad",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 47
+  },
+  "cur-he-teoria-2": {
+    "nombre": "Seminario teoría 2: teorías contemporáneas sobre arte y sociedad",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 47
+  },
+  "cur-he-teoria-3": {
+    "nombre": "Seminario teoría 3: pensamiento latinoamericano sobre arte y sociedad",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 48
+  },
+  "cur-he-diseno": {
+    "nombre": "Diseño de proyectos",
+    "eje": "trayectoria",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 45
+  },
+  "cur-he-trabajo-grado": {
+    "nombre": "Trabajo de grado",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 46,
+    "nota": "Puede ser colectivo e inter-énfasis (p. 46)."
+  },
+  "cur-arte-intro": {
+    "nombre": "Introducción a la creación artística",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-arte-est-1": {
+    "nombre": "Estudio 1",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 5,
+    "nota": "Temas rotativos: información y forma, abstracción remanufacturada, arte y contexto, acciones y medios (p. 71)."
+  },
+  "cur-arte-est-2": {
+    "nombre": "Estudio 2",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-arte-est-3": {
+    "nombre": "Estudio 3",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-arte-proy-1": {
+    "nombre": "Proyecto de creación 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-arte-proy-2": {
+    "nombre": "Proyecto de creación 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-arte-proy-3": {
+    "nombre": "Proyecto de creación 3",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 5
+  },
+  "cur-foto-intro": {
+    "nombre": "Introducción a la creación fotográfica",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-est-edicion": {
+    "nombre": "Estudio: edición y secuencia",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-est-tiempo": {
+    "nombre": "Estudio: imagen, tiempo y sonido",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-est-publicacion": {
+    "nombre": "Estudio: publicación, puesta en escena y circulación",
+    "eje": "disciplinar",
+    "formato": "estudio",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-proy-1": {
+    "nombre": "Proyecto y crítica 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-proy-2": {
+    "nombre": "Proyecto y crítica 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-foto-proy-3": {
+    "nombre": "Proyecto y crítica 3",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 11
+  },
+  "cur-musica-intro": {
+    "nombre": "Introducción a la creación musical",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 20,
+    "nota": "Compartido por Composición y Producción musical."
+  },
+  "cur-musica-contexto-1": {
+    "nombre": "Seminario de contexto histórico-teórico 1",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 21,
+    "nota": "Compartido por Composición y Producción musical."
+  },
+  "cur-musica-contexto-2": {
+    "nombre": "Seminario de contexto histórico-teórico 2",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 21
+  },
+  "cur-musica-contexto-3": {
+    "nombre": "Seminario de contexto histórico-teórico 3",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 21
+  },
+  "cur-comp-1": {
+    "nombre": "Composición musical 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 21
+  },
+  "cur-comp-2": {
+    "nombre": "Composición musical 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 21
+  },
+  "cur-comp-3": {
+    "nombre": "Composición musical 3",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 21
+  },
+  "cur-prod-1": {
+    "nombre": "Producción musical 1: técnicas en producción",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 27
+  },
+  "cur-prod-2": {
+    "nombre": "Producción musical 2: producción musical avanzada",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 27
+  },
+  "cur-prod-3": {
+    "nombre": "Producción musical 3: proyecto",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 27
+  },
+  "cur-escritura-intro": {
+    "nombre": "Introducción a la escritura creativa",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 31
+  },
+  "cur-escritura-taller-1": {
+    "nombre": "Taller de escritura 1",
+    "eje": "disciplinar",
+    "formato": "taller",
+    "creditos": 3,
+    "pagina": 31,
+    "oferta_variable": true,
+    "nota": "Oferta rotativa: crónica, poesía, cuento, autoficción… (p. 34)."
+  },
+  "cur-escritura-taller-2": {
+    "nombre": "Taller de escritura 2",
+    "eje": "disciplinar",
+    "formato": "taller",
+    "creditos": 3,
+    "pagina": 31,
+    "oferta_variable": true
+  },
+  "cur-escritura-taller-3": {
+    "nombre": "Taller de escritura 3",
+    "eje": "disciplinar",
+    "formato": "taller",
+    "creditos": 3,
+    "pagina": 31,
+    "oferta_variable": true
+  },
+  "cur-escritura-proy-1": {
+    "nombre": "Proyecto de escritura 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 31
+  },
+  "cur-escritura-proy-2": {
+    "nombre": "Proyecto de escritura 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 31
+  },
+  "cur-escritura-proy-3": {
+    "nombre": "Proyecto de escritura 3",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 31
+  },
+  "cur-lit-seminario": {
+    "nombre": "Seminario de literatura",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 49,
+    "oferta_variable": true,
+    "nota": "Familia de seminarios; el plan lo ofrece dos veces (p. 1 y p. 4)."
+  },
+  "cur-harte-pensar": {
+    "nombre": "Pensar la historia del arte",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 51
+  },
+  "cur-harte-seminario": {
+    "nombre": "Seminario de historia del arte",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 51,
+    "oferta_variable": true,
+    "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+  },
+  "cur-clas-seminario": {
+    "nombre": "Seminario de estudios clásicos",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 55,
+    "oferta_variable": true,
+    "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+  },
+  "cur-hd-fundamentos": {
+    "nombre": "Fundamentos en humanidades digitales",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 58
+  },
+  "cur-hd-datos": {
+    "nombre": "Gestión y análisis de datos e imágenes",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 58
+  },
+  "cur-hd-narrativas": {
+    "nombre": "Narrativas digitales: del concepto a la interfaz",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 58
+  },
+  "cur-hd-prototipado": {
+    "nombre": "Laboratorio de prototipado y creación digital",
+    "eje": "disciplinar",
+    "formato": "laboratorio",
+    "creditos": 3,
+    "pagina": 58
+  },
+  "cur-hd-electivo": {
+    "nombre": "Seminario electivo en humanidades digitales",
+    "eje": "electiva",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 58,
+    "oferta_variable": true
+  },
+  "cur-hamb-fundamentos": {
+    "nombre": "Fundamentos en humanidades ambientales",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 62
+  },
+  "cur-hamb-seminario": {
+    "nombre": "Seminario en humanidades ambientales",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 62,
+    "oferta_variable": true,
+    "nota": "El plan lo ofrece tres veces (p. 2, 3 y 4)."
+  },
+  "cur-gepc-fundamentos": {
+    "nombre": "Fundamentos de la gestión estratégica en proyectos culturales",
+    "eje": "disciplinar",
+    "formato": "introduccion",
+    "creditos": 3,
+    "pagina": 70
+  },
+  "cur-gepc-practica-1": {
+    "nombre": "Práctica de profundización 1",
+    "eje": "trayectoria",
+    "formato": "practica",
+    "creditos": 3,
+    "pagina": 72
+  },
+  "cur-gepc-practica-2": {
+    "nombre": "Práctica de profundización 2",
+    "eje": "trayectoria",
+    "formato": "practica",
+    "creditos": 3,
+    "pagina": 72
+  },
+  "cur-neg-musica": {
+    "nombre": "Negocios de la música",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 75
+  },
+  "cur-neg-estrategias": {
+    "nombre": "Estrategias y modelos de negocio de la música",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 75
+  },
+  "cur-neg-marketing": {
+    "nombre": "Marketing y desarrollo de proyectos en la industria de la música",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 76
+  },
+  "cur-neg-electivo": {
+    "nombre": "Seminario electivo en proyectos de música",
+    "eje": "electiva",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 76,
+    "oferta_variable": true
+  },
+  "cur-garte-ecosistemas": {
+    "nombre": "Ecosistemas y circuitos del arte",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 80
+  },
+  "cur-garte-publicos": {
+    "nombre": "Públicos, mediación y circulación del arte",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 80
+  },
+  "cur-garte-gestion": {
+    "nombre": "Gestión estratégica en proyectos de arte",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 80
+  },
+  "cur-garte-electivo": {
+    "nombre": "Seminario electivo en proyectos de arte",
+    "eje": "electiva",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 80,
+    "oferta_variable": true
+  },
+  "cur-edit-editorial": {
+    "nombre": "Editorial, autores, mesa y libro",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 85
+  },
+  "cur-edit-gestion": {
+    "nombre": "Gestión y autogestión de proyectos editoriales",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 86
+  },
+  "cur-edit-diseno": {
+    "nombre": "Diseño editorial",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 86
+  },
+  "cur-edit-electivo": {
+    "nombre": "Seminario electivo en proyectos de edición",
+    "eje": "electiva",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 86,
+    "oferta_variable": true
+  },
+  "cur-per-metodos": {
+    "nombre": "Métodos avanzados de investigación periodística",
+    "eje": "disciplinar",
+    "formato": "curso",
+    "creditos": 3,
+    "pagina": 93
+  },
+  "cur-per-desafios-1": {
+    "nombre": "Desafíos periodísticos 1",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 93,
+    "oferta_variable": true
+  },
+  "cur-per-desafios-2": {
+    "nombre": "Desafíos periodísticos 2",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 94,
+    "oferta_variable": true
+  },
+  "cur-per-escrito": {
+    "nombre": "Periodismo escrito",
+    "eje": "disciplinar",
+    "formato": "taller",
+    "creditos": 3,
+    "pagina": 93
+  },
+  "cur-per-imagen": {
+    "nombre": "Imagen y sonido",
+    "eje": "disciplinar",
+    "formato": "taller",
+    "creditos": 3,
+    "pagina": 93
+  },
+  "cur-per-tg-1": {
+    "nombre": "Trabajo de grado 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 94
+  },
+  "cur-per-tg-2": {
+    "nombre": "Trabajo de grado 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 94
+  },
+  "cur-per-practica": {
+    "nombre": "Práctica de grado",
+    "eje": "trayectoria",
+    "formato": "practica",
+    "creditos": 3,
+    "pagina": 94,
+    "nota": "6 créditos; reemplaza Trabajo de grado 1 y 2."
+  },
+  "cur-pat-valoracion": {
+    "nombre": "Seminario de valoración",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 106
+  },
+  "cur-pat-gestion": {
+    "nombre": "Seminario de gestión, conservación y salvaguardia",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 106
+  },
+  "cur-pat-apropiacion": {
+    "nombre": "Seminario de apropiación",
+    "eje": "disciplinar",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 106
+  },
+  "cur-pat-electivo": {
+    "nombre": "Seminario electivo en patrimonio",
+    "eje": "electiva",
+    "formato": "seminario",
+    "creditos": 3,
+    "pagina": 106,
+    "oferta_variable": true,
+    "nota": "El plan lo ofrece dos veces (p. 1 y p. 4)."
+  },
+  "cur-pat-proyecto-1": {
+    "nombre": "Proyecto de grado 1",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 106
+  },
+  "cur-pat-proyecto-2": {
+    "nombre": "Proyecto de grado 2",
+    "eje": "trayectoria",
+    "formato": "proyecto",
+    "creditos": 3,
+    "pagina": 106
+  }
+}

@@ -20,7 +20,7 @@ el código o los datos; no se deja «para después».
 | `diary.md` | Bitácora | Registro de cambios y por qué. Se lee antes de empezar la siguiente tarea y se poda cuando crece. |
 | `assets/` | Figuras | Láminas SVG/PNG generadas con `scripts/make-figures.mjs` a partir de los datos reales: una constelación, las dieciocho figuras y la gramática visual. |
 | `../data/` | Datos | `programas.csv`, `cursos.csv`, `curriculo.csv`. Artefactos generados: no editar a mano. |
-| `../scripts/` | Generadores | `build-data.mjs` (currículo → CSV) y `make-figures.mjs` (CSV → láminas). |
+| `../scripts/` | Generadores | `build-data.mjs` (fuente → CSV), `build-curriculum.mjs` (CSV → JSON) y `make-figures.mjs` (láminas). |
 
 ## Glosario
 
@@ -46,7 +46,7 @@ el código o los datos; no se deja «para después».
 
 ```bash
 pnpm install
-pnpm data        # data/*.csv      → src/lib/data/curriculum.json
+pnpm data        # data/source/*.json → data/*.csv → src/lib/data/curriculum.json
 pnpm atlas       # curriculum.json → src/lib/data/atlas.json (nebulosa)
 pnpm dev         # http://localhost:5173
 pnpm test        # 15 pruebas: contrato, grafo, figuras, nebulosa, composición
@@ -75,7 +75,7 @@ BASE_PATH=/constelaciones-epah/ pnpm build && npx serve dist -l 4190
 
 ## Cómo se actualiza
 
-1. Si cambia el currículo → se edita `scripts/build-data.mjs` y se regeneran los CSV.
+1. Si cambia el currículo → se edita `data/source/*.json` y se corre `pnpm data`.
 2. Si cambia la estructura del código → se refactoriza `architecture.md` (no se agrega una sección nueva al final).
 3. Si cambia un token o un componente → `design-system.md`.
 4. Si cambia la metáfora o el algoritmo → `constellation.md`.

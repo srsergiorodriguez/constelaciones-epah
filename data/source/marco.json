@@ -1,0 +1,100 @@
+{
+  "mae-creacion": [
+    [
+      "cur-icg",
+      {
+        "abierta": "Introducción disciplinar"
+      },
+      "cur-transversal"
+    ],
+    [
+      {
+        "abierta": "Proyecto / Composición / Producción 1"
+      },
+      {
+        "abierta": "Seminario disciplinar 1"
+      },
+      "cur-lab-cocreacion"
+    ],
+    [
+      {
+        "abierta": "Proyecto / composición / producción 2"
+      },
+      {
+        "abierta": "Seminario disciplinar 2"
+      },
+      "cur-electiva"
+    ],
+    [
+      {
+        "abierta": "Proyecto / composición / producción 3"
+      },
+      {
+        "abierta": "Seminario disciplinar 3"
+      },
+      "cur-transversal"
+    ]
+  ],
+  "mae-he": [
+    [
+      "cur-icg",
+      {
+        "abierta": "Introducción disciplinar"
+      },
+      "cur-transversal"
+    ],
+    [
+      "cur-lab-teorico-practico",
+      {
+        "abierta": "Seminario disciplinar 1"
+      },
+      "cur-electiva"
+    ],
+    [
+      "cur-he-diseno",
+      {
+        "abierta": "Seminario disciplinar 2"
+      },
+      {
+        "abierta": "Seminario teoría 1, 2 o 3"
+      }
+    ],
+    [
+      "cur-he-trabajo-grado",
+      {
+        "abierta": "Seminario disciplinar 3"
+      },
+      "cur-transversal"
+    ]
+  ],
+  "mae-gepc": [
+    [
+      "cur-icg",
+      "cur-gepc-fundamentos",
+      {
+        "abierta": "Seminario disciplinar 1"
+      }
+    ],
+    [
+      "cur-lab-gestion",
+      {
+        "abierta": "Seminario disciplinar 2"
+      },
+      "cur-transversal"
+    ],
+    [
+      "cur-gepc-practica-1",
+      {
+        "abierta": "Seminario disciplinar 3"
+      },
+      "cur-electiva"
+    ],
+    [
+      "cur-gepc-practica-2",
+      {
+        "abierta": "Seminario disciplinar 4"
+      },
+      "cur-transversal"
+    ]
+  ]
+}

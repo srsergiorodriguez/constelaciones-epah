@@ -31,6 +31,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # la fuente debe compilar a lo versionado: si alguien edita el JSON y no regenera, falla
+      - run: pnpm data
+      - run: git diff --exit-code data/ src/lib/data/curriculum.json
+
       # las pruebas antes de publicar: si algo se rompe, no sale
       - run: pnpm check
       - run: pnpm test

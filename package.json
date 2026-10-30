@@ -9,8 +9,7 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
-    "data": "node scripts/build-curriculum.mjs",
-    "atlas": "node scripts/build-atlas.mjs",
+    "data": "node scripts/build-data.mjs && node scripts/build-curriculum.mjs",
     "figures": "node scripts/make-figures.mjs"
   },
   "devDependencies": {

@@ -1,0 +1,839 @@
+[
+  {
+    "id": "enf-creacion-arte",
+    "pagina": 4,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-arte-intro",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-arte-proy-1"
+        },
+        {
+          "id": "cur-arte-est-1",
+          "pe": true
+        },
+        {
+          "id": "cur-lab-cocreacion"
+        }
+      ],
+      [
+        {
+          "id": "cur-arte-proy-2"
+        },
+        {
+          "id": "cur-arte-est-2",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-arte-proy-3"
+        },
+        {
+          "id": "cur-arte-est-3",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-creacion-fotografia",
+    "pagina": 11,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-foto-intro",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal",
+          "nota": "Se ofrece «Seminario: lo que hacen las imágenes» (p. 12)."
+        }
+      ],
+      [
+        {
+          "id": "cur-foto-proy-1"
+        },
+        {
+          "id": "cur-foto-est-edicion",
+          "pe": true
+        },
+        {
+          "id": "cur-lab-cocreacion"
+        }
+      ],
+      [
+        {
+          "id": "cur-foto-proy-2"
+        },
+        {
+          "id": "cur-foto-est-tiempo",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-foto-proy-3"
+        },
+        {
+          "id": "cur-foto-est-publicacion",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-creacion-composicion",
+    "pagina": 20,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-musica-intro",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-comp-1"
+        },
+        {
+          "id": "cur-musica-contexto-1",
+          "pe": true
+        },
+        {
+          "id": "cur-lab-cocreacion"
+        }
+      ],
+      [
+        {
+          "id": "cur-comp-2"
+        },
+        {
+          "id": "cur-musica-contexto-2",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-comp-3"
+        },
+        {
+          "id": "cur-musica-contexto-3",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-creacion-produccion",
+    "pagina": 26,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-musica-intro",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-prod-1"
+        },
+        {
+          "id": "cur-musica-contexto-1",
+          "pe": true
+        },
+        {
+          "id": "cur-lab-cocreacion",
+          "alt": [
+            "cur-lab-gestion"
+          ],
+          "nota": "«Laboratorio cocreación o gestión estratégica»."
+        }
+      ],
+      [
+        {
+          "id": "cur-prod-2"
+        },
+        {
+          "id": "cur-musica-contexto-2",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-prod-3"
+        },
+        {
+          "id": "cur-musica-contexto-3",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-creacion-escritura",
+    "pagina": 31,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-escritura-intro",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-escritura-proy-1"
+        },
+        {
+          "id": "cur-escritura-taller-1",
+          "pe": true
+        },
+        {
+          "id": "cur-lab-cocreacion"
+        }
+      ],
+      [
+        {
+          "id": "cur-escritura-proy-2"
+        },
+        {
+          "id": "cur-escritura-taller-2",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-escritura-proy-3"
+        },
+        {
+          "id": "cur-escritura-taller-3",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-he-literatura",
+    "pagina": 46,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-he-teoria-1",
+          "pe": true
+        },
+        {
+          "id": "cur-lit-seminario",
+          "pe": true
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-teorico-practico"
+        },
+        {
+          "id": "cur-he-teoria-2",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-diseno"
+        },
+        {
+          "id": "cur-he-teoria-3",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-trabajo-grado"
+        },
+        {
+          "id": "cur-lit-seminario"
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-he-historia-arte",
+    "pagina": 51,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-harte-pensar",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-teorico-practico"
+        },
+        {
+          "id": "cur-harte-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-diseno"
+        },
+        {
+          "id": "cur-harte-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-he-teoria-1",
+          "alt": [
+            "cur-he-teoria-2",
+            "cur-he-teoria-3"
+          ],
+          "nota": "«Seminario teoría 1, 2 o 3»."
+        }
+      ],
+      [
+        {
+          "id": "cur-he-trabajo-grado"
+        },
+        {
+          "id": "cur-harte-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-he-clasicos",
+    "pagina": 55,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-he-teoria-1",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-teorico-practico"
+        },
+        {
+          "id": "cur-clas-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-diseno"
+        },
+        {
+          "id": "cur-clas-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-he-teoria-2",
+          "alt": [
+            "cur-he-teoria-3"
+          ],
+          "nota": "«Seminario teoría 2 o 3»."
+        }
+      ],
+      [
+        {
+          "id": "cur-he-trabajo-grado"
+        },
+        {
+          "id": "cur-clas-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-he-humanidades-digitales",
+    "pagina": 58,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-hd-fundamentos",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-teorico-practico"
+        },
+        {
+          "id": "cur-hd-datos",
+          "pe": true
+        },
+        {
+          "id": "cur-hd-electivo"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-diseno"
+        },
+        {
+          "id": "cur-hd-narrativas",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-trabajo-grado"
+        },
+        {
+          "id": "cur-hd-prototipado",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-he-humanidades-ambientales",
+    "pagina": 62,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-hamb-fundamentos",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-teorico-practico"
+        },
+        {
+          "id": "cur-hamb-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-he-teoria-1",
+          "alt": [
+            "cur-he-teoria-2",
+            "cur-he-teoria-3",
+            "cur-hd-electivo"
+          ],
+          "nota": "«Seminario teoría 1, 2 o 3, o seminario electivo en humanidades digitales»."
+        }
+      ],
+      [
+        {
+          "id": "cur-he-diseno"
+        },
+        {
+          "id": "cur-hamb-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-he-trabajo-grado"
+        },
+        {
+          "id": "cur-hamb-seminario",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-gepc-negocios-musica",
+    "pagina": 75,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-gepc-fundamentos"
+        },
+        {
+          "id": "cur-neg-musica",
+          "pe": true
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-gestion"
+        },
+        {
+          "id": "cur-neg-estrategias",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-1"
+        },
+        {
+          "id": "cur-neg-marketing",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-2"
+        },
+        {
+          "id": "cur-neg-electivo",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-gepc-arte",
+    "pagina": 80,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-gepc-fundamentos"
+        },
+        {
+          "id": "cur-garte-ecosistemas",
+          "pe": true
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-gestion",
+          "nota": "«Laboratorio de gestión estratégica / cocreación»."
+        },
+        {
+          "id": "cur-garte-publicos",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-1"
+        },
+        {
+          "id": "cur-garte-gestion",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-2"
+        },
+        {
+          "id": "cur-garte-electivo",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "enf-gepc-edicion",
+    "pagina": 85,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-gepc-fundamentos"
+        },
+        {
+          "id": "cur-edit-editorial",
+          "pe": true
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-gestion",
+          "nota": "«Laboratorio de gestión estratégica / cocreación»."
+        },
+        {
+          "id": "cur-edit-gestion",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-1"
+        },
+        {
+          "id": "cur-edit-diseno",
+          "pe": true
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-gepc-practica-2"
+        },
+        {
+          "id": "cur-edit-electivo",
+          "pe": true
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "mae-periodismo",
+    "pagina": 93,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-per-metodos"
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-per-desafios-1"
+        },
+        {
+          "id": "cur-per-escrito"
+        },
+        {
+          "id": "cur-per-lab-sala"
+        }
+      ],
+      [
+        {
+          "id": "cur-per-tg-1",
+          "alt": [
+            "cur-per-practica"
+          ],
+          "nota": "«Trabajo de grado 1 o Práctica de grado»."
+        },
+        {
+          "id": "cur-per-imagen"
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-per-tg-2",
+          "alt": [
+            "cur-per-practica"
+          ],
+          "nota": "«Trabajo de grado 2 o Práctica de grado»."
+        },
+        {
+          "id": "cur-per-desafios-2"
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "mae-patrimonio",
+    "pagina": 106,
+    "slots": [
+      [
+        {
+          "id": "cur-icg"
+        },
+        {
+          "id": "cur-pat-valoracion"
+        },
+        {
+          "id": "cur-pat-electivo"
+        }
+      ],
+      [
+        {
+          "id": "cur-lab-gestion",
+          "alt": [
+            "cur-lab-teorico-practico",
+            "cur-lab-cocreacion"
+          ],
+          "nota": "«Laboratorio de gestión estratégica, teórico práctico o cocreación»."
+        },
+        {
+          "id": "cur-pat-gestion"
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ],
+      [
+        {
+          "id": "cur-pat-proyecto-1"
+        },
+        {
+          "id": "cur-pat-apropiacion"
+        },
+        {
+          "id": "cur-electiva"
+        }
+      ],
+      [
+        {
+          "id": "cur-pat-proyecto-2"
+        },
+        {
+          "id": "cur-pat-electivo"
+        },
+        {
+          "id": "cur-transversal"
+        }
+      ]
+    ]
+  }
+]

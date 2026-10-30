@@ -1,5 +1,4 @@
 import curriculumJson from '../data/curriculum.json'
-import atlasJson from '../data/atlas.json'
 import figuresJson from '../data/figures.json'
 
 export type Tipo = 'escuela' | 'doctorado' | 'maestria' | 'enfasis' | 'programa_especializado'
@@ -81,14 +80,6 @@ export interface Curriculum {
   planesMarco: Record<string, CasillaMarco[]>
 }
 
-export interface Atlas {
-  version: number
-  semilla: number
-  caja: { w: number; h: number }
-  nota?: string
-  puntos: Record<string, [number, number]>
-}
-
 export interface Figura {
   puntos: [number, number][]
   nombre: string
@@ -101,7 +92,6 @@ export interface Figuras {
 }
 
 export const curriculum = curriculumJson as unknown as Curriculum
-export const atlas = atlasJson as unknown as Atlas
 export const figuras = figuresJson as unknown as Figuras
 
 export const programa = (id: string): Programa | undefined => curriculum.programas[id]
