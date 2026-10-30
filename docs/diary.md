@@ -397,3 +397,16 @@ figura propia. Van a una fila al pie, igual que el tronco en la constelación.
 
 **El fondo de la constelación es el universo.** Al elegir un programa, el resto de las estrellas ya no
 salta a posiciones olvidadas: se queda donde estaba, atenuada.
+
+---
+
+## 2026-10-30 · Copias y huecos
+
+**La fila no era un cielo.** Los doce cursos sin figura iban alineados al pie; ahora se siembran en
+los huecos entre constelaciones, con rechazo de las cajas de las figuras y de las otras estrellas. El
+plan común de una maestría flota dentro de su región; los de la Escuela, donde haya lugar.
+
+**Un curso, varias estrellas.** El mapa pasó de `Map<cursoId>` a una lista con clave y dueño: cada
+figura dibuja su copia. El Seminario teoría 1 aparece cuatro veces y enfocarlo enciende las cuatro.
+*Por qué:* una figura nunca debe parecer incompleta, y la repetición dice la verdad —ese curso
+atraviesa cuatro rutas.

@@ -8,9 +8,11 @@ const ANCHO = 1200
 const ALTO = 900
 
 describe('composición de la escena', () => {
-  it('sin selección, todos los cursos están en la nebulosa y nadie se mueve', () => {
+  it('sin selección, el universo tiene una estrella por curso y figura, y nadie se mueve', () => {
     const escena = compose([], ANCHO, ALTO)
-    expect(escena.estrellas).toHaveLength(83)
+    const cursos = new Set(escena.estrellas.map((e) => e.cursoId))
+    expect(cursos.size).toBe(83)
+    expect(escena.estrellas.length).toBeGreaterThan(83)
     expect(escena.estrellas.every((e) => e.estado === 'nebulosa')).toBe(true)
     expect(escena.figuras).toHaveLength(0)
   })
@@ -140,8 +142,8 @@ describe('escala del especializado', () => {
     )) {
       for (const c of cursosOf(pe.id)) esperados.add(c)
     }
-    const encendidas = escena.estrellas.filter((e) => e.estado === 'figura')
-    expect(encendidas.length).toBe(esperados.size)
+    const encendidas = new Set(escena.estrellas.filter((e) => e.estado === 'figura').map((e) => e.cursoId))
+    expect(encendidas.size).toBe(esperados.size)
   })
 
   it('las maestrías sin programa especializado no aparecen a esa escala', () => {
@@ -182,22 +184,25 @@ describe('umbrales cerca de su figura', () => {
 })
 
 describe('el universo lleva sus estrellas', () => {
-  it('ningún curso queda en el aire: o está sobre una figura o en la fila del pie', () => {
+  it('los cursos compartidos se repiten: una copia por figura que los incluye', () => {
+    const escena = compose([], ANCHO, ALTO)
+    const teoria1 = escena.estrellas.filter((e) => e.cursoId === 'cur-he-teoria-1')
+    expect(teoria1).toHaveLength(4)
+    expect(new Set(teoria1.map((e) => e.dueno)).size).toBe(4)
+  })
+
+  it('los cursos sin figura flotan entre constelaciones, nunca dentro de una', () => {
     const escena = compose([], ANCHO, ALTO)
     const cajas = escena.siluetas.map((s) => {
       const xs = s.puntos.map((p) => p[0])
       const ys = s.puntos.map((p) => p[1])
-      return { x0: Math.min(...xs) - 8, x1: Math.max(...xs) + 8, y0: Math.min(...ys) - 8, y1: Math.max(...ys) + 8 }
+      return { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) }
     })
-    for (const e of escena.estrellas) {
-      const enFigura = cajas.some((b) => e.x >= b.x0 && e.x <= b.x1 && e.y >= b.y0 && e.y <= b.y1)
-      expect(enFigura || e.y > ALTO - 60, `${e.cursoId} en ${e.x.toFixed(0)},${e.y.toFixed(0)}`).toBe(true)
+    const sueltos = escena.estrellas.filter((e) => e.dueno === null)
+    expect(sueltos).toHaveLength(12)
+    for (const e of sueltos) {
+      const dentro = cajas.some((b) => e.x > b.x0 && e.x < b.x1 && e.y > b.y0 && e.y < b.y1)
+      expect(dentro, `${e.cursoId} en ${e.x.toFixed(0)},${e.y.toFixed(0)}`).toBe(false)
     }
-  })
-
-  it('la fila del pie reúne tronco y cursos que no tienen figura', () => {
-    const escena = compose([], ANCHO, ALTO)
-    const pie = escena.estrellas.filter((e) => e.y > ALTO - 60)
-    expect(pie.length).toBeGreaterThanOrEqual(6)
   })
 })

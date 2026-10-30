@@ -8,12 +8,16 @@ import type { Nivel } from './niveles'
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace' | 'oculto'
 
 export interface Estrella {
+  /** Única: un curso puede tener una copia por figura que lo incluye. */
+  clave: string
   cursoId: string
   x: number
   y: number
   estado: EstadoEstrella
   /** Programa al que se atribuye la estrella: el énfasis dueño, o la maestría en el tronco. */
   en: string[]
+  /** Plan cuya figura la sostiene; null si flota entre constelaciones. */
+  dueno: string | null
 }
 
 export interface FiguraDibujo {
@@ -93,41 +97,148 @@ const centroDe = (pts: Punto[]): Punto => [
  *   figuras, cada una con sus cursos exclusivos; lo que comparte un subconjunto
  *   de énfasis se ubica entre sus figuras.
  */
+/**
+ * El mapa base del universo: una copia de cada curso por figura que lo incluye,
+ * y una copia suelta para los que no tienen figura —el tronco de la Escuela y el
+ * plan común de cada maestría—, repartidos por los huecos entre constelaciones.
+ * Así ninguna figura parece incompleta y el cielo no tiene filas.
+ */
+function mapaDelUniverso(siluetas: Silueta[], ancho: number, alto: number): Estrella[] {
+  const estrellas: Estrella[] = []
+  const conDueno = new Set<string>()
+
+  for (const s of siluetas) {
+    const propios = propiosOf(s.programaId)
+    if (!propios.length) continue
+    const posiciones = placeOnFigure(s.puntos, propios.length)
+    propios.forEach((cursoId, i) => {
+      estrellas.push({
+        clave: `${s.programaId}:${cursoId}`,
+        cursoId,
+        x: posiciones[i][0],
+        y: posiciones[i][1],
+        estado: 'nebulosa',
+        en: [s.programaId],
+        dueno: s.programaId,
+      })
+      conDueno.add(cursoId)
+    })
+  }
+
+  // los que no tienen figura: flotan en los huecos
+  const sueltos = Object.values(curriculum.cursos).filter((c) => !conDueno.has(c.id))
+  const cajas = siluetas.map((s) => {
+    const xs = s.puntos.map((p) => p[0])
+    const ys = s.puntos.map((p) => p[1])
+    return { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) }
+  })
+  const ocupados: Punto[] = estrellas.map((e) => [e.x, e.y] as Punto)
+
+  let semilla = 20261101
+  const azar = () => {
+    semilla |= 0
+    semilla = (semilla + 0x6d2b79f5) | 0
+    let t = Math.imul(semilla ^ (semilla >>> 15), 1 | semilla)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+
+  /** Rechaza puntos dentro de una figura o demasiado cerca de otra estrella. */
+  const libre = (x: number, y: number, margen: number) => {
+    for (const b of cajas) {
+      if (x > b.x0 - margen && x < b.x1 + margen && y > b.y0 - margen && y < b.y1 + margen) return false
+    }
+    return ocupados.every(([ox, oy]) => Math.hypot(ox - x, oy - y) > 30)
+  }
+
+  /** A qué maestría pertenece un curso suelto (por nombre, que es lo que trae el dato). */
+  const maestriaDe = (nombres: string[]) => {
+    const p = Object.values(curriculum.programas).find((x) => nombres.includes(x.nombreCorto))
+    return p ? (p.maestriaId ?? p.id) : null
+  }
+
+  for (const c of sueltos) {
+    // el plan común de una maestría flota dentro de su región
+    const mid = c.maestrias.length ? maestriaDe(c.maestrias) : null
+    const familia = mid
+      ? siluetas.filter((s) => {
+          const prog = curriculum.programas[s.programaId]
+          return prog && (prog.id === mid || prog.padreId === mid || prog.maestriaId === mid)
+        })
+      : []
+    const zona = familia.length
+      ? {
+          x0: Math.min(...familia.flatMap((s) => s.puntos.map((p) => p[0]))),
+          x1: Math.max(...familia.flatMap((s) => s.puntos.map((p) => p[0]))),
+          y0: Math.min(...familia.flatMap((s) => s.puntos.map((p) => p[1]))),
+          y1: Math.max(...familia.flatMap((s) => s.puntos.map((p) => p[1]))),
+        }
+      : { x0: 60, x1: ancho - 60, y0: 60, y1: alto - 60 }
+
+    let x = (zona.x0 + zona.x1) / 2
+    let y = (zona.y0 + zona.y1) / 2
+    let hallado = false
+    for (let intento = 0; intento < 400 && !hallado; intento++) {
+      const cx = zona.x0 + azar() * (zona.x1 - zona.x0)
+      const cy = zona.y0 + azar() * (zona.y1 - zona.y0)
+      if (libre(cx, cy, 14)) {
+        x = cx
+        y = cy
+        hallado = true
+      }
+    }
+    // si la zona está muy llena, se busca en espiral desde su centro
+    for (let radio = 40; radio < 460 && !hallado; radio += 24) {
+      for (let giro = 0; giro < 12 && !hallado; giro++) {
+        const ang = (giro / 12) * Math.PI * 2
+        const cx = Math.min(ancho - 40, Math.max(40, (zona.x0 + zona.x1) / 2 + Math.cos(ang) * radio))
+        const cy = Math.min(alto - 40, Math.max(40, (zona.y0 + zona.y1) / 2 + Math.sin(ang) * radio))
+        if (libre(cx, cy, 14)) {
+          x = cx
+          y = cy
+          hallado = true
+        }
+      }
+    }
+    ocupados.push([x, y])
+    estrellas.push({
+      clave: `suelto:${c.id}`,
+      cursoId: c.id,
+      x,
+      y,
+      estado: 'nebulosa',
+      en: [],
+      dueno: null,
+    })
+  }
+
+  return estrellas
+}
+
 export function compose(
   seleccion: string[],
   ancho: number,
   alto: number,
   nivel: Nivel = 'maestria',
 ): Escena {
-  const aNebulosa = nebulaToViewport(ancho, alto)
-  const estrellas = new Map<string, Estrella>()
-
-  for (const id of Object.keys(curriculum.cursos)) {
-    const [x, y] = aNebulosa(id)
-    estrellas.set(id, { cursoId: id, x, y, estado: 'nebulosa', en: [] })
-  }
+  const siluetas = siluetasDelCielo(ancho, alto)
+  const estrellas = mapaDelUniverso(siluetas, ancho, alto)
 
   const activo = seleccion.find((id) => curriculum.programas[id])
   if (!activo) {
-    const siluetas = siluetasDelCielo(ancho, alto)
     if (nivel === 'especializado') return componerFragmentos(siluetas, estrellas, ancho, alto)
     if (nivel === 'curso') colocarUmbrales(siluetas, estrellas)
-    else colocarEnFiguras(siluetas, estrellas, ancho, alto)
     return {
       ancho,
       alto,
-      estrellas: [...estrellas.values()],
+      estrellas,
       figuras: [],
       nucleo: [],
       eje: null,
       siluetas,
-      limites: limitesDeMaestria(siluetas),
+      limites: nivel === 'curso' ? [] : limitesDeMaestria(siluetas),
     }
   }
-
-  /* El fondo es el universo: cada curso en su figura. El programa elegido
-     despega desde ahí, no desde posiciones que ya no se ven. */
-  colocarEnFiguras(siluetasDelCielo(ancho, alto), estrellas, ancho, alto)
 
   const hijos = hijosDe(activo)
   return hijos.length >= 2
@@ -146,7 +257,7 @@ export function compose(
  */
 function componerFragmentos(
   siluetas: Silueta[],
-  estrellas: Map<string, Estrella>,
+  estrellas: Estrella[],
   ancho: number,
   alto: number,
 ): Escena {
@@ -175,7 +286,7 @@ function componerFragmentos(
     const propios = padreId ? propiosOf(padreId) : []
     const posiciones = placeOnFigure(figura, Math.max(propios.length, cursos.length))
     cursos.forEach((cursoId) => {
-      const e = estrellas.get(cursoId)
+      const e = estrellas.find((s) => s.dueno === padreId && s.cursoId === cursoId)
       if (!e) return
       const i = propios.indexOf(cursoId)
       const p = posiciones[i >= 0 ? i : cursos.indexOf(cursoId)]
@@ -187,15 +298,16 @@ function componerFragmentos(
     dibujadas.push({ programaId: padreId ?? pe.id, puntos: figura, objetivo: pe.id })
   }
 
-  const enFragmento = new Set(dibujadas.map((s) => s.objetivo))
-  for (const e of estrellas.values()) {
-    if (!enFragmento.has(e.en[0])) e.estado = 'nebulosa'
+  // el resto queda de fondo: la figura muestra su plan completo, atenuado
+  const encendidas = new Set(estrellas.filter((e) => e.estado === 'figura').map((e) => e.clave))
+  for (const e of estrellas) {
+    if (!encendidas.has(e.clave)) e.estado = 'nebulosa'
   }
 
   return {
     ancho,
     alto,
-    estrellas: [...estrellas.values()],
+    estrellas,
     figuras: [],
     nucleo: [],
     eje: null,
@@ -208,12 +320,13 @@ function componerFragmentos(
 /* Una figura sola                                                     */
 /* ------------------------------------------------------------------ */
 
-function componerFigura(programaId: string, estrellas: Map<string, Estrella>, ancho: number, alto: number): Escena {
+function componerFigura(programaId: string, estrellas: Estrella[], ancho: number, alto: number): Escena {
   const nucleo = nucleoOf(programaId)
   const baseY = alto - Math.max(64, alto * 0.075)
   const nucleoPts = fila(nucleo, ancho, baseY)
   nucleo.forEach((cursoId, i) => {
-    const e = estrellas.get(cursoId)!
+    const e = estrellas.find((s) => s.dueno === null && s.cursoId === cursoId)
+    if (!e) return
     e.x = nucleoPts[i][0]
     e.y = nucleoPts[i][1]
     e.estado = 'nucleo'
@@ -226,7 +339,7 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
     return {
       ancho,
       alto,
-      estrellas: [...estrellas.values()],
+      estrellas,
       figuras: [],
       nucleo: nucleoPts,
       eje: null,
@@ -242,19 +355,20 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
   const posiciones = placeOnFigure(canonica, propios.length)
 
   propios.forEach((cursoId, i) => {
-    const e = estrellas.get(cursoId)!
+    const e = estrellas.find((s) => s.dueno === programaId && s.cursoId === cursoId)
+    if (!e) return
     e.x = posiciones[i][0]
     e.y = posiciones[i][1]
     e.estado = 'figura'
     e.en = [programaId]
   })
 
-  const primera = estrellas.get(propios[0])
+  const primera = estrellas.find((s) => s.dueno === programaId && s.cursoId === propios[0])
   const centroTronco = centroDe(nucleoPts)
   return {
     ancho,
     alto,
-    estrellas: [...estrellas.values()],
+    estrellas,
     figuras: [{ programaId, puntos: canonica, anclaje: null }],
     nucleo: nucleoPts,
     eje: primera ? [centroTronco, [primera.x, primera.y]] : null,
@@ -270,7 +384,7 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
 function componerFamilia(
   maestriaId: string,
   hijos: ReturnType<typeof hijosDe>,
-  estrellas: Map<string, Estrella>,
+  estrellas: Estrella[],
   ancho: number,
   alto: number,
 ): Escena {
@@ -290,7 +404,8 @@ function componerFamilia(
   const baseY = alto - Math.max(58, alto * 0.055)
   const nucleoPts = fila([...nucleo], ancho, baseY)
   ;[...nucleo].forEach((cursoId, i) => {
-    const e = estrellas.get(cursoId)!
+    const e = estrellas.find((s) => s.dueno === null && s.cursoId === cursoId)
+    if (!e) return
     e.x = nucleoPts[i][0]
     e.y = nucleoPts[i][1]
     e.estado = 'nucleo'
@@ -327,7 +442,8 @@ function componerFamilia(
       const posiciones = placeOnFigure(canonica, exclusivos.length)
 
       exclusivos.forEach((cursoId, q) => {
-        const e = estrellas.get(cursoId)!
+        const e = estrellas.find((s) => s.dueno === h.id && s.cursoId === cursoId)
+        if (!e) return
         e.x = posiciones[q][0]
         e.y = posiciones[q][1]
         e.estado = 'figura'
@@ -352,18 +468,25 @@ function componerFamilia(
     const centros = duenos.map((id) => centrosHijo.get(id)!).filter(Boolean)
     const c = centroDe(centros)
     cursos.forEach((cursoId, i) => {
-      const e = estrellas.get(cursoId)!
-      e.x = c[0]
-      e.y = c[1] + (i - (cursos.length - 1) / 2) * 42
-      e.estado = 'enlace'
-      e.en = duenos
+      // una sola copia va a la columna; las demás se apagan para no duplicar
+      const copias = estrellas.filter((s) => s.cursoId === cursoId)
+      copias.forEach((e, n) => {
+        if (n > 0) {
+          e.estado = 'oculto'
+          return
+        }
+        e.x = c[0]
+        e.y = c[1] + (i - (cursos.length - 1) / 2) * 42
+        e.estado = 'enlace'
+        e.en = duenos
+      })
     })
   }
 
   return {
     ancho,
     alto,
-    estrellas: [...estrellas.values()],
+    estrellas,
     figuras,
     nucleo: nucleoPts,
     eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
@@ -373,65 +496,17 @@ function componerFamilia(
 }
 
 /**
- * El universo: cada figura lleva sus estrellas. Los cursos propios se reparten
- * sobre la silueta de su plan, en el mismo sitio que en la constelación; los del
- * tronco, que son de todos, van a una fila al pie. Nadie queda en el aire.
- */
-function colocarEnFiguras(
-  siluetas: Silueta[],
-  estrellas: Map<string, Estrella>,
-  ancho: number,
-  alto: number,
-): void {
-  const puestas = new Set<string>()
-
-  for (const s of siluetas) {
-    const propios = propiosOf(s.programaId).filter((id) => !puestas.has(id))
-    if (!propios.length) continue
-    const posiciones = placeOnFigure(s.puntos, propios.length)
-    propios.forEach((id, i) => {
-      const e = estrellas.get(id)
-      if (!e) return
-      e.x = posiciones[i][0]
-      e.y = posiciones[i][1]
-      e.en = [s.programaId]
-      puestas.add(id)
-    })
-  }
-
-  // el tronco —los que son de toda la Escuela— y algún suelto, en una fila al pie
-  const tronco = Object.values(curriculum.cursos).filter((c) => !puestas.has(c.id))
-  if (tronco.length) {
-    const puntos = fila(
-      tronco.map((c) => c.id),
-      ancho,
-      alto - 30,
-    )
-    tronco.forEach((c, i) => {
-      const e = estrellas.get(c.id)
-      if (!e) return
-      e.x = puntos[i][0]
-      e.y = puntos[i][1]
-      e.en = []
-      puestas.add(c.id)
-    })
-  }
-
-  for (const e of estrellas.values()) if (!puestas.has(e.cursoId)) e.estado = 'oculto'
-}
-
-/**
  * A la escala del umbral, cada curso se acerca a la constelación que lo abre:
  * los umbrales de un programa orbitan su figura. No buscan la posición exacta
  * de otras escalas —el curso es una puerta, no un punto del plan— pero sí el
  * sitio: se ve de qué programa es puerta antes de leer nada.
  */
-function colocarUmbrales(siluetas: Silueta[], estrellas: Map<string, Estrella>): void {
+function colocarUmbrales(siluetas: Silueta[], estrellas: Estrella[]): void {
   const casa = new Map<string, { centro: Punto; cursos: string[] }>()
   const porFigura = new Map(siluetas.map((s) => [s.programaId, s.puntos]))
 
   for (const c of Object.values(curriculum.cursos)) {
-    const e = estrellas.get(c.id)
+    const e = estrellas.find((s) => s.cursoId === c.id && s.dueno !== null) ?? estrellas.find((s) => s.cursoId === c.id)
     if (!e) continue
     if (!c.umbral) {
       e.estado = 'oculto'
@@ -449,7 +524,7 @@ function colocarUmbrales(siluetas: Silueta[], estrellas: Map<string, Estrella>):
   for (const { centro, cursos } of casa.values()) {
     const n = cursos.length
     cursos.forEach((cursoId, i) => {
-      const e = estrellas.get(cursoId)!
+      const e = estrellas.find((s) => s.cursoId === cursoId && s.estado === 'nebulosa')!
       const ang = -Math.PI / 2 + (i * 2 * Math.PI) / n
       e.x = centro[0] + Math.cos(ang) * 128
       e.y = centro[1] + Math.sin(ang) * 104
@@ -457,6 +532,11 @@ function colocarUmbrales(siluetas: Silueta[], estrellas: Map<string, Estrella>):
       e.en = []
     })
   }
+
+  // las copias que no se usaron se apagan
+  const usadas = new Set<string>()
+  for (const grupo of casa.values()) for (const id of grupo.cursos) usadas.add(id)
+  for (const e of estrellas) if (!usadas.has(e.cursoId)) e.estado = 'oculto'
 }
 
 /**

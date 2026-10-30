@@ -67,7 +67,7 @@
   const colorEstrella = (en: string[]) => (en.length ? colorDe(en[0]) : 'var(--c-ink)')
 
   $effect(() => {
-    const objetivo = new Map<string, Punto>(escena.estrellas.map((e) => [e.cursoId, [e.x, e.y] as Punto]))
+    const objetivo = new Map<string, Punto>(escena.estrellas.map((e) => [e.clave, [e.x, e.y] as Punto]))
     const desde = untrack(() => new Map<string, Punto>(Object.entries(pos) as [string, Punto][]))
 
     cancelAnimationFrame(raf)
@@ -293,9 +293,9 @@
   </g>
 
   <g class="estrellas">
-    {#each escena.estrellas as e (e.cursoId)}
+    {#each escena.estrellas as e (e.clave)}
       {@const c = curriculum.cursos[e.cursoId]}
-      {@const p = pos[e.cursoId] ?? [e.x, e.y]}
+      {@const p = pos[e.clave] ?? [e.x, e.y]}
       {@const r = enFragmento ? 7 : radioDe(c.nProgramas)}
       {#if e.estado === 'oculto'}
         <!-- fuera de esta escala -->

@@ -144,7 +144,8 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] El fragmento usa la posición canónica del curso en su figura
 - [x] Rótulo de figura con la marca de familia, como siluetas y regiones
 - [x] **Paso 1 del mapa único**: el universo lleva sus estrellas; cada curso sobre el trazo de su plan
-- [x] La fila del pie reúne tronco y cursos sin figura
+- [x] Un curso, una estrella por figura: los compartidos se repiten
+- [x] Los cursos sin figura flotan entre constelaciones, nunca en fila
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

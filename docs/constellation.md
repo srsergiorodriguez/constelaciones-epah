@@ -162,8 +162,15 @@ Sin selección, los 83 cursos **están sobre sus figuras**: cada plan lleva sus 
 sitio en que aparecen al abrirlo. Lo que se mueve al elegir un programa no es el mapa, es el zoom.
 
 Las quince figuras conservan su dispersión sembrada —se agrupan por maestría y se tocan—, pero ya no
-están huecas. Los cursos que no tienen figura propia —los seis de la Escuela y los del plan común de
-una maestría— van a una fila al pie, como el tronco en la constelación.
+están huecas.
+
+**Un curso puede tener varias estrellas.** Si un plan comparte un curso con otro, cada figura dibuja
+su propia copia: el Seminario teoría 1 aparece cuatro veces, una por cada énfasis de Humanidades que
+lo incluye. Ninguna figura parece incompleta, y enfocar el curso enciende sus cuatro copias.
+
+**Los que no tienen figura flotan entre constelaciones.** Los seis cursos de la Escuela y los del plan
+común de una maestría se siembran en los huecos: nunca dentro de una figura, siempre en el espacio
+entre ellas. Nada de filas: un cielo no alinea sus estrellas.
 
 
 
