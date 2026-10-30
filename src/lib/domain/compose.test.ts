@@ -106,10 +106,16 @@ describe('separación de las siluetas', () => {
 })
 
 describe('escalas', () => {
-  it('el universo dibuja una región por maestría con énfasis', () => {
+  it('el universo dibuja una región por cada maestría, con o sin énfasis', () => {
     const escena = compose([], ANCHO, ALTO)
     const ids = escena.limites.map((l) => l.programaId).sort()
-    expect(ids).toEqual(['mae-creacion', 'mae-gepc', 'mae-he'])
+    expect(ids).toEqual([
+      'mae-creacion',
+      'mae-gepc',
+      'mae-he',
+      'mae-patrimonio',
+      'mae-periodismo',
+    ])
   })
 
   it('en la vista de detalle no hay contornos: la figura ya es la forma', () => {

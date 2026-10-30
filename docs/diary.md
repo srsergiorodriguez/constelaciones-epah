@@ -263,3 +263,12 @@ se abrevia. La barra pasa a 190 px para que quepa «Programa Especializado».
 regla. Se recuperan 190 px de ancho para el cielo sin tocar ninguna tipografía. *Por qué:* la escala
 y la lista son la misma navegación —qué mirar y a qué resolución— y estaban ocupando dos columnas
 para decir una cosa.
+
+---
+
+## 2026-10-30 · Toda maestría se nombra
+
+**Periodismo y Patrimonio cultural no tenían región.** La regla era «una región por maestría con
+énfasis», así que las dos de plan único solo se nombraban al pasar el cursor. Ahora cada maestría
+recibe su envolvente: la de sus énfasis si los tiene, la de su única figura si no. El contorno de una
+sola figura es una cápsula apretada, y está bien: dice que ese título y ese plan son la misma cosa.

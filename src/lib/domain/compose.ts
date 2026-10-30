@@ -429,12 +429,17 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
   })
 }
 
-/** Región de cada maestría con énfasis: la envolvente de las figuras de sus hijos. */
+/**
+ * Región de cada maestría: la envolvente de las figuras que le pertenecen.
+ * Las que no tienen énfasis tienen una sola figura —su plan único— y también
+ * la reciben: toda maestría se nombra, tenga variantes o no.
+ */
 function limitesDeMaestria(siluetas: Silueta[]): Silueta[] {
   const salida: Silueta[] = []
   for (const m of Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')) {
     const hijos = hijosDe(m.id).map((h) => h.id)
-    const puntos = siluetas.filter((s) => hijos.includes(s.programaId)).flatMap((s) => s.puntos)
+    const propias = hijos.length > 0 ? hijos : [m.id]
+    const puntos = siluetas.filter((s) => propias.includes(s.programaId)).flatMap((s) => s.puntos)
     if (puntos.length < 4) continue
     salida.push({ programaId: m.id, puntos: envolvente(puntos, 24) })
   }

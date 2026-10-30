@@ -105,9 +105,11 @@ compromiso, y la escala se elige en una **barra vertical** a la izquierda del se
 Cambiar de escala **no rehace el cielo**: cambia el peso de lo que ya está dibujado y filtra la
 lista. La posición de todo es la misma en las cuatro.
 
-**La contención se dibuja con una línea.** Una maestría es un contorno discontinuo alrededor de las
-figuras de sus énfasis. El especializado no necesita contorno: al abrirlo, su figura se dibuja con
-sus cuatro estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
+**La contención se dibuja con una línea.** Cada maestría es un contorno discontinuo alrededor de las
+figuras que le pertenecen: en las que tienen énfasis, alrededor de sus énfasis; en las de plan único
+—Periodismo, Patrimonio cultural— alrededor de su única figura. Toda maestría se nombra, tenga
+variantes o no. El especializado no necesita contorno: al abrirlo, su figura se dibuja con sus cuatro
+estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
 No hay galaxias ni órbitas: el cielo gana fronteras, no astros nuevos.
 
 **El énfasis no es una escala.** Es una variante de la maestría: los mismos 36 créditos con una
