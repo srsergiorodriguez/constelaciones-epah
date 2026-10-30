@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { cursosOf } from './graph'
 import { compose, propiosOf } from './compose'
 import { nucleoOf } from './graph'
 import { curriculum } from '../data/types'
@@ -121,5 +122,31 @@ describe('escalas', () => {
   it('en la vista de detalle no hay contornos: la figura ya es la forma', () => {
     expect(compose(['pe-creacion-arte'], ANCHO, ALTO).limites).toHaveLength(0)
     expect(compose(['mae-creacion'], ANCHO, ALTO).limites).toHaveLength(0)
+  })
+})
+
+describe('escala del especializado', () => {
+  it('dibuja trece fragmentos: la figura del énfasis con sus cuatro estrellas', () => {
+    const escena = compose([], ANCHO, ALTO, 'especializado')
+    expect(escena.siluetas).toHaveLength(13)
+    expect(escena.limites).toHaveLength(0)
+    for (const s of escena.siluetas) {
+      expect(curriculum.programas[s.objetivo!].tipo).toBe('programa_especializado')
+    }
+    // tantas estrellas encendidas como cursos distintos en los cuerpos de especialización
+    const esperados = new Set<string>()
+    for (const pe of Object.values(curriculum.programas).filter(
+      (p) => p.tipo === 'programa_especializado',
+    )) {
+      for (const c of cursosOf(pe.id)) esperados.add(c)
+    }
+    const encendidas = escena.estrellas.filter((e) => e.estado === 'figura')
+    expect(encendidas.length).toBe(esperados.size)
+  })
+
+  it('las maestrías sin programa especializado no aparecen a esa escala', () => {
+    const ids = compose([], ANCHO, ALTO, 'especializado').siluetas.map((s) => s.objetivo)
+    expect(ids).not.toContain('mae-periodismo')
+    expect(ids).not.toContain('mae-patrimonio')
   })
 })

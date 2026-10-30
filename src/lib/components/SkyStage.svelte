@@ -97,7 +97,10 @@
   })
 
   const anillos = [180, 280, 380, 480, 580]
-  const enNebulosa = $derived(seleccion.length === 0)
+  const sinPrograma = $derived(seleccion.length === 0)
+  /** En la escala del especializado el cielo se lee como fragmentos, no como nebulosa. */
+  const enFragmento = $derived(sinPrograma && nivel === 'especializado')
+  const enNebulosa = $derived(sinPrograma && !enFragmento)
 </script>
 
 <svg
@@ -138,10 +141,11 @@
     {/each}
   </g>
 
-  {#if enNebulosa}
+  {#if sinPrograma}
     <g class="selector-siluetas nivel-{nivel}">
       {#each escena.siluetas as s (s.programaId)}
-        {@const p = curriculum.programas[s.programaId]}
+        {@const objetivo = s.objetivo ?? s.programaId}
+        {@const p = curriculum.programas[objetivo]}
         {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
         {@const by = Math.max(...s.puntos.map((q) => q[1]))}
         {@const anchoEt = Math.max(72, p.nombreCorto.length * 7.4 + 22)}
@@ -157,11 +161,11 @@
           onmouseleave={() => (siluetaHover = null)}
           onfocus={() => (siluetaHover = s.programaId)}
           onblur={() => (siluetaHover = null)}
-          onclick={() => onElegir(s.programaId)}
+          onclick={() => onElegir(objetivo)}
           onkeydown={(ev) => {
             if (ev.key === 'Enter' || ev.key === ' ') {
               ev.preventDefault()
-              onElegir(s.programaId)
+              onElegir(objetivo)
             }
           }}
         >
@@ -172,7 +176,7 @@
             r="46"
             fill="transparent"
           />
-          <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(s.programaId)} />
+          <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(objetivo)} />
           <g class="etiqueta">
             <rect
               x={etX - anchoEt / 2}
@@ -217,8 +221,9 @@
     {#each escena.estrellas as e (e.cursoId)}
       {@const c = curriculum.cursos[e.cursoId]}
       {@const p = pos[e.cursoId] ?? [e.x, e.y]}
-      {@const r = radioDe(c.nProgramas)}
+      {@const r = enFragmento ? 7 : radioDe(c.nProgramas)}
       {#if e.estado === 'nebulosa'}
+        {#if !enFragmento}
         {@const fam = familiaDe(e.cursoId)}
         <circle
           cx={p[0]}
@@ -227,6 +232,7 @@
           fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
           opacity={enNebulosa ? 0.62 : 0.22}
         />
+        {/if}
       {:else}
         {@const color = colorEstrella(e.en)}
         <g
@@ -257,6 +263,7 @@
           x={p[0] + r + 7}
           y={p[1] - r - 2}
           class="código"
+          class:fragmento={enFragmento}
           class:visible={!viajando || resaltado === e.cursoId}
         >{c.codigo}</text>
       {/if}
@@ -406,6 +413,11 @@
     opacity: 0;
     transition: opacity var(--t-base) var(--ease) 240ms;
     pointer-events: none;
+  }
+
+  .código.fragmento {
+    font-size: 9.5px;
+    fill: var(--c-ink-3);
   }
 
   .código.visible {

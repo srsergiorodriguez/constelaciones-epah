@@ -3,6 +3,7 @@ import { cursosOf, nucleoOf } from './graph'
 import { figureOf, placeOnFigure, type Punto } from './figures'
 import { nebulaToViewport } from './nebula'
 import { envolvente } from './hull'
+import type { Nivel } from './niveles'
 
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace'
 
@@ -26,6 +27,8 @@ export interface FiguraDibujo {
 export interface Silueta {
   programaId: string
   puntos: Punto[]
+  /** Qué programa se elige al hacer clic, si no es la figura misma. */
+  objetivo?: string
 }
 
 export interface Escena {
@@ -90,7 +93,12 @@ const centroDe = (pts: Punto[]): Punto => [
  *   figuras, cada una con sus cursos exclusivos; lo que comparte un subconjunto
  *   de énfasis se ubica entre sus figuras.
  */
-export function compose(seleccion: string[], ancho: number, alto: number): Escena {
+export function compose(
+  seleccion: string[],
+  ancho: number,
+  alto: number,
+  nivel: Nivel = 'maestria',
+): Escena {
   const aNebulosa = nebulaToViewport(ancho, alto)
   const estrellas = new Map<string, Estrella>()
 
@@ -102,6 +110,7 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
   const activo = seleccion.find((id) => curriculum.programas[id])
   if (!activo) {
     const siluetas = siluetasDelCielo(ancho, alto)
+    if (nivel === 'especializado') return componerFragmentos(siluetas, estrellas, ancho, alto)
     return {
       ancho,
       alto,
@@ -118,6 +127,59 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
   return hijos.length >= 2
     ? componerFamilia(activo, hijos, estrellas, ancho, alto)
     : componerFigura(activo, estrellas, ancho, alto)
+}
+
+/* ------------------------------------------------------------------ */
+/* La escala del especializado: trece fragmentos                        */
+/* ------------------------------------------------------------------ */
+
+/**
+ * A doce créditos, cada programa especializado es un fragmento de su énfasis:
+ * la figura queda de fantasma y se encienden solo sus cuatro estrellas.
+ * Las maestrías de plan único no tienen puerta de doce créditos y no aparecen.
+ */
+function componerFragmentos(
+  siluetas: Silueta[],
+  estrellas: Map<string, Estrella>,
+  ancho: number,
+  alto: number,
+): Escena {
+  const pes = Object.values(curriculum.programas).filter((p) => p.tipo === 'programa_especializado')
+  const porPadre = new Map(siluetas.map((s) => [s.programaId, s.puntos]))
+  const dibujadas: Silueta[] = []
+
+  for (const pe of pes) {
+    const padreId = pe.padreId
+    const figura = padreId ? porPadre.get(padreId) : null
+    if (!figura) continue
+    const cursos = ordenarPorPlan(pe.id, cursosOf(pe.id))
+    const posiciones = placeOnFigure(figura, cursos.length)
+    cursos.forEach((cursoId, i) => {
+      const e = estrellas.get(cursoId)
+      if (!e) return
+      e.x = posiciones[i][0]
+      e.y = posiciones[i][1]
+      e.estado = 'figura'
+      e.en = [pe.id]
+    })
+    dibujadas.push({ programaId: padreId!, puntos: figura, objetivo: pe.id })
+  }
+
+  const enFragmento = new Set(dibujadas.map((s) => s.objetivo))
+  for (const e of estrellas.values()) {
+    if (!enFragmento.has(e.en[0])) e.estado = 'nebulosa'
+  }
+
+  return {
+    ancho,
+    alto,
+    estrellas: [...estrellas.values()],
+    figuras: [],
+    nucleo: [],
+    eje: null,
+    siluetas: dibujadas,
+    limites: [],
+  }
 }
 
 /* ------------------------------------------------------------------ */

@@ -127,6 +127,7 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] La escala filtra la lista y re-pondera el cielo; no rehace el layout
 - [x] Regiones: contorno discontinuo por maestría con sus énfasis dentro
 - [x] Sin contornos en la vista de detalle: la figura ya es la forma
+- [x] Escala del especializado: trece fragmentos (figura fantasma + cuatro estrellas)
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas
 

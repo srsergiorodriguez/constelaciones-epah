@@ -24,7 +24,7 @@
   let nivel = $state<Nivel>('maestria')
   let cursoAbierto = $state<string | null>(null)
 
-  const escena = $derived(compose(seleccion, ANCHO, ALTO))
+  const escena = $derived(compose(seleccion, ANCHO, ALTO, nivel))
 
   const cursoActivo = $derived(cursoAbierto ? curriculum.cursos[cursoAbierto] : null)
 

@@ -272,3 +272,18 @@ para decir una cosa.
 énfasis», así que las dos de plan único solo se nombraban al pasar el cursor. Ahora cada maestría
 recibe su envolvente: la de sus énfasis si los tiene, la de su única figura si no. El contorno de una
 sola figura es una cápsula apretada, y está bien: dice que ese título y ese plan son la misma cosa.
+
+---
+
+## 2026-10-30 · El fragmento
+
+**A doce créditos, el cielo muestra fragmentos.** Cada programa especializado se dibuja sobre la
+figura de su énfasis, en fantasma, con solo sus cuatro estrellas encendidas. *Por qué:* un
+especializado es literalmente un trozo del plan —cuatro de sus doce cursos—, y esa es la única forma
+de que el cielo muestre a la vez de dónde sale y hacia dónde homologa.
+
+**Periodismo y Patrimonio cultural desaparecen a esa escala.** No tienen puerta de doce créditos. La
+ausencia es información, no un olvido: el escalón dice cuáles son las puertas que existen.
+
+**Tres escalas, tres estados del mismo cielo:** estrellas sueltas (un curso), fragmentos (doce
+créditos), figuras y regiones (el título). Ninguna posición cambia entre una y otra.

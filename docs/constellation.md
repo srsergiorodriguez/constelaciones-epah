@@ -98,7 +98,7 @@ compromiso, y la escala se elige en una **barra vertical** a la izquierda del se
 | Escala | Créditos | Objetos | Qué se ve |
 |---|---|---|---|
 | Un curso | 3 | 83 | estrellas y siluetas al 12 % |
-| Especializado | 12 | 13 | las siluetas al 30 %; al abrir uno, sus cuatro cursos |
+| Especializado | 12 | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
 | Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
 | Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
 
@@ -111,6 +111,14 @@ figuras que le pertenecen: en las que tienen énfasis, alrededor de sus énfasis
 variantes o no. El especializado no necesita contorno: al abrirlo, su figura se dibuja con sus cuatro
 estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
 No hay galaxias ni órbitas: el cielo gana fronteras, no astros nuevos.
+
+**A doce créditos se ve el fragmento.** Un programa especializado es un trozo de su énfasis: cuatro
+cursos de los doce que tiene el plan. Por eso a esa escala la figura queda de fantasma y solo se
+encienden sus cuatro estrellas, con su código. Se ve de dónde sale el fragmento —y hacia dónde
+homologa— sin dibujar dos veces el mismo plan.
+
+Las dos maestrías sin programa especializado (Periodismo, Patrimonio cultural) **no aparecen** a esa
+escala. No es un olvido: no tienen puerta de doce créditos, y esa ausencia es información.
 
 **El énfasis no es una escala.** Es una variante de la maestría: los mismos 36 créditos con una
 especificación. Vive dentro de la región de su maestría, como las figuras que la habitan.
