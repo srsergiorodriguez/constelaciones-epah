@@ -504,3 +504,12 @@ cielo.
 
 **Y los rótulos no se repiten.** En la vista de maestrías, las dos de plan único tienen nombre fijo y
 además aparecía al pasar el cursor. Ahora el rótulo fijo calla al flotante.
+
+---
+
+## 2026-10-30 · El color de las marcas
+
+**Un `fill` de respaldo apagó las familias.** Al mover los estilos de rótulo a `app.css` se añadió un
+`.fondo-etiqueta { fill: var(--hl-ink) }` como red de seguridad. Como quedaba después de las clases
+`.hl-*`, ganaba por orden y todos los rótulos salieron grises. El relleno lo pone una sola clase; sin
+respaldo.

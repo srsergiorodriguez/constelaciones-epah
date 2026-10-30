@@ -106,6 +106,10 @@ Reglas:
   texto, no de estimarlo por caracteres — la estimación fue justo lo que descuadró la marca. Los
   estilos de estos rótulos viven en `app.css` porque los pinta otro componente y el scope de Svelte no
   cruza esa frontera.
+
+  **El relleno de la marca lo pone solo la clase `.hl-*`.** Declarar un `fill` de respaldo en otra
+  regla la pisa por orden de aparición — así se perdieron los colores de familia una vez. La marca
+  siempre llega con su clase; no hay respaldo.
 - **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo, rótulo de una figura al
   pasar el cursor, rótulo de una región (12 px, negrita, MAYÚSCULAS, sobre su marca de familia). Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
 - En SVG la marca es un `rect` con la clase `.hl-*` (que fija `fill` además de `background`), y el

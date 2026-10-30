@@ -137,6 +137,4 @@ button {
   text-anchor: middle;
 }
 
-.fondo-etiqueta {
-  fill: var(--hl-ink);
-}
+/* el relleno lo pone la clase .hl-* — declararlo aquí la pisaba por orden */
