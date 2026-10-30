@@ -180,3 +180,24 @@ describe('umbrales cerca de su figura', () => {
     }
   })
 })
+
+describe('el universo lleva sus estrellas', () => {
+  it('ningún curso queda en el aire: o está sobre una figura o en la fila del pie', () => {
+    const escena = compose([], ANCHO, ALTO)
+    const cajas = escena.siluetas.map((s) => {
+      const xs = s.puntos.map((p) => p[0])
+      const ys = s.puntos.map((p) => p[1])
+      return { x0: Math.min(...xs) - 8, x1: Math.max(...xs) + 8, y0: Math.min(...ys) - 8, y1: Math.max(...ys) + 8 }
+    })
+    for (const e of escena.estrellas) {
+      const enFigura = cajas.some((b) => e.x >= b.x0 && e.x <= b.x1 && e.y >= b.y0 && e.y <= b.y1)
+      expect(enFigura || e.y > ALTO - 60, `${e.cursoId} en ${e.x.toFixed(0)},${e.y.toFixed(0)}`).toBe(true)
+    }
+  })
+
+  it('la fila del pie reúne tronco y cursos que no tienen figura', () => {
+    const escena = compose([], ANCHO, ALTO)
+    const pie = escena.estrellas.filter((e) => e.y > ALTO - 60)
+    expect(pie.length).toBeGreaterThanOrEqual(6)
+  })
+})

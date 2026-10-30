@@ -156,14 +156,21 @@ figura(p)       → posición canónica de los cursos de p  (puro)
 componer(A, B?) → posiciones finales + núcleo           (puro)
 ```
 
-### 4.1 La nebulosa
+### 4.1 El universo
 
-Sin selección, los 83 cursos forman un cielo **al azar**, no un diagrama:
+Sin selección, los 83 cursos **están sobre sus figuras**: cada plan lleva sus estrellas en el mismo
+sitio en que aparecen al abrirlo. Lo que se mueve al elegir un programa no es el mapa, es el zoom.
 
-- Posiciones sembradas, con una separación mínima de 17 px que solo evita que dos estrellas se
-  pisen. Hay huecos y parejas cercanas, como en un cielo de verdad.
-- **La posición no codifica nada.** Nada de cúmulos por maestría: agrupar por facultad convertía el
-  cielo en un diagrama de clusters, justo lo que la metáfora quiere evitar.
+Las quince figuras conservan su dispersión sembrada —se agrupan por maestría y se tocan—, pero ya no
+están huecas. Los cursos que no tienen figura propia —los seis de la Escuela y los del plan común de
+una maestría— van a una fila al pie, como el tronco en la constelación.
+
+
+
+- La dispersión de las figuras se siembra con separación mínima: hay huecos y parejas cercanas, como
+  en un cielo de verdad.
+- **La posición de una figura no codifica nada**, pero la de una estrella sí: va sobre el trazo de su
+  plan.
 - El color sigue distinguiendo la maestría, y una leyenda al pie lo explica. El color informa; la
   posición descansa.
 - Se calcula una vez en build (`atlas.json`) con semilla fija. En pantalla nadie simula: se lee.

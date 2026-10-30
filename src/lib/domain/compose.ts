@@ -112,6 +112,7 @@ export function compose(
     const siluetas = siluetasDelCielo(ancho, alto)
     if (nivel === 'especializado') return componerFragmentos(siluetas, estrellas, ancho, alto)
     if (nivel === 'curso') colocarUmbrales(siluetas, estrellas)
+    else colocarEnFiguras(siluetas, estrellas, ancho, alto)
     return {
       ancho,
       alto,
@@ -123,6 +124,10 @@ export function compose(
       limites: limitesDeMaestria(siluetas),
     }
   }
+
+  /* El fondo es el universo: cada curso en su figura. El programa elegido
+     despega desde ahí, no desde posiciones que ya no se ven. */
+  colocarEnFiguras(siluetasDelCielo(ancho, alto), estrellas, ancho, alto)
 
   const hijos = hijosDe(activo)
   return hijos.length >= 2
@@ -365,6 +370,54 @@ function componerFamilia(
     siluetas: [],
     limites: [],
   }
+}
+
+/**
+ * El universo: cada figura lleva sus estrellas. Los cursos propios se reparten
+ * sobre la silueta de su plan, en el mismo sitio que en la constelación; los del
+ * tronco, que son de todos, van a una fila al pie. Nadie queda en el aire.
+ */
+function colocarEnFiguras(
+  siluetas: Silueta[],
+  estrellas: Map<string, Estrella>,
+  ancho: number,
+  alto: number,
+): void {
+  const puestas = new Set<string>()
+
+  for (const s of siluetas) {
+    const propios = propiosOf(s.programaId).filter((id) => !puestas.has(id))
+    if (!propios.length) continue
+    const posiciones = placeOnFigure(s.puntos, propios.length)
+    propios.forEach((id, i) => {
+      const e = estrellas.get(id)
+      if (!e) return
+      e.x = posiciones[i][0]
+      e.y = posiciones[i][1]
+      e.en = [s.programaId]
+      puestas.add(id)
+    })
+  }
+
+  // el tronco —los que son de toda la Escuela— y algún suelto, en una fila al pie
+  const tronco = Object.values(curriculum.cursos).filter((c) => !puestas.has(c.id))
+  if (tronco.length) {
+    const puntos = fila(
+      tronco.map((c) => c.id),
+      ancho,
+      alto - 30,
+    )
+    tronco.forEach((c, i) => {
+      const e = estrellas.get(c.id)
+      if (!e) return
+      e.x = puntos[i][0]
+      e.y = puntos[i][1]
+      e.en = []
+      puestas.add(c.id)
+    })
+  }
+
+  for (const e of estrellas.values()) if (!puestas.has(e.cursoId)) e.estado = 'oculto'
 }
 
 /**

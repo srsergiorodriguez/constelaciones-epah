@@ -383,3 +383,17 @@ que siluetas y regiones. La regla queda escrita: un rótulo, una marca.
 **El fragmento no recoloca la figura.** Antes repartía cuatro estrellas entre cuatro posiciones; ahora
 cada curso se dibuja en el punto que le toca en el plan de su énfasis. La figura es la misma en las
 dos escalas; lo que cambia es cuántas estrellas están encendidas.
+
+---
+
+## 2026-10-30 · El universo deja de estar hueco
+
+**Cada figura lleva sus estrellas.** Las quince siluetas del universo estaban vacías: los cursos
+flotaban al azar en el campo. Ahora cada plan tiene sus cursos sobre el trazo, en la misma posición en
+que se ven al abrirlo. Cambiar de escala no mueve nada; cambia el zoom.
+
+**La fila del pie.** Los seis cursos de la Escuela —y los del plan común de una maestría— no tienen
+figura propia. Van a una fila al pie, igual que el tronco en la constelación.
+
+**El fondo de la constelación es el universo.** Al elegir un programa, el resto de las estrellas ya no
+salta a posiciones olvidadas: se queda donde estaba, atenuada.
