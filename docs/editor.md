@@ -73,7 +73,8 @@ Planes ya está acotado a sus énfasis, y el plan elegido se mueve al primero qu
 - **Especializado**: «＋ Nuevo especializado» pide un nombre y crea un cuerpo vacío. Si su id coincide
   con un énfasis (`pe-x` ↔ `enf-x`) hereda nombre y familia; si no, el nombre que le diste es el suyo.
   Los cuatro cursos se cargan en «Cuerpos».
-- **Plan común**: si una maestría no tiene, aparece el botón para crearlo; y cada uno se puede borrar.
+- **Plan común**: si una maestría no tiene, aparece el botón para crearlo. **No se borra**: es parte de
+  la estructura de su maestría, igual que su nombre.
 - Todo se puede borrar salvo la Escuela y las maestrías, que son estructura fija.
 
 ## Estructura fija, y lo que puede dejar de serlo
@@ -94,3 +95,4 @@ mostrará cero casillas.
 - Reordenar cursos arrastrando dentro de un plan.
 - Editar figuras: es la Fase 2, con su propio lienzo.
 - Borrar un plan sin borrar su énfasis (hoy van juntos).
+- Borrar un plan común (por decisión: no se borra).

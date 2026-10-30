@@ -235,12 +235,6 @@
     )
   }
 
-  function borrarMarco(id: string) {
-    if (!datos) return
-    if (!confirm(`¿Borrar el plan común de ${nombreDe(id)}?`)) return
-    delete datos.marco[id]
-  }
-
   function borrarEspecializado(id: string) {
     if (!datos) return
     if (!confirm(`¿Borrar ${id}?`)) return
@@ -500,10 +494,7 @@
           </div>
         {/if}
         {#each Object.keys(datos.marco) as m (m)}
-          <h2>
-            {nombreDe(m)} <span class="id">{m}</span>
-            <button class="borrar" onclick={() => borrarMarco(m)} title="Borrar plan común">✕</button>
-          </h2>
+          <h2>{nombreDe(m)} <span class="id">{m}</span></h2>
           <table class="cuadricula">
             <tbody>
               {#each datos!.marco[m] as fila, i (i)}
