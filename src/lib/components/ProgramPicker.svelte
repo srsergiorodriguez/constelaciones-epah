@@ -10,11 +10,22 @@
     nivel: Nivel
     seleccion: string[]
     cursoAbierto: string | null
+    resaltado: string | null
     onToggle: (id: string) => void
     onCurso: (id: string) => void
   }
 
-  let { nivel, seleccion, cursoAbierto, onToggle, onCurso }: Props = $props()
+  let { nivel, seleccion, cursoAbierto, resaltado, onToggle, onCurso }: Props = $props()
+
+  let lista = $state<HTMLUListElement | null>(null)
+
+  // al pasar el cursor por el cielo, la lista va hasta esa fila
+  $effect(() => {
+    const id = resaltado
+    if (!id || !lista) return
+    const fila = lista.querySelector(`[data-curso="${CSS.escape(id)}"]`)
+    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  })
 
   const maestrias = Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')
   const maestriaDe = (id: string) => curriculum.programas[id]?.maestriaId ?? id
@@ -138,7 +149,7 @@
   {#if nivel === 'doctorado'}
     <p class="vacio">El doctorado aún no tiene tabla en el documento maestro. La escala existe; los datos no.</p>
   {:else}
-    <ul>
+    <ul bind:this={lista}>
       {#each filas as fila (fila.clave)}
         {#if fila.tipo === 'grupo'}
           <li><p class="grupo"><span class="marca {marcaDe(fila.id)}">{fila.nombre}</span></p></li>
@@ -164,6 +175,7 @@
               <button
                 class="nombre"
                 class:activo
+                data-curso={fila.tipo === 'curso' ? fila.id : undefined}
                 aria-pressed={activo}
                 onclick={() => (fila.tipo === 'curso' ? onCurso(fila.id) : onToggle(fila.id))}
               >

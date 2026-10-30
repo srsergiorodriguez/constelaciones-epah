@@ -313,3 +313,20 @@ umbral declara qué programa abre. Si mañana el comité agrega umbrales sueltos
 **El especializado se declara, no se calcula.** Hoy se deriva del énfasis, pero esa regla quedó
 aislada en `PE_CUERPOS`: un programa puede traer su propio cuerpo y su `padre_id` puede ser nulo. El
 modelo tolera lo que la derivación prohíbe, que es lo que pedía el cambio.
+
+---
+
+## 2026-10-30 · Leer el cielo
+
+**Los rótulos no se leían.** Los nombres de las maestrías iban en 10 px gris; los de las figuras, en
+12 px. Ahora van en negrita, 12 y 14 px, sobre la marca de familia. El rótulo de una región es parte
+del sistema de diseño, no un detalle del dibujo.
+
+**Pasar el cursor por el cielo mueve la lista.** No solo la resalta: la desplaza hasta la fila. Sin
+eso, la lista y el cielo se señalaban sin encontrarse.
+
+**Los umbrales se pueden tocar.** En la escala más baja los puntos son botones: el cursor enciende la
+fila y el clic abre el detalle del curso.
+
+**Deslizadores de depuración.** Con `?debug`, dos controles escriben `--stroke-const` y
+`--stroke-region` en la raíz. Es la manera de decidir el grosor mirándolo, no adivinándolo.

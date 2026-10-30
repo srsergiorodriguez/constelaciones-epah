@@ -136,7 +136,16 @@
       {@const xEt = Math.min(Math.max(arriba[0], 110), escena.ancho - 110)}
       <path d={envolventePath(l.puntos)} fill="none" stroke={colorDe(l.programaId)} class="region" />
       {#each lineas as linea, i (linea)}
-        <text x={xEt} y={arriba[1] - 12 - (lineas.length - 1 - i) * 13} class="nombre-region">{linea}</text>
+        <rect
+          x={xEt - (linea.length * 7.9 + 18) / 2}
+          y={arriba[1] - 24 - (lineas.length - 1 - i) * 15}
+          width={linea.length * 7.9 + 18}
+          height="17"
+          class="fondo-region {marcaDe(l.programaId)}"
+        />
+      {/each}
+      {#each lineas as linea, i (linea)}
+        <text x={xEt} y={arriba[1] - 11.5 - (lineas.length - 1 - i) * 15} class="nombre-region">{linea}</text>
       {/each}
     {/each}
   </g>
@@ -183,10 +192,10 @@
               x={etX - anchoEt / 2}
               y={etY}
               width={anchoEt}
-              height="22"
+              height="25"
               class="fondo-etiqueta {marcaDe(s.programaId)}"
             />
-            <text x={etX} y={etY + 15.5} class="nombre-silueta">
+            <text x={etX} y={etY + 17} class="nombre-silueta">
               {p.nombreCorto}
             </text>
           </g>
@@ -227,14 +236,45 @@
         <!-- fuera de esta escala -->
       {:else if e.estado === 'nebulosa'}
         {#if !enFragmento}
-        {@const fam = familiaDe(e.cursoId)}
-        <circle
-          cx={p[0]}
-          cy={p[1]}
-          r={Math.max(3.2, r * 0.42)}
-          fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
-          opacity={enNebulosa ? 0.62 : 0.22}
-        />
+          {@const fam = familiaDe(e.cursoId)}
+          {@const rr = Math.max(3.2, r * 0.42)}
+          {#if nivel === 'curso'}
+            <g
+              class="punto-umbral"
+              class:resaltada={resaltado === e.cursoId}
+              role="button"
+              tabindex="0"
+              aria-label="{c.nombre}, {c.creditos} créditos"
+              onmouseenter={() => onHover(e.cursoId)}
+              onmouseleave={() => onHover(null)}
+              onfocus={() => onHover(e.cursoId)}
+              onblur={() => onHover(null)}
+              onclick={() => onAbrirCurso(e.cursoId)}
+              onkeydown={(ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                  ev.preventDefault()
+                  onAbrirCurso(e.cursoId)
+                }
+              }}
+            >
+              <circle cx={p[0]} cy={p[1]} r={Math.max(11, rr * 2.6)} fill="transparent" />
+              <circle
+                cx={p[0]}
+                cy={p[1]}
+                r={rr}
+                fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
+                opacity="0.85"
+              />
+            </g>
+          {:else}
+            <circle
+              cx={p[0]}
+              cy={p[1]}
+              r={rr}
+              fill={fam === 'ink' ? 'var(--c-ink)' : `var(--c-${fam}-3)`}
+              opacity={enNebulosa ? 0.62 : 0.22}
+            />
+          {/if}
         {/if}
       {:else}
         {@const color = colorEstrella(e.en)}
@@ -321,19 +361,22 @@
   }
 
   .region {
-    stroke-width: 1;
-    stroke-dasharray: 5 6;
-    opacity: 0.45;
+    stroke-width: var(--stroke-region);
+    stroke-dasharray: 6 6;
+    opacity: 0.5;
   }
 
   .nombre-region {
     font-family: var(--ff-sans);
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    fill: var(--c-ink-3);
+    fill: var(--c-ink);
     text-anchor: middle;
   }
+
+  /* el relleno lo pone la clase hl-* de app.css, para no pisarla con el scope */
 
   .silueta-selector {
     cursor: pointer;
@@ -371,9 +414,9 @@
 
   .nombre-silueta {
     font-family: var(--ff-sans);
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     fill: var(--c-ink);
     text-anchor: middle;
   }
@@ -390,6 +433,21 @@
 
   .silueta.visible {
     opacity: 0.5;
+  }
+
+  .punto-umbral {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .punto-umbral.resaltada circle:last-of-type {
+    stroke: var(--c-ink);
+    stroke-width: 1.5;
+  }
+
+  .punto-umbral:focus-visible circle:last-of-type {
+    stroke: var(--c-focus);
+    stroke-width: 2;
   }
 
   .estrella {

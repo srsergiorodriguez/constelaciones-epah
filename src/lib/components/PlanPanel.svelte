@@ -26,11 +26,20 @@
     plan.reduce((a, c) => a + (c.cursoId ? curriculum.cursos[c.cursoId].creditos : 3), 0),
   )
 
+  let panel = $state<HTMLElement | null>(null)
+
+  $effect(() => {
+    const id = resaltado
+    if (!id || !panel) return
+    const fila = panel.querySelector(`[data-curso="${CSS.escape(id)}"]`)
+    fila?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  })
+
   const curso = (id: string) => curriculum.cursos[id]
   const nombrePeriodo = (n: number) => `${n}º periodo`
 </script>
 
-<aside class="panel" aria-label="Plan de estudios de {programa?.nombreCorto}">
+<aside class="panel" bind:this={panel} aria-label="Plan de estudios de {programa?.nombreCorto}">
   <header class="cabeza">
     <p class="tipo">{hijos.length > 0 ? 'Plan común de la maestría' : 'Plan de estudios'}</p>
     <p class="meta">
@@ -53,6 +62,7 @@
                 <button
                   class="casilla"
                   class:resaltada={resaltado === c.cursoId}
+                  data-curso={c.cursoId}
                   onmouseenter={() => onHover(c.cursoId)}
                   onmouseleave={() => onHover(null)}
                   onfocus={() => onHover(c.cursoId)}

@@ -83,6 +83,7 @@
   /* Trazos y opacidades */
   --stroke-grid: 0.9;
   --stroke-const: 2.4;
+  --stroke-region: 1;
   --stroke-link: 1.2;
   --stroke-active: 3;
   --op-dim: 0.28;

@@ -102,7 +102,7 @@ Reglas:
 
 - **Es un fondo, nunca texto.** Sobre la marca siempre va tinta `#070707`.
 - **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo, rótulo de una figura al
-  pasar el cursor. Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
+  pasar el cursor, rótulo de una región (12 px, negrita, MAYÚSCULAS, sobre su marca de familia). Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
 - En SVG la marca es un `rect` con la clase `.hl-*` (que fija `fill` además de `background`), y el
   texto encima va en tinta.
 - Se aplica con la clase `.marca` más `.hl-<familia>`; el aire es `0.08em 0.34em`. Nada de estilos
@@ -160,6 +160,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
+| `Debug` | — | panel | Solo con `?debug` en la URL. Dos deslizadores que escriben `--stroke-const` y `--stroke-region` en la raíz. Es una herramienta, no interfaz: no se documenta como componente de producto. |
 | `Region` | `puntos` | visible, oculta | Contorno discontinuo que encierra las figuras de una maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |

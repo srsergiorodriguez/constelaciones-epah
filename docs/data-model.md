@@ -134,8 +134,11 @@ El modelo ya tolera lo que la derivación prohíbe:
 - El cuerpo declarado se valida (4 cursos, 12 créditos) pero **no** se exige que sea subconjunto del
   énfasis: si cuelga de otro sitio, la homologación es otra pregunta.
 
-Falta, cuando exista el caso: una figura propia para el especializado suelto (hoy hereda la del
-énfasis) o un asterismo neutro de cuatro estrellas.
+**El especializado suelto se registra como polígono.** Sin énfasis no hay silueta que heredar, así que
+`compose` le dibuja un **polígono neutro** (`poligonoNeutro` en `hull.ts`) y coloca sus cuatro
+estrellas encima. No es una figura: es la marca de «este programa existe y aún no tiene forma». Cuando
+alguien le dibuje una silueta, entra en `figures.json` y el polígono desaparece. Hoy no hay ninguno,
+así que no se ve; la rama está probada por construcción, no por uso.
 
 > **Créditos de un programa** = Σ (`creditos` × `repeticiones`) **solo de las filas
 > `obligatorio`**. Las alternativas no suman: son caminos posibles, no simultáneos. La suma

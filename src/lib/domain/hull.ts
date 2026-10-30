@@ -51,3 +51,16 @@ export function envolventePath(puntos: Punto[]): string {
   }
   return d + ' Z'
 }
+
+/**
+ * Polígono regular: el contorno de un programa que todavía no tiene figura.
+ * Un especializado puede existir sin colgar de un énfasis (ver data-model.md);
+ * hasta que alguien le dibuje una silueta, se registra como polígono.
+ */
+export function poligonoNeutro(cx: number, cy: number, lado: number, lados = 4): Punto[] {
+  const r = lado / 2
+  return Array.from({ length: lados }, (_, i) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / lados
+    return [cx + Math.cos(a) * r, cy + Math.sin(a) * r] as Punto
+  })
+}

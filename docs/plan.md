@@ -131,6 +131,10 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Escala del curso: solo los 41 umbrales; constelaciones al 12 % y sin interacción
 - [x] `umbral` como propiedad del curso, con procedencia (`umbral_desde`)
 - [x] Cuerpos de especializado declarables (`PE_CUERPOS`), derivación como respaldo
+- [x] Especializado suelto: polígono neutro hasta que tenga figura
+- [x] Hover en el cielo desplaza la lista hasta la fila (selector y plan)
+- [x] Deslizadores de depuración para el grosor de trazos (`?debug`)
+- [x] Rótulos de región y de figura: 12–14 px, negrita y con la marca de familia
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

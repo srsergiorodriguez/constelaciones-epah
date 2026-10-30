@@ -6,11 +6,14 @@
   import PlanPanel from './lib/components/PlanPanel.svelte'
   import CoursePanel from './lib/components/CoursePanel.svelte'
   import Rail from './lib/components/Rail.svelte'
+  import Debug from './lib/components/Debug.svelte'
   import type { Nivel } from './lib/domain/niveles'
   import { colorDe, vivoDe } from './lib/viz/palette'
 
   const ANCHO = 1200
   const ALTO = 900
+
+  const depurando = typeof location !== 'undefined' && location.search.includes('debug')
 
   const desdeHash = (): string[] => {
     if (typeof location === 'undefined') return []
@@ -137,7 +140,7 @@
   <div class="cuerpo">
     <aside class="lateral">
       <Rail {nivel} programaId={seleccion[0] ?? null} onNivel={cambiarNivel} />
-      <ProgramPicker {nivel} {seleccion} {cursoAbierto} onToggle={alternar} onCurso={abrirCurso} />
+      <ProgramPicker {nivel} {seleccion} {cursoAbierto} {resaltado} onToggle={alternar} onCurso={abrirCurso} />
     </aside>
 
     <div class="cielo-contenedor">
@@ -181,6 +184,9 @@
     </div>
     <p class="vivo" aria-live="polite">{aviso}</p>
   </footer>
+  {#if depurando}
+    <Debug />
+  {/if}
 </main>
 
 <style>

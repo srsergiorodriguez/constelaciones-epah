@@ -2,7 +2,7 @@ import { curriculum } from '../data/types'
 import { cursosOf, nucleoOf } from './graph'
 import { figureOf, placeOnFigure, type Punto } from './figures'
 import { nebulaToViewport } from './nebula'
-import { envolvente } from './hull'
+import { envolvente, poligonoNeutro } from './hull'
 import type { Nivel } from './niveles'
 
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace' | 'oculto'
@@ -156,8 +156,18 @@ function componerFragmentos(
 
   for (const pe of pes) {
     const padreId = pe.padreId
-    const figura = padreId ? porPadre.get(padreId) : null
-    if (!figura) continue
+    let figura = padreId ? porPadre.get(padreId) : null
+    if (!figura) {
+      // sin énfasis no hay silueta que heredar: se registra como polígono neutro
+      const n = dibujadas.length
+      const ang = n * 2.399963
+      const radio = 260 + 40 * n
+      figura = poligonoNeutro(
+        ancho / 2 + Math.cos(ang) * radio * 0.62,
+        alto / 2 + Math.sin(ang) * radio * 0.42,
+        150,
+      )
+    }
     const cursos = ordenarPorPlan(pe.id, cursosOf(pe.id))
     const posiciones = placeOnFigure(figura, cursos.length)
     cursos.forEach((cursoId, i) => {
@@ -168,7 +178,7 @@ function componerFragmentos(
       e.estado = 'figura'
       e.en = [pe.id]
     })
-    dibujadas.push({ programaId: padreId!, puntos: figura, objetivo: pe.id })
+    dibujadas.push({ programaId: padreId ?? pe.id, puntos: figura, objetivo: pe.id })
   }
 
   const enFragmento = new Set(dibujadas.map((s) => s.objetivo))
