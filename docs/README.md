@@ -57,12 +57,15 @@ pnpm figures     # regenera las láminas de docs/assets
 
 ## Publicación
 
-El sitio se publica solo en **GitHub Pages** con cada push a `main`:
+El sitio se publica en **GitHub Pages** **solo cuando se pide**: no hay publicación automática en
+cada push, para que el desarrollo no altere la versión que circula. Para publicar: *Actions →
+Publicar → Run workflow*.
 
 **https://srsergiorodriguez.github.io/constelaciones-epah/**
 
-El flujo está en `.github/workflows/publicar.yml`: instala, corre `svelte-check` y las pruebas, compila
-con `BASE_PATH=/<repositorio>/` y publica `dist/`. Si una prueba falla, no se publica.
+El flujo está en `.github/workflows/publicar.yml`: instala, comprueba que `pnpm data` reproduzca lo
+versionado, corre `svelte-check` y las pruebas, compila con `BASE_PATH=/<repositorio>/` y publica
+`dist/`. Si algo falla, no se publica.
 
 Requisito de una sola vez: en *Settings → Pages → Source* hay que elegir **GitHub Actions**.
 
