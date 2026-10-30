@@ -118,6 +118,11 @@ Sin selección, los 83 cursos forman un cielo **al azar**, no un diagrama:
   posición descansa.
 - Se calcula una vez en build (`atlas.json`) con semilla fija. En pantalla nadie simula: se lee.
 
+**Las siluetas también son selector.** Alrededor del cielo, en anillo, se dibujan las quince figuras
+—los trece énfasis y las dos maestrías sin énfasis— sin estrellas: solo el trazo. Un clic en una
+silueta abre ese programa. Es el segundo camino de entrada, además de la lista de la izquierda, y el
+que hace que el cielo se pueda leer sin menús.
+
 ### 4.2 Una constelación
 
 El programa seleccionado se dibuja **desde el núcleo**, que es su base:

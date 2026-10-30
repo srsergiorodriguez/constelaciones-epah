@@ -2,7 +2,7 @@
   import { curriculum } from '../data/types'
   import { figureNameOf } from '../domain/figures'
   import { hijosDe, periodosDe, planDe } from '../domain/plan'
-  import { colorDe } from '../viz/palette'
+  import { colorDe, marcaDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
 
   interface Props {
@@ -17,6 +17,7 @@
   const programa = $derived(curriculum.programas[programaId])
   const figura = $derived(figureNameOf(programaId, programa?.padreId ?? null))
   const color = $derived(colorDe(programaId))
+  const marca = $derived(marcaDe(programaId))
   const plan = $derived(planDe(programaId))
   const periodos = $derived(periodosDe(plan))
   const hijos = $derived(hijosDe(programaId))
@@ -43,7 +44,7 @@
   <div class="plan">
     {#each periodos as p (p)}
       <section class="periodo">
-        <h3>{nombrePeriodo(p)}</h3>
+        <h3><span class="marca {marca}">{nombrePeriodo(p)}</span></h3>
         <ul>
           {#each plan.filter((c) => c.periodo === p) as c (c.periodo + '-' + c.columna)}
             <li>
@@ -154,8 +155,14 @@
     font-size: var(--fz-xs);
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: var(--c-ink-2);
+    margin-bottom: var(--sp-2);
+    font-weight: 600;
+  }
+
+  .con-enfasis h3 {
     color: var(--c-ink-3);
-    margin-bottom: var(--sp-1);
+    font-weight: 400;
   }
 
   .periodo ul,

@@ -54,3 +54,9 @@ export function vivoDe(programaId: string): string {
   const fam = familiaDe(programaId)
   return fam ? vivo(fam) : 'var(--c-ink)'
 }
+
+/** Clase de marca de familia para resaltar un título (fondo, no texto). */
+export function marcaDe(programaId: string): string {
+  const fam = familiaDe(programaId)
+  return fam ? `hl-${fam}` : 'hl-ink'
+}

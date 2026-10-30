@@ -2,7 +2,7 @@
   import { SvelteSet } from 'svelte/reactivity'
   import { curriculum } from '../data/types'
   import { figureNameOf } from '../domain/figures'
-  import { vivoDe } from '../viz/palette'
+  import { marcaDe, vivoDe } from '../viz/palette'
 
   interface Props {
     seleccion: string[]
@@ -57,8 +57,17 @@
             </svg>
           </button>
           <button class="nombre" aria-pressed={idx >= 0} onclick={() => onToggle(m.id)}>
-            <span class="punto" class:lleno={idx >= 0} data-familia={vivoDe(m.id)}></span>
-            {m.nombreCorto}
+            <svg class="punto" viewBox="0 0 8 8" aria-hidden="true">
+              <circle
+                cx="4"
+                cy="4"
+                r="3"
+                fill={idx >= 0 ? vivoDe(m.id) : 'none'}
+                stroke="var(--c-ink-3)"
+                stroke-width="1"
+              />
+            </svg>
+            <span class="marca {marcaDe(m.id)}">{m.nombreCorto}</span>
           </button>
         </div>
 
@@ -68,7 +77,7 @@
               {@const ie = indiceDe(e.id)}
               <li>
                 <button class="fila enfasis" class:activo={ie >= 0} aria-pressed={ie >= 0} onclick={() => onToggle(e.id)}>
-                  <span class="punto" class:lleno={ie >= 0}></span>
+                  <span class="guion"></span>
                   <span class="texto">{e.nombreCorto}</span>
                 </button>
               </li>
@@ -76,7 +85,7 @@
                 {@const ip = indiceDe(pe.id)}
                 <li>
                   <button class="fila pe" class:activo={ip >= 0} aria-pressed={ip >= 0} onclick={() => onToggle(pe.id)}>
-                    <span class="punto" class:lleno={ip >= 0}></span>
+                    <span class="guion corto"></span>
                     <span class="texto">{pe.nombreCorto}</span>
                   </button>
                 </li>
@@ -164,7 +173,7 @@
     align-items: center;
     gap: var(--sp-2);
     flex: 1 1 auto;
-    padding: 5px var(--sp-2) 5px 0;
+    padding: 4px var(--sp-2) 4px 0;
     font-family: var(--ff-sans);
     font-size: var(--fz-sm);
     font-weight: 700;

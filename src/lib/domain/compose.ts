@@ -22,6 +22,11 @@ export interface FiguraDibujo {
   anclaje: Punto | null
 }
 
+export interface Silueta {
+  programaId: string
+  puntos: Punto[]
+}
+
 export interface Escena {
   ancho: number
   alto: number
@@ -30,6 +35,8 @@ export interface Escena {
   nucleo: Punto[]
   /** Enlace del tronco con la constelación (o con el centro del coro). */
   eje: [Punto, Punto] | null
+  /** Sin selección: todas las siluetas alrededor del cielo, como otro selector. */
+  siluetas: Silueta[]
 }
 
 /** Ajusta una polilínea (0..100) a una caja conservando proporción y orientación. */
@@ -91,7 +98,15 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
 
   const activo = seleccion.find((id) => curriculum.programas[id])
   if (!activo) {
-    return { ancho, alto, estrellas: [...estrellas.values()], figuras: [], nucleo: [], eje: null }
+    return {
+      ancho,
+      alto,
+      estrellas: [...estrellas.values()],
+      figuras: [],
+      nucleo: [],
+      eje: null,
+      siluetas: siluetasDelCielo(ancho, alto),
+    }
   }
 
   const hijos = hijosDe(activo)
@@ -119,7 +134,15 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
   const silueta = figureOf(programaId, curriculum.programas[programaId]?.padreId ?? null)
   const propios = propiosOf(programaId)
   if (!silueta || propios.length === 0) {
-    return { ancho, alto, estrellas: [...estrellas.values()], figuras: [], nucleo: nucleoPts, eje: null }
+    return {
+      ancho,
+      alto,
+      estrellas: [...estrellas.values()],
+      figuras: [],
+      nucleo: nucleoPts,
+      eje: null,
+      siluetas: [],
+    }
   }
 
   const cajaAlto = Math.min(alto * 0.66, ancho * 0.56)
@@ -145,6 +168,7 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
     figuras: [{ programaId, puntos: canonica, anclaje: null }],
     nucleo: nucleoPts,
     eje: primera ? [centroTronco, [primera.x, primera.y]] : null,
+    siluetas: [],
   }
 }
 
@@ -252,7 +276,35 @@ function componerFamilia(
     figuras,
     nucleo: nucleoPts,
     eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
+    siluetas: [],
   }
+}
+
+/**
+ * Sin selección, el cielo muestra todas las siluetas en un anillo: son otro
+ * selector. Se dibujan sin estrellas: la figura, no el plan.
+ */
+function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
+  const ids = Object.values(curriculum.programas)
+    .filter((p) => p.tipo === 'enfasis' || (p.tipo === 'maestria' && hijosDe(p.id).length === 0))
+    .map((p) => p.id)
+    .filter((id) => figureOf(id, curriculum.programas[id]?.padreId ?? null))
+
+  const cx = ancho / 2
+  const cy = alto / 2
+  const radio = Math.min(ancho, alto) * 0.43
+  const lado = 86
+
+  return ids.map((id, i) => {
+    const ang = (-90 + (360 / ids.length) * i) * (Math.PI / 180)
+    const x = cx + Math.sin(ang) * radio
+    const y = cy - Math.cos(ang) * radio
+    const silueta = figureOf(id, curriculum.programas[id]?.padreId ?? null)!
+    return {
+      programaId: id,
+      puntos: fitFigure(silueta, { x: x - lado / 2, y: y - lado / 2, w: lado, h: lado }),
+    }
+  })
 }
 
 /** Fila de puntos centrada. */

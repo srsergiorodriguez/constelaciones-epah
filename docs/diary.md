@@ -154,3 +154,14 @@ práctica se cursa en dos. Ahora la casilla es `ceil(i/2)`: dos cursos por perio
 **La maestría a secas existe.** Faltaba el plan de quien se gradúa sin énfasis: la rejilla del plan
 marco, con cursos del tronco y casillas abiertas que se llenan con cursos del énfasis elegido. El
 panel muestra ese plan completo y, debajo, los énfasis como rutas opcionales.
+
+---
+
+## 2026-10-30 · La marca y el segundo selector
+
+**Marca de familia.** El color de la maestría, rebajado y usado como fondo de título: nombres en el
+selector y títulos de periodo en el plan. Cinco tokens `--hl-*` y una clase `.marca`; nunca texto de
+cuerpo, nunca el único portador del significado.
+
+**Siluetas en el cielo.** Sin selección, las quince figuras se dibujan en anillo alrededor del campo,
+sin estrellas. Un clic abre el programa: el cielo deja de ser decorado y pasa a ser el otro selector.

@@ -61,3 +61,30 @@ describe('composición de la escena', () => {
     expect(enlaces).toContain('cur-musica-contexto-1')
   })
 })
+
+describe('selector de siluetas', () => {
+  it('sin selección hay una silueta por énfasis y por maestría sin énfasis', () => {
+    const escena = compose([], ANCHO, ALTO)
+    expect(escena.siluetas.length).toBe(15)
+    const ids = escena.siluetas.map((s) => s.programaId)
+    expect(ids).toContain('enf-creacion-arte')
+    expect(ids).toContain('mae-periodismo')
+    expect(ids).not.toContain('mae-creacion')
+  })
+
+  it('todas las siluetas caben en el escenario', () => {
+    const escena = compose([], ANCHO, ALTO)
+    for (const s of escena.siluetas) {
+      for (const [x, y] of s.puntos) {
+        expect(x).toBeGreaterThanOrEqual(0)
+        expect(x).toBeLessThanOrEqual(ANCHO)
+        expect(y).toBeGreaterThanOrEqual(0)
+        expect(y).toBeLessThanOrEqual(ALTO)
+      }
+    }
+  })
+
+  it('al elegir un programa las siluetas desaparecen', () => {
+    expect(compose(['enf-creacion-arte'], ANCHO, ALTO).siluetas).toHaveLength(0)
+  })
+})

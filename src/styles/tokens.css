@@ -61,6 +61,15 @@
   --c-patrim-4: #ac8208;
   --c-patrim-vivo: #dca70a;
 
+  /* Marca de familia: el color vivo rebajado, para resaltar títulos.
+     Es un fondo, nunca texto: sobre ella siempre va tinta. */
+  --hl-creacion: #f2a9cf;
+  --hl-he: #a8d3f6;
+  --hl-gepc: #dfaade;
+  --hl-perio: #a5ecc3;
+  --hl-patrim: #f2dd9d;
+  --hl-ink: #e4e2da;
+
   /* Espacio */
   --sp-1: 4px;
   --sp-2: 8px;

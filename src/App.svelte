@@ -102,7 +102,13 @@
     </aside>
 
     <div class="cielo-contenedor">
-      <SkyStage {escena} {seleccion} {resaltado} onHover={(id) => (resaltado = id)} />
+      <SkyStage
+        {escena}
+        {seleccion}
+        {resaltado}
+        onHover={(id) => (resaltado = id)}
+        onElegir={elegir}
+      />
     </div>
 
     {#if actual}
@@ -117,7 +123,7 @@
       {#if seleccion.length > 0}
         <button class="limpiar" onclick={limpiar}>Volver al cielo</button>
       {:else}
-        <span class="pista">Elige un programa: sus estrellas se reúnen y forman su figura.</span>
+        <span class="pista">Elige un programa en la lista o toca una silueta del cielo.</span>
         <ul class="familias">
           {#each maestrias as m (m.id)}
             <li>

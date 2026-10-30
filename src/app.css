@@ -69,3 +69,33 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Marca de familia: resalta un título con el color de su maestría.
+   Solo títulos y rótulos cortos; nunca párrafos ni texto de cuerpo. */
+.marca {
+  display: inline;
+  padding: 0.08em 0.34em;
+  margin-left: -0.1em;
+  color: var(--c-ink);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hl-creacion {
+  background: var(--hl-creacion);
+}
+.hl-he {
+  background: var(--hl-he);
+}
+.hl-gepc {
+  background: var(--hl-gepc);
+}
+.hl-perio {
+  background: var(--hl-perio);
+}
+.hl-patrim {
+  background: var(--hl-patrim);
+}
+.hl-ink {
+  background: var(--hl-ink);
+}

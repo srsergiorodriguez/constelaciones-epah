@@ -84,7 +84,31 @@ Todos sirven para líneas y halos; los rótulos van siempre en tinta.
 **Asignación:** la maestría usa el tono 2; sus énfasis usan tonos 1–4 según su índice. El color vivo
 solo aparece en rellenos con texto en tinta (chips, leyenda, halos) y en la franja superior de la ficha.
 
-### 3.3 Estado del dato
+### 3.3 Marca de familia
+
+El color vivo rebajado sobre blanco, como fondo de un título. Es la firma de una maestría dicha sin
+gritar: sirve para reconocer de un vistazo a qué familia pertenece un bloque.
+
+| Token | Hex | Dónde se usa |
+|---|---|---|
+| `--hl-creacion` | `#F2A9CF` | Nombre de la maestría en el selector; títulos de periodo en su plan |
+| `--hl-he` | `#A8D3F6` | ídem |
+| `--hl-gepc` | `#DFAADE` | ídem |
+| `--hl-perio` | `#A5ECC3` | ídem |
+| `--hl-patrim` | `#F2DD9D` | ídem |
+| `--hl-ink` | `#E4E2DA` | Reserva: títulos sin familia (escuela, cielo) |
+
+Reglas:
+
+- **Es un fondo, nunca texto.** Sobre la marca siempre va tinta `#070707`.
+- **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo. Nunca párrafos, nunca
+  texto de cuerpo, nunca dos marcas en la misma línea.
+- Se aplica con la clase `.marca` más `.hl-<familia>`; el aire es `0.08em 0.34em`. Nada de estilos
+  inline.
+- Nunca es el único portador de significado: el nombre del programa y la palabra «periodo» siguen
+  ahí aunque no se distinga el color.
+
+### 3.4 Estado del dato
 
 | Estado | Tratamiento |
 |---|---|
@@ -134,6 +158,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
+| `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas en anillo alrededor del cielo. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Es un selector más. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
 | `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, lista sus énfasis. |
@@ -202,7 +227,8 @@ En `< 720 px`: chips en fila desplazable, cielo a ancho completo, panel como hoj
 2. **Prohibido duplicar estilos.** Tres reglas compartidas ⇒ clase utilitaria o componente base.
 3. **Prohibido el color como único portador de significado.** Siempre color + patrón + número.
 4. **Prohibidos los tooltips como única fuente.** Todo dato está también en el panel.
-5. **Prohibido el texto en el color del programa.** El color es de la línea; el texto es tinta.
+5. **Prohibido el texto en el color del programa.** El color es de la línea; el texto es tinta. La
+   marca de familia es un fondo, no una tinta.
 6. **Prohibidos sombras, gradientes, glassmorphism y emojis.**
 7. **Prohibido animar `width`, `height`, `top`, `left`.** Solo `transform`, `opacity` y
    `stroke-dashoffset`.

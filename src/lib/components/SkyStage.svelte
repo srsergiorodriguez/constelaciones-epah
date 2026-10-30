@@ -13,9 +13,12 @@
     seleccion: string[]
     resaltado: string | null
     onHover: (cursoId: string | null) => void
+    onElegir: (programaId: string) => void
   }
 
-  let { escena, seleccion, resaltado, onHover }: Props = $props()
+  let { escena, seleccion, resaltado, onHover, onElegir }: Props = $props()
+
+  let siluetaHover = $state<string | null>(null)
 
   let pos = $state<Record<string, Punto>>({})
   let viajando = $state(false)
@@ -101,6 +104,38 @@
       />
     {/each}
   </g>
+
+  {#if enNebulosa}
+    <g class="selector-siluetas">
+      {#each escena.siluetas as s (s.programaId)}
+        {@const p = curriculum.programas[s.programaId]}
+        <g
+          class="silueta-selector"
+          class:activa={siluetaHover === s.programaId}
+          role="button"
+          tabindex="0"
+          aria-label="Ver {p.nombreCorto}"
+          onmouseenter={() => (siluetaHover = s.programaId)}
+          onmouseleave={() => (siluetaHover = null)}
+          onfocus={() => (siluetaHover = s.programaId)}
+          onblur={() => (siluetaHover = null)}
+          onclick={() => onElegir(s.programaId)}
+          onkeydown={(ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault()
+              onElegir(s.programaId)
+            }
+          }}
+        >
+          <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(s.programaId)} />
+          <text
+            x={s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
+            y={s.puntos.reduce((a, q) => a + q[1], 0) / s.puntos.length + 62}
+            class="nombre-silueta">{p.nombreCorto}</text>
+        </g>
+      {/each}
+    </g>
+  {/if}
 
   <g class="figuras" aria-hidden="true">
     {#if escena.eje}
@@ -204,6 +239,42 @@
 
   .enlace.visible {
     opacity: 0.4;
+  }
+
+  .silueta-selector {
+    cursor: pointer;
+    outline: none;
+  }
+
+  .silueta-selector path {
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    opacity: 0.22;
+    transition: opacity var(--t-fast) var(--ease), stroke-width var(--t-fast) var(--ease);
+  }
+
+  .silueta-selector.activa path,
+  .silueta-selector:focus-visible path {
+    opacity: 0.85;
+    stroke-width: 2.2;
+  }
+
+  .nombre-silueta {
+    font-family: var(--ff-sans);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    fill: var(--c-ink-2);
+    text-anchor: middle;
+    opacity: 0;
+    transition: opacity var(--t-fast) var(--ease);
+    pointer-events: none;
+  }
+
+  .silueta-selector.activa .nombre-silueta,
+  .silueta-selector:focus-visible .nombre-silueta {
+    opacity: 1;
   }
 
   .silueta {

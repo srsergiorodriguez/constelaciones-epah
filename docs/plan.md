@@ -123,6 +123,9 @@ brazos; `prefers-reduced-motion` salta al estado final.
 
 ## Sprint 3 · Lectura ✅ (parcial)
 
+- [x] Marca de familia en el selector y en los títulos de periodo (`--hl-*`)
+- [x] Siluetas en anillo sobre el cielo: segundo selector, sin estrellas
+
 - [x] **Programa especializado en dos periodos** (dos cursos por periodo)
 - [x] **Maestría a secas**: plan marco con casillas abiertas, y los énfasis como rutas opcionales
 
