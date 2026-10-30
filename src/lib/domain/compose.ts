@@ -2,6 +2,7 @@ import { curriculum } from '../data/types'
 import { cursosOf, nucleoOf } from './graph'
 import { figureOf, placeOnFigure, type Punto } from './figures'
 import { nebulaToViewport } from './nebula'
+import { envolvente } from './hull'
 
 export type EstadoEstrella = 'nebulosa' | 'nucleo' | 'figura' | 'enlace'
 
@@ -37,6 +38,10 @@ export interface Escena {
   eje: [Punto, Punto] | null
   /** Sin selección: todas las siluetas alrededor del cielo, como otro selector. */
   siluetas: Silueta[]
+  /** Regiones de maestría: la línea que encierra sus figuras. */
+  limites: Silueta[]
+  /** Contorno del programa elegido cuando no lo define su propia silueta. */
+  recinto: Punto[] | null
 }
 
 /** Ajusta una polilínea (0..100) a una caja conservando proporción y orientación. */
@@ -98,6 +103,7 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
 
   const activo = seleccion.find((id) => curriculum.programas[id])
   if (!activo) {
+    const siluetas = siluetasDelCielo(ancho, alto)
     return {
       ancho,
       alto,
@@ -105,7 +111,9 @@ export function compose(seleccion: string[], ancho: number, alto: number): Escen
       figuras: [],
       nucleo: [],
       eje: null,
-      siluetas: siluetasDelCielo(ancho, alto),
+      siluetas,
+      limites: limitesDeMaestria(siluetas),
+      recinto: null,
     }
   }
 
@@ -142,6 +150,8 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
       nucleo: nucleoPts,
       eje: null,
       siluetas: [],
+      limites: [],
+      recinto: null,
     }
   }
 
@@ -169,6 +179,12 @@ function componerFigura(programaId: string, estrellas: Map<string, Estrella>, an
     nucleo: nucleoPts,
     eje: primera ? [centroTronco, [primera.x, primera.y]] : null,
     siluetas: [],
+    limites: [],
+    // un especializado no tiene silueta propia: se encierra en un contorno
+    recinto:
+      curriculum.programas[programaId]?.tipo === 'programa_especializado'
+        ? envolvente(propios.map((id) => estrellas.get(id)!).map((e) => [e.x, e.y] as Punto), 20)
+        : null,
   }
 }
 
@@ -277,6 +293,8 @@ function componerFamilia(
     nucleo: nucleoPts,
     eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
     siluetas: [],
+    limites: [],
+    recinto: figuras.length ? envolvente(figuras.flatMap((f) => f.puntos), 22) : null,
   }
 }
 
@@ -419,6 +437,18 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
       puntos: fitFigure(silueta, { x: x - lado / 2, y: y - lado / 2, w: lado, h: lado }),
     }
   })
+}
+
+/** Región de cada maestría con énfasis: la envolvente de las figuras de sus hijos. */
+function limitesDeMaestria(siluetas: Silueta[]): Silueta[] {
+  const salida: Silueta[] = []
+  for (const m of Object.values(curriculum.programas).filter((p) => p.tipo === 'maestria')) {
+    const hijos = hijosDe(m.id).map((h) => h.id)
+    const puntos = siluetas.filter((s) => hijos.includes(s.programaId)).flatMap((s) => s.puntos)
+    if (puntos.length < 4) continue
+    salida.push({ programaId: m.id, puntos: envolvente(puntos, 24) })
+  }
+  return salida
 }
 
 /** Fila de puntos centrada. */

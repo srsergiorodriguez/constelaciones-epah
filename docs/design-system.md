@@ -160,10 +160,13 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `ProgramChip` | `program`, `tono`, `vivo`, `selected`, `index` | normal, hover, activo | Fondo tono 1, texto papel; punto vivo de 6 px a la izquierda. |
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
+| `Region` | `puntos` | visible, oculta | Contorno discontinuo que encierra un grupo de figuras. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
-| `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, lista sus énfasis. |
+| `Rail` | `nivel`, `onNivel`, `programaId` | 4 pasos | Barra de escala vertical: crédito, punto y nombre. El paso activo se rellena; el deshabilitado (doctorado) se atenúa al 45 %. |
+| `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, plan común más sus énfasis. |
+| `CoursePanel` | `cursoId`, `onCerrar`, `onElegir` | curso | Detalle de un curso: código, créditos y la escalera «Cuenta para» (especializado → énfasis → maestría) y los planes que lo incluyen. |
 | `Composer` | `figures`, `nucleus` | figura, familia | Compone la escena; puro, sin DOM. |
 | `CourseList` | `courses`, `groupBy="eje"` | normal, vacío | Agrupa por eje, ordena por periodo. |
 | `CourseDetail` | `course`, `programs` | normal | Escalas de pertenencia, de mayor a menor. |
@@ -177,8 +180,8 @@ radio: el cielo de fondo no compite con la constelación encendida.
 ┌──────────────────────────────────────────────────────────────┐
 │ Toolbar · modo · alternativas · leyenda                      │
 ├──────────────┬───────────────────────────────┬───────────────┤
-│ ProgramPicker│ SkyStage                      │ PlanPanel     │
-│ 240 px       │ flex, mín. 480 px             │ 360 px        │
+│ Rail │ ProgramPicker│ SkyStage                │ PlanPanel     │
+│ 150  │ 264 px       │ flex, mín. 480 px       │ 340 px        │
 └──────────────┴───────────────────────────────┴───────────────┘
 ```
 
@@ -227,20 +230,22 @@ En `< 720 px`: chips en fila desplazable, cielo a ancho completo, panel como hoj
 1. **Prohibido el atributo `style`.** Los tokens viven en CSS; la geometría se pasa como atributos
    SVG (`cx`, `cy`, `d`, `transform`). *Excepción única*: `transform` calculado por la simulación.
 2. **Prohibido duplicar estilos.** Tres reglas compartidas ⇒ clase utilitaria o componente base.
-3. **Toda forma interactiva tiene zona de contacto.** El trazo nunca es el blanco: cada glifo lleva
+3. **La contención se dibuja con una sola línea.** Un contorno discontinuo encierra lo que pertenece
+   a un mismo programa, a cualquier escala. No se inventan astros nuevos para la jerarquía.
+4. **Toda forma interactiva tiene zona de contacto.** El trazo nunca es el blanco: cada glifo lleva
    un disco transparente de `1.95·r` y cada silueta un relleno transparente más un círculo de 46 px en
    su centro. Un trazo de 1,6 px no se acierta con el ratón.
-4. **Prohibido el color como único portador de significado.** Siempre color + patrón + número.
-5. **Prohibidos los tooltips como única fuente.** Todo dato está también en el panel.
-6. **Prohibido el texto en el color del programa.** El color es de la línea; el texto es tinta. La
+5. **Prohibido el color como único portador de significado.** Siempre color + patrón + número.
+6. **Prohibidos los tooltips como única fuente.** Todo dato está también en el panel.
+7. **Prohibido el texto en el color del programa.** El color es de la línea; el texto es tinta. La
    marca de familia es un fondo, no una tinta.
-7. **Prohibidos sombras, gradientes, glassmorphism y emojis.**
-8. **Prohibido animar `width`, `height`, `top`, `left`.** Solo `transform`, `opacity` y
+8. **Prohibidos sombras, gradientes, glassmorphism y emojis.**
+9. **Prohibido animar `width`, `height`, `top`, `left`.** Solo `transform`, `opacity` y
    `stroke-dashoffset`.
-9. **Prohibido el modo oscuro.** El blanco es una decisión.
-10. **Un solo programa activo y 3 controles en la barra.** La comparación está aplazada hasta tener
+10. **Prohibido el modo oscuro.** El blanco es una decisión.
+11. **Un solo programa activo y 3 controles en la barra.** La comparación está aplazada hasta tener
    una solución que no obligue a deformar figuras.
-11. **Ningún componente declara una familia tipográfica literal.** Se usa `--ff-*`.
+12. **Ningún componente declara una familia tipográfica literal.** Se usa `--ff-*`.
 
 ---
 

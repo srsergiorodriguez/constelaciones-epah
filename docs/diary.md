@@ -223,3 +223,22 @@ etiquetas, para que valga en la lista, el rótulo de la silueta, la cabecera y l
 **Consecuencia de diseño.** El selector pasa de 240 a 300 px y los nombres envuelven; la cabecera baja
 un escalón de tamaño (22 px) y se limita a 34 caracteres por línea. Los nombres largos son el precio
 de que nadie tenga que adivinar qué nivel está mirando.
+
+---
+
+## 2026-10-30 · Las escalas
+
+**Cuatro escalones, un solo cielo.** La barra vertical elige el tamaño del compromiso —3, 12, 36
+créditos o el doctorado— y no rehace nada: filtra la lista y cambia el peso de lo ya dibujado. La
+posición de las figuras es la misma en las cuatro escalas, y eso es lo que hace que se lean como
+resoluciones de un mismo universo y no como pantallas distintas.
+
+**La contención es una línea.** Un especializado es un contorno alrededor de cuatro estrellas; una
+maestría, uno alrededor de sus figuras. El mismo gesto a dos tamaños. Se descartaron las galaxias:
+un cielo con galaxias inventa una segunda cosmología encima de la primera.
+
+**El énfasis no es una escala.** Es una variante de la maestría, y vive dentro de su región.
+
+**El detalle del curso llega con la escalera.** «Cuenta para» muestra el camino de 12 → 36 →
+título, que es lo que la reforma promete cuando dice que todo es apilable. Un curso del tronco no
+tiene escalera y lo dice: cuenta para cualquier plan, pero no forma cuerpo.

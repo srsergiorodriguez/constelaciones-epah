@@ -90,6 +90,29 @@ especialización. Así la escala menor no inventa datos ni duplica cursos.
 
 ---
 
+## 3.5 Las cuatro escalas
+
+El universo no se recorre de una sola manera. La reforma permite entrar por cualquier tamaño de
+compromiso, y la escala se elige en una **barra vertical** a la izquierda del selector:
+
+| Escala | Créditos | Objetos | Qué se ve |
+|---|---|---|---|
+| Un curso | 3 | 83 | estrellas y siluetas al 12 % |
+| Especializado | 12 | 13 | las siluetas al 30 %, sus cuatro cursos y un contorno |
+| Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
+| Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
+
+Cambiar de escala **no rehace el cielo**: cambia el peso de lo que ya está dibujado y filtra la
+lista. La posición de todo es la misma en las cuatro.
+
+**La contención se dibuja igual en todas las escalas.** Un especializado es un contorno alrededor de
+sus cuatro estrellas; una maestría es un contorno alrededor de sus figuras. Un solo gesto
+—la línea que encierra— a tres tamaños. No hay galaxias ni órbitas: el cielo gana fronteras, no
+astros nuevos.
+
+**El énfasis no es una escala.** Es una variante de la maestría: los mismos 36 créditos con una
+especificación. Vive dentro de la región de su maestría, como las figuras que la habitan.
+
 ## 4. El universo se pliega
 
 Dos estados, no dos modos: **nebulosa** (nada seleccionado) y **constelación** (uno o dos programas).

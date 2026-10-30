@@ -4,6 +4,9 @@
   import SkyStage from './lib/components/SkyStage.svelte'
   import ProgramPicker from './lib/components/ProgramPicker.svelte'
   import PlanPanel from './lib/components/PlanPanel.svelte'
+  import CoursePanel from './lib/components/CoursePanel.svelte'
+  import Rail from './lib/components/Rail.svelte'
+  import type { Nivel } from './lib/domain/niveles'
   import { colorDe, vivoDe } from './lib/viz/palette'
 
   const ANCHO = 1200
@@ -18,8 +21,12 @@
   let seleccion = $state<string[]>(desdeHash())
   let aviso = $state('')
   let resaltado = $state<string | null>(null)
+  let nivel = $state<Nivel>('maestria')
+  let cursoAbierto = $state<string | null>(null)
 
   const escena = $derived(compose(seleccion, ANCHO, ALTO))
+
+  const cursoActivo = $derived(cursoAbierto ? curriculum.cursos[cursoAbierto] : null)
 
   $effect(() => {
     const hash = seleccion.map(encodeURIComponent).join(',')
@@ -50,7 +57,20 @@
   function alternar(id: string) {
     seleccion = seleccion[0] === id ? [] : [id]
     resaltado = null
+    cursoAbierto = null
     aviso = ''
+  }
+
+  function abrirCurso(id: string) {
+    cursoAbierto = cursoAbierto === id ? null : id
+    resaltado = id
+  }
+
+  function cambiarNivel(n: Nivel) {
+    nivel = n
+    seleccion = []
+    cursoAbierto = null
+    resaltado = null
   }
 
   function elegir(id: string) {
@@ -60,11 +80,15 @@
 
   function limpiar() {
     seleccion = []
+    cursoAbierto = null
+    resaltado = null
     aviso = ''
   }
 
   function alTeclear(e: KeyboardEvent) {
-    if (e.key === 'Escape' && seleccion.length > 0) limpiar()
+    if (e.key !== 'Escape') return
+    if (cursoAbierto) cursoAbierto = null
+    else if (seleccion.length > 0) limpiar()
   }
 
   $effect(() => {
@@ -99,8 +123,12 @@
   </header>
 
   <div class="cuerpo">
+    <aside class="rail">
+      <Rail {nivel} programaId={seleccion[0] ?? null} onNivel={cambiarNivel} />
+    </aside>
+
     <aside class="lateral">
-      <ProgramPicker {seleccion} onToggle={alternar} />
+      <ProgramPicker {nivel} {seleccion} {cursoAbierto} onToggle={alternar} onCurso={abrirCurso} />
     </aside>
 
     <div class="cielo-contenedor">
@@ -108,12 +136,18 @@
         {escena}
         {seleccion}
         {resaltado}
+        {nivel}
         onHover={(id) => (resaltado = id)}
         onElegir={elegir}
+        onAbrirCurso={abrirCurso}
       />
     </div>
 
-    {#if actual}
+    {#if cursoActivo}
+      <div class="lateral-derecho">
+        <CoursePanel cursoId={cursoActivo.id} onCerrar={() => (cursoAbierto = null)} onElegir={elegir} />
+      </div>
+    {:else if actual}
       <div class="lateral-derecho">
         <PlanPanel programaId={actual.id} {resaltado} onHover={(id) => (resaltado = id)} onElegir={elegir} />
       </div>
@@ -221,13 +255,18 @@
 
   .cuerpo {
     display: grid;
-    grid-template-columns: var(--w-picker) 1fr;
-    gap: var(--sp-6);
+    grid-template-columns: var(--w-rail) var(--w-picker) 1fr;
+    gap: var(--sp-4);
     min-height: 0;
   }
 
   .cuerpo:has(.lateral-derecho) {
-    grid-template-columns: var(--w-picker) 1fr var(--w-sheet);
+    grid-template-columns: var(--w-rail) var(--w-picker) 1fr var(--w-sheet);
+  }
+
+  .rail {
+    min-height: 0;
+    padding-right: var(--sp-2);
   }
 
   .lateral-derecho {

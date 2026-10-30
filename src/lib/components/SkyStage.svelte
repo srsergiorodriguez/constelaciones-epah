@@ -2,8 +2,10 @@
   import { untrack } from 'svelte'
   import { curriculum } from '../data/types'
   import type { Escena } from '../domain/compose'
+  import type { Nivel } from '../domain/niveles'
   import type { Punto } from '../domain/figures'
   import { polylinePath } from '../viz/geometry'
+  import { envolventePath } from '../domain/hull'
   import { finDelPlan, planViaje, posicionEn, prefiereMenosMovimiento } from '../viz/motion'
   import { colorDe, marcaDe, radioDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
@@ -12,13 +14,31 @@
     escena: Escena
     seleccion: string[]
     resaltado: string | null
+    nivel: Nivel
     onHover: (cursoId: string | null) => void
     onElegir: (programaId: string) => void
+    onAbrirCurso: (cursoId: string) => void
   }
 
-  let { escena, seleccion, resaltado, onHover, onElegir }: Props = $props()
+  let { escena, seleccion, resaltado, nivel, onHover, onElegir, onAbrirCurso }: Props = $props()
 
   let siluetaHover = $state<string | null>(null)
+
+  /** Parte un nombre largo en líneas cortas para rotular una región sin desbordar. */
+  function partirEtiqueta(texto: string, max = 26): string[] {
+    const palabras = texto.split(' ')
+    const lineas: string[] = []
+    let actual = ''
+    for (const palabra of palabras) {
+      const prueba = actual ? `${actual} ${palabra}` : palabra
+      if (prueba.length > max && actual) {
+        lineas.push(actual)
+        actual = palabra
+      } else actual = prueba
+    }
+    if (actual) lineas.push(actual)
+    return lineas
+  }
 
   let pos = $state<Record<string, Punto>>({})
   let viajando = $state(false)
@@ -105,8 +125,30 @@
     {/each}
   </g>
 
+  <g class="regiones" class:ver={nivel === 'maestria'}>
+    {#each escena.limites as l (l.programaId)}
+      {@const p = curriculum.programas[l.programaId]}
+      {@const arriba = l.puntos.reduce((a, q) => (q[1] < a[1] ? q : a), l.puntos[0])}
+      {@const lineas = partirEtiqueta(p.nombreCorto)}
+      {@const xEt = Math.min(Math.max(arriba[0], 110), escena.ancho - 110)}
+      <path d={envolventePath(l.puntos)} fill="none" stroke={colorDe(l.programaId)} class="region" />
+      {#each lineas as linea, i (linea)}
+        <text x={xEt} y={arriba[1] - 12 - (lineas.length - 1 - i) * 13} class="nombre-region">{linea}</text>
+      {/each}
+    {/each}
+  </g>
+
+  {#if escena.recinto && escena.recinto.length >= 3}
+    <path
+      d={envolventePath(escena.recinto)}
+      fill="none"
+      stroke={colorDe(seleccion[0] ?? '')}
+      class="recinto"
+    />
+  {/if}
+
   {#if enNebulosa}
-    <g class="selector-siluetas">
+    <g class="selector-siluetas nivel-{nivel}">
       {#each escena.siluetas as s (s.programaId)}
         {@const p = curriculum.programas[s.programaId]}
         {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
@@ -207,6 +249,13 @@
           onmouseleave={() => onHover(null)}
           onfocus={() => onHover(e.cursoId)}
           onblur={() => onHover(null)}
+          onclick={() => onAbrirCurso(e.cursoId)}
+          onkeydown={(ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') {
+              ev.preventDefault()
+              onAbrirCurso(e.cursoId)
+            }
+          }}
         >
           {#if resaltado === e.cursoId}
             <circle r={r * 2.6} class="halo" />
@@ -259,6 +308,36 @@
 
   .enlace.visible {
     opacity: 0.4;
+  }
+
+  .regiones {
+    opacity: 0;
+    transition: opacity var(--t-base) var(--ease);
+  }
+
+  .regiones.ver {
+    opacity: 1;
+  }
+
+  .region {
+    stroke-width: 1;
+    stroke-dasharray: 5 6;
+    opacity: 0.45;
+  }
+
+  .nombre-region {
+    font-family: var(--ff-sans);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    fill: var(--c-ink-3);
+    text-anchor: middle;
+  }
+
+  .recinto {
+    stroke-width: 1.4;
+    stroke-dasharray: 7 5;
+    opacity: 0.55;
   }
 
   .silueta-selector {

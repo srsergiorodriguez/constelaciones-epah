@@ -104,3 +104,21 @@ describe('separación de las siluetas', () => {
     }
   })
 })
+
+describe('escalas', () => {
+  it('el universo dibuja una región por maestría con énfasis', () => {
+    const escena = compose([], ANCHO, ALTO)
+    const ids = escena.limites.map((l) => l.programaId).sort()
+    expect(ids).toEqual(['mae-creacion', 'mae-gepc', 'mae-he'])
+  })
+
+  it('un especializado se encierra en un contorno; un énfasis no', () => {
+    expect(compose(['pe-creacion-arte'], ANCHO, ALTO).recinto?.length).toBeGreaterThan(2)
+    expect(compose(['enf-creacion-arte'], ANCHO, ALTO).recinto).toBeNull()
+  })
+
+  it('una maestría con énfasis encierra sus figuras', () => {
+    const escena = compose(['mae-creacion'], ANCHO, ALTO)
+    expect(escena.recinto?.length).toBeGreaterThan(2)
+  })
+})
