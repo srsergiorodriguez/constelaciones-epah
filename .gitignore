@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 dist/
 *.local
+
+# Documento fuente del comité: no se publica.
+Reforma EPAH_Documento maestro final.pdf
+*.pdf
