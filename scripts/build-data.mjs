@@ -129,20 +129,26 @@ const plans = PLANS.map((p) => {
 /* Un programa especializado existe porque su cuerpo está declarado en
  * cuerpos.json. Si cuelga de un énfasis, hereda nombre y familia; si no,
  * declara su nombre en el propio cuerpo. Ver docs/data-model.md § Especializados. */
-const PE = Object.entries(PE_CUERPOS).map(([peId, cuerpo]) => {
+const PE = Object.entries(PE_CUERPOS).map(([peId, entrada]) => {
+  const cuerpo = Array.isArray(entrada) ? entrada : (entrada.cursos ?? [])
   const sufijo = peId.replace(/^pe-/, '')
   const enfasis = programById.get(`enf-${sufijo}`) ?? null
   const maestria = enfasis ? programById.get(enfasis.maestria_id) : null
-  if (!enfasis) fail(`especializado suelto sin nombre: ${peId} (falta declarar su programa)`)
-  const corto = enfasis.nombre_corto.replace('Énfasis en ', '')
+  /* Un especializado puede no venir de una maestría: entonces trae su nombre. */
+  const corto = enfasis
+    ? enfasis.nombre_corto.replace('Énfasis en ', '')
+    : (entrada.nombre ?? '').replace(/^Programa Especializado en /, '')
+  if (!corto) fail(`${peId}: un especializado sin énfasis necesita nombre propio`)
   const cuerpoSlots = [...new Set(cuerpo)].map((id, i) => ({ id, periodo: Math.floor(i / 2) + 1, columna: (i % 2) + 1 }))
   return {
     id: peId,
-    nombre: `Programa Especializado en ${corto} — Maestría en ${(maestria?.nombre_corto ?? '').replace('Maestría en ', '')}`,
+    nombre: maestria
+      ? `Programa Especializado en ${corto} — Maestría en ${maestria.nombre_corto.replace('Maestría en ', '')}`
+      : `Programa Especializado en ${corto}`,
     nombre_corto: `Programa Especializado en ${corto}`,
     tipo: 'programa_especializado',
-    padre_id: enfasis.id,
-    maestria_id: enfasis.maestria_id,
+    padre_id: enfasis ? enfasis.id : '',
+    maestria_id: enfasis ? enfasis.maestria_id : '',
     creditos: 12,
     estado: 'declarado',
     nota: 'Cuerpo declarado en data/source/cuerpos.json.',
@@ -165,7 +171,8 @@ for (const p of plans) {
 for (const pe of PE) {
   /* Una fila por curso; `repeticiones` cuenta cuántas casillas del cuerpo ocupa.
      Créditos del programa = Σ (creditos × repeticiones) = 12. */
-  const cuerpo = PE_CUERPOS[pe.id] ?? [];
+  const entrada = PE_CUERPOS[pe.id] ?? {}
+  const cuerpo = Array.isArray(entrada) ? entrada : (entrada.cursos ?? []);
   if (cuerpo.length !== 4) fail(`${pe.id}: el cuerpo debe tener 4 cursos (tiene ${cuerpo.length})`);
   const unicos = [...new Set(cuerpo)];
   if (unicos.length < 2) fail(`${pe.id}: el cuerpo no puede ser un solo curso repetido`);

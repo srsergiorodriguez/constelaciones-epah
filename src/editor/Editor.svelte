@@ -9,7 +9,7 @@
     cursos: Record<string, any>
     planes: any[]
     marco: Record<string, any>
-    cuerpos: Record<string, string[]>
+    cuerpos: Record<string, { nombre?: string; cursos: string[] }>
   }
 
   let datos = $state<Fuente | null>(null)
@@ -29,6 +29,7 @@
   let maestriaCurso = $state('todas')
   let ejeCurso = $state('todos')
   let busqueda = $state('')
+  let nombrePE = $state('')
 
   const pestanas: { id: Tabla; nombre: string }[] = [
     { id: 'enfasis', nombre: 'Énfasis' },
@@ -150,13 +151,14 @@
 
   /** Los especializados no están en la fuente: se derivan de las casillas `pe`. */
   const especializados = $derived(
-    Object.keys(datos?.cuerpos ?? {}).map((id) => {
+    Object.entries(datos?.cuerpos ?? {}).map(([id, entrada]) => {
+      const cuerpo = entrada.cursos ?? []
       const enfasis = todosEnfasis.find((e) => `pe-${e.id.replace(/^enf-/, '')}` === id)
-      return {
-        id,
-        nombre_corto: enfasis?.nombre_corto.replace('Énfasis en ', 'Programa Especializado en ') ?? id,
-        cuerpo: datos?.cuerpos[id] ?? [],
-      }
+      const nombre =
+        enfasis?.nombre_corto.replace('Énfasis en ', 'Programa Especializado en ') ??
+        (entrada as any).nombre ??
+        id
+      return { id, nombre_corto: nombre, cuerpo }
     }),
   )
 
@@ -209,6 +211,40 @@
       formato: 'curso',
       creditos: 3,
     }
+  }
+
+  function nuevoEspecializado() {
+    if (!datos) return
+    const n = Object.keys(datos.cuerpos).length + 1
+    const nombre = nombrePE.trim() || `Nuevo ${n}`
+    const id = `pe-nuevo-${n}`
+    datos.cuerpos[id] = {
+      nombre: `Programa Especializado en ${nombre}`,
+      cursos: ['', '', '', ''],
+    }
+    nombrePE = ''
+  }
+
+  /** Maestría sin plan común: se le puede crear uno vacío. */
+  const sinMarco = $derived(maestriasFijas.filter((m) => !datos?.marco?.[m.id]))
+
+  function crearMarco(id: string) {
+    if (!datos) return
+    datos.marco[id] = [0, 1, 2, 3].map((i) =>
+      [0, 1, 2].map((j) => ({ abierta: `Casilla ${i + 1}.${j + 1}` })),
+    )
+  }
+
+  function borrarMarco(id: string) {
+    if (!datos) return
+    if (!confirm(`¿Borrar el plan común de ${nombreDe(id)}?`)) return
+    delete datos.marco[id]
+  }
+
+  function borrarEspecializado(id: string) {
+    if (!datos) return
+    if (!confirm(`¿Borrar ${id}?`)) return
+    delete datos.cuerpos[id]
   }
 
   function borrarCurso(id: string) {
@@ -292,25 +328,33 @@
           </tbody>
         </table>
       {:else if pestana === 'especializados'}
+        <div class="barra">
+          <label class="filtro">
+            Nombre
+            <input placeholder="Arte, Edición…" bind:value={nombrePE} />
+          </label>
+          <button class="accion" onclick={nuevoEspecializado}>＋ Nuevo especializado</button>
+          <span class="conteo">{especializados.length} programas</span>
+        </div>
         <p class="nota">
-          Un especializado no se declara aparte: nace cuando un énfasis marca cuatro casillas como
-          «cuerpo del especializado» (12 créditos). Aquí se revisan, y en «Cuerpos» se puede fijar su
-          contenido a mano.
+          Un especializado existe por su cuerpo: cuatro cursos y 12 créditos. Si su id coincide con un
+          énfasis, hereda nombre y familia; si no, usa el nombre que le des aquí.
         </p>
         <table>
-          <thead><tr><th>deriva de</th><th>nombre</th><th>cuerpo</th></tr></thead>
+          <thead><tr><th>id</th><th>nombre</th><th>cuerpo</th><th></th></tr></thead>
           <tbody>
             {#each especializados as pe (pe.id)}
               <tr>
                 <td class="id">{pe.id}</td>
                 <td>{pe.nombre_corto}</td>
                 <td class="cuerpo-lista">
-                  {#if pe.cuerpo.length === 4}
+                  {#if pe.cuerpo.length === 4 && pe.cuerpo.every(Boolean)}
                     {pe.cuerpo.map((c: string) => datos!.cursos[c]?.nombre ?? c).join(' · ')}
                   {:else}
-                    <em class="falta">cuerpo incompleto: {pe.cuerpo.length} de 4 cursos</em>
+                    <em class="falta">cuerpo incompleto: {pe.cuerpo.filter(Boolean).length} de 4 cursos</em>
                   {/if}
                 </td>
+                <td><button class="borrar" onclick={() => borrarEspecializado(pe.id)} title="Borrar">✕</button></td>
               </tr>
             {/each}
           </tbody>
@@ -445,8 +489,21 @@
           </table>
         {/if}
       {:else if pestana === 'marco'}
+        {#if sinMarco.length}
+          <div class="barra">
+            {#each sinMarco as m (m.id)}
+              <button class="accion" onclick={() => crearMarco(m.id)}>
+                ＋ Plan común para {m.nombre_corto}
+              </button>
+            {/each}
+            <span class="conteo">{Object.keys(datos.marco).length} de {maestriasFijas.length} maestrías</span>
+          </div>
+        {/if}
         {#each Object.keys(datos.marco) as m (m)}
-          <h2>{nombreDe(m)} <span class="id">{m}</span></h2>
+          <h2>
+            {nombreDe(m)} <span class="id">{m}</span>
+            <button class="borrar" onclick={() => borrarMarco(m)} title="Borrar plan común">✕</button>
+          </h2>
           <table class="cuadricula">
             <tbody>
               {#each datos!.marco[m] as fila, i (i)}
@@ -488,14 +545,15 @@
         {#each especializados as pe (pe.id)}
           <div class="cuerpo">
             <span class="cuerpo-nombre">{pe.nombre_corto}<span class="id">{pe.id}</span></span>
-            {#each datos!.cuerpos[pe.id] ?? ['', '', '', ''] as _c, k (k)}
+            {#each (datos!.cuerpos[pe.id]?.cursos ?? ['', '', '', '']) as _c, k (k)}
               <select
-                value={datos!.cuerpos[pe.id]?.[k] ?? ''}
+                value={datos!.cuerpos[pe.id]?.cursos?.[k] ?? ''}
                 onchange={(e) => {
                   const valor = (e.target as HTMLSelectElement).value
-                  const actual = [...(datos!.cuerpos[pe.id] ?? ['', '', '', ''])]
+                  const entrada = datos!.cuerpos[pe.id] ?? { cursos: ['', '', '', ''] }
+                  const actual = [...(entrada.cursos ?? ['', '', '', ''])]
                   actual[k] = valor
-                  datos!.cuerpos[pe.id] = actual.some(Boolean) ? actual : []
+                  datos!.cuerpos[pe.id] = { ...entrada, cursos: actual }
                 }}
               >
                 <option value="">—</option>

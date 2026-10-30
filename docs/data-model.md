@@ -45,7 +45,7 @@ Cinco tablas en JSON, editables a mano o desde un editor:
 | `cursos.json` | 83 cursos: créditos, eje, formato, estado |
 | `planes.json` | 15 planes × 12 casillas |
 | `marco.json` | plan común de cada maestría (casillas abiertas incluidas) |
-| `cuerpos.json` | el cuerpo de cada especializado: **la fuente**, cuatro cursos |
+| `cuerpos.json` | el cuerpo de cada especializado: **la fuente**. `{ nombre?, cursos: [4] }` |
 
 Los programas especializados **no** están en `programas.json`: existen porque tienen cuerpo declarado
 en `cuerpos.json`. Un cuerpo de cuatro cursos crea el programa; sin cuerpo, no hay programa. `figures.json` vive aparte, con la app, porque la dibuja ella.
@@ -144,8 +144,15 @@ Un especializado **es** su cuerpo. `data/source/cuerpos.json` declara los cuatro
 el compilador crea el programa a partir de ahí:
 
 ```json
-{ "pe-creacion-arte": ["cur-arte-intro", "cur-arte-est-1", ...] }
+{
+  "pe-creacion-arte": { "cursos": ["cur-arte-intro", "cur-arte-est-1", ...] },
+  "pe-gestion-cultural": { "nombre": "Programa Especializado en Gestión cultural", "cursos": [...] }
+}
 ```
+
+Si el id coincide con un énfasis (`pe-x` ↔ `enf-x`) hereda nombre y familia de él. Si no, manda el
+`nombre` declarado y el programa queda **suelto**: sin padre y sin maestría. La app lo dibuja como
+polígono neutro, porque no tiene silueta que heredar.
 
 Los planes ya **no** marcan casillas como cuerpo: esa marca se retiró de `planes.json`. Editar el
 cuerpo de un especializado es editar esta tabla, y solo esta.
