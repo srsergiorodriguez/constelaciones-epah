@@ -372,3 +372,14 @@ pinta su fila. Sin eso, la interfaz vuelve a señalar sin encontrarse.
 **En la maestría, cada figura abre su énfasis.** Antes había que volver a la lista; ahora el cielo y
 la lista ofrecen lo mismo. El interior de la figura también responde: lleva un relleno transparente
 para que el blanco no sea el trazo.
+
+---
+
+## 2026-10-30 · El mismo sitio
+
+**El rótulo de figura se había escapado de la norma.** Iba a pelo, sin marca; ahora usa el mismo par
+que siluetas y regiones. La regla queda escrita: un rótulo, una marca.
+
+**El fragmento no recoloca la figura.** Antes repartía cuatro estrellas entre cuatro posiciones; ahora
+cada curso se dibuja en el punto que le toca en el plan de su énfasis. La figura es la misma en las
+dos escalas; lo que cambia es cuántas estrellas están encendidas.

@@ -236,6 +236,7 @@
     {/if}
     {#each escena.figuras as f (f.programaId)}
       {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
+      {@const nombreFig = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
       {#if escena.figuras.length > 1}
         <!-- una maestría con énfasis: cada figura es una puerta a su plan -->
         <g
@@ -264,12 +265,20 @@
             class="silueta"
             class:visible={!enNebulosa}
           />
+          <rect
+            x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length - (nombreFig.length * 7.9 + 18) / 2}
+            y={Math.max(...f.puntos.map((q) => q[1])) + 8}
+            width={nombreFig.length * 7.9 + 18}
+            height="18"
+            class="fondo-region {marcaDe(f.programaId)}"
+            class:visible={activa}
+          />
           <text
             x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
-            y={Math.max(...f.puntos.map((q) => q[1])) + 22}
+            y={Math.max(...f.puntos.map((q) => q[1])) + 21.5}
             class="nombre-figura"
             class:visible={activa}
-          >{curriculum.programas[f.programaId]?.nombreCorto ?? ''}</text>
+          >{nombreFig}</text>
         </g>
       {:else}
         <path
@@ -525,7 +534,8 @@
     pointer-events: none;
   }
 
-  .nombre-figura.visible {
+  .nombre-figura.visible,
+  .fondo-region.visible {
     opacity: 1;
   }
 

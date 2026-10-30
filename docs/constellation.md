@@ -125,6 +125,10 @@ cielo se aclara: quedan los que abren algo.
 no se pueden tocar: `pointer-events: none`, sin foco y sin rótulo. Para explorarlas hay que subir de
 escala. La lista sí es accionable: a esa escala se recorren los 83 cursos uno por uno.
 
+**El fragmento ocupa su sitio canónico.** Las cuatro estrellas de un especializado se dibujan en el
+punto que les corresponde en la figura de su énfasis —el mismo que ocuparían en la constelación
+completa—, no repartidas de nuevo entre cuatro. La figura no se recoloca: se enciende.
+
 **A doce créditos se ve el fragmento.** Un programa especializado es un trozo de su énfasis: cuatro
 cursos de los doce que tiene el plan. Por eso a esa escala la figura queda de fantasma y solo se
 encienden sus cuatro estrellas, con su código. Se ve de dónde sale el fragmento —y hacia dónde

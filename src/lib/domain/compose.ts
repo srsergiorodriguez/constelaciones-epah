@@ -164,12 +164,18 @@ function componerFragmentos(
       )
     }
     const cursos = ordenarPorPlan(pe.id, cursosOf(pe.id))
-    const posiciones = placeOnFigure(figura, cursos.length)
-    cursos.forEach((cursoId, i) => {
+    /* Las estrellas ocupan su sitio canónico en la figura del énfasis —el
+       mismo que en la constelación—: el fragmento enciende cuatro, no
+       recoloca el plan. */
+    const propios = padreId ? propiosOf(padreId) : []
+    const posiciones = placeOnFigure(figura, Math.max(propios.length, cursos.length))
+    cursos.forEach((cursoId) => {
       const e = estrellas.get(cursoId)
       if (!e) return
-      e.x = posiciones[i][0]
-      e.y = posiciones[i][1]
+      const i = propios.indexOf(cursoId)
+      const p = posiciones[i >= 0 ? i : cursos.indexOf(cursoId)]
+      e.x = p[0]
+      e.y = p[1]
       e.estado = 'figura'
       e.en = [pe.id]
     })

@@ -101,6 +101,8 @@ gritar: sirve para reconocer de un vistazo a qué familia pertenece un bloque.
 Reglas:
 
 - **Es un fondo, nunca texto.** Sobre la marca siempre va tinta `#070707`.
+- **Un rótulo, una marca.** Siluetas, regiones y figuras usan el mismo par: `rect` con la clase
+  `.hl-*` y texto en tinta, 12–14 px, negrita. No hay rótulos «a pelo».
 - **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo, rótulo de una figura al
   pasar el cursor, rótulo de una región (12 px, negrita, MAYÚSCULAS, sobre su marca de familia). Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
 - En SVG la marca es un `rect` con la clase `.hl-*` (que fija `fill` además de `background`), y el
