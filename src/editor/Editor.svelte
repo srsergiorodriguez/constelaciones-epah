@@ -1,7 +1,7 @@
 <script lang="ts">
   import { marcaDe } from '../lib/viz/palette'
 
-  type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'marco' | 'cuerpos' | 'estructura'
+  type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'cuerpos' | 'estructura'
 
   interface Fuente {
     estructura: any[]
@@ -15,7 +15,7 @@
   let datos = $state<Fuente | null>(null)
   const desdeUrl = new URLSearchParams(location.search).get('p') as Tabla | null
   let pestana = $state<Tabla>(
-    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'marco', 'cuerpos', 'estructura'].includes(desdeUrl)
+    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'cuerpos', 'estructura'].includes(desdeUrl)
       ? desdeUrl
       : 'enfasis',
   )
@@ -24,6 +24,7 @@
   let salida = $state('')
   let fallo = $state(false)
   let planElegido = $state('')
+  let planComun = $state('')
   let maestriaNueva = $state('')
   let maestriaFiltro = $state('todas')
   let maestriaCurso = $state('todas')
@@ -31,14 +32,25 @@
   let busqueda = $state('')
   let nombrePE = $state('')
 
-  const pestanas: { id: Tabla; nombre: string }[] = [
-    { id: 'enfasis', nombre: 'Énfasis' },
-    { id: 'especializados', nombre: 'Especializados' },
-    { id: 'cursos', nombre: 'Cursos' },
-    { id: 'planes', nombre: 'Planes' },
-    { id: 'marco', nombre: 'Plan común' },
-    { id: 'cuerpos', nombre: 'Cuerpos' },
-    { id: 'estructura', nombre: 'Estructura fija' },
+  /* Dos niveles: lo que se crea (contenidos) y cómo se organiza (estructuras).
+     La estructura fija solo se consulta. */
+  const grupos: { nombre: string; pestanas: { id: Tabla; nombre: string }[] }[] = [
+    {
+      nombre: 'Contenidos',
+      pestanas: [
+        { id: 'enfasis', nombre: 'Énfasis' },
+        { id: 'especializados', nombre: 'Especializados' },
+        { id: 'cursos', nombre: 'Cursos' },
+      ],
+    },
+    {
+      nombre: 'Estructuras',
+      pestanas: [
+        { id: 'planes', nombre: 'Planes' },
+        { id: 'cuerpos', nombre: 'Cuerpos' },
+      ],
+    },
+    { nombre: 'Referencia', pestanas: [{ id: 'estructura', nombre: 'Estructura fija' }] },
   ]
 
   async function cargar() {
@@ -85,7 +97,14 @@
         (datos?.programas.find((x) => x.id === p.id)?.padre_id ?? '') === maestriaFiltro,
     ),
   )
+  const marcosFiltrados = $derived(
+    Object.keys(datos?.marco ?? {}).filter(
+      (m) => maestriaFiltro === 'todas' || m === maestriaFiltro,
+    ),
+  )
   const plan = $derived(datos?.planes.find((p) => p.id === planElegido) ?? null)
+  const esComun = $derived(planComun !== '')
+  const filasComun = $derived(esComun ? (datos?.marco?.[planComun] ?? null) : null)
 
   // si el filtro deja fuera el plan elegido, se pasa al primero que quede
   $effect(() => {
@@ -265,9 +284,16 @@
     </div>
   </header>
 
-  <nav class="pestanas">
-    {#each pestanas as p (p.id)}
-      <button class:activa={pestana === p.id} onclick={() => (pestana = p.id)}>{p.nombre}</button>
+  <nav class="niveles" aria-label="Secciones del editor">
+    {#each grupos as g (g.nombre)}
+      <div class="nivel">
+        <p class="nivel-titulo">{g.nombre}</p>
+        <div class="pestanas">
+          {#each g.pestanas as p (p.id)}
+            <button class:activa={pestana === p.id} onclick={() => (pestana = p.id)}>{p.nombre}</button>
+          {/each}
+        </div>
+      </div>
     {/each}
   </nav>
 
@@ -439,86 +465,78 @@
           </label>
           <label class="filtro">
             Plan
-            <select bind:value={planElegido}>
-              {#each planesFiltrados as p (p.id)}
-                <option value={p.id}>{nombreDe(p.id)}</option>
-              {/each}
+            <select
+              value={esComun ? `comun:${planComun}` : `enfasis:${planElegido}`}
+              onchange={(e) => {
+                const v = (e.target as HTMLSelectElement).value
+                if (v.startsWith('comun:')) {
+                  planComun = v.slice(6)
+                } else {
+                  planComun = ''
+                  planElegido = v.slice(8)
+                }
+              }}
+            >
+              <optgroup label="Planes de énfasis">
+                {#each planesFiltrados as p (p.id)}
+                  <option value={`enfasis:${p.id}`}>{nombreDe(p.id)}</option>
+                {/each}
+              </optgroup>
+              <optgroup label="Planes comunes">
+                {#each marcosFiltrados as m (m)}
+                  <option value={`comun:${m}`}>{nombreDe(m)}</option>
+                {/each}
+              </optgroup>
             </select>
           </label>
-          {#if plan}
+          {#if esComun && filasComun}
+            <span class="conteo">
+              plan común · 12 casillas · {filasComun.flat().filter((c: any) => !esCurso(c)).length} abiertas
+            </span>
+          {:else if plan}
             <span class="conteo">
               {plan.slots.flat().length} casillas ·
               {plan.slots.flat().reduce((a: number, s: any) => a + (datos!.cursos[s.id]?.creditos ?? 0), 0)} créditos
             </span>
           {/if}
         </div>
-        {#if plan}
-          <p class="contexto">
+
+        <p class="contexto">
+          {#if esComun}
+            {nombreDe(planComun)}
+            <span class="id">{planComun}</span>
+            <span class="nota-corta">quien cursa la maestría sin énfasis</span>
+          {:else}
             {nombreDe(datos!.programas.find((p) => p.id === planElegido)?.padre_id ?? '')}
             <span class="id">{planElegido}</span>
-          </p>
-        {/if}
-        {#if plan}
+          {/if}
+        </p>
+
+        {#if esComun && filasComun}
           <table class="cuadricula">
-            <thead>
-              <tr><th>periodo</th><th>1</th><th>2</th><th>3</th></tr>
-            </thead>
+            <thead><tr><th>periodo</th><th>1</th><th>2</th><th>3</th></tr></thead>
             <tbody>
-              {#each plan.slots as fila, i (i)}
+              {#each filasComun as fila, i (i)}
                 <tr>
                   <th>{i + 1}º</th>
-                  {#each fila as slot, j (j)}
-                    <td>
-                      <select bind:value={slot.id}>
-                        <option value="">— vacía —</option>
-                        {#each cursos as [id, c] (id)}
-                          <option value={id}>{c.nombre}</option>
-                        {/each}
-                      </select>
-                    </td>
-                  {/each}
-                </tr>
-              {/each}
-            </tbody>
-          </table>
-        {/if}
-      {:else if pestana === 'marco'}
-        {#if sinMarco.length}
-          <div class="barra">
-            {#each sinMarco as m (m.id)}
-              <button class="accion" onclick={() => crearMarco(m.id)}>
-                ＋ Plan común para {m.nombre_corto}
-              </button>
-            {/each}
-            <span class="conteo">{Object.keys(datos.marco).length} de {maestriasFijas.length} maestrías</span>
-          </div>
-        {/if}
-        {#each Object.keys(datos.marco) as m (m)}
-          <h2>{nombreDe(m)} <span class="id">{m}</span></h2>
-          <table class="cuadricula">
-            <tbody>
-              {#each datos!.marco[m] as fila, i (i)}
-                <tr>
-                  <th>{i + 1}º</th>
-                  {#each fila as _celda, j (j)}
-                    {@const celda = celdaMarco(m, i, j)}
+                  {#each fila as _c, j (j)}
+                    {@const celda = celdaMarco(planComun, i, j)}
                     <td>
                       <select
                         value={esCurso(celda) ? celda : '__abierta'}
                         onchange={(e) => {
                           const v = (e.target as HTMLSelectElement).value
-                          ponerMarco(m, i, j, v === '__abierta' ? { abierta: 'Nueva casilla' } : v)
+                          ponerMarco(planComun, i, j, v === '__abierta' ? { abierta: 'Nueva casilla' } : v)
                         }}
                       >
                         <option value="__abierta">— casilla abierta —</option>
-                        {#each cursos as [id, c] (id)}
-                          <option value={id}>{c.nombre}</option>
-                        {/each}
+                        {#each cursos as [id, c] (id)}<option value={id}>{c.nombre}</option>{/each}
                       </select>
                       {#if !esCurso(celda)}
                         <input
                           value={celda.abierta}
-                          oninput={(e) => ponerMarco(m, i, j, { abierta: (e.target as HTMLInputElement).value })}
+                          oninput={(e) =>
+                            ponerMarco(planComun, i, j, { abierta: (e.target as HTMLInputElement).value })}
                         />
                       {/if}
                     </td>
@@ -527,7 +545,27 @@
               {/each}
             </tbody>
           </table>
-        {/each}
+        {:else if plan}
+          <table class="cuadricula">
+            <thead><tr><th>periodo</th><th>1</th><th>2</th><th>3</th></tr></thead>
+            <tbody>
+              {#each plan.slots as fila, i (i)}
+                <tr>
+                  <th>{i + 1}º</th>
+                  {#each fila as slot, j (j)}
+                    <td>
+                      <select bind:value={slot.id}>
+                        <option value="">— vacía —</option>
+                        {#each cursos as [id, c] (id)}<option value={id}>{c.nombre}</option>{/each}
+                      </select>
+                    </td>
+                  {/each}
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+        {/if}
+
       {:else if pestana === 'cuerpos'}
         <p class="nota">
           El cuerpo es la fuente: un programa especializado existe porque aquí tiene sus cuatro
@@ -622,11 +660,28 @@
     opacity: 0.5;
   }
 
+  .niveles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-6);
+    padding: var(--sp-4) 0 var(--sp-5);
+    border-bottom: 1px solid var(--c-rule);
+    margin-bottom: var(--sp-4);
+  }
+
+  .nivel-titulo {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    padding-bottom: var(--sp-1);
+  }
+
   .pestanas {
     display: flex;
     flex-wrap: wrap;
     gap: var(--sp-3);
-    padding: var(--sp-4) 0 var(--sp-5);
   }
 
   .pestanas button {
@@ -657,6 +712,13 @@
     white-space: nowrap;
   }
 
+  .nota-corta {
+    font-style: normal;
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    color: var(--c-ink-3);
+  }
+
   .contexto {
     display: flex;
     align-items: baseline;
@@ -683,16 +745,6 @@
     align-items: center;
     padding: var(--sp-1) 0;
     border-bottom: 1px solid var(--c-rule);
-  }
-
-  h2 {
-    display: flex;
-    align-items: baseline;
-    gap: var(--sp-2);
-    font-family: var(--ff-display);
-    font-size: var(--fz-lg);
-    font-weight: 700;
-    padding: var(--sp-3) 0 var(--sp-1);
   }
 
   pre {

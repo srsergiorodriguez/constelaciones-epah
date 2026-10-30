@@ -11,6 +11,22 @@ pnpm editar --port 4310
 > El comando no se llama `edit` porque pnpm lo reserva para sí mismo (`pnpm edit` es un comando
 > propio y falla con «not yet implemented»).
 
+## Dos niveles
+
+La navegación no es una lista de siete pestañas: son dos niveles y una referencia.
+
+| Nivel | Qué contiene | Qué se hace |
+|---|---|---|
+| **Contenidos** | Énfasis · Especializados · Cursos | crear, editar y borrar |
+| **Estructuras** | Planes · Cuerpos | ordenar los contenidos en planes y cuerpos |
+| **Referencia** | Estructura fija | solo lectura |
+
+**Un plan común es un plan más.** Vive en la misma pestaña que los planes de énfasis, en un segundo
+grupo del selector, y se edita con la misma rejilla 4 × 3. La única diferencia es que sus casillas
+pueden quedar **abiertas** —un tipo de curso en lugar de un curso—, porque el comité no ha fijado
+cuáles las llenan. Por eso el editor le ofrece la opción *— casilla abierta —* y un campo para su
+etiqueta, y el resto de la interfaz la dibuja como círculo punteado.
+
 ## Qué edita
 
 | Pestaña | Tabla | Operación |
@@ -19,8 +35,7 @@ pnpm editar --port 4310
 | Especializados | `cuerpos.json` | crear, revisar y borrar; cada uno existe por su cuerpo |
 | Cursos | `cursos.json` | crear, editar y borrar; filtros por maestría, eje y texto |
 | Estructura fija | `estructura.json` | solo lectura: Escuela y maestrías |
-| Planes | `planes.json` | cuadrícula 4 × 3: un curso por casilla, marca de cuerpo de especializado |
-| Plan común | `marco.json` | las 12 casillas de cada maestría, encabezadas por su nombre; curso concreto o casilla abierta |
+| Planes | `planes.json` · `marco.json` | cuadrícula 4 × 3 de cualquier plan: de énfasis o común (con casillas abiertas) |
 | Cuerpos | `cuerpos.json` | los cuatro cursos de cada especializado |
 
 ## Cómo guarda
