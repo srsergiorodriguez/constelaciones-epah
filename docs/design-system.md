@@ -123,9 +123,10 @@ Un rótulo es fijo si nombra **el objeto de la vista**; si no, aparece al pasar 
 | Escala del especializado | al pasar el cursor |
 | Escala de cursos umbrales | ninguno |
 
-Los códigos de curso siguen la misma lógica: aparecen **solo en la constelación abierta** (los del
-programa elegido) y **al enfocar una figura**. Nunca en las vistas generales: en el universo serían 91
-etiquetas y en la escala del especializado, 52.
+Los códigos de curso aparecen **solo en la constelación abierta**: los del programa elegido. No en las
+vistas generales (serían 91 etiquetas) ni al pasar el cursor por una figura: enfocar una forma enciende
+su trazo y su fila en la lista, pero no escribe los códigos de sus cursos. La información del curso se
+lee al abrirlo, o en la escala de umbrales al pasar el cursor por su estrella.
 
 **Los cursos solo se tocan donde son el tema.** En la escala de umbrales y en una vista enfocada
 (especializado, énfasis o maestría abierta) son botones; en las vistas generales —universo de

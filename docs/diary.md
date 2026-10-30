@@ -472,3 +472,14 @@ enfoque de una figura.
 **Un especializado no tiene estrellas propias.** Al abrirlo no aparecía ningún curso: sus copias
 pertenecen al énfasis del que cuelga. Ahora `componerFigura` busca las estrellas del dueño real —el
 programa o, si no tiene, su padre— y las coloca en la figura. El bug venía del paso a copias.
+
+---
+
+## 2026-10-30 · Enfocar una forma no escribe nada
+
+**Fuera los códigos al pasar el cursor por una figura.** Enfocar una forma enciende su trazo, pone su
+nombre y mueve la lista; añadir además los códigos de sus cursos convertía el gesto en una explosión
+de texto. Los códigos quedan para la constelación abierta, donde el programa es el tema.
+
+**Lo que se gana:** el universo se lee de un vistazo —formas, colores, regiones— y el detalle aparece
+solo cuando se entra.

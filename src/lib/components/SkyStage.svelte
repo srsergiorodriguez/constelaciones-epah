@@ -267,7 +267,6 @@
     {#each escena.estrellas as e (e.clave)}
       {@const c = curriculum.cursos[e.cursoId]}
       {@const p = pos[e.clave] ?? [e.x, e.y]}
-      {@const deFoco = foco?.tipo === 'programa' && e.dueno === foco.id}
       {@const senalada = foco?.tipo === 'curso' && foco.id === e.cursoId}
       {@const r = enFragmento || !enNebulosa ? radioDe(c.nProgramas) : 6.6}
       {@const color = colorEstrella(e.en)}
@@ -276,8 +275,7 @@
           transform="translate({p[0]},{p[1]})"
           class="estrella"
           class:resaltada={senalada}
-          class:de-foco={deFoco}
-          class:apagada={!enNebulosa && !deFoco && e.estado === 'nebulosa'}
+          class:apagada={!enNebulosa && e.estado === 'nebulosa'}
           class:inerte={enNebulosa && nivel !== 'curso'}
           role="button"
           tabindex={!enNebulosa || nivel === 'curso' ? 0 : -1}
@@ -295,7 +293,7 @@
             }
           }}
         >
-          {#if senalada || deFoco}
+          {#if senalada}
             <circle r={r * 2.6} class="halo" />
           {/if}
           <StarGlyph eje={c.eje} r={r} {color} />
@@ -305,7 +303,9 @@
           y={p[1] - r - 2}
           class="código"
           class:visible={!viajando &&
-            ((!sinPrograma && (e.estado === 'figura' || e.estado === 'nucleo')) || deFoco || senalada)}
+            (!sinPrograma
+              ? e.estado === 'figura' || e.estado === 'nucleo' || senalada
+              : nivel === 'curso' && senalada)}
         >{c.codigo}</text>
       {/if}
     {/each}
@@ -587,10 +587,6 @@
   .estrella.inerte {
     cursor: default;
     pointer-events: none;
-  }
-
-  .estrella.de-foco {
-    opacity: 1;
   }
 
   .estrella:focus-visible .halo {
