@@ -428,3 +428,17 @@ texto esperaba al cursor: un rectángulo de color sin nombre. Ahora marca y text
 
 **Enfocar una figura enciende sus cursos.** Era lo que faltaba: se veía la silueta sin saber qué
 estrellas eran suyas.
+
+---
+
+## 2026-10-30 · Dónde se toca un curso
+
+**Solo donde el curso es el tema.** En el universo de maestrías y de especializados las estrellas son
+inertes: sin foco, sin clic, sin código. Interactuar con 91 cursos ahí es ruido; se explora por
+programas. En umbrales y en las vistas enfocadas vuelven a ser botones.
+
+**Los rótulos se dibujan al final.** Estaban antes que las estrellas, que los tapaban. Ahora hay una
+capa de rótulos después de todo: ningún nombre queda debajo de un icono.
+
+**Trazos más anchos.** Constelaciones a 3 y envolventes a 1,6; los rótulos a 14–15 px. El mapa se lee
+de lejos, que es como se va a proyectar.

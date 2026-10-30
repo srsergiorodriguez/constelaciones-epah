@@ -152,18 +152,14 @@
           }
         }}
       >
-        {#each lineas as linea, i (linea)}
-          <rect
-            x={xEt - (linea.length * 7.9 + 18) / 2}
-            y={arriba[1] - 24 - (lineas.length - 1 - i) * 15}
-            width={linea.length * 7.9 + 18}
-            height="17"
-            class="fondo-region {marcaDe(l.programaId)}"
-          />
-        {/each}
-        {#each lineas as linea, i (linea)}
-          <text x={xEt} y={arriba[1] - 11.5 - (lineas.length - 1 - i) * 15} class="nombre-region">{linea}</text>
-        {/each}
+        <!-- área de clic del rótulo; el texto se dibuja arriba de todo -->
+        <rect
+          x={xEt - 90}
+          y={arriba[1] - 24 - (lineas.length - 1) * 15}
+          width="180"
+          height={lineas.length * 15 + 4}
+          fill="transparent"
+        />
       </g>
     {/each}
   </g>
@@ -205,18 +201,6 @@
             fill="transparent"
           />
           <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(objetivo)} />
-          <g class="etiqueta">
-            <rect
-              x={etX - anchoEt / 2}
-              y={etY}
-              width={anchoEt}
-              height="25"
-              class="fondo-etiqueta {marcaDe(s.programaId)}"
-            />
-            <text x={etX} y={etY + 17} class="nombre-silueta">
-              {p.nombreCorto}
-            </text>
-          </g>
         </g>
       {/each}
     </g>
@@ -266,20 +250,6 @@
             class="silueta"
             class:visible={!enNebulosa}
           />
-          <rect
-            x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length - (nombreFig.length * 7.9 + 18) / 2}
-            y={Math.max(...f.puntos.map((q) => q[1])) + 8}
-            width={nombreFig.length * 7.9 + 18}
-            height="18"
-            class="fondo-figura {marcaDe(f.programaId)}"
-            class:visible={activa || etiquetaFija}
-          />
-          <text
-            x={f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
-            y={Math.max(...f.puntos.map((q) => q[1])) + 21.5}
-            class="nombre-figura"
-            class:visible={activa || etiquetaFija}
-          >{nombreFig}</text>
         </g>
       {:else}
         <path
@@ -308,16 +278,18 @@
           class:resaltada={senalada}
           class:de-foco={deFoco}
           class:apagada={!enNebulosa && !deFoco && e.estado === 'nebulosa'}
+          class:inerte={enNebulosa && nivel !== 'curso'}
           role="button"
-          tabindex="0"
+          tabindex={!enNebulosa || nivel === 'curso' ? 0 : -1}
+          aria-disabled={enNebulosa && nivel !== 'curso'}
           aria-label="{c.nombre}, {c.creditos} créditos"
-          onmouseenter={() => onHover(e.cursoId)}
+          onmouseenter={() => (!enNebulosa || nivel === 'curso') && onHover(e.cursoId)}
           onmouseleave={() => onHover(null)}
-          onfocus={() => onHover(e.cursoId)}
+          onfocus={() => (!enNebulosa || nivel === 'curso') && onHover(e.cursoId)}
           onblur={() => onHover(null)}
-          onclick={() => onAbrirCurso(e.cursoId)}
+          onclick={() => (!enNebulosa || nivel === 'curso') && onAbrirCurso(e.cursoId)}
           onkeydown={(ev) => {
-            if (ev.key === 'Enter' || ev.key === ' ') {
+            if ((ev.key === 'Enter' || ev.key === ' ') && (!enNebulosa || nivel === 'curso')) {
               ev.preventDefault()
               onAbrirCurso(e.cursoId)
             }
@@ -334,6 +306,77 @@
           class="código"
           class:visible={!viajando && ((!enNebulosa && e.estado === 'figura') || deFoco || senalada)}
         >{c.codigo}</text>
+      {/if}
+    {/each}
+  </g>
+
+  <!-- rótulos: siempre encima de las estrellas -->
+  <g class="rotulos">
+    {#each escena.limites as l (l.programaId)}
+      {#if nivel === 'maestria'}
+        {@const p = curriculum.programas[l.programaId]}
+        {@const arriba = l.puntos.reduce((a, q) => (q[1] < a[1] ? q : a), l.puntos[0])}
+        {@const lineas = partirEtiqueta(p.nombreCorto)}
+        {@const xEt = Math.min(Math.max(arriba[0], 110), escena.ancho - 110)}
+        <g class="rotulo-region" role="button" tabindex="0" aria-label="Ver {p.nombreCorto}"
+          onmouseenter={() => onHoverPrograma(l.programaId)}
+          onmouseleave={() => onHoverPrograma(null)}
+          onclick={() => onElegir(l.programaId)}
+          onkeydown={(ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onElegir(l.programaId) }
+          }}>
+          {#each lineas as linea, i (linea)}
+            <rect
+              x={xEt - (linea.length * 8.4 + 20) / 2}
+              y={arriba[1] - 26 - (lineas.length - 1 - i) * 16}
+              width={linea.length * 8.4 + 20}
+              height="18"
+              class="fondo-region {marcaDe(l.programaId)}"
+            />
+          {/each}
+          {#each lineas as linea, i (linea)}
+            <text x={xEt} y={arriba[1] - 13 - (lineas.length - 1 - i) * 16} class="nombre-region">{linea}</text>
+          {/each}
+        </g>
+      {/if}
+    {/each}
+
+    {#each escena.siluetas as s (s.programaId)}
+      {#if sinPrograma && siluetaHover === (s.objetivo ?? s.programaId) && nivel !== 'curso'}
+        {@const p = curriculum.programas[s.objetivo ?? s.programaId]}
+        {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
+        {@const by = Math.max(...s.puntos.map((q) => q[1]))}
+        {@const anchoEt = Math.max(78, p.nombreCorto.length * 8.8 + 24)}
+        {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
+        <g class="etiqueta">
+          <rect
+            x={etX - anchoEt / 2}
+            y={Math.min(by + 12, escena.alto - 28)}
+            width={anchoEt}
+            height="26"
+            class="fondo-figura-visible {marcaDe(s.programaId)}"
+          />
+          <text x={etX} y={Math.min(by + 12, escena.alto - 28) + 18} class="nombre-silueta">{p.nombreCorto}</text>
+        </g>
+      {/if}
+    {/each}
+
+    {#each escena.figuras as f (f.programaId)}
+      {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
+      {@const fija = escena.figuras.length > 1}
+      {#if activa || fija}
+        {@const nombre = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
+        {@const cx = f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
+        {@const abajo = Math.max(...f.puntos.map((q) => q[1]))}
+        <rect
+          x={cx - (nombre.length * 8.4 + 20) / 2}
+          y={abajo + 8}
+          width={nombre.length * 8.4 + 20}
+          height="19"
+          class="fondo-figura {marcaDe(f.programaId)}"
+          class:visible={activa || fija}
+        />
+        <text x={cx} y={abajo + 22} class="nombre-figura" class:visible={activa || fija}>{nombre}</text>
       {/if}
     {/each}
   </g>
@@ -408,9 +451,9 @@
 
   .nombre-region {
     font-family: var(--ff-sans);
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     fill: var(--c-ink);
     text-anchor: middle;
@@ -447,11 +490,6 @@
     pointer-events: none;
   }
 
-  .silueta-selector.activa .etiqueta,
-  .silueta-selector:focus-visible .etiqueta {
-    opacity: 1;
-  }
-
   .nombre-silueta {
     font-family: var(--ff-sans);
     font-size: 14px;
@@ -483,7 +521,7 @@
 
   .nombre-figura {
     font-family: var(--ff-sans);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -500,14 +538,13 @@
     opacity: 1;
   }
 
-  .fondo-figura {
-    opacity: 0;
-    transition: opacity var(--t-fast) var(--ease);
+  .fondo-figura,
+  .fondo-figura-visible {
+    opacity: 1;
   }
 
   .etiqueta {
-    opacity: 0;
-    transition: opacity var(--t-fast) var(--ease);
+    opacity: 1;
   }
 
   .silueta {
@@ -546,6 +583,11 @@
 
   .estrella.apagada {
     opacity: 0.13;
+  }
+
+  .estrella.inerte {
+    cursor: default;
+    pointer-events: none;
   }
 
   .estrella.de-foco {

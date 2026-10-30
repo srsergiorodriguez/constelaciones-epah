@@ -146,6 +146,9 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] **Paso 1 del mapa único**: el universo lleva sus estrellas; cada curso sobre el trazo de su plan
 - [x] Un curso, una estrella por figura: los compartidos se repiten
 - [x] Los cursos sin figura flotan entre constelaciones, nunca en fila
+- [x] Cursos clicables solo en umbrales y en vistas enfocadas
+- [x] Rótulos en capa final: nunca detrás de una estrella
+- [x] Rótulos a 14–15 px; constelaciones y envolventes más gruesas (3 / 1,6)
 - [x] El título vuelve al universo **y** a la escala de maestría
 - [x] Detalle de curso con la escalera «Cuenta para»
 - [x] 34 pruebas

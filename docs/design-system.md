@@ -126,6 +126,14 @@ Un rótulo es fijo si nombra **el objeto de la vista**; si no, aparece al pasar 
 Los códigos de curso siguen la misma lógica: aparecen en la constelación abierta y al enfocar una
 figura; nunca en el universo, donde serían 91 etiquetas.
 
+**Los cursos solo se tocan donde son el tema.** En la escala de umbrales y en una vista enfocada
+(especializado, énfasis o maestría abierta) son botones; en las vistas generales —universo de
+maestrías y de especializados— son inertes: sin foco, sin clic, sin código. Ahí se explora por
+programas, no por cursos.
+
+**Los rótulos van siempre encima de las estrellas.** Se dibujan en una capa final; ninguna estrella
+tapa un nombre.
+
 **Regla:** todo rótulo lleva su marca de familia; el texto va en tinta. No hay rótulos «a pelo» ni
 rectángulos de color sin texto.
 
