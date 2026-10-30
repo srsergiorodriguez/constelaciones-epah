@@ -122,7 +122,8 @@ homologar después. Es la escala más baja de la reforma —una puerta de tres c
 cielo se aclara: quedan los que abren algo.
 
 **Las constelaciones son contexto.** Se ven al 12 % —el programa existe, está ahí— pero
-no se pueden tocar: `pointer-events: none`, sin foco y sin rótulo. Para explorarlas hay que subir de
+no se pueden tocar: se apaga el grupo y todos sus hijos, no hay foco, no hay rótulo y el clic está
+cerrado en el manejador. Para explorarlas hay que subir de
 escala. La lista sí es accionable: a esa escala se recorren los 83 cursos uno por uno.
 
 **El fragmento ocupa su sitio canónico.** Las cuatro estrellas de un especializado se dibujan en el

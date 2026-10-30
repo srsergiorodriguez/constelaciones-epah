@@ -451,3 +451,12 @@ de lejos, que es como se va a proyectar.
 especializados vuelven al cursor: cinco nombres fijos más los códigos de sus estrellas era demasiado.
 Un rótulo fijo se gana el sitio cuando es el objeto de la vista; dentro de una maestría, los objetos
 son sus figuras, y se reconocen por su forma.
+
+---
+
+## 2026-10-30 · Inertes de verdad
+
+**Un hijo reactivaba lo que el padre apagaba.** En la escala de umbrales las siluetas llevaban
+`pointer-events: none`, pero su zona de contacto hija declaraba `pointer-events: all` y volvía a
+encenderlas: se podían tocar, y por eso aparecían rótulos que no correspondían a esa escala. Ahora se
+apaga el grupo y todos sus descendientes, y el clic está cerrado también en el manejador.

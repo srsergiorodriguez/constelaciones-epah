@@ -185,7 +185,7 @@
           onmouseleave={() => onHoverPrograma(null)}
           onfocus={() => nivel !== 'curso' && onHoverPrograma(objetivo)}
           onblur={() => onHoverPrograma(null)}
-          onclick={() => onElegir(objetivo)}
+          onclick={() => nivel !== 'curso' && onElegir(objetivo)}
           onkeydown={(ev) => {
             if (ev.key === 'Enter' || ev.key === ' ') {
               ev.preventDefault()
