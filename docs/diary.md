@@ -492,3 +492,15 @@ solo cuando se entra.
 constelación —hasta 20 px— mientras en el resto de las vistas generales medían 6,6. Ahora todas las
 vistas generales comparten tamaño; el radio grande queda para cuando hay un programa abierto, donde
 significa algo.
+
+---
+
+## 2026-10-30 · La marca se mide
+
+**El rect detrás del nombre no cuadraba con el texto.** El ancho se estimaba por caracteres y la
+estimación se quedó vieja cuando el rótulo pasó de 12 a 15 px. Ahora `Etiqueta.svelte` mide el texto
+dibujado con `getBBox()` y dibuja la marca a esa medida: un solo componente para los tres rótulos del
+cielo.
+
+**Y los rótulos no se repiten.** En la vista de maestrías, las dos de plan único tienen nombre fijo y
+además aparecía al pasar el cursor. Ahora el rótulo fijo calla al flotante.

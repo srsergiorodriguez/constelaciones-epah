@@ -101,8 +101,11 @@ gritar: sirve para reconocer de un vistazo a qué familia pertenece un bloque.
 Reglas:
 
 - **Es un fondo, nunca texto.** Sobre la marca siempre va tinta `#070707`.
-- **Un rótulo, una marca.** Siluetas, regiones y figuras usan el mismo par: `rect` con la clase
-  `.hl-*` y texto en tinta, 12–14 px, negrita. No hay rótulos «a pelo».
+- **Un rótulo, una marca, una medida.** Siluetas, regiones y figuras se dibujan con `Etiqueta`: un
+  `rect` con la clase `.hl-*` y texto en tinta, 14–15 px, negrita. El ancho del `rect` sale de medir el
+  texto, no de estimarlo por caracteres — la estimación fue justo lo que descuadró la marca. Los
+  estilos de estos rótulos viven en `app.css` porque los pinta otro componente y el scope de Svelte no
+  cruza esa frontera.
 - **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo, rótulo de una figura al
   pasar el cursor, rótulo de una región (12 px, negrita, MAYÚSCULAS, sobre su marca de familia). Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
 - En SVG la marca es un `rect` con la clase `.hl-*` (que fija `fill` además de `background`), y el
@@ -206,6 +209,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `SkyStage` | `graph`, `figures`, `mode` | cielo, constelación, vacío | Único componente que dibuja el SVG. Sin lógica de dominio. |
 | `ConstellationPath` | `programId`, `color`, `pattern`, `points`, `figure` | normal, hover, atenuado | Una `path` por constelación; la figura se dibuja completa. |
 | `Debug` | — | panel | Solo con `?debug` en la URL. Dos deslizadores que escriben `--stroke-const` y `--stroke-region` en la raíz. Es una herramienta, no interfaz: no se documenta como componente de producto. |
+| `Etiqueta` | `texto`, `x`, `y`, `clase`, `marca` | rótulo con su marca | Mide el texto dibujado con `getBBox()` y dibuja el `rect` a esa medida: nada de estimar por caracteres. Todos los rótulos del cielo pasan por aquí. |
 | `Region` | `puntos` | visible, oculta, rótulo pulsable | Contorno discontinuo que encierra las figuras de una maestría. Su rótulo es un botón: abre la maestría. Trazo 1, 45 % de opacidad, rótulo partido en líneas. Solo en la escala «maestría». No se usa en la vista de detalle: allí la figura ya es la forma. |
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Figure` | `programaId`, `puntos` | normal, hover, foco | En la maestría con énfasis, cada figura es un botón: abre su plan. Trazo con relleno transparente para que se pueda tocar el interior, no solo la línea. En la constelación de un solo programa la figura no es interactiva. |

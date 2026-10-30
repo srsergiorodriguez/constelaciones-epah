@@ -6,6 +6,7 @@
   import type { Punto } from '../domain/figures'
   import { polylinePath } from '../viz/geometry'
   import { envolventePath } from '../domain/hull'
+  import Etiqueta from './Etiqueta.svelte'
   import { finDelPlan, planViaje, posicionEn, prefiereMenosMovimiento } from '../viz/motion'
   import { colorDe, marcaDe, radioDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
@@ -328,37 +329,36 @@
             if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onElegir(l.programaId) }
           }}>
           {#each lineas as linea, i (linea)}
-            <rect
-              x={xEt - (linea.length * 8.4 + 20) / 2}
-              y={arriba[1] - 26 - (lineas.length - 1 - i) * 16}
-              width={linea.length * 8.4 + 20}
-              height="18"
-              class="fondo-region {marcaDe(l.programaId)}"
+            <Etiqueta
+              texto={linea}
+              x={xEt}
+              y={arriba[1] - 13 - (lineas.length - 1 - i) * 16}
+              clase="nombre-region"
+              marca={marcaDe(l.programaId)}
             />
-          {/each}
-          {#each lineas as linea, i (linea)}
-            <text x={xEt} y={arriba[1] - 13 - (lineas.length - 1 - i) * 16} class="nombre-region">{linea}</text>
           {/each}
         </g>
       {/if}
     {/each}
 
     {#each escena.siluetas as s (s.programaId)}
-      {#if sinPrograma && siluetaHover === (s.objetivo ?? s.programaId) && nivel !== 'curso'}
+      {#if sinPrograma &&
+        siluetaHover === (s.objetivo ?? s.programaId) &&
+        nivel !== 'curso' &&
+        !escena.limites.some((l) => l.programaId === (s.objetivo ?? s.programaId))}
         {@const p = curriculum.programas[s.objetivo ?? s.programaId]}
         {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
         {@const by = Math.max(...s.puntos.map((q) => q[1]))}
         {@const anchoEt = Math.max(78, p.nombreCorto.length * 8.8 + 24)}
         {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
         <g class="etiqueta">
-          <rect
-            x={etX - anchoEt / 2}
-            y={Math.min(by + 12, escena.alto - 28)}
-            width={anchoEt}
-            height="26"
-            class="fondo-figura-visible {marcaDe(s.programaId)}"
+          <Etiqueta
+            texto={p.nombreCorto}
+            x={etX}
+            y={Math.min(by + 12, escena.alto - 28) + 18}
+            clase="nombre-silueta"
+            marca={marcaDe(s.programaId)}
           />
-          <text x={etX} y={Math.min(by + 12, escena.alto - 28) + 18} class="nombre-silueta">{p.nombreCorto}</text>
         </g>
       {/if}
     {/each}
@@ -369,14 +369,7 @@
         {@const nombre = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
         {@const cx = f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
         {@const abajo = Math.max(...f.puntos.map((q) => q[1]))}
-        <rect
-          x={cx - (nombre.length * 8.4 + 20) / 2}
-          y={abajo + 8}
-          width={nombre.length * 8.4 + 20}
-          height="19"
-          class="fondo-figura {marcaDe(f.programaId)}"
-        />
-        <text x={cx} y={abajo + 22} class="nombre-figura">{nombre}</text>
+        <Etiqueta texto={nombre} x={cx} y={abajo + 22} clase="nombre-figura" marca={marcaDe(f.programaId)} />
       {/if}
     {/each}
   </g>
@@ -439,26 +432,16 @@
     outline: none;
   }
 
-  .rotulo-region:hover .nombre-region {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  .rotulo-region:hover {
+    opacity: 0.72;
   }
 
-  .rotulo-region:focus-visible .fondo-region {
-    stroke: var(--c-focus);
-    stroke-width: 2;
+  .rotulo-region:focus-visible {
+    outline: 2px solid var(--c-focus);
+    outline-offset: 3px;
   }
 
-  .nombre-region {
-    font-family: var(--ff-sans);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    fill: var(--c-ink);
-    text-anchor: middle;
-  }
-
+  
   /* el relleno lo pone la clase hl-* de app.css, para no pisarla con el scope */
 
   .silueta-selector {
@@ -490,15 +473,7 @@
     pointer-events: none;
   }
 
-  .nombre-silueta {
-    font-family: var(--ff-sans);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    fill: var(--c-ink);
-    text-anchor: middle;
-  }
-
+  
   /* el relleno lo pone la clase hl-* de app.css, para no pisarla con el scope */
 
   .figura {
@@ -519,19 +494,7 @@
     stroke: var(--c-focus);
   }
 
-  .nombre-figura {
-    font-family: var(--ff-sans);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    fill: var(--c-ink);
-    text-anchor: middle;
-    opacity: 0;
-    transition: opacity var(--t-fast) var(--ease);
-    pointer-events: none;
-  }
-
+  
   .nombre-figura.visible,
   .fondo-figura.visible,
   .etiqueta.visible {

@@ -105,3 +105,38 @@ button {
   background: var(--hl-ink);
   fill: var(--hl-ink);
 }
+
+/* Rótulos del cielo: viven en app.css porque los dibuja Etiqueta.svelte,
+   y los estilos con scope no cruzan la frontera del componente. */
+.nombre-region {
+  font-family: var(--ff-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  fill: var(--c-ink);
+  text-anchor: middle;
+}
+
+.nombre-figura {
+  font-family: var(--ff-sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: var(--c-ink);
+  text-anchor: middle;
+}
+
+.nombre-silueta {
+  font-family: var(--ff-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  fill: var(--c-ink);
+  text-anchor: middle;
+}
+
+.fondo-etiqueta {
+  fill: var(--hl-ink);
+}
