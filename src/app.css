@@ -83,19 +83,25 @@ button {
 
 .hl-creacion {
   background: var(--hl-creacion);
+  fill: var(--hl-creacion);
 }
 .hl-he {
   background: var(--hl-he);
+  fill: var(--hl-he);
 }
 .hl-gepc {
   background: var(--hl-gepc);
+  fill: var(--hl-gepc);
 }
 .hl-perio {
   background: var(--hl-perio);
+  fill: var(--hl-perio);
 }
 .hl-patrim {
   background: var(--hl-patrim);
+  fill: var(--hl-patrim);
 }
 .hl-ink {
   background: var(--hl-ink);
+  fill: var(--hl-ink);
 }

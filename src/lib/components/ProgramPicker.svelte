@@ -96,7 +96,6 @@
       </li>
     {/each}
   </ul>
-  <p class="nota">Una constelación a la vez.</p>
 </nav>
 
 <style>
@@ -230,15 +229,6 @@
   .punto.lleno {
     background: var(--c-ink);
     border-color: transparent;
-  }
-
-  .nota {
-    font-family: var(--ff-serif);
-    font-style: italic;
-    font-size: var(--fz-xs);
-    color: var(--c-ink-3);
-    padding-top: var(--sp-2);
-    border-top: 1px solid var(--c-rule);
   }
 
   @media (max-width: 900px) {

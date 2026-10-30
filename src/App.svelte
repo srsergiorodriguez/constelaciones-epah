@@ -76,7 +76,7 @@
 <main class="lienzo">
   <header class="cabecera">
     <div class="marca">
-      <h1>Constelación</h1>
+      <h1>Constelaciones</h1>
       <p>Escuela de Posgrados · Facultad de Artes y Humanidades</p>
     </div>
 
@@ -90,7 +90,7 @@
           <line x1="0" y1="2" x2="60" y2="2" stroke={actual.color} stroke-width="3" />
         </svg>
       {:else}
-        <p class="programa">El cielo</p>
+        <p class="programa">El universo</p>
         <p class="detalle">{totalCursos} cursos · {totalProgramas} programas</p>
       {/if}
     </div>
@@ -121,9 +121,9 @@
   <footer class="pie">
     <div class="izquierda">
       {#if seleccion.length > 0}
-        <button class="limpiar" onclick={limpiar}>Volver al cielo</button>
+        <button class="limpiar" onclick={limpiar}>Volver al universo</button>
       {:else}
-        <span class="pista">Elige un programa en la lista o toca una silueta del cielo.</span>
+        <span class="pista">Elige un programa en la lista o toca una silueta del universo.</span>
         <ul class="familias">
           {#each maestrias as m (m.id)}
             <li>

@@ -126,6 +126,10 @@ brazos; `prefers-reduced-motion` salta al estado final.
 - [x] Marca de familia en el selector y en los títulos de periodo (`--hl-*`)
 - [x] Siluetas repartidas por el cielo (azar sembrado, sin solaparse): segundo selector, sin estrellas
 - [x] Zonas de contacto: el blanco no es el trazo sino el disco completo
+- [x] Título «Constelaciones»; la vista general se llama **Universo**
+- [x] Siluetas más grandes, agrupadas por maestría y con roce permitido
+- [x] Rótulo de la silueta con la marca de familia, 13 px y posición fija bajo la figura
+- [x] Fuera la nota «una constelación a la vez»
 
 - [x] **Programa especializado en dos periodos** (dos cursos por periodo)
 - [x] **Maestría a secas**: plan marco con casillas abiertas, y los énfasis como rutas opcionales

@@ -281,19 +281,21 @@ function componerFamilia(
 }
 
 /**
- * Sin selección, el cielo muestra todas las siluetas sueltas: ni anillo ni
- * rejilla, porque así no se ordena el cielo. Se siembran al azar y se separan
- * hasta que ninguna pisa a otra.
+ * Sin selección, el universo muestra todas las siluetas: las de una misma
+ * maestría se agrupan —son parientes— y el conjunto queda sembrado al azar.
+ * Se permite un solape pequeño: las figuras se tocan sin confundirse.
  */
 function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
-  const ids = Object.values(curriculum.programas)
-    .filter((p) => p.tipo === 'enfasis' || (p.tipo === 'maestria' && hijosDe(p.id).length === 0))
-    .map((p) => p.id)
-    .filter((id) => figureOf(id, curriculum.programas[id]?.padreId ?? null))
+  const programas = Object.values(curriculum.programas).filter(
+    (p) => p.tipo === 'enfasis' || (p.tipo === 'maestria' && hijosDe(p.id).length === 0),
+  )
+  const ids = programas.map((p) => p.id).filter((id) => figureOf(id, curriculum.programas[id]?.padreId ?? null))
 
-  const lado = 104
-  const margen = 34
-  const minD = 150
+  const lado = 128
+  const margen = 30
+  const minD = lado * 1.16 // se rozan, no se pisan
+  const anclaD = 400
+
   let semilla = 20261030
   const azar = () => {
     semilla |= 0
@@ -308,12 +310,47 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
   const minY = margen + lado / 2
   const maxY = alto - margen - lado / 2
 
-  const centros: Punto[] = ids.map(() => [
+  // una ancla por maestría, separadas entre sí
+  const familias = [...new Set(programas.map((p) => (p.tipo === 'enfasis' ? p.padreId! : p.id)))]
+  const anclas = new Map<string, Punto>()
+  const libres: Punto[] = familias.map(() => [
     minX + azar() * (maxX - minX),
     minY + azar() * (maxY - minY),
   ])
+  for (let paso = 0; paso < 220; paso++) {
+    for (let i = 0; i < libres.length; i++) {
+      for (let j = i + 1; j < libres.length; j++) {
+        const a = libres[i]
+        const b = libres[j]
+        const dx = a[0] - b[0]
+        const dy = a[1] - b[1]
+        const d = Math.hypot(dx, dy) || 0.01
+        if (d >= anclaD) continue
+        const f = ((anclaD - d) / d) * 0.2
+        a[0] += dx * f
+        a[1] += dy * f
+        b[0] -= dx * f
+        b[1] -= dy * f
+      }
+    }
+    for (const c of libres) {
+      c[0] = Math.min(maxX, Math.max(minX, c[0]))
+      c[1] = Math.min(maxY, Math.max(minY, c[1]))
+    }
+  }
+  familias.forEach((f, i) => anclas.set(f, libres[i]))
 
-  for (let paso = 0; paso < 260; paso++) {
+  // cada figura arranca cerca de su ancla
+  const centros: Punto[] = programas.map((p) => {
+    const a = anclas.get(p.tipo === 'enfasis' ? p.padreId! : p.id)!
+    return [
+      Math.min(maxX, Math.max(minX, a[0] + (azar() - 0.5) * 150)),
+      Math.min(maxY, Math.max(minY, a[1] + (azar() - 0.5) * 140)),
+    ]
+  })
+
+  // se separan sin alejarse de su familia
+  for (let paso = 0; paso < 420; paso++) {
     for (let i = 0; i < centros.length; i++) {
       for (let j = i + 1; j < centros.length; j++) {
         const a = centros[i]
@@ -322,14 +359,19 @@ function siluetasDelCielo(ancho: number, alto: number): Silueta[] {
         const dy = a[1] - b[1]
         const d = Math.hypot(dx, dy) || 0.01
         if (d >= minD) continue
-        const empuje = ((minD - d) / d) * 0.25
-        a[0] += dx * empuje
-        a[1] += dy * empuje
-        b[0] -= dx * empuje
-        b[1] -= dy * empuje
+        const f = ((minD - d) / d) * 0.3
+        a[0] += dx * f
+        a[1] += dy * f
+        b[0] -= dx * f
+        b[1] -= dy * f
       }
     }
-    for (const c of centros) {
+    for (let i = 0; i < centros.length; i++) {
+      const p = programas[i]
+      const a = anclas.get(p.tipo === 'enfasis' ? p.padreId! : p.id)!
+      const c = centros[i]
+      c[0] += (a[0] - c[0]) * 0.008
+      c[1] += (a[1] - c[1]) * 0.008
       c[0] = Math.min(maxX, Math.max(minX, c[0]))
       c[1] = Math.min(maxY, Math.max(minY, c[1]))
     }

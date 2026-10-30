@@ -177,3 +177,17 @@ separan hasta no pisarse: un cielo no ordena sus figuras en círculo.
 transparente de casi el doble de su radio y cada silueta un relleno transparente más un círculo de
 46 px en el centro. Es una regla del sistema de diseño, no un parche: toda forma interactiva tiene
 zona de contacto.
+
+---
+
+## 2026-10-30 · Universo
+
+**Nombres.** La app es «Constelaciones» y la vista general es el **Universo**. «Cielo» queda como
+metáfora en los documentos, no como etiqueta de interfaz.
+
+**Siluetas: más grandes, emparentadas y con roce.** Suben a 128 px, se agrupan por maestría y se
+permiten solapes de hasta un 15 %: dos figuras se tocan sin confundirse. El roce es el argumento de
+flexibilidad, no un defecto del empaquetado.
+
+**El rótulo se lee.** Era gris, de 12 px y flotaba donde cayera. Ahora va en tinta sobre la marca de
+la familia, a 13 px, siempre bajo la figura y acotado al borde del escenario.

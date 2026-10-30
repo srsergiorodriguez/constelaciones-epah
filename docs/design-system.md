@@ -101,8 +101,10 @@ gritar: sirve para reconocer de un vistazo a qué familia pertenece un bloque.
 Reglas:
 
 - **Es un fondo, nunca texto.** Sobre la marca siempre va tinta `#070707`.
-- **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo. Nunca párrafos, nunca
-  texto de cuerpo, nunca dos marcas en la misma línea.
+- **Solo títulos y rótulos cortos**: nombre de maestría, título de periodo, rótulo de una figura al
+  pasar el cursor. Nunca párrafos, nunca texto de cuerpo, nunca dos marcas en la misma línea.
+- En SVG la marca es un `rect` con la clase `.hl-*` (que fija `fill` además de `background`), y el
+  texto encima va en tinta.
 - Se aplica con la clase `.marca` más `.hl-<familia>`; el aire es `0.08em 0.34em`. Nada de estilos
   inline.
 - Nunca es el único portador de significado: el nombre del programa y la palabra «periodo» siguen

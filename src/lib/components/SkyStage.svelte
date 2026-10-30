@@ -5,7 +5,7 @@
   import type { Punto } from '../domain/figures'
   import { polylinePath } from '../viz/geometry'
   import { finDelPlan, planViaje, posicionEn, prefiereMenosMovimiento } from '../viz/motion'
-  import { colorDe, radioDe } from '../viz/palette'
+  import { colorDe, marcaDe, radioDe } from '../viz/palette'
   import StarGlyph from './StarGlyph.svelte'
 
   interface Props {
@@ -84,7 +84,7 @@
   class="cielo"
   viewBox="0 0 {escena.ancho} {escena.alto}"
   role="img"
-  aria-label="Cielo de cursos de la Escuela: {escena.estrellas.length} cursos, {seleccion.length} programas seleccionados"
+  aria-label="Universo de cursos de la Escuela: {escena.estrellas.length} cursos, {seleccion.length} programas seleccionados"
   preserveAspectRatio="xMidYMid meet"
 >
   <g class="retícula" aria-hidden="true">
@@ -109,6 +109,11 @@
     <g class="selector-siluetas">
       {#each escena.siluetas as s (s.programaId)}
         {@const p = curriculum.programas[s.programaId]}
+        {@const bx = s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
+        {@const by = Math.max(...s.puntos.map((q) => q[1]))}
+        {@const anchoEt = Math.max(64, p.nombreCorto.length * 8.4 + 22)}
+        {@const etY = Math.min(by + 12, escena.alto - 26)}
+        {@const etX = Math.min(Math.max(bx, anchoEt / 2 + 8), escena.ancho - anchoEt / 2 - 8)}
         <g
           class="silueta-selector"
           class:activa={siluetaHover === s.programaId}
@@ -135,10 +140,18 @@
             fill="transparent"
           />
           <path d={polylinePath(s.puntos)} fill="none" stroke={colorDe(s.programaId)} />
-          <text
-            x={s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length}
-            y={s.puntos.reduce((a, q) => a + q[1], 0) / s.puntos.length + 62}
-            class="nombre-silueta">{p.nombreCorto}</text>
+          <g class="etiqueta">
+            <rect
+              x={etX - anchoEt / 2}
+              y={etY}
+              width={anchoEt}
+              height="22"
+              class="fondo-etiqueta {marcaDe(s.programaId)}"
+            />
+            <text x={etX} y={etY + 15.5} class="nombre-silueta">
+              {p.nombreCorto}
+            </text>
+          </g>
         </g>
       {/each}
     </g>
@@ -271,22 +284,27 @@
     stroke-width: 2.2;
   }
 
-  .nombre-silueta {
-    font-family: var(--ff-sans);
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    fill: var(--c-ink-2);
-    text-anchor: middle;
+  .etiqueta {
     opacity: 0;
     transition: opacity var(--t-fast) var(--ease);
     pointer-events: none;
   }
 
-  .silueta-selector.activa .nombre-silueta,
-  .silueta-selector:focus-visible .nombre-silueta {
+  .silueta-selector.activa .etiqueta,
+  .silueta-selector:focus-visible .etiqueta {
     opacity: 1;
   }
+
+  .nombre-silueta {
+    font-family: var(--ff-sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    fill: var(--c-ink);
+    text-anchor: middle;
+  }
+
+  /* el relleno lo pone la clase hl-* de app.css, para no pisarla con el scope */
 
   .silueta {
     stroke-width: var(--stroke-const);

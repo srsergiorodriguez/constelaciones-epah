@@ -90,7 +90,7 @@ especialización. Así la escala menor no inventa datos ni duplica cursos.
 
 ---
 
-## 4. El cielo se pliega
+## 4. El universo se pliega
 
 Dos estados, no dos modos: **nebulosa** (nada seleccionado) y **constelación** (uno o dos programas).
 Al elegir, las estrellas del programa **viajan** a su figura. Al deseleccionar, vuelven a su sitio.
@@ -118,13 +118,17 @@ Sin selección, los 83 cursos forman un cielo **al azar**, no un diagrama:
   posición descansa.
 - Se calcula una vez en build (`atlas.json`) con semilla fija. En pantalla nadie simula: se lee.
 
-**Las siluetas también son selector.** Repartidas por el cielo —al azar sembrado, sin pisarse— se
+**Las siluetas también son selector.** Repartidas por el universo —al azar sembrado, sin pisarse— se
 dibujan las quince figuras: los trece énfasis y las dos maestrías sin énfasis. Sin estrellas: solo el
 trazo. Un clic en una silueta abre ese programa. Es el segundo camino de entrada, además de la lista
 de la izquierda, y el que hace que el cielo se pueda leer sin menús.
 
-Nada de anillos ni de rejillas: un cielo no ordena sus figuras en círculo. Se siembran y se separan
-hasta que ninguna toca a otra.
+Nada de anillos ni de rejillas: un cielo no ordena sus figuras en círculo. Las de una misma maestría
+se agrupan —son parientes— y el conjunto se siembra al azar. Se permiten roces de hasta un 15 %: las
+figuras se tocan, no se confunden, y el roce dice algo de la flexibilidad entre programas.
+
+El nombre aparece al pasar el cursor, grande y con la marca de la familia de fondo. Un rótulo gris de
+12 px sobre un trazo fino no se leía.
 
 ### 4.2 Una constelación
 
