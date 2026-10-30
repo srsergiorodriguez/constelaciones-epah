@@ -284,18 +284,25 @@
     </div>
   </header>
 
-  <nav class="niveles" aria-label="Secciones del editor">
-    {#each grupos as g (g.nombre)}
-      <div class="nivel">
-        <p class="nivel-titulo">{g.nombre}</p>
-        <div class="pestanas">
-          {#each g.pestanas as p (p.id)}
-            <button class:activa={pestana === p.id} onclick={() => (pestana = p.id)}>{p.nombre}</button>
-          {/each}
+  <div class="marco-dos-columnas">
+    <nav class="lateral" aria-label="Secciones del editor">
+      {#each grupos as g (g.nombre)}
+        <div class="grupo">
+          <p class="grupo-titulo">{g.nombre}</p>
+          <ul>
+            {#each g.pestanas as p (p.id)}
+              <li>
+                <button class="item" class:activo={pestana === p.id} onclick={() => (pestana = p.id)}>
+                  {p.nombre}
+                </button>
+              </li>
+            {/each}
+          </ul>
         </div>
-      </div>
-    {/each}
-  </nav>
+      {/each}
+    </nav>
+
+    <div class="principal">
 
   {#if cargando}
     <p class="vacio">Cargando…</p>
@@ -600,6 +607,8 @@
       <pre class:fallo>{salida}</pre>
     {/if}
   {/if}
+    </div>
+  </div>
 </main>
 
 <style>
@@ -660,45 +669,71 @@
     opacity: 0.5;
   }
 
-  .niveles {
-    display: flex;
-    flex-wrap: wrap;
+  .marco-dos-columnas {
+    display: grid;
+    grid-template-columns: 190px 1fr;
     gap: var(--sp-6);
-    padding: var(--sp-4) 0 var(--sp-5);
-    border-bottom: 1px solid var(--c-rule);
-    margin-bottom: var(--sp-4);
+    align-items: start;
+    padding-top: var(--sp-5);
   }
 
-  .nivel-titulo {
+  .lateral {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    position: sticky;
+    top: var(--sp-5);
+    padding-right: var(--sp-3);
+    border-right: 1px solid var(--c-rule);
+  }
+
+  .grupo-titulo {
     font-family: var(--ff-sans);
     font-size: var(--fz-xs);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--c-ink-3);
     padding-bottom: var(--sp-1);
+    border-bottom: 1px solid var(--c-rule);
+    margin-bottom: var(--sp-1);
   }
 
-  .pestanas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-3);
+  .grupo ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .pestanas button {
-    border: 0;
-    border-bottom: 2px solid transparent;
-    text-transform: none;
-    letter-spacing: 0.02em;
+  .item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: var(--ff-sans);
     font-size: var(--fz-sm);
-    padding: 4px 10px;
-    color: var(--c-ink-3);
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--c-ink-2);
+    padding: 5px 0 5px var(--sp-2);
+    border: 0;
+    border-left: 2px solid transparent;
+    background: none;
   }
 
-  .pestanas button.activa {
+  .item:hover {
+    color: var(--c-ink);
+  }
+
+  .item.activo {
     color: var(--c-ink);
     font-weight: 700;
-    border-bottom-color: var(--c-ink);
+    border-left-color: var(--c-ink);
   }
+
+  .principal {
+    min-width: 0;
+  }
+
+
 
   section {
     overflow-x: auto;

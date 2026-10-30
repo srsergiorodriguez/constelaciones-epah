@@ -13,7 +13,9 @@ pnpm editar --port 4310
 
 ## Dos niveles
 
-La navegación no es una lista de siete pestañas: son dos niveles y una referencia.
+La navegación es **una barra lateral con dos niveles y una referencia**, no una fila de pestañas:
+grupos en versalitas con su regla, e ítems debajo. El activo va en negrita con una barra a la
+izquierda — el mismo lenguaje que la escala de la app.
 
 | Nivel | Qué contiene | Qué se hace |
 |---|---|---|
