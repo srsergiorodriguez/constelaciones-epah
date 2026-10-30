@@ -7,3 +7,6 @@ dist/
 # Documento fuente del comité: no se publica.
 Reforma EPAH_Documento maestro final.pdf
 *.pdf
+
+# Store local de pnpm (creado aquí porque el HOME no era escribible).
+.pnpm-store/
