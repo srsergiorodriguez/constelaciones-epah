@@ -123,11 +123,8 @@
   </header>
 
   <div class="cuerpo">
-    <aside class="rail">
-      <Rail {nivel} programaId={seleccion[0] ?? null} onNivel={cambiarNivel} />
-    </aside>
-
     <aside class="lateral">
+      <Rail {nivel} programaId={seleccion[0] ?? null} onNivel={cambiarNivel} />
       <ProgramPicker {nivel} {seleccion} {cursoAbierto} onToggle={alternar} onCurso={abrirCurso} />
     </aside>
 
@@ -255,18 +252,23 @@
 
   .cuerpo {
     display: grid;
-    grid-template-columns: var(--w-rail) var(--w-picker) 1fr;
-    gap: var(--sp-4);
+    grid-template-columns: var(--w-picker) 1fr;
+    gap: var(--sp-6);
     min-height: 0;
   }
 
   .cuerpo:has(.lateral-derecho) {
-    grid-template-columns: var(--w-rail) var(--w-picker) 1fr var(--w-sheet);
+    grid-template-columns: var(--w-picker) 1fr var(--w-sheet);
   }
 
-  .rail {
+  /* la escala y la lista comparten columna: escala arriba, lista debajo */
+  .lateral {
+    display: flex;
+    flex-direction: column;
     min-height: 0;
-    padding-right: var(--sp-2);
+    border-right: 1px solid var(--c-rule);
+    padding-right: var(--sp-4);
+    gap: var(--sp-2);
   }
 
   .lateral-derecho {

@@ -97,8 +97,7 @@
   --ease: cubic-bezier(0.2, 0, 0, 1);
 
   /* Medidas de interfaz */
-  --w-picker: 252px;
-  --w-rail: 190px;
+  --w-picker: 300px;
   --w-sheet: 360px;
   --h-toolbar: 52px;
 }

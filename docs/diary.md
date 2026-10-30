@@ -254,3 +254,12 @@ maestría en el universo— y el detalle se queda con la forma desnuda.
 
 **La barra recupera el nombre.** «Especializado» era una abreviación, y ya acordamos que el nivel no
 se abrevia. La barra pasa a 190 px para que quepa «Programa Especializado».
+
+---
+
+## 2026-10-30 · Una sola columna
+
+**La escala y la lista comparten columna.** La barra pasa arriba y la lista debajo, separadas por una
+regla. Se recuperan 190 px de ancho para el cielo sin tocar ninguna tipografía. *Por qué:* la escala
+y la lista son la misma navegación —qué mirar y a qué resolución— y estaban ocupando dos columnas
+para decir una cosa.

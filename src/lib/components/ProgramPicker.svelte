@@ -197,9 +197,8 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
-    height: 100%;
-    padding-right: var(--sp-4);
-    border-right: 1px solid var(--c-rule);
+    flex: 1 1 auto;
+    padding-right: 0;
   }
 
   .cabecera {

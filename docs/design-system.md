@@ -164,7 +164,7 @@ radio: el cielo de fondo no compite con la constelación encendida.
 | `SilhouetteSelector` | `siluetas`, `onElegir` | normal, hover, foco | Sin selección, las quince siluetas repartidas por el cielo, sin pisarse. Trazo al 22 %; al pasar el cursor, 85 % y el nombre. Zona de contacto: relleno transparente + círculo de 46 px. |
 | `Star` | `course`, `x`, `y`, `r`, `state` | normal, hover, foco, atenuado | `role="button"`, `aria-label` completo y foco por teclado. Al pasar el cursor: halo y rótulo fijo, y la fila del plan se resalta. Fuera de selección: punto sólido al 22 %. |
 
-| `Rail` | `nivel`, `onNivel`, `programaId` | 4 pasos | Barra de escala vertical: crédito, punto y nombre. El paso activo se rellena; el deshabilitado (doctorado) se atenúa al 45 %. |
+| `Rail` | `nivel`, `onNivel`, `programaId` | 4 pasos | Barra de escala vertical, arriba de la lista y dentro de su misma columna: crédito, punto y nombre sobre un eje continuo. El paso activo se rellena; el deshabilitado (doctorado) se atenúa al 45 %. |
 | `PlanPanel` | `programaId`, `resaltado`, `onHover`, `onElegir` | plan, familia | Panel derecho: el plan en orden cronológico, con glifo, nombre completo, código y créditos. En una maestría, plan común más sus énfasis. |
 | `CoursePanel` | `cursoId`, `onCerrar`, `onElegir` | curso | Detalle de un curso: código, créditos y la escalera «Cuenta para» (especializado → énfasis → maestría) y los planes que lo incluyen. |
 | `Composer` | `figures`, `nucleus` | figura, familia | Compone la escena; puro, sin DOM. |
@@ -180,8 +180,8 @@ radio: el cielo de fondo no compite con la constelación encendida.
 ┌──────────────────────────────────────────────────────────────┐
 │ Toolbar · modo · alternativas · leyenda                      │
 ├──────────────┬───────────────────────────────┬───────────────┤
-│ Rail │ ProgramPicker│ SkyStage                │ PlanPanel     │
-│ 190  │ 252 px       │ flex, mín. 480 px       │ 340 px        │
+│ Escala + lista          │ SkyStage          │ PlanPanel     │
+│ 300 px (escala arriba)  │ flex, mín. 480 px │ 340 px        │
 └──────────────┴───────────────────────────────┴───────────────┘
 ```
 

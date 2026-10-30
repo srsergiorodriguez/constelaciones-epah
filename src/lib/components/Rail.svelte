@@ -38,7 +38,9 @@
     justify-content: flex-start;
     gap: 0;
     position: relative;
-    padding-left: 2px;
+    padding: 0 0 var(--sp-2) 2px;
+    border-bottom: 1px solid var(--c-rule);
+    flex: 0 0 auto;
   }
 
   /* la línea que une los pasos: es una escala, no una decoración */
@@ -56,8 +58,8 @@
     display: grid;
     grid-template-columns: 24px 10px 1fr;
     align-items: center;
-    gap: var(--sp-1);
-    padding: var(--sp-2) 0;
+    gap: var(--sp-2);
+    padding: 3px 0;
     text-align: left;
     color: var(--c-ink-3);
     position: relative;
