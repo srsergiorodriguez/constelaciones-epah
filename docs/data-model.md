@@ -45,10 +45,10 @@ Cinco tablas en JSON, editables a mano o desde un editor:
 | `cursos.json` | 83 cursos: créditos, eje, formato, estado |
 | `planes.json` | 15 planes × 12 casillas |
 | `marco.json` | plan común de cada maestría (casillas abiertas incluidas) |
-| `cuerpos.json` | cuerpos declarados de programas especializados |
+| `cuerpos.json` | el cuerpo de cada especializado: **la fuente**, cuatro cursos |
 
-Los programas especializados **no** están en `programas.json`: se derivan, uno por énfasis, de las
-cuatro casillas marcadas como cuerpo. `figures.json` vive aparte, con la app, porque la dibuja ella.
+Los programas especializados **no** están en `programas.json`: existen porque tienen cuerpo declarado
+en `cuerpos.json`. Un cuerpo de cuatro cursos crea el programa; sin cuerpo, no hay programa. `figures.json` vive aparte, con la app, porque la dibuja ella.
 
 La Escuela y las maestrías son estructura fija por decisión de diseño: son el marco del currículo y no
 se editan. Que una maestría tenga o no énfasis **no** está fijado: hoy Periodismo y Patrimonio no
@@ -138,17 +138,17 @@ Una fila por pertenencia curso ↔ programa.
 > **Programa especializado**: 12 créditos en **dos periodos**, dos cursos por periodo. La casilla
 > hereda el orden del cuerpo, no el periodo del énfasis donde aparecía.
 
-### Especializados: derivados hoy, declarables mañana
+### Especializados: declarados
 
-Un especializado se **deriva** del énfasis —toma sus cuatro casillas de especialización— porque así lo
-decidió el comité mientras la reforma se estabiliza. Esa regla es provisional y está aislada en un
-solo sitio: `PE_CUERPOS` en `scripts/build-data.mjs`. Un programa puede declarar ahí su cuerpo, y
-entonces deja de derivarse:
+Un especializado **es** su cuerpo. `data/source/cuerpos.json` declara los cuatro cursos de cada uno, y
+el compilador crea el programa a partir de ahí:
 
-```js
-const PE_CUERPOS = {};           // hoy: vacío, todo se deriva
-// mañana: { "pe-creacion-arte": ["cur-arte-intro", ...] }
+```json
+{ "pe-creacion-arte": ["cur-arte-intro", "cur-arte-est-1", ...] }
 ```
+
+Los planes ya **no** marcan casillas como cuerpo: esa marca se retiró de `planes.json`. Editar el
+cuerpo de un especializado es editar esta tabla, y solo esta.
 
 El modelo ya tolera lo que la derivación prohíbe:
 

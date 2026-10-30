@@ -225,8 +225,8 @@
       "padreId": "enf-creacion-arte",
       "maestriaId": "mae-creacion",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-creacion-fotografia": {
       "id": "pe-creacion-fotografia",
@@ -236,8 +236,8 @@
       "padreId": "enf-creacion-fotografia",
       "maestriaId": "mae-creacion",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-creacion-composicion": {
       "id": "pe-creacion-composicion",
@@ -247,8 +247,8 @@
       "padreId": "enf-creacion-composicion",
       "maestriaId": "mae-creacion",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-creacion-produccion": {
       "id": "pe-creacion-produccion",
@@ -258,8 +258,8 @@
       "padreId": "enf-creacion-produccion",
       "maestriaId": "mae-creacion",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-creacion-escritura": {
       "id": "pe-creacion-escritura",
@@ -269,8 +269,8 @@
       "padreId": "enf-creacion-escritura",
       "maestriaId": "mae-creacion",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-he-literatura": {
       "id": "pe-he-literatura",
@@ -280,8 +280,8 @@
       "padreId": "enf-he-literatura",
       "maestriaId": "mae-he",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-he-historia-arte": {
       "id": "pe-he-historia-arte",
@@ -291,8 +291,8 @@
       "padreId": "enf-he-historia-arte",
       "maestriaId": "mae-he",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-he-clasicos": {
       "id": "pe-he-clasicos",
@@ -302,8 +302,8 @@
       "padreId": "enf-he-clasicos",
       "maestriaId": "mae-he",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-he-humanidades-digitales": {
       "id": "pe-he-humanidades-digitales",
@@ -313,8 +313,8 @@
       "padreId": "enf-he-humanidades-digitales",
       "maestriaId": "mae-he",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-he-humanidades-ambientales": {
       "id": "pe-he-humanidades-ambientales",
@@ -324,8 +324,8 @@
       "padreId": "enf-he-humanidades-ambientales",
       "maestriaId": "mae-he",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-gepc-negocios-musica": {
       "id": "pe-gepc-negocios-musica",
@@ -335,8 +335,8 @@
       "padreId": "enf-gepc-negocios-musica",
       "maestriaId": "mae-gepc",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-gepc-arte": {
       "id": "pe-gepc-arte",
@@ -346,8 +346,8 @@
       "padreId": "enf-gepc-arte",
       "maestriaId": "mae-gepc",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     },
     "pe-gepc-edicion": {
       "id": "pe-gepc-edicion",
@@ -357,8 +357,8 @@
       "padreId": "enf-gepc-edicion",
       "maestriaId": "mae-gepc",
       "creditos": 12,
-      "estado": "derivado",
-      "nota": "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules."
+      "estado": "declarado",
+      "nota": "Cuerpo declarado en data/source/cuerpos.json."
     }
   },
   "cursos": {
@@ -4538,7 +4538,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4549,7 +4549,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4560,7 +4560,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4571,7 +4571,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4582,7 +4582,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4593,7 +4593,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4604,7 +4604,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4615,7 +4615,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4626,7 +4626,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4637,7 +4637,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4648,7 +4648,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4659,7 +4659,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4670,7 +4670,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4681,7 +4681,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4692,7 +4692,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4703,7 +4703,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4714,7 +4714,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4725,7 +4725,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4736,7 +4736,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4747,7 +4747,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4758,7 +4758,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4769,7 +4769,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4780,7 +4780,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4791,7 +4791,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4802,7 +4802,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4813,7 +4813,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 3,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -4824,7 +4824,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4835,7 +4835,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 3,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -4846,7 +4846,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4857,7 +4857,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4868,7 +4868,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4879,7 +4879,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4890,7 +4890,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4901,7 +4901,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 3,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": "Ocupa 3 casillas del cuerpo de especialización."
     },
     {
@@ -4912,7 +4912,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4923,7 +4923,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4934,7 +4934,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4945,7 +4945,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4956,7 +4956,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4967,7 +4967,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4978,7 +4978,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -4989,7 +4989,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -5000,7 +5000,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -5011,7 +5011,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -5022,7 +5022,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     },
     {
@@ -5033,7 +5033,7 @@
       "obligatoriedad": "obligatorio",
       "alternativas": [],
       "repeticiones": 1,
-      "estado": "derivado",
+      "estado": "declarado",
       "nota": ""
     }
   ],

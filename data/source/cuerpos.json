@@ -1,1 +1,80 @@
-{}
+{
+  "pe-creacion-arte": [
+    "cur-arte-intro",
+    "cur-arte-est-1",
+    "cur-arte-est-2",
+    "cur-arte-est-3"
+  ],
+  "pe-creacion-fotografia": [
+    "cur-foto-intro",
+    "cur-foto-est-edicion",
+    "cur-foto-est-tiempo",
+    "cur-foto-est-publicacion"
+  ],
+  "pe-creacion-composicion": [
+    "cur-musica-intro",
+    "cur-musica-contexto-1",
+    "cur-musica-contexto-2",
+    "cur-musica-contexto-3"
+  ],
+  "pe-creacion-produccion": [
+    "cur-musica-intro",
+    "cur-musica-contexto-1",
+    "cur-musica-contexto-2",
+    "cur-musica-contexto-3"
+  ],
+  "pe-creacion-escritura": [
+    "cur-escritura-intro",
+    "cur-escritura-taller-1",
+    "cur-escritura-taller-2",
+    "cur-escritura-taller-3"
+  ],
+  "pe-he-literatura": [
+    "cur-he-teoria-1",
+    "cur-lit-seminario",
+    "cur-he-teoria-2",
+    "cur-he-teoria-3"
+  ],
+  "pe-he-historia-arte": [
+    "cur-harte-pensar",
+    "cur-harte-seminario",
+    "cur-harte-seminario",
+    "cur-harte-seminario"
+  ],
+  "pe-he-clasicos": [
+    "cur-he-teoria-1",
+    "cur-clas-seminario",
+    "cur-clas-seminario",
+    "cur-clas-seminario"
+  ],
+  "pe-he-humanidades-digitales": [
+    "cur-hd-fundamentos",
+    "cur-hd-datos",
+    "cur-hd-narrativas",
+    "cur-hd-prototipado"
+  ],
+  "pe-he-humanidades-ambientales": [
+    "cur-hamb-fundamentos",
+    "cur-hamb-seminario",
+    "cur-hamb-seminario",
+    "cur-hamb-seminario"
+  ],
+  "pe-gepc-negocios-musica": [
+    "cur-neg-musica",
+    "cur-neg-estrategias",
+    "cur-neg-marketing",
+    "cur-neg-electivo"
+  ],
+  "pe-gepc-arte": [
+    "cur-garte-ecosistemas",
+    "cur-garte-publicos",
+    "cur-garte-gestion",
+    "cur-garte-electivo"
+  ],
+  "pe-gepc-edicion": [
+    "cur-edit-editorial",
+    "cur-edit-gestion",
+    "cur-edit-diseno",
+    "cur-edit-electivo"
+  ]
+}

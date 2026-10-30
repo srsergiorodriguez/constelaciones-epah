@@ -7,8 +7,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-arte-intro",
-          "pe": true
+          "id": "cur-arte-intro"
         },
         {
           "id": "cur-transversal"
@@ -19,8 +18,7 @@
           "id": "cur-arte-proy-1"
         },
         {
-          "id": "cur-arte-est-1",
-          "pe": true
+          "id": "cur-arte-est-1"
         },
         {
           "id": "cur-lab-cocreacion"
@@ -31,8 +29,7 @@
           "id": "cur-arte-proy-2"
         },
         {
-          "id": "cur-arte-est-2",
-          "pe": true
+          "id": "cur-arte-est-2"
         },
         {
           "id": "cur-electiva"
@@ -43,8 +40,7 @@
           "id": "cur-arte-proy-3"
         },
         {
-          "id": "cur-arte-est-3",
-          "pe": true
+          "id": "cur-arte-est-3"
         },
         {
           "id": "cur-transversal"
@@ -60,8 +56,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-foto-intro",
-          "pe": true
+          "id": "cur-foto-intro"
         },
         {
           "id": "cur-transversal",
@@ -73,8 +68,7 @@
           "id": "cur-foto-proy-1"
         },
         {
-          "id": "cur-foto-est-edicion",
-          "pe": true
+          "id": "cur-foto-est-edicion"
         },
         {
           "id": "cur-lab-cocreacion"
@@ -85,8 +79,7 @@
           "id": "cur-foto-proy-2"
         },
         {
-          "id": "cur-foto-est-tiempo",
-          "pe": true
+          "id": "cur-foto-est-tiempo"
         },
         {
           "id": "cur-electiva"
@@ -97,8 +90,7 @@
           "id": "cur-foto-proy-3"
         },
         {
-          "id": "cur-foto-est-publicacion",
-          "pe": true
+          "id": "cur-foto-est-publicacion"
         },
         {
           "id": "cur-transversal"
@@ -114,8 +106,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-musica-intro",
-          "pe": true
+          "id": "cur-musica-intro"
         },
         {
           "id": "cur-transversal"
@@ -126,8 +117,7 @@
           "id": "cur-comp-1"
         },
         {
-          "id": "cur-musica-contexto-1",
-          "pe": true
+          "id": "cur-musica-contexto-1"
         },
         {
           "id": "cur-lab-cocreacion"
@@ -138,8 +128,7 @@
           "id": "cur-comp-2"
         },
         {
-          "id": "cur-musica-contexto-2",
-          "pe": true
+          "id": "cur-musica-contexto-2"
         },
         {
           "id": "cur-electiva"
@@ -150,8 +139,7 @@
           "id": "cur-comp-3"
         },
         {
-          "id": "cur-musica-contexto-3",
-          "pe": true
+          "id": "cur-musica-contexto-3"
         },
         {
           "id": "cur-transversal"
@@ -167,8 +155,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-musica-intro",
-          "pe": true
+          "id": "cur-musica-intro"
         },
         {
           "id": "cur-transversal"
@@ -179,8 +166,7 @@
           "id": "cur-prod-1"
         },
         {
-          "id": "cur-musica-contexto-1",
-          "pe": true
+          "id": "cur-musica-contexto-1"
         },
         {
           "id": "cur-lab-cocreacion",
@@ -195,8 +181,7 @@
           "id": "cur-prod-2"
         },
         {
-          "id": "cur-musica-contexto-2",
-          "pe": true
+          "id": "cur-musica-contexto-2"
         },
         {
           "id": "cur-electiva"
@@ -207,8 +192,7 @@
           "id": "cur-prod-3"
         },
         {
-          "id": "cur-musica-contexto-3",
-          "pe": true
+          "id": "cur-musica-contexto-3"
         },
         {
           "id": "cur-transversal"
@@ -224,8 +208,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-escritura-intro",
-          "pe": true
+          "id": "cur-escritura-intro"
         },
         {
           "id": "cur-transversal"
@@ -236,8 +219,7 @@
           "id": "cur-escritura-proy-1"
         },
         {
-          "id": "cur-escritura-taller-1",
-          "pe": true
+          "id": "cur-escritura-taller-1"
         },
         {
           "id": "cur-lab-cocreacion"
@@ -248,8 +230,7 @@
           "id": "cur-escritura-proy-2"
         },
         {
-          "id": "cur-escritura-taller-2",
-          "pe": true
+          "id": "cur-escritura-taller-2"
         },
         {
           "id": "cur-electiva"
@@ -260,8 +241,7 @@
           "id": "cur-escritura-proy-3"
         },
         {
-          "id": "cur-escritura-taller-3",
-          "pe": true
+          "id": "cur-escritura-taller-3"
         },
         {
           "id": "cur-transversal"
@@ -277,12 +257,10 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-he-teoria-1",
-          "pe": true
+          "id": "cur-he-teoria-1"
         },
         {
-          "id": "cur-lit-seminario",
-          "pe": true
+          "id": "cur-lit-seminario"
         }
       ],
       [
@@ -290,8 +268,7 @@
           "id": "cur-lab-teorico-practico"
         },
         {
-          "id": "cur-he-teoria-2",
-          "pe": true
+          "id": "cur-he-teoria-2"
         },
         {
           "id": "cur-transversal"
@@ -302,8 +279,7 @@
           "id": "cur-he-diseno"
         },
         {
-          "id": "cur-he-teoria-3",
-          "pe": true
+          "id": "cur-he-teoria-3"
         },
         {
           "id": "cur-electiva"
@@ -330,8 +306,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-harte-pensar",
-          "pe": true
+          "id": "cur-harte-pensar"
         },
         {
           "id": "cur-transversal"
@@ -342,8 +317,7 @@
           "id": "cur-lab-teorico-practico"
         },
         {
-          "id": "cur-harte-seminario",
-          "pe": true
+          "id": "cur-harte-seminario"
         },
         {
           "id": "cur-electiva"
@@ -354,8 +328,7 @@
           "id": "cur-he-diseno"
         },
         {
-          "id": "cur-harte-seminario",
-          "pe": true
+          "id": "cur-harte-seminario"
         },
         {
           "id": "cur-he-teoria-1",
@@ -371,8 +344,7 @@
           "id": "cur-he-trabajo-grado"
         },
         {
-          "id": "cur-harte-seminario",
-          "pe": true
+          "id": "cur-harte-seminario"
         },
         {
           "id": "cur-transversal"
@@ -388,8 +360,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-he-teoria-1",
-          "pe": true
+          "id": "cur-he-teoria-1"
         },
         {
           "id": "cur-transversal"
@@ -400,8 +371,7 @@
           "id": "cur-lab-teorico-practico"
         },
         {
-          "id": "cur-clas-seminario",
-          "pe": true
+          "id": "cur-clas-seminario"
         },
         {
           "id": "cur-electiva"
@@ -412,8 +382,7 @@
           "id": "cur-he-diseno"
         },
         {
-          "id": "cur-clas-seminario",
-          "pe": true
+          "id": "cur-clas-seminario"
         },
         {
           "id": "cur-he-teoria-2",
@@ -428,8 +397,7 @@
           "id": "cur-he-trabajo-grado"
         },
         {
-          "id": "cur-clas-seminario",
-          "pe": true
+          "id": "cur-clas-seminario"
         },
         {
           "id": "cur-transversal"
@@ -445,8 +413,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-hd-fundamentos",
-          "pe": true
+          "id": "cur-hd-fundamentos"
         },
         {
           "id": "cur-transversal"
@@ -457,8 +424,7 @@
           "id": "cur-lab-teorico-practico"
         },
         {
-          "id": "cur-hd-datos",
-          "pe": true
+          "id": "cur-hd-datos"
         },
         {
           "id": "cur-hd-electivo"
@@ -469,8 +435,7 @@
           "id": "cur-he-diseno"
         },
         {
-          "id": "cur-hd-narrativas",
-          "pe": true
+          "id": "cur-hd-narrativas"
         },
         {
           "id": "cur-electiva"
@@ -481,8 +446,7 @@
           "id": "cur-he-trabajo-grado"
         },
         {
-          "id": "cur-hd-prototipado",
-          "pe": true
+          "id": "cur-hd-prototipado"
         },
         {
           "id": "cur-transversal"
@@ -498,8 +462,7 @@
           "id": "cur-icg"
         },
         {
-          "id": "cur-hamb-fundamentos",
-          "pe": true
+          "id": "cur-hamb-fundamentos"
         },
         {
           "id": "cur-transversal"
@@ -510,8 +473,7 @@
           "id": "cur-lab-teorico-practico"
         },
         {
-          "id": "cur-hamb-seminario",
-          "pe": true
+          "id": "cur-hamb-seminario"
         },
         {
           "id": "cur-he-teoria-1",
@@ -528,8 +490,7 @@
           "id": "cur-he-diseno"
         },
         {
-          "id": "cur-hamb-seminario",
-          "pe": true
+          "id": "cur-hamb-seminario"
         },
         {
           "id": "cur-electiva"
@@ -540,8 +501,7 @@
           "id": "cur-he-trabajo-grado"
         },
         {
-          "id": "cur-hamb-seminario",
-          "pe": true
+          "id": "cur-hamb-seminario"
         },
         {
           "id": "cur-transversal"
@@ -560,8 +520,7 @@
           "id": "cur-gepc-fundamentos"
         },
         {
-          "id": "cur-neg-musica",
-          "pe": true
+          "id": "cur-neg-musica"
         }
       ],
       [
@@ -569,8 +528,7 @@
           "id": "cur-lab-gestion"
         },
         {
-          "id": "cur-neg-estrategias",
-          "pe": true
+          "id": "cur-neg-estrategias"
         },
         {
           "id": "cur-transversal"
@@ -581,8 +539,7 @@
           "id": "cur-gepc-practica-1"
         },
         {
-          "id": "cur-neg-marketing",
-          "pe": true
+          "id": "cur-neg-marketing"
         },
         {
           "id": "cur-electiva"
@@ -593,8 +550,7 @@
           "id": "cur-gepc-practica-2"
         },
         {
-          "id": "cur-neg-electivo",
-          "pe": true
+          "id": "cur-neg-electivo"
         },
         {
           "id": "cur-transversal"
@@ -613,8 +569,7 @@
           "id": "cur-gepc-fundamentos"
         },
         {
-          "id": "cur-garte-ecosistemas",
-          "pe": true
+          "id": "cur-garte-ecosistemas"
         }
       ],
       [
@@ -623,8 +578,7 @@
           "nota": "«Laboratorio de gestión estratégica / cocreación»."
         },
         {
-          "id": "cur-garte-publicos",
-          "pe": true
+          "id": "cur-garte-publicos"
         },
         {
           "id": "cur-transversal"
@@ -635,8 +589,7 @@
           "id": "cur-gepc-practica-1"
         },
         {
-          "id": "cur-garte-gestion",
-          "pe": true
+          "id": "cur-garte-gestion"
         },
         {
           "id": "cur-electiva"
@@ -647,8 +600,7 @@
           "id": "cur-gepc-practica-2"
         },
         {
-          "id": "cur-garte-electivo",
-          "pe": true
+          "id": "cur-garte-electivo"
         },
         {
           "id": "cur-transversal"
@@ -667,8 +619,7 @@
           "id": "cur-gepc-fundamentos"
         },
         {
-          "id": "cur-edit-editorial",
-          "pe": true
+          "id": "cur-edit-editorial"
         }
       ],
       [
@@ -677,8 +628,7 @@
           "nota": "«Laboratorio de gestión estratégica / cocreación»."
         },
         {
-          "id": "cur-edit-gestion",
-          "pe": true
+          "id": "cur-edit-gestion"
         },
         {
           "id": "cur-transversal"
@@ -689,8 +639,7 @@
           "id": "cur-gepc-practica-1"
         },
         {
-          "id": "cur-edit-diseno",
-          "pe": true
+          "id": "cur-edit-diseno"
         },
         {
           "id": "cur-electiva"
@@ -701,8 +650,7 @@
           "id": "cur-gepc-practica-2"
         },
         {
-          "id": "cur-edit-electivo",
-          "pe": true
+          "id": "cur-edit-electivo"
         },
         {
           "id": "cur-transversal"

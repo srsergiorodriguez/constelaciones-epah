@@ -107,6 +107,9 @@ function slotsOf(plan) {
   return out;
 }
 
+/* Los cuerpos de los especializados: la fuente, no un respaldo. */
+const PE_CUERPOS = leerFuente("cuerpos");
+
 const plans = PLANS.map((p) => {
   const prog = programById.get(p.id);
   if (!prog) fail(`programa inexistente «${p.id}»`);
@@ -119,29 +122,33 @@ const plans = PLANS.map((p) => {
   }
   const creditos = slots.reduce((a, s) => a + COURSES[s.id].creditos, 0);
   if (creditos !== 36) fail(`${p.id}: suma ${creditos} créditos (esperado 36)`);
-  const peSlots = slots.filter((s) => s.pe);
-  if (prog.tipo === "enfasis") {
-    if (peSlots.length !== 4) fail(`${p.id}: ${peSlots.length} casillas pe (esperado 4)`);
-    const peCr = peSlots.reduce((a, s) => a + COURSES[s.id].creditos, 0);
-    if (peCr !== 12) fail(`${p.id}: cuerpo de especialización suma ${peCr} cr (esperado 12)`);
-  }
   return { ...p, prog, slots };
 });
 
-/* --- programas especializados: uno por énfasis, 12 cr --- */
-/* Cuerpos de los programas especializados.
- * Hoy se derivan del énfasis —regla provisional del comité—, pero un
- * especializado podrá declarar su propio cuerpo aquí, incluso si cuelga de otro
- * sitio o de ninguno. Ver docs/data-model.md § Especializados. */
-const PE_CUERPOS = leerFuente("cuerpos");
 
-const PE = plans
-  .filter((p) => p.prog.tipo === "enfasis" && !p.incompleto)
-  .map((p) => {
-    const suffix = p.id.replace(/^enf-/, "");
-    const corto = p.prog.nombre_corto.replace('Énfasis en ', '')
-    return { id: `pe-${suffix}`, nombre: `Programa Especializado en ${corto} — Maestría en ${programById.get(p.prog.maestria_id).nombre_corto.replace('Maestría en ', '')}`, nombre_corto: `Programa Especializado en ${corto}`, tipo: "programa_especializado", padre_id: p.id, maestria_id: p.prog.maestria_id, creditos: 12, estado: "derivado", nota: "Se deriva de las 4 casillas de especialización del énfasis (12 cr). Ver docs/data-model.md § Derivation rules.", slots: p.slots.filter((s) => s.pe) };
-  });
+/* Un programa especializado existe porque su cuerpo está declarado en
+ * cuerpos.json. Si cuelga de un énfasis, hereda nombre y familia; si no,
+ * declara su nombre en el propio cuerpo. Ver docs/data-model.md § Especializados. */
+const PE = Object.entries(PE_CUERPOS).map(([peId, cuerpo]) => {
+  const sufijo = peId.replace(/^pe-/, '')
+  const enfasis = programById.get(`enf-${sufijo}`) ?? null
+  const maestria = enfasis ? programById.get(enfasis.maestria_id) : null
+  if (!enfasis) fail(`especializado suelto sin nombre: ${peId} (falta declarar su programa)`)
+  const corto = enfasis.nombre_corto.replace('Énfasis en ', '')
+  const cuerpoSlots = [...new Set(cuerpo)].map((id, i) => ({ id, periodo: Math.floor(i / 2) + 1, columna: (i % 2) + 1 }))
+  return {
+    id: peId,
+    nombre: `Programa Especializado en ${corto} — Maestría en ${(maestria?.nombre_corto ?? '').replace('Maestría en ', '')}`,
+    nombre_corto: `Programa Especializado en ${corto}`,
+    tipo: 'programa_especializado',
+    padre_id: enfasis.id,
+    maestria_id: enfasis.maestria_id,
+    creditos: 12,
+    estado: 'declarado',
+    nota: 'Cuerpo declarado en data/source/cuerpos.json.',
+    slots: cuerpoSlots,
+  }
+})
 
 /* --- lookup combinado (maestrías, énfasis y especializados) --- */
 const ALL = new Map([...PROGRAMS, ...PE].map((p) => [p.id, p]));
@@ -158,18 +165,19 @@ for (const p of plans) {
 for (const pe of PE) {
   /* Una fila por curso; `repeticiones` cuenta cuántas casillas del cuerpo ocupa.
      Créditos del programa = Σ (creditos × repeticiones) = 12. */
-  const explicito = PE_CUERPOS[pe.id];
-  if (explicito && explicito.length !== 4) fail(`${pe.id}: el cuerpo declarado debe tener 4 cursos`);
-  const cuerpo = explicito ?? [...new Set(pe.slots.map((s) => s.id))];
-  for (const [i, id] of cuerpo.entries()) {
-    const propias = pe.slots.filter((s) => s.id === id);
+  const cuerpo = PE_CUERPOS[pe.id] ?? [];
+  if (cuerpo.length !== 4) fail(`${pe.id}: el cuerpo debe tener 4 cursos (tiene ${cuerpo.length})`);
+  const unicos = [...new Set(cuerpo)];
+  if (unicos.length < 2) fail(`${pe.id}: el cuerpo no puede ser un solo curso repetido`);
+  for (const [i, id] of unicos.entries()) {
+    const propias = cuerpo.filter((c) => c === id);
     /* Un programa especializado se cursa en dos periodos: dos cursos por periodo. */
     offers.push({
       programa_id: pe.id, curso_id: id,
       periodo: Math.floor(i / 2) + 1, columna: (i % 2) + 1,
       obligatoriedad: "obligatorio", alternativas: "",
       nota: propias.length > 1 ? `Ocupa ${propias.length} casillas del cuerpo de especialización.` : "",
-      estado: pe.estado, pe: true, repeticiones: propias.length,
+      estado: pe.estado, repeticiones: propias.length,
     });
   }
 }
@@ -186,7 +194,7 @@ for (const p of plans) {
         programa_id: p.id, curso_id: alt, periodo: "", columna: "",
         obligatoriedad: "alternativa", alternativas: "",
         nota: `Alternativa en el periodo ${s.periodo} (casilla ocupada por «${COURSES[s.id].nombre}»).`,
-        estado: p.prog.estado, pe: false, repeticiones: 1,
+        estado: p.prog.estado, repeticiones: 1,
       });
     }
   }

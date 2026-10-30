@@ -150,16 +150,14 @@
 
   /** Los especializados no están en la fuente: se derivan de las casillas `pe`. */
   const especializados = $derived(
-    todosEnfasis
-      .filter((e) =>
-        (datos?.planes.find((p) => p.id === e.id)?.slots ?? [])
-          .flat()
-          .some((s: any) => s.pe),
-      )
-      .map((e) => ({
-        id: `pe-${e.id.replace(/^enf-/, '')}`,
-        nombre_corto: e.nombre_corto.replace('Énfasis en ', 'Programa Especializado en '),
-      })),
+    Object.keys(datos?.cuerpos ?? {}).map((id) => {
+      const enfasis = todosEnfasis.find((e) => `pe-${e.id.replace(/^enf-/, '')}` === id)
+      return {
+        id,
+        nombre_corto: enfasis?.nombre_corto.replace('Énfasis en ', 'Programa Especializado en ') ?? id,
+        cuerpo: datos?.cuerpos[id] ?? [],
+      }
+    }),
   )
 
   const enfasis = $derived(
@@ -302,16 +300,15 @@
         <table>
           <thead><tr><th>deriva de</th><th>nombre</th><th>cuerpo</th></tr></thead>
           <tbody>
-            {#each enfasis as e (e.id)}
-              {@const propias = (datos!.planes.find((p) => p.id === e.id)?.slots ?? []).flat().filter((s: any) => s.pe)}
+            {#each especializados as pe (pe.id)}
               <tr>
-                <td class="id">{e.id}</td>
-                <td>{e.nombre_corto.replace('Énfasis en ', 'Programa Especializado en ')}</td>
+                <td class="id">{pe.id}</td>
+                <td>{pe.nombre_corto}</td>
                 <td class="cuerpo-lista">
-                  {#if propias.length === 0}
-                    <em class="falta">sin cuerpo: este énfasis no tiene especializado</em>
+                  {#if pe.cuerpo.length === 4}
+                    {pe.cuerpo.map((c: string) => datos!.cursos[c]?.nombre ?? c).join(' · ')}
                   {:else}
-                    {propias.length} casillas · {propias.map((s: any) => s.id).join(', ')}
+                    <em class="falta">cuerpo incompleto: {pe.cuerpo.length} de 4 cursos</em>
                   {/if}
                 </td>
               </tr>
@@ -440,7 +437,6 @@
                           <option value={id}>{c.nombre}</option>
                         {/each}
                       </select>
-                      <label class="pe"><input type="checkbox" bind:checked={slot.pe} /> cuerpo del especializado</label>
                     </td>
                   {/each}
                 </tr>
@@ -486,8 +482,8 @@
         {/each}
       {:else if pestana === 'cuerpos'}
         <p class="nota">
-          Vacío = el cuerpo se deriva de las casillas marcadas en el plan. Si declarás los cuatro
-          cursos, manda lo declarado.
+          El cuerpo es la fuente: un programa especializado existe porque aquí tiene sus cuatro
+          cursos. Los planes ya no lo marcan.
         </p>
         {#each especializados as pe (pe.id)}
           <div class="cuerpo">
@@ -629,20 +625,6 @@
 
   .cuadricula td {
     min-width: 260px;
-  }
-
-  .pe {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    color: var(--c-ink-3);
-    margin-top: 2px;
-  }
-
-  .pe input {
-    width: auto;
   }
 
   .cuerpo {
