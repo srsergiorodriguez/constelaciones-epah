@@ -442,3 +442,12 @@ capa de rótulos después de todo: ningún nombre queda debajo de un icono.
 
 **Trazos más anchos.** Constelaciones a 3 y envolventes a 1,6; los rótulos a 14–15 px. El mapa se lee
 de lejos, que es como se va a proyectar.
+
+---
+
+## 2026-10-30 · Menos rótulos
+
+**Solo las regiones conservan nombre fijo.** Los énfasis en una maestría abierta y los programas
+especializados vuelven al cursor: cinco nombres fijos más los códigos de sus estrellas era demasiado.
+Un rótulo fijo se gana el sitio cuando es el objeto de la vista; dentro de una maestría, los objetos
+son sus figuras, y se reconocen por su forma.

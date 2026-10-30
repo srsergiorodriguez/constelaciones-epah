@@ -363,8 +363,7 @@
 
     {#each escena.figuras as f (f.programaId)}
       {@const activa = foco?.tipo === 'programa' && foco.id === f.programaId}
-      {@const fija = escena.figuras.length > 1}
-      {#if activa || fija}
+      {#if activa}
         {@const nombre = curriculum.programas[f.programaId]?.nombreCorto ?? ''}
         {@const cx = f.puntos.reduce((a, q) => a + q[0], 0) / f.puntos.length}
         {@const abajo = Math.max(...f.puntos.map((q) => q[1]))}
@@ -374,9 +373,8 @@
           width={nombre.length * 8.4 + 20}
           height="19"
           class="fondo-figura {marcaDe(f.programaId)}"
-          class:visible={activa || fija}
         />
-        <text x={cx} y={abajo + 22} class="nombre-figura" class:visible={activa || fija}>{nombre}</text>
+        <text x={cx} y={abajo + 22} class="nombre-figura">{nombre}</text>
       {/if}
     {/each}
   </g>

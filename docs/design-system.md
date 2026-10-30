@@ -119,7 +119,7 @@ Un rótulo es fijo si nombra **el objeto de la vista**; si no, aparece al pasar 
 | Dónde | Rótulo |
 |---|---|
 | Universidad, escala de maestría | **fijo**: nombre de cada región (maestría) |
-| Maestría abierta (familia) | **fijo**: nombre de cada énfasis |
+| Maestría abierta (familia) | al pasar el cursor |
 | Escala del especializado | al pasar el cursor |
 | Escala de cursos umbrales | ninguno |
 
