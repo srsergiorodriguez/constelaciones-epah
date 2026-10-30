@@ -166,3 +166,17 @@ describe('cursos umbrales', () => {
     expect(visibles.every((e) => curriculum.cursos[e.cursoId].umbral)).toBe(true)
   })
 })
+
+describe('umbrales cerca de su figura', () => {
+  it('cada umbral queda a menos de 200 px del centro de alguna constelación', () => {
+    const escena = compose([], ANCHO, ALTO, 'curso')
+    const centros = escena.siluetas.map((s) => [
+      s.puntos.reduce((a, q) => a + q[0], 0) / s.puntos.length,
+      s.puntos.reduce((a, q) => a + q[1], 0) / s.puntos.length,
+    ])
+    for (const e of escena.estrellas.filter((x) => x.estado !== 'oculto')) {
+      const minimo = Math.min(...centros.map((c) => Math.hypot(c[0] - e.x, c[1] - e.y)))
+      expect(minimo, e.cursoId).toBeLessThan(200)
+    }
+  })
+})

@@ -111,12 +111,7 @@ export function compose(
   if (!activo) {
     const siluetas = siluetasDelCielo(ancho, alto)
     if (nivel === 'especializado') return componerFragmentos(siluetas, estrellas, ancho, alto)
-    if (nivel === 'curso') {
-      // la escala más baja solo muestra lo que se puede tomar solo
-      for (const e of estrellas.values()) {
-        if (!curriculum.cursos[e.cursoId]?.umbral) e.estado = 'oculto'
-      }
-    }
+    if (nivel === 'curso') colocarUmbrales(siluetas, estrellas)
     return {
       ancho,
       alto,
@@ -363,6 +358,45 @@ function componerFamilia(
     eje: [centroDe(nucleoPts), [ancho / 2, yFilas[0] + lado / 2]],
     siluetas: [],
     limites: [],
+  }
+}
+
+/**
+ * A la escala del umbral, cada curso se acerca a la constelación que lo abre:
+ * los umbrales de un programa orbitan su figura. No buscan la posición exacta
+ * de otras escalas —el curso es una puerta, no un punto del plan— pero sí el
+ * sitio: se ve de qué programa es puerta antes de leer nada.
+ */
+function colocarUmbrales(siluetas: Silueta[], estrellas: Map<string, Estrella>): void {
+  const casa = new Map<string, { centro: Punto; cursos: string[] }>()
+  const porFigura = new Map(siluetas.map((s) => [s.programaId, s.puntos]))
+
+  for (const c of Object.values(curriculum.cursos)) {
+    const e = estrellas.get(c.id)
+    if (!e) continue
+    if (!c.umbral) {
+      e.estado = 'oculto'
+      continue
+    }
+    const pe = c.umbralDesde[0] ? curriculum.programas[c.umbralDesde[0]] : null
+    const figuraId = pe?.padreId ?? pe?.id ?? null
+    const puntos = figuraId ? porFigura.get(figuraId) : null
+    if (!puntos) continue
+    const actual = casa.get(figuraId!) ?? { centro: centroDe(puntos), cursos: [] }
+    actual.cursos.push(c.id)
+    casa.set(figuraId!, actual)
+  }
+
+  for (const { centro, cursos } of casa.values()) {
+    const n = cursos.length
+    cursos.forEach((cursoId, i) => {
+      const e = estrellas.get(cursoId)!
+      const ang = -Math.PI / 2 + (i * 2 * Math.PI) / n
+      e.x = centro[0] + Math.cos(ang) * 128
+      e.y = centro[1] + Math.sin(ang) * 104
+      e.estado = 'nebulosa'
+      e.en = []
+    })
   }
 }
 

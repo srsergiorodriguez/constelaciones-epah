@@ -344,3 +344,12 @@ distinguía. Ahora el fondo cambia.
 
 **El rótulo de la región es un botón.** Tocar el nombre de una maestría en el mapa abre su plan común.
 Era el gesto que faltaba: el rótulo estaba ahí, grande, y no hacía nada.
+
+---
+
+## 2026-10-30 · Los umbrales orbitan su figura
+
+**A la escala del umbral, el azar no sirve.** Un curso umbral es una puerta a un programa; dejarlo
+donde cayera obligaba a leer la lista para saber de qué era puerta. Ahora cada uno se reparte en
+anillo alrededor de la figura que lo abre: cuarenta y una puertas, trece constelaciones, y la
+pertenencia se ve antes de leer.

@@ -97,7 +97,7 @@ compromiso, y la escala se elige en una **barra vertical** a la izquierda del se
 
 | Escala | Créditos | Objetos | Qué se ve |
 |---|---|---|---|
-| Cursos umbrales | 3 | 41 | solo los umbrales; las siluetas al 12 %, como contexto |
+| Cursos umbrales | 3 | 41 | solo los umbrales, orbitando la figura de su programa; siluetas al 12 % |
 | Especializado | 12 | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
 | Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
 | Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
@@ -111,6 +111,11 @@ figuras que le pertenecen: en las que tienen énfasis, alrededor de sus énfasis
 variantes o no. El especializado no necesita contorno: al abrirlo, su figura se dibuja con sus cuatro
 estrellas encendidas y el resto de la constelación apagada — la forma ya dice qué es.
 No hay galaxias ni órbitas: el cielo gana fronteras, no astros nuevos.
+
+**Cada umbral orbita su constelación.** A la escala del curso, los umbrales no están donde el azar
+los puso: se reparten en anillo alrededor de la figura del programa que abren. No buscan la posición
+exacta de otras escalas —un curso umbral es una puerta, no un punto del plan— pero sí el sitio: se ve
+de qué programa es puerta antes de leer nada.
 
 **A tres créditos solo se ven los umbrales.** No los 83 cursos: los 41 que se pueden tomar solos y
 homologar después. Es la escala más baja de la reforma —una puerta de tres créditos— y por eso el
