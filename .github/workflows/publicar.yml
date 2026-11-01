@@ -1,12 +1,9 @@
 name: Publicar
 
 # Publicación BAJO DEMANDA.
-# Un push a main no publica: se publica al empujar una etiqueta `v*`
-# (o desde Actions → Publicar → Run workflow). Así el desarrollo no mueve el
-# sitio que ya circula.
+# Un push a main no publica: se publica desde Actions → Publicar → Run workflow.
+# Las etiquetas no sirven: el entorno github-pages solo admite despliegues desde main.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
