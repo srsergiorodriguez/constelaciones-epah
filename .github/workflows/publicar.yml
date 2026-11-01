@@ -1,9 +1,12 @@
 name: Publicar
 
 # Publicación BAJO DEMANDA.
-# La versión que compartió la Escuela no debe cambiar mientras se desarrolla:
-# un push a main ya no publica. Para publicar: Actions → Publicar → Run workflow.
+# Un push a main no publica: se publica al empujar una etiqueta `v*`
+# (o desde Actions → Publicar → Run workflow). Así el desarrollo no mueve el
+# sitio que ya circula.
 on:
+  push:
+    tags: ['v*']
   workflow_dispatch:
 
 permissions:
