@@ -5,7 +5,6 @@ export type Nivel = 'curso' | 'especializado' | 'maestria' | 'doctorado'
 
 export interface Escalon {
   nivel: Nivel
-  credito: string
   etiqueta: string
   detalle: string
   cuenta: number
@@ -19,7 +18,6 @@ export function escalones(): Escalon[] {
   return [
     {
       nivel: 'curso',
-      credito: '3',
       etiqueta: 'Cursos umbrales',
       detalle: 'un curso solo, homologable',
       cuenta: Object.values(curriculum.cursos).filter((c) => c.umbral).length,
@@ -27,7 +25,6 @@ export function escalones(): Escalon[] {
     },
     {
       nivel: 'especializado',
-      credito: '12',
       etiqueta: 'Programas Especializados',
       detalle: 'cuatro cursos en dos periodos',
       cuenta: cuantos('programa_especializado'),
@@ -35,7 +32,6 @@ export function escalones(): Escalon[] {
     },
     {
       nivel: 'maestria',
-      credito: '36',
       etiqueta: 'Maestrías',
       detalle: 'con o sin énfasis',
       cuenta: cuantos('maestria'),
@@ -43,7 +39,6 @@ export function escalones(): Escalon[] {
     },
     {
       nivel: 'doctorado',
-      credito: '—',
       etiqueta: 'Doctorado',
       detalle: 'pendiente de tabla',
       cuenta: 0,

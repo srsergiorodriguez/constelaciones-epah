@@ -562,3 +562,13 @@ limpieza anterior de CSS. Vuelven, con la especificidad suficiente para ganarle 
 las *otras* copias —las que el curso tiene en figuras que lo comparten— seguían visibles, con el color
 de su familia: de ahí las estrellas rosadas. Ahora se apagan todas y se encienden solo las cuarenta y
 una elegidas. La prueba exige exactamente 41, una por curso.
+
+---
+
+## 2026-11-01 · La barra sin números
+
+**Fuera los créditos de la escala.** La barra decía `3 · 12 · 36` junto a cada escalón: son créditos,
+pero nada lo decía, y el número no ayudaba a elegir. La barra ahora solo nombra los escalones.
+
+**Trazos otra vez más gruesos.** Silueta 3,4 y constelación 4,2. Proyectadas, las formas se leían
+finas.

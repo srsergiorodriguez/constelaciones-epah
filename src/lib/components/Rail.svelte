@@ -24,7 +24,6 @@
       title={paso.activo ? `${paso.etiqueta} · ${paso.cuenta}` : paso.detalle}
       onclick={() => onNivel(paso.nivel)}
     >
-      <span class="credito">{paso.credito}</span>
       <span class="punto" aria-hidden="true"></span>
       <span class="texto">{paso.etiqueta}</span>
     </button>
@@ -47,7 +46,7 @@
   .rail::before {
     content: '';
     position: absolute;
-    left: 33px;
+    left: 4px;
     top: 14px;
     bottom: 14px;
     width: 1px;
@@ -56,7 +55,7 @@
 
   .paso {
     display: grid;
-    grid-template-columns: 24px 10px 1fr;
+    grid-template-columns: 10px 1fr;
     align-items: center;
     gap: var(--sp-2);
     padding: 3px 0;
@@ -68,13 +67,6 @@
   .paso:disabled {
     cursor: default;
     opacity: 0.45;
-  }
-
-  .credito {
-    font-family: var(--ff-sans);
-    font-size: var(--fz-xs);
-    text-align: right;
-    letter-spacing: 0.02em;
   }
 
   .punto {
@@ -129,10 +121,6 @@
     .paso {
       grid-template-columns: auto auto;
       gap: var(--sp-1);
-    }
-
-    .credito {
-      display: none;
     }
 
     .texto {

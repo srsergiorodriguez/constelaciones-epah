@@ -1,6 +1,6 @@
 <script lang="ts">
   /** Panel de depuración: ajusta los trazos del cielo sin tocar los tokens. */
-  let constelacion = $state(3.8)
+  let constelacion = $state(4.2)
   let region = $state(2.2)
 
   const aplicar = (nombre: string, valor: number) =>
@@ -20,7 +20,7 @@
       bind:value={constelacion}
       oninput={() => {
         aplicar('--stroke-const', constelacion)
-        aplicar('--stroke-silueta', constelacion * 0.68)
+        aplicar('--stroke-silueta', constelacion * 0.81)
       }}
     />
   </label>

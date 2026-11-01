@@ -92,15 +92,16 @@ especialización. Así la escala menor no inventa datos ni duplica cursos.
 
 ## 3.5 Las cuatro escalas
 
-El universo no se recorre de una sola manera. La reforma permite entrar por cualquier tamaño de
-compromiso, y la escala se elige en una **barra vertical** a la izquierda del selector:
+El universo no se recorre de una sola manera: la reforma permite entrar por cualquier tamaño de
+compromiso. La escala se elige en una **barra vertical** a la izquierda del selector, que nombra los
+escalones y **no muestra créditos** — el número confundía más de lo que informaba:
 
-| Escala | Créditos | Objetos | Qué se ve |
+| Escala | Objetos | Qué se ve |
 |---|---|---|---|
-| Cursos umbrales | 3 | 41 | solo los umbrales, orbitando la figura de su programa; siluetas al 12 % |
-| Especializado | 12 | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
-| Maestría | 36 | 5 | las regiones: una línea que encierra las figuras de cada maestría |
-| Doctorado | — | 0 | deshabilitado: la escala existe, la tabla no |
+| Cursos umbrales | 41 | solo los umbrales, orbitando la figura de su programa; siluetas al 12 % |
+| Especializado | 13 | trece fragmentos: la figura de su énfasis en fantasma y sus cuatro estrellas |
+| Maestría | 5 | las regiones: una línea que encierra las figuras de cada maestría |
+| Doctorado | 0 | deshabilitado: la escala existe, la tabla no |
 
 Cambiar de escala **no rehace el cielo**: cambia el peso de lo que ya está dibujado y filtra la
 lista. La posición de todo es la misma en las cuatro.
