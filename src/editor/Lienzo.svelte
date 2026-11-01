@@ -150,6 +150,7 @@
     stroke: transparent;
     stroke-width: 6;
     cursor: copy;
+    outline: none;
   }
 
   .caja {
@@ -180,6 +181,13 @@
     stroke: var(--c-ink);
     stroke-width: 0.7;
     cursor: grab;
+    outline: none;
+  }
+
+  /* nada del lienzo debe mostrar el anillo de foco del navegador */
+  svg :focus,
+  svg :focus-visible {
+    outline: none;
   }
 
   .nodo.activo {
