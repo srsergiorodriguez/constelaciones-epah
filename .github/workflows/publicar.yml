@@ -6,7 +6,7 @@ name: Publicar
 # sitio que ya circula.
 on:
   push:
-    tags: ['v*']
+    branches: [main]
   workflow_dispatch:
 
 permissions:
