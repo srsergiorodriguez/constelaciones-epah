@@ -1,7 +1,8 @@
 <script lang="ts">
   import { marcaDe } from '../lib/viz/palette'
+  import Lienzo from './Lienzo.svelte'
 
-  type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'cuerpos' | 'estructura'
+  type Tabla = 'enfasis' | 'especializados' | 'cursos' | 'planes' | 'figuras' | 'cuerpos' | 'estructura'
 
   interface Fuente {
     estructura: any[]
@@ -15,7 +16,7 @@
   let datos = $state<Fuente | null>(null)
   const desdeUrl = new URLSearchParams(location.search).get('p') as Tabla | null
   let pestana = $state<Tabla>(
-    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'cuerpos', 'estructura'].includes(desdeUrl)
+    desdeUrl && ['enfasis', 'especializados', 'cursos', 'planes', 'figuras', 'cuerpos', 'estructura'].includes(desdeUrl)
       ? desdeUrl
       : 'enfasis',
   )
@@ -35,6 +36,17 @@
   let borradorCurso = $state<null | { nombre: string; eje: string; creditos: number }>(null)
   let borradorPE = $state<null | { nombre: string }>(null)
 
+  interface Figuras {
+    notas?: string
+    figuras: Record<string, { puntos: [number, number][]; nombre: string }>
+    programa: Record<string, string>
+  }
+  let figuras = $state<Figuras | null>(null)
+  let original = $state<Figuras | null>(null)
+  let figuraElegida = $state('')
+  let estrellasN = $state(8)
+  let historial = $state<[number, number][][]>([])
+
   /* Dos niveles: lo que se crea (contenidos) y cómo se organiza (estructuras).
      La estructura fija solo se consulta. */
   const grupos: { nombre: string; pestanas: { id: Tabla; nombre: string }[] }[] = [
@@ -50,6 +62,7 @@
       nombre: 'Estructuras',
       pestanas: [
         { id: 'planes', nombre: 'Planes' },
+        { id: 'figuras', nombre: 'Figuras' },
         { id: 'cuerpos', nombre: 'Cuerpos' },
       ],
     },
@@ -62,6 +75,10 @@
     datos = await res.json()
     planElegido = datos?.planes?.[0]?.id ?? ''
     maestriaNueva = datos?.estructura?.find((e: any) => e.tipo === 'maestria')?.id ?? ''
+    const resFiguras = await fetch('/api/figuras')
+    figuras = await resFiguras.json()
+    original = JSON.parse(JSON.stringify(figuras))
+    figuraElegida = Object.keys(figuras?.figuras ?? {})[0] ?? ''
     cargando = false
   }
 
@@ -75,6 +92,13 @@
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(datos),
     })
+    if (figuras) {
+      await fetch('/api/figuras', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(figuras),
+      })
+    }
     const res = await fetch('/api/compilar', { method: 'POST' })
     const r = await res.json()
     salida = r.salida ?? ''
@@ -122,6 +146,27 @@
 
   function ponerMarco(m: string, i: number, j: number, valor: any) {
     datos!.marco[m][i][j] = valor
+  }
+
+  /** Cada cambio del lienzo deja el estado anterior en la pila de deshacer. */
+  function editarFigura(puntos: [number, number][]) {
+    if (!figuras) return
+    const actual = figuras.figuras[figuraElegida]
+    historial = [...historial, actual.puntos.map((p) => [...p] as [number, number])].slice(-40)
+    figuras.figuras[figuraElegida] = { ...actual, puntos }
+  }
+
+  function deshacer() {
+    const previo = historial.at(-1)
+    if (!previo || !figuras) return
+    figuras.figuras[figuraElegida] = { ...figuras.figuras[figuraElegida], puntos: previo }
+    historial = historial.slice(0, -1)
+  }
+
+  function restaurar() {
+    if (!figuras || !original) return
+    figuras.figuras[figuraElegida] = JSON.parse(JSON.stringify(original.figuras[figuraElegida]))
+    historial = []
   }
 
   const maestriasFijas = $derived(datos?.estructura.filter((e) => e.tipo === 'maestria') ?? [])
@@ -622,6 +667,68 @@
           </table>
         {/if}
 
+      {:else if pestana === 'figuras'}
+        {#if figuras && figuras.figuras[figuraElegida]}
+          {@const actual = figuras.figuras[figuraElegida]}
+          <div class="barra">
+            <label class="filtro">
+              Figura
+              <select bind:value={figuraElegida}>
+                {#each Object.keys(figuras.figuras) as f (f)}
+                  <option value={f}>{figuras.figuras[f].nombre}</option>
+                {/each}
+              </select>
+            </label>
+            <label class="filtro">
+              Nombre
+              <input
+                value={actual.nombre}
+                oninput={(e) =>
+                  (figuras!.figuras[figuraElegida] = { ...actual, nombre: (e.target as HTMLInputElement).value })}
+              />
+            </label>
+            <label class="filtro">
+              Estrellas de prueba
+              <input type="number" min="1" max="12" bind:value={estrellasN} />
+            </label>
+            <button class="accion" onclick={deshacer} disabled={!historial.length}>Deshacer</button>
+            <button class="accion" onclick={restaurar}>Restaurar</button>
+            <span class="conteo">{actual.puntos.length} nodos</span>
+          </div>
+
+          <div class="disposicion">
+            <Lienzo puntos={actual.puntos} estrellas={estrellasN} onCambio={editarFigura} />
+            <div class="lado-figura">
+              <p class="nota">
+                Arrastra un nodo para moverlo · clic sobre la línea para insertar uno · doble clic en
+                un nodo para borrarlo. Las estrellas se colocan por longitud de arco, como en la app.
+              </p>
+              <h3>Qué programa usa esta figura</h3>
+              <table>
+                <tbody>
+                  {#each Object.keys(figuras.programa) as prog (prog)}
+                    <tr>
+                      <td>{nombreDe(prog)}</td>
+                      <td>
+                        <select
+                          value={figuras.programa[prog]}
+                          onchange={(e) =>
+                            (figuras!.programa[prog] = (e.target as HTMLSelectElement).value)}
+                        >
+                          {#each Object.keys(figuras.figuras) as f (f)}
+                            <option value={f}>{figuras.figuras[f].nombre}</option>
+                          {/each}
+                        </select>
+                      </td>
+                    </tr>
+                  {/each}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {:else}
+          <p class="vacio">No se pudieron leer las figuras.</p>
+        {/if}
       {:else if pestana === 'cuerpos'}
         <p class="nota">
           El cuerpo es la fuente: un programa especializado existe porque aquí tiene sus cuatro
@@ -780,6 +887,28 @@
 
   .principal {
     min-width: 0;
+  }
+
+  .disposicion {
+    display: grid;
+    grid-template-columns: minmax(320px, 520px) 1fr;
+    gap: var(--sp-5);
+    align-items: start;
+  }
+
+  .lado-figura h3 {
+    font-family: var(--ff-sans);
+    font-size: var(--fz-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+    padding: var(--sp-3) 0 var(--sp-2);
+    border-top: 1px solid var(--c-rule);
+    margin-top: var(--sp-3);
+  }
+
+  .lado-figura td {
+    vertical-align: middle;
   }
 
 

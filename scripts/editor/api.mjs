@@ -15,6 +15,8 @@ const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const TABLAS = ['estructura', 'programas', 'cursos', 'planes', 'marco', 'cuerpos']
 
 const ruta = (nombre) => join(RAIZ, 'data', 'source', `${nombre}.json`)
+/* Las figuras viven con la app porque las importa el bundle, no un generador. */
+const RUTA_FIGURAS = join(RAIZ, 'src', 'lib', 'data', 'figures.json')
 
 const leer = (nombre) => JSON.parse(readFileSync(ruta(nombre), 'utf8'))
 const escribir = (nombre, valor) =>
@@ -64,6 +66,24 @@ export function apiEditor() {
               if (!TABLAS.includes(nombre)) return responder(res, 400, { error: `tabla desconocida: ${nombre}` })
               escribir(nombre, valor)
             }
+            responder(res, 200, { ok: true })
+            return
+          }
+          responder(res, 405, { error: 'método no permitido' })
+        } catch (e) {
+          responder(res, 500, { error: String(e?.message ?? e) })
+        }
+      })
+
+      servidor.middlewares.use('/api/figuras', async (req, res) => {
+        try {
+          if (req.method === 'GET') {
+            responder(res, 200, JSON.parse(readFileSync(RUTA_FIGURAS, 'utf8')))
+            return
+          }
+          if (req.method === 'POST') {
+            const datos = await cuerpo(req)
+            writeFileSync(RUTA_FIGURAS, JSON.stringify(datos, null, 2) + '\n')
             responder(res, 200, { ok: true })
             return
           }
